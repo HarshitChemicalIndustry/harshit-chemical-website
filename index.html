@@ -1,22 +1,138 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Harshit Chemical Industry</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f5f5f5;
+}
+
+header{
+    background:#0a7d3b;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+section{
+    padding:20px;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:15px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 0 10px rgba(0,0,0,0.15);
+}
+
+button{
+    background:#0a7d3b;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px;
+border-radius:50%;
+text-decoration:none;
+font-size:22px;
+}
+</style>
+
 </head>
 <body>
+
+<header>
 <h1>Harshit Chemical Industry</h1>
-<p>Welcome to our official website.</p>
+<p>Quality Cleaning Products for Every Home & Business</p>
+</header>
+
+<section>
 
 <h2>Our Products</h2>
-<ul>
-<li>Glass Cleaner</li>
-<li>Toilet Cleaner</li>
-<li>Floor Cleaner</li>
-<li>Dish Wash</li>
-<li>Hand Wash</li>
-</ul>
 
-<p>📞 Mobile: 9691865574</p>
+<div class="products">
+
+<div class="card">
+<h3>Glass Cleaner</h3>
+<p>Crystal Clear Shine</p>
+<button>Order Now</button>
+</div>
+
+<div class="card">
+<h3>Toilet Cleaner</h3>
+<p>Powerful Cleaning Formula</p>
+<button>Order Now</button>
+</div>
+
+<div class="card">
+<h3>Floor Cleaner</h3>
+<p>Fresh & Hygienic Floors</p>
+<button>Order Now</button>
+</div>
+
+<div class="card">
+<h3>Dish Wash</h3>
+<p>Removes Tough Grease</p>
+<button>Order Now</button>
+</div>
+
+<div class="card">
+<h3>Hand Wash</h3>
+<p>Soft on Hands</p>
+<button>Order Now</button>
+</div>
+
+</div>
+
+<h2>Contact Us</h2>
+
+<p>📞 Mobile: <b>9691865574</b></p>
+
+<p>
+<a href="https://wa.me/919691865574">
+<button>WhatsApp Order</button>
+</a>
+</p>
+
+</section>
+
+<footer>
+
+© 2026 Harshit Chemical Industry<br>
+All Rights Reserved
+
+</footer>
+
+<a class="whatsapp" href="https://wa.me/919691865574">💬</a>
 
 </body>
 </html>
