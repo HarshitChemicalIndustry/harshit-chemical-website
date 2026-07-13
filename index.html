@@ -17,26 +17,17 @@ background:#f4f4f4;
 background:#0a7d3b;
 color:white;
 text-align:center;
-padding:45px 15px;
+padding:40px 15px;
 }
 
-nav{
-background:white;
-padding:15px;
-text-align:center;
-box-shadow:0 2px 5px #ccc;
-}
-
-nav a{
-margin:10px;
-color:#0a7d3b;
-text-decoration:none;
-font-weight:bold;
+.banner h1{
+margin:0;
+font-size:32px;
 }
 
 .products{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:20px;
 padding:20px;
 }
@@ -53,12 +44,13 @@ text-align:center;
 width:100%;
 height:250px;
 object-fit:contain;
+border-radius:10px;
 }
 
 button{
 background:#0a7d3b;
 color:white;
-border:none;
+border:0;
 padding:12px 20px;
 border-radius:8px;
 font-size:16px;
@@ -72,6 +64,19 @@ border-radius:15px;
 text-align:center;
 }
 
+nav{
+background:white;
+padding:15px;
+text-align:center;
+}
+
+nav a{
+margin:10px;
+text-decoration:none;
+color:#0a7d3b;
+font-weight:bold;
+}
+
 footer{
 background:#222;
 color:white;
@@ -81,14 +86,14 @@ padding:20px;
 
 .whatsapp{
 position:fixed;
-bottom:20px;
 right:20px;
+bottom:20px;
 background:#25D366;
 color:white;
 padding:15px;
 border-radius:50%;
-font-size:22px;
 text-decoration:none;
+font-size:22px;
 }
 </style>
 
@@ -98,8 +103,8 @@ text-decoration:none;
 
 <div class="banner">
 <h1>Harshit Chemical Industry</h1>
-<h2>Premium Housekeeping Chemical Manufacturer</h2>
-<p>Quality Products • Trusted Service • Bulk Orders Available</p>
+<h2>Housekeeping Chemical Manufacturer</h2>
+<p>Quality Products | Trusted Service | Bulk Orders</p>
 </div>
 
 <nav>
@@ -113,7 +118,7 @@ text-decoration:none;
 <img src="images/file_000000004cb871fa91a4d7ed4a1f1a9a.png">
 <h2>Tiles Cleaner</h2>
 <p>1000 ML ₹155 | 500 ML ₹85</p>
-<a href="https://wa.me/919691865574?text=Tiles%20Cleaner%20Order">
+<a href="https://wa.me/919691865574">
 <button>Order Now</button>
 </a>
 </div>
@@ -122,7 +127,7 @@ text-decoration:none;
 <img src="images/file_000000004cec71fb98a86fff30d08cac.png">
 <h2>Glass Cleaner</h2>
 <p>500 ML ₹72 | 250 ML ₹45</p>
-<a href="https://wa.me/919691865574?text=Glass%20Cleaner%20Order">
+<a href="https://wa.me/919691865574">
 <button>Order Now</button>
 </a>
 </div>
@@ -131,7 +136,7 @@ text-decoration:none;
 <img src="images/file_00000000851871fab8e0273bce5bcfd4.png">
 <h2>Toilet Cleaner</h2>
 <p>1000 ML ₹135 | 500 ML ₹72</p>
-<a href="https://wa.me/919691865574?text=Toilet%20Cleaner%20Order">
+<a href="https://wa.me/919691865574">
 <button>Order Now</button>
 </a>
 </div>
@@ -140,7 +145,7 @@ text-decoration:none;
 <img src="images/file_00000000bf7871fa903fca71f9a7f776.png">
 <h2>Hand Wash</h2>
 <p>250 ML ₹55</p>
-<a href="https://wa.me/919691865574?text=Hand%20Wash%20Order">
+<a href="https://wa.me/919691865574">
 <button>Order Now</button>
 </a>
 </div>
@@ -149,7 +154,7 @@ text-decoration:none;
 <img src="images/file_00000000c14872079f56a41ed3ad9065.png">
 <h2>Dish Wash</h2>
 <p>1000 ML ₹185 | 500 ML ₹95</p>
-<a href="https://wa.me/919691865574?text=Dish%20Wash%20Order">
+<a href="https://wa.me/919691865574">
 <button>Order Now</button>
 </a>
 </div>
@@ -158,32 +163,36 @@ text-decoration:none;
 <img src="images/file_00000000d86471fbacf11cb3631ae6b2.png">
 <h2>White Phenol</h2>
 <p>Premium Quality</p>
-<a href="https://wa.me/919691865574?text=White%20Phenol%20Order">
+<a href="https://wa.me/919691865574">
 <button>Order Now</button>
 </a>
 </div>
 
 </div>
-
 <div class="section" id="about">
 <h2>About Harshit Chemical Industry</h2>
 <p>
 हम उच्च गुणवत्ता वाले Housekeeping Chemicals बनाते हैं।
-हमारे उत्पाद भरोसेमंद और बेहतर सफाई के लिए बनाए गए हैं।
+हमारे उत्पाद सफाई के लिए भरोसेमंद और उपयोगी हैं।
 </p>
 </div>
 
 <div class="section">
 <h2>Wholesale & Dealer Orders</h2>
 <p>
-Bulk Supply Available. Dealer और Business Enquiry के लिए संपर्क करें।
+Bulk Order और Dealer Enquiry के लिए संपर्क करें।
 </p>
 </div>
 
 <div class="section" id="contact">
 <h2>Contact Us</h2>
+
 <p>📞 9691865574</p>
-<p>📍 Kilagate, Gwalior, Madhya Pradesh</p>
+
+<p>
+📍 Harshit Chemical Industry<br>
+Kilagate, Gwalior, Madhya Pradesh
+</p>
 
 <a href="tel:9691865574">
 <button>Call Now</button>
