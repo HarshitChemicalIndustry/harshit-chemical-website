@@ -17,7 +17,11 @@ header{
 background:#0a7d3b;
 color:white;
 text-align:center;
-padding:35px 15px;
+padding:40px 15px;
+}
+
+header h1{
+font-size:32px;
 }
 
 nav{
@@ -91,143 +95,141 @@ border-radius:50%;
 font-size:22px;
 text-decoration:none;
 }
-</style>
 
+</style>
 </head>
 
 <body>
 
 <header>
 <h1>Harshit Chemical Industry</h1>
-
 <h2>Premium Housekeeping Chemicals Manufacturer</h2>
-
-<p>
-Tiles Cleaner | Glass Cleaner | Toilet Cleaner | Hand Wash | Dish Wash
-</p>
-
-<p>
-✅ Quality Products &nbsp; ✅ Trusted Service &nbsp; ✅ Bulk Orders Available
-</p>
-
+<p>Quality Products • Trusted Service • Bulk Orders Available</p>
 </header>
 
 <nav>
 <a href="#">Home</a>
 <a href="#products">Products</a>
-<a href="#about">About Us</a>
+<a href="#about">About</a>
 <a href="#contact">Contact</a>
 </nav>
 
 <div class="products" id="products">
-  <div class="card">
-<img src="images/file_000000004cb871fa91a4d7ed4a1f1a9a.png">
-<h2>Tiles Cleaner</h2>
-<p>1000 ML ₹155 | 500 ML ₹85</p>
-<a href="https://wa.me/919691865574?text=Mujhe%20Tiles%20Cleaner%20chahiye">
-<button>Order Now</button>
-</a>
-</div>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div class="card">
-<img src="images/file_000000004cec71fb98a86fff30d08cac.png">
-<h2>Glass Cleaner</h2>
-<p>500 ML ₹72 | 250 ML ₹45</p>
-<a href="https://wa.me/919691865574?text=Mujhe%20Glass%20Cleaner%20chahiye">
-<button>Order Now</button>
-</a>
-</div>
+<title>Harshit Chemical Industry</title>
 
-<div class="card">
-<img src="images/file_00000000851871fab8e0273bce5bcfd4.png">
-<h2>Toilet Cleaner</h2>
-<p>1000 ML ₹135 | 500 ML ₹72</p>
-<a href="https://wa.me/919691865574?text=Mujhe%20Toilet%20Cleaner%20chahiye">
-<button>Order Now</button>
-</a>
-</div>
+<style>
+body{
+font-family:Arial,sans-serif;
+margin:0;
+background:#f4f4f4;
+}
 
-<div class="card">
-<img src="images/file_00000000bf7871fa903fca71f9a7f776.png">
-<h2>Hand Wash</h2>
-<p>250 ML ₹55</p>
-<a href="https://wa.me/919691865574?text=Mujhe%20Hand%20Wash%20chahiye">
-<button>Order Now</button>
-</a>
-</div>
+header{
+background:#0a7d3b;
+color:white;
+text-align:center;
+padding:40px 15px;
+}
 
-<div class="card">
-<img src="images/file_00000000c14872079f56a41ed3ad9065.png">
-<h2>Dish Wash</h2>
-<p>1000 ML ₹185 | 500 ML ₹95</p>
-<a href="https://wa.me/919691865574?text=Mujhe%20Dish%20Wash%20chahiye">
-<button>Order Now</button>
-</a>
-</div>
+header h1{
+font-size:32px;
+}
 
-<div class="card">
-<img src="images/file_00000000d86471fbacf11cb3631ae6b2.png">
-<h2>White Phenol</h2>
-<p>1000 ML</p>
-<a href="https://wa.me/919691865574?text=Mujhe%20White%20Phenol%20chahiye">
-<button>Order Now</button>
-</a>
-</div>
+nav{
+background:white;
+padding:15px;
+text-align:center;
+box-shadow:0 2px 5px #ccc;
+}
 
-<div class="card">
-<img src="images/file_00000000facc720792805be88790ffc1.png">
-<h2>New Product</h2>
-<p>Premium Quality Product</p>
-<a href="https://wa.me/919691865574?text=Mujhe%20Product%20chahiye">
-<button>Order Now</button>
-</a>
-</div>
+nav a{
+margin:10px;
+color:#0a7d3b;
+text-decoration:none;
+font-weight:bold;
+}
 
-</div>
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+padding:20px;
+}
 
-<div class="about" id="about">
-<h2>About Harshit Chemical Industry</h2>
-<p>
-हम उच्च गुणवत्ता वाले Housekeeping Chemicals बनाते हैं।
-हमारे उत्पाद सफाई के लिए भरोसेमंद और उपयोगी हैं।
-</p>
-</div>
+.card{
+background:white;
+border-radius:15px;
+padding:15px;
+box-shadow:0 3px 10px rgba(0,0,0,.2);
+text-align:center;
+}
 
-<div class="contact" id="contact">
-<h2>Contact Us</h2>
+.card img{
+width:100%;
+height:250px;
+object-fit:contain;
+border-radius:10px;
+}
 
-<p>📞 9691865574</p>
+button{
+background:#0a7d3b;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:8px;
+font-size:16px;
+}
 
-<p>
-📍 Harshit Chemical Industry<br>
-Kilagate, Gwalior, Madhya Pradesh
-</p>
+.about,.contact{
+background:white;
+margin:20px;
+padding:20px;
+border-radius:15px;
+text-align:center;
+}
 
-<a href="tel:9691865574">
-<button>Call Now</button>
-</a>
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
+}
 
-<br><br>
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px;
+border-radius:50%;
+font-size:22px;
+text-decoration:none;
+}
 
-<a href="https://wa.me/919691865574">
-<button>WhatsApp Order</button>
-</a>
+</style>
+</head>
 
-<br><br>
+<body>
 
-<a href="https://www.google.com/maps/search/?api=1&query=Kilagate+Gwalior+Madhya+Pradesh">
-<button>Open Google Map</button>
-</a>
+<header>
+<h1>Harshit Chemical Industry</h1>
+<h2>Premium Housekeeping Chemicals Manufacturer</h2>
+<p>Quality Products • Trusted Service • Bulk Orders Available</p>
+</header>
 
-</div>
+<nav>
+<a href="#">Home</a>
+<a href="#products">Products</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
 
-<footer>
-Harshit Chemical Industry ©2026
-</footer>
-
-<a class="whatsapp" href="https://wa.me/919691865574">
-💬
-</a>
-
-</body>
-</html>
+<div class="products" id="products">
+  
