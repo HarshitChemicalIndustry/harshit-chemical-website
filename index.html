@@ -20,9 +20,18 @@ text-align:center;
 padding:35px 15px;
 }
 
-header h1{
-font-size:32px;
-margin:5px;
+nav{
+background:white;
+padding:15px;
+text-align:center;
+box-shadow:0 2px 5px #ccc;
+}
+
+nav a{
+margin:10px;
+color:#0a7d3b;
+text-decoration:none;
+font-weight:bold;
 }
 
 .products{
@@ -56,7 +65,7 @@ border-radius:8px;
 font-size:16px;
 }
 
-.about{
+.about,.contact{
 background:white;
 margin:20px;
 padding:20px;
@@ -91,13 +100,18 @@ text-decoration:none;
 <header>
 <h1>Harshit Chemical Industry</h1>
 <p>Premium Quality Housekeeping Chemicals Manufacturer</p>
-<p>Quality Products • Trusted Service</p>
+<p>Trusted Quality • Best Service</p>
 </header>
 
+<nav>
+<a href="#">Home</a>
+<a href="#products">Products</a>
+<a href="#about">About Us</a>
+<a href="#contact">Contact</a>
+</nav>
 
-<div class="products">
-
-<div class="card">
+<div class="products" id="products">
+  <div class="card">
 <img src="images/tiles-cleaner.jpg">
 <h2>Tiles Cleaner</h2>
 <p>1000 ML ₹155 | 500 ML ₹85</p>
@@ -105,7 +119,6 @@ text-decoration:none;
 <button>Order Now</button>
 </a>
 </div>
-
 
 <div class="card">
 <img src="images/glass-cleaner.jpg">
@@ -116,7 +129,6 @@ text-decoration:none;
 </a>
 </div>
 
-
 <div class="card">
 <img src="images/toilet-cleaner.jpg">
 <h2>Toilet Cleaner</h2>
@@ -125,7 +137,6 @@ text-decoration:none;
 <button>Order Now</button>
 </a>
 </div>
-
 
 <div class="card">
 <img src="images/hand-wash.jpg">
@@ -136,7 +147,6 @@ text-decoration:none;
 </a>
 </div>
 
-
 <div class="card">
 <img src="images/dish-wash.jpg">
 <h2>Dish Wash</h2>
@@ -146,38 +156,30 @@ text-decoration:none;
 </a>
 </div>
 
-
-<div class="card">
-<img src="images/white-phenol.jpg">
-<h2>White Phenol</h2>
-<p>1000 ML</p>
-<a href="https://wa.me/919691865574?text=Mujhe%20White%20Phenol%20chahiye">
-<button>Order Now</button>
-</a>
 </div>
 
-</div>
-
-
-<div class="about">
+<div class="about" id="about">
 <h2>About Harshit Chemical Industry</h2>
 <p>
 हम उच्च गुणवत्ता वाले Housekeeping Chemicals बनाते हैं।
-हमारा उद्देश्य ग्राहकों को अच्छे और भरोसेमंद सफाई उत्पाद उपलब्ध कराना है।
+हमारे उत्पाद सफाई के लिए भरोसेमंद और उपयोगी हैं।
 </p>
 </div>
 
+<div class="contact" id="contact">
+<h2>Contact Us</h2>
+<p>📞 9691865574</p>
+<p>💬 WhatsApp Order Available</p>
+<p>📍 Harshit Chemical Industry</p>
+</div>
 
 <footer>
-📞 9691865574<br>
 Harshit Chemical Industry ©2026
 </footer>
-
 
 <a class="whatsapp" href="https://wa.me/919691865574">
 💬
 </a>
-
 
 </body>
 </html>
