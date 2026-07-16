@@ -1,1 +1,5 @@
-alert("Welcome to Harshit Chemical Industry");
+document.addEventListener("DOMContentLoaded", function(){
+
+console.log("Harshit Chemical Industry Website Loaded");
+
+});
