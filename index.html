@@ -6,8 +6,13 @@
 <title>Harshit Chemical Industry</title>
 
 <style>
-body{
+*{
     margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
     font-family:Arial,sans-serif;
     background:#f1f3f6;
 }
@@ -17,19 +22,35 @@ header{
     color:#fff;
     padding:15px;
     text-align:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
-.search{
-    padding:15px;
+header h2{
+    font-size:22px;
+}
+
+.search-box{
     background:#fff;
+    padding:12px;
 }
 
-.search input{
+.search-box input{
     width:100%;
     padding:12px;
     border:1px solid #ccc;
     border-radius:8px;
     font-size:16px;
+}
+
+.banner{
+    background:#0059c9;
+    color:#fff;
+    text-align:center;
+    padding:25px 10px;
+    font-size:18px;
+    font-weight:bold;
 }
 
 .products{
@@ -41,32 +62,41 @@ header{
 
 .card{
     background:#fff;
-    border-radius:10px;
-    padding:12px;
-    box-shadow:0 2px 5px rgba(0,0,0,0.1);
-    text-align:center;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
 }
 
 .card img{
     width:100%;
     height:150px;
     object-fit:cover;
-    border-radius:8px;
+}
+
+.card-content{
+    padding:12px;
+    text-align:center;
+}
+
+.card h3{
+    font-size:17px;
+    margin-bottom:6px;
 }
 
 .price{
     color:#2874f0;
     font-size:20px;
     font-weight:bold;
-    margin:8px 0;
+    margin-bottom:10px;
 }
 
-button{
+.btn{
     width:100%;
-    padding:10px;
     border:none;
+    padding:10px;
     border-radius:8px;
     font-size:15px;
+    font-weight:bold;
     cursor:pointer;
     margin-top:6px;
 }
@@ -81,14 +111,30 @@ button{
     color:#fff;
 }
 
-.cart{
+.contact{
+    background:#fff;
+    margin:12px;
+    padding:15px;
+    border-radius:12px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+.contact h3{
+    margin-bottom:10px;
+}
+
+.contact p{
+    margin-bottom:6px;
+}
+
+.cart-bar{
     position:fixed;
     bottom:0;
     left:0;
     right:0;
     background:#fff;
-    padding:15px;
-    box-shadow:0 -2px 6px rgba(0,0,0,0.15);
+    padding:12px 15px;
+    box-shadow:0 -2px 8px rgba(0,0,0,0.15);
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -102,6 +148,13 @@ button{
     border-radius:8px;
     text-decoration:none;
 }
+
+footer{
+    text-align:center;
+    padding:20px;
+    color:#666;
+    margin-bottom:70px;
+}
 </style>
 </head>
 
@@ -111,50 +164,72 @@ button{
     <h2>Harshit Chemical Industry</h2>
 </header>
 
-<div class="search">
+<div class="search-box">
     <input type="text" placeholder="Search products...">
+</div>
+
+<div class="banner">
+    Professional Cleaning Solutions
 </div>
 
 <div class="products">
 
     <div class="card">
-        <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=400" alt="">
-        <h3>Room Spray</h3>
-        <div class="price">₹120</div>
-        <button class="cart-btn" onclick="addToCart(120)">Add to Cart</button>
-        <button class="buy-btn" onclick="buyNow('Room Spray',120)">Buy Now</button>
+        <img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?w=400" alt="Room Spray">
+        <div class="card-content">
+            <h3>Room Spray</h3>
+            <div class="price">₹120</div>
+            <button class="btn cart-btn" onclick="addToCart(120)">Add to Cart</button>
+            <button class="btn buy-btn" onclick="buyNow('Room Spray',120)">Buy Now</button>
+        </div>
     </div>
 
     <div class="card">
-        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400" alt="">
-        <h3>Car Wash Shampoo</h3>
-        <div class="price">₹250</div>
-        <button class="cart-btn" onclick="addToCart(250)">Add to Cart</button>
-        <button class="buy-btn" onclick="buyNow('Car Wash Shampoo',250)">Buy Now</button>
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400" alt="Car Wash Shampoo">
+        <div class="card-content">
+            <h3>Car Wash Shampoo</h3>
+            <div class="price">₹250</div>
+            <button class="btn cart-btn" onclick="addToCart(250)">Add to Cart</button>
+            <button class="btn buy-btn" onclick="buyNow('Car Wash Shampoo',250)">Buy Now</button>
+        </div>
     </div>
 
     <div class="card">
-        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400" alt="">
-        <h3>Carpet Shampoo</h3>
-        <div class="price">₹100</div>
-        <button class="cart-btn" onclick="addToCart(100)">Add to Cart</button>
-        <button class="buy-btn" onclick="buyNow('Carpet Shampoo',100)">Buy Now</button>
+        <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=400" alt="Carpet Shampoo">
+        <div class="card-content">
+            <h3>Carpet Shampoo</h3>
+            <div class="price">₹100</div>
+            <button class="btn cart-btn" onclick="addToCart(100)">Add to Cart</button>
+            <button class="btn buy-btn" onclick="buyNow('Carpet Shampoo',100)">Buy Now</button>
+        </div>
     </div>
 
     <div class="card">
-        <img src="https://images.unsplash.com/photo-1585421514738-01798e348b17?w=400" alt="">
-        <h3>Hard Spot Cleaner</h3>
-        <div class="price">₹80</div>
-        <button class="cart-btn" onclick="addToCart(80)">Add to Cart</button>
-        <button class="buy-btn" onclick="buyNow('Hard Spot Cleaner',80)">Buy Now</button>
+        <img src="https://images.unsplash.com/photo-1581578017093-cd30fce4eeb7?w=400" alt="Hard Spot Cleaner">
+        <div class="card-content">
+            <h3>Hard Spot Cleaner</h3>
+            <div class="price">₹80</div>
+            <button class="btn cart-btn" onclick="addToCart(80)">Add to Cart</button>
+            <button class="btn buy-btn" onclick="buyNow('Hard Spot Cleaner',80)">Buy Now</button>
+        </div>
     </div>
 
 </div>
 
-<div class="cart">
+<div class="contact">
+    <h3>Contact Us</h3>
+    <p><strong>Phone:</strong> 9691865574</p>
+    <p><strong>Address:</strong> Kilagate, Gwalior, Madhya Pradesh</p>
+</div>
+
+<div class="cart-bar">
     <span>Cart Total: ₹<span id="total">0</span></span>
     <a class="checkout" href="https://wa.me/919691865574">Checkout</a>
 </div>
+
+<footer>
+    © 2026 Harshit Chemical Industry
+</footer>
 
 <script>
 let total = 0;
