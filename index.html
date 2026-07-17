@@ -1,67 +1,174 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Harshit Chemical Industry</title>
+
 <style>
-body{font-family:Arial;background:#f4f6f9;margin:0;}
-header{background:#002b5b;color:white;padding:20px;text-align:center;}
-.hero{background:#00509e;color:white;padding:50px;text-align:center;}
-.box{background:white;margin:15px;padding:20px;border-radius:10px;}
-.price{font-weight:bold;color:#00509e;}
-.btn{display:inline-block;background:#25D366;color:white;padding:10px 15px;border-radius:5px;text-decoration:none;font-weight:bold;}
-footer{background:#002b5b;color:white;text-align:center;padding:15px;}
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f1f3f6;
+}
+
+header{
+    background:#2874f0;
+    color:#fff;
+    padding:15px;
+    text-align:center;
+}
+
+.search{
+    padding:15px;
+    background:#fff;
+}
+
+.search input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    padding:12px;
+}
+
+.card{
+    background:#fff;
+    border-radius:10px;
+    padding:12px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    text-align:center;
+}
+
+.card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+.price{
+    color:#2874f0;
+    font-size:20px;
+    font-weight:bold;
+    margin:8px 0;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    font-size:15px;
+    cursor:pointer;
+    margin-top:6px;
+}
+
+.cart-btn{
+    background:#ff9f00;
+    color:#fff;
+}
+
+.buy-btn{
+    background:#fb641b;
+    color:#fff;
+}
+
+.cart{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    background:#fff;
+    padding:15px;
+    box-shadow:0 -2px 6px rgba(0,0,0,0.15);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-weight:bold;
+}
+
+.checkout{
+    background:#25D366;
+    color:#fff;
+    padding:10px 16px;
+    border-radius:8px;
+    text-decoration:none;
+}
 </style>
 </head>
+
 <body>
 
 <header>
-<h1>Harshit Chemical Industry</h1>
-<p>Quality Housekeeping & Cleaning Chemicals</p>
+    <h2>Harshit Chemical Industry</h2>
 </header>
-<div class="hero">
-<h2>Professional Cleaning Solutions</h2>
-<p>Room Spray • Car Wash Shampoo • Carpet Shampoo • Hard Spot Cleaner</p>
+
+<div class="search">
+    <input type="text" placeholder="Search products...">
 </div>
 
-<div class="box">
-<h2>Room Spray</h2>
-<p class="price">250ml - ₹120</p>
-<p class="price">500ml - ₹220</p>
-<a class="btn" href="  Now</a>
+<div class="products">
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=400" alt="">
+        <h3>Room Spray</h3>
+        <div class="price">₹120</div>
+        <button class="cart-btn" onclick="addToCart(120)">Add to Cart</button>
+        <button class="buy-btn" onclick="buyNow('Room Spray',120)">Buy Now</button>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400" alt="">
+        <h3>Car Wash Shampoo</h3>
+        <div class="price">₹250</div>
+        <button class="cart-btn" onclick="addToCart(250)">Add to Cart</button>
+        <button class="buy-btn" onclick="buyNow('Car Wash Shampoo',250)">Buy Now</button>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400" alt="">
+        <h3>Carpet Shampoo</h3>
+        <div class="price">₹100</div>
+        <button class="cart-btn" onclick="addToCart(100)">Add to Cart</button>
+        <button class="buy-btn" onclick="buyNow('Carpet Shampoo',100)">Buy Now</button>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1585421514738-01798e348b17?w=400" alt="">
+        <h3>Hard Spot Cleaner</h3>
+        <div class="price">₹80</div>
+        <button class="cart-btn" onclick="addToCart(80)">Add to Cart</button>
+        <button class="buy-btn" onclick="buyNow('Hard Spot Cleaner',80)">Buy Now</button>
+    </div>
+
 </div>
 
-<div class="box">
-<h2>Car Wash Shampoo</h2>
-<p class="price">500ml - ₹250</p>
-<p class="price">1L - ₹450</p>
-<a class="btn" href=" 
-  </div>
-
-<div class="box">
-<h2>Carpet Shampoo</h2>
-<p class="price">250ml - ₹100</p>
-<p class="price">500ml - ₹180</p>
-<a class="btn" href="  Now</a>
+<div class="cart">
+    <span>Cart Total: ₹<span id="total">0</span></span>
+    <a class="checkout" href="https://wa.me/919691865574">Checkout</a>
 </div>
 
-<div class="box">
-<h2>Hard Spot Cleaner</h2>
-<p class="price">500ml - ₹80</p>
-<p class="price">1L - ₹150</p>
-<a class="btn" href="  Now</a>
-</div>
+<script>
+let total = 0;
 
-<div class="box">
-<h2>Contact Us</h2>
-<p><b>Phone:</b> 9691865574</p>
-<p><b>Address:</b> Kilagate, Gwalior, Madhya 
-  Pradesh</p>
-<p><a class="btn" href="  on WhatsApp</a></p>
-</div>
+function addToCart(price){
+    total += price;
+    document.getElementById('total').innerText = total;
+}
 
-<footer>
-<p>&copy; 2026 Harshit Chemical Industry</p>
-</footer>
+function buyNow(product,price){
+    let msg = `Hello, I want to order ${product} for ₹${price}`;
+    window.location.href = `https://wa.me/919691865574?text=${encodeURIComponent(msg)}`;
+}
+</script>
 
 </body>
-     </html>
+</html>
