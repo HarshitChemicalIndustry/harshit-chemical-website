@@ -1,116 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Harshit Chemical Industry</title>
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:Arial,sans-serif;background:#f1f3f6;}
-header{background:#2874f0;color:#fff;padding:15px;text-align:center;}
-.search{background:#fff;padding:12px;}
-.search input{width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;}
-.banner{background:#0059c9;color:#fff;text-align:center;padding:20px;font-weight:bold;}
-.products{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px;}
-.card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.1);}
-.image-box{height:140px;background:#e0e0e0;display:flex;align-items:center;justify-content:center;font-size:50px;}
-.content{padding:12px;text-align:center;}
-.price{color:#2874f0;font-size:20px;font-weight:bold;margin:8px 0;}
-.btn{width:100%;border:none;padding:10px;border-radius:8px;font-weight:bold;margin-top:6px;cursor:pointer;}
-.cart{background:#ff9f00;color:#fff;}
-.buy{background:#fb641b;color:#fff;}
-.contact{background:#fff;margin:12px;padding:15px;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,0.1);}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;padding:12px 15px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 -2px 8px rgba(0,0,0,0.15);}
-.checkout{background:#25D366;color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:bold;}
-footer{text-align:center;padding:20px;color:#666;margin-bottom:70px;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harshit Chemical Industry</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
-<h2>Harshit Chemical Industry</h2>
+<header class="topbar">
+  <h1>Harshit Chemical Industry</h1>
+  <p>Housekeeping Chemicals & Tools</p>
 </header>
 
-<div class="search">
-<input type="text" placeholder="Search products...">
-</div>
+<section class="hero">
+  <div class="hero-text">
+    <h2>Professional Cleaning Solutions</h2>
+    <p>Hotel, Office, Hospital, Home & Industrial Cleaning Products</p>
+    <a href="https://wa.me/919630567669" class="btn">WhatsApp Order</a>
+  </div>
+</section>
 
-<div class="banner">
-Professional Cleaning Solutions
-</div>
+<section class="products">
+  <h2>Our Products</h2>
 
-<div class="products">
+  <div class="product-grid">
 
-<div class="card">
-<div class="image-box">🌹</div>
-<div class="content">
-<h3>Room Spray</h3>
-<div class="price">₹120</div>
-<button class="btn cart" onclick="addToCart(120)">Add to Cart</button>
-<button class="btn buy" onclick="buyNow('Room Spray',120)">Buy Now</button>
-</div>
-</div>
+    <div class="card">
+      <img src="images/file_00000000111c71faaaecfd9491eefec8.png" alt="Room Spray">
+      <h3>Room Spray</h3>
+      <p>250ml - ₹120</p>
+      <p>500ml - ₹220</p>
+    </div>
 
-<div class="card">
-<div class="image-box">🚗</div>
-<div class="content">
-<h3>Car Wash Shampoo</h3>
-<div class="price">₹250</div>
-<button class="btn cart" onclick="addToCart(250)">Add to Cart</button>
-<button class="btn buy" onclick="buyNow('Car Wash Shampoo',250)">Buy Now</button>
-</div>
-</div>
+    <div class="card">
+      <img src="images/file_000000004cec71fb98a86fff30d08cac.png" alt="Car Wash Shampoo">
+      <h3>Car Wash Shampoo</h3>
+      <p>500ml - ₹250</p>
+      <p>1L - ₹450</p>
+    </div>
 
-<div class="card">
-<div class="image-box">🧽</div>
-<div class="content">
-<h3>Carpet Shampoo</h3>
-<div class="price">₹100</div>
-<button class="btn cart" onclick="addToCart(100)">Add to Cart</button>
-<button class="btn buy" onclick="buyNow('Carpet Shampoo',100)">Buy Now</button>
-</div>
-</div>
+    <div class="card">
+      <img src="images/file_000000006ea871f59d5b1dec42664289.png" alt="Carpet Shampoo">
+      <h3>Carpet Shampoo</h3>
+      <p>250ml - ₹100</p>
+      <p>500ml - ₹180</p>
+    </div>
 
-<div class="card">
-<div class="image-box">✨</div>
-<div class="content">
-<h3>Hard Spot Cleaner</h3>
-<div class="price">₹80</div>
-<button class="btn cart" onclick="addToCart(80)">Add to Cart</button>
-<button class="btn buy" onclick="buyNow('Hard Spot Cleaner',80)">Buy Now</button>
-</div>
-</div>
+    <div class="card">
+      <img src="images/file_00000000851871fab8e0273bce5bcfd4.png" alt="Hard Spot Cleaner">
+      <h3>Hard Spot Cleaner</h3>
+      <p>500ml - ₹80</p>
+      <p>1L - ₹150</p>
+    </div>
 
-</div>
+    <div class="card">
+      <img src="images/file_0000000096dc71fdb39c708a3825610e.png" alt="Hand Wash">
+      <h3>Hand Wash</h3>
+      <p>Premium Quality</p>
+    </div>
 
-<div class="contact">
-<h3>Contact Us</h3>
-<p><strong>Phone:</strong> 9691865574</p>
-<p><strong>Address:</strong> Kilagate, Gwalior, Madhya Pradesh</p>
-</div>
+    <div class="card">
+      <img src="images/file_00000000b84071fbaac9fda59a7bf8a4.png" alt="Floor Cleaner">
+      <h3>Floor Cleaner</h3>
+      <p>Available in Multiple Sizes</p>
+    </div>
 
-<div class="bottom">
-<span>Cart Total: ₹<span id="total">0</span></span>
-<a class="checkout" href="https://wa.me/919691865574">Checkout</a>
-</div>
+    <div class="card">
+      <img src="images/file_00000000bf7871fa903fca71f9a7f776.png" alt="Toilet Cleaner">
+      <h3>Toilet Cleaner</h3>
+      <p>Industrial Grade</p>
+    </div>
+
+    <div class="card">
+      <img src="images/file_00000000c14872079f56a41ed3ad9065.png" alt="Glass Cleaner">
+      <h3>Glass Cleaner</h3>
+      <p>Streak Free Shine</p>
+    </div>
+
+    <div class="card">
+      <img src="images/file_00000000d86471fbacf11cb3631ae6b2.png" alt="Dish Wash">
+      <h3>Dish Wash</h3>
+      <p>High Cleaning Power</p>
+    </div>
+
+    <div class="card">
+      <img src="images/file_00000000e5c071fba068208d3e61afab.png" alt="Phenyl">
+      <h3>Phenyl</h3>
+      <p>Fresh Fragrance</p>
+    </div>
+
+    <div class="card">
+      <img src="images/file_00000000facc720792805be88790ffc1.png" alt="Cleaning Chemical">
+      <h3>Cleaning Chemical</h3>
+      <p>Commercial Use</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="about">
+  <h2>About Us</h2>
+  <p>
+    Harshit Chemical Industry provides high-quality housekeeping chemicals,
+    room sprays, floor cleaners, car care products, and professional cleaning solutions.
+  </p>
+</section>
+
+<section class="contact">
+  <h2>Contact</h2>
+  <p>📞 +91 96305 67669</p>
+  <p>📍 Gwalior, Madhya Pradesh</p>
+  <a href="https://wa.me/919630567669" class="btn">Order on WhatsApp</a>
+</section>
 
 <footer>
-© 2026 Harshit Chemical Industry
+  <p>© 2026 Harshit Chemical Industry. All Rights Reserved.</p>
 </footer>
 
-<script>
-let total = 0;
-function addToCart(price){
-total += price;
-document.getElementById('total').innerText = total;
-}
-function buyNow(product,price){
-let msg = `Hello, I want to order ${product} for ₹${price}`;
-window.location.href = `https://wa.me/919691865574?text=${encodeURIComponent(msg)}`;
-}
-</script>
-
 </body>
-</html>
+  </html>
