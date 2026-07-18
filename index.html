@@ -1,337 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Harshit Chemical Industry</title>
-
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:Arial, sans-serif;
-    background:#f4f7fb;
-    color:#333;
-    line-height:1.6;
-}
-
-.topbar{
-    background:#072f57;
-    color:white;
-    padding:8px 15px;
-    text-align:center;
-    font-size:14px;
-}
-
-header{
-    background:#0b4d8c;
-    color:white;
-    padding:15px 20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-}
-
-header h1{
-    font-size:30px;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:15px;
-    font-weight:bold;
-}
-
-.hero{
-    background:linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url('https://raw.githubusercontent.com/HarshitChemicalIndustry/harshit-chemical-website/main/images/FB_IMG_1784054900382.jpg');
-    background-size:cover;
-    background-position:center;
-    color:white;
-    padding:100px 20px;
-    text-align:center;
-}
-
-.hero h2{
-    font-size:45px;
-    margin-bottom:15px;
-}
-
-.hero p{
-    font-size:20px;
-    margin-bottom:25px;
-}
-
-.btn{
-    display:inline-block;
-    background:#25D366;
-    color:white;
-    padding:14px 30px;
-    border-radius:8px;
-    text-decoration:none;
-    font-size:18px;
-    font-weight:bold;
-}
-
-.section{
-    padding:50px 20px;
-}
-
-.section-title{
-    text-align:center;
-    font-size:34px;
-    color:#0b4d8c;
-    margin-bottom:35px;
-}
-
-.product-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:25px;
-}
-
-.product-card{
-    background:white;
-    border-radius:14px;
-    overflow:hidden;
-    box-shadow:0 4px 12px rgba(0,0,0,0.1);
-    transition:0.3s;
-}
-
-.product-card:hover{
-    transform:translateY(-5px);
-}
-
-.product-card img{
-    width:100%;
-    height:230px;
-    object-fit:cover;
-}
-
-.product-info{
-    padding:18px;
-    text-align:center;
-}
-
-.product-info h3{
-    color:#0b4d8c;
-    margin-bottom:8px;
-}
-
-.price{
-    color:#0b4d8c;
-    font-size:24px;
-    font-weight:bold;
-}
-
-.about{
-    background:white;
-    border-radius:14px;
-    padding:30px;
-    max-width:1000px;
-    margin:auto;
-    box-shadow:0 4px 12px rgba(0,0,0,0.06);
-}
-
-.features{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-}
-
-.feature-box{
-    background:white;
-    padding:25px;
-    border-radius:12px;
-    text-align:center;
-    box-shadow:0 4px 12px rgba(0,0,0,0.08);
-}
-
-.feature-box h3{
-    color:#0b4d8c;
-    margin-bottom:10px;
-}
-
-.contact{
-    background:#0b4d8c;
-    color:white;
-    text-align:center;
-    padding:50px 20px;
-}
-
-.contact p{
-    margin:8px 0;
-    font-size:18px;
-}
-
-footer{
-    background:#072f57;
-    color:white;
-    text-align:center;
-    padding:16px;
-    font-size:15px;
-}
-
-@media(max-width:768px){
-
-    header{
-        text-align:center;
-        justify-content:center;
-    }
-
-    nav{
-        margin-top:10px;
-    }
-
-    .hero h2{
-        font-size:32px;
-    }
-
-    .hero p{
-        font-size:17px;
-    }
-}
+body{font-family:Arial;margin:0;background:#f5f7fb;}
+header{background:#0b4d8c;color:white;padding:20px;text-align:center;}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;padding:20px;}
+.card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 4px 10px rgba(0,0,0,.1);}
+.card img{width:100%;height:220px;object-fit:cover;}
+.card h3{text-align:center;padding:10px;color:#0b4d8c;}
 </style>
 </head>
-
 <body>
 
-<div class="topbar">
-🚚 Fast Delivery | ⭐ Premium Quality | 🔒 Secure Service
-</div>
-
 <header>
-    <h1>Harshit Chemical Industry</h1>
-
-    <nav>
-        <a href="#products">Products</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </nav>
+<h1>Harshit Chemical Industry</h1>
 </header>
 
-<section class="hero">
-    <h2>Professional Cleaning Solutions</h2>
+<div class="products">
 
-    <p>
-        High quality chemical and housekeeping products for home,
-        office, hotel and industrial use.
-    </p>
+<div class="card">
+<img src="https://raw.githubusercontent.com/HarshitChemicalIndustry/harshit-chemical-website/main/images/FB_IMG_1784054889549.jpg">
+<h3>Room Spray</h3>
+</div>
 
-    <a class="btn" href="https://wa.me/918359906362">Order on WhatsApp</a>
-</section>
+<div class="card">
+<img src="https://raw.githubusercontent.com/HarshitChemicalIndustry/harshit-chemical-website/main/images/FB_IMG_1784054900382.jpg">
+<h3>Car Wash Shampoo</h3>
+</div>
 
-<section id="products" class="section">
+<div class="card">
+<img src="https://raw.githubusercontent.com/HarshitChemicalIndustry/harshit-chemical-website/main/images/FB_IMG_1784054905325.jpg">
+<h3>Carpet Shampoo</h3>
+</div>
 
-    <h2 class="section-title">Our Popular Products</h2>
+<div class="card">
+<img src="https://raw.githubusercontent.com/HarshitChemicalIndustry/harshit-chemical-website/main/images/FB_IMG_1784054910348.jpg">
+<h3>Hard Spot Cleaner</h3>
+</div>
 
-    <div class="product-grid">
-
-        <div class="product-card">
-            <img src="https://raw.githubusercontent.com/HarshitChemicalIndustry/harshit-chemical-website/main/images/FB_IMG_1784054889549.jpg" alt="Room Spray">
-
-            <div class="product-info">
-                <h3>Room Spray</h3>
-                <div class="price">₹120</div>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <img src="https://raw.githubusercontent.com/HarshitChemicalIndustry/harshit-chemical-website/main/images/FB_IMG_1784054900382.jpg" alt="Car Wash Shampoo">
-
-            <div class="product-info">
-                <h3>Car Wash Shampoo</h3>
-                <div class="price">₹250</div>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <img src="https://raw.githubusercontent.com/HarshitChemicalIndustry/harshit-chemical-website/main/images/FB_IMG_1784054905325.jpg" alt="Carpet Shampoo">
-
-            <div class="product-info">
-                <h3>Carpet Shampoo</h3>
-                <div class="price">₹100</div>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <img src="https://raw.githubusercontent.com/HarshitChemicalIndustry/harshit-chemical-website/main/images/FB_IMG_1784054910348.jpg" alt="Hard Spot Cleaner">
-
-            <div class="product-info">
-                <h3>Hard Spot Cleaner</h3>
-                <div class="price">₹80</div>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<section id="about" class="section">
-
-    <h2 class="section-title">About Us</h2>
-
-    <div class="about">
-        <p>
-            Harshit Chemical Industry is a trusted manufacturer of
-            cleaning and housekeeping products. We provide high-quality,
-            effective and affordable solutions for homes, offices,
-            hotels, hospitals and industries across India.
-        </p>
-    </div>
-</section>
-
-<section class="section">
-
-    <h2 class="section-title">Why Choose Us</h2>
-
-    <div class="features">
-
-        <div class="feature-box">
-            <h3>Premium Quality</h3>
-            <p>High-performance cleaning products.</p>
-        </div>
-
-        <div class="feature-box">
-            <h3>Affordable Prices</h3>
-            <p>Best quality at competitive rates.</p>
-        </div>
-
-        <div class="feature-box">
-            <h3>Fast Delivery</h3>
-            <p>Quick dispatch and reliable service.</p>
-        </div>
-
-        <div class="feature-box">
-            <h3>Trusted Brand</h3>
-            <p>Growing trust among customers.</p>
-        </div>
-
-    </div>
-</section>
-
-<section id="contact" class="contact">
-
-    <h2 class="section-title" style="color:white;">Contact Us</h2>
-
-    <p><strong>Harshit Chemical Industry</strong></p>
-
-    <p>📞 Phone: +91 83599 06362</p>
-
-    <p>📧 Email: harshitchemicalindustry@gmail.com</p>
-
-    <p>📍 Gwalior, Madhya Pradesh, India</p>
-
-</section>
-
-<footer>
-© 2026 Harshit Chemical Industry | All Rights Reserved
-</footer>
+</div>
 
 </body>
 </html>
