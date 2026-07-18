@@ -14,7 +14,7 @@
 }
 
 body{
-    background:#f4f7fb;
+    background:#f5f7fa;
     color:#222;
 }
 
@@ -22,16 +22,16 @@ header{
     background:linear-gradient(135deg,#0047ab,#0b5ed7);
     color:white;
     text-align:center;
-    padding:70px 20px;
+    padding:60px 20px;
 }
 
 header h1{
-    font-size:42px;
+    font-size:38px;
     margin-bottom:10px;
 }
 
 header p{
-    font-size:20px;
+    font-size:18px;
     margin-bottom:25px;
 }
 
@@ -40,45 +40,45 @@ header p{
     background:#25D366;
     color:white;
     text-decoration:none;
-    padding:15px 30px;
-    border-radius:50px;
+    padding:14px 28px;
+    border-radius:40px;
     font-size:18px;
     font-weight:bold;
 }
 
 section{
-    padding:50px 20px;
+    padding:45px 20px;
 }
 
 .title{
     text-align:center;
-    font-size:34px;
     color:#0b5ed7;
-    margin-bottom:35px;
+    font-size:32px;
+    margin-bottom:30px;
 }
 
-.products{
+.grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:25px;
+    gap:20px;
 }
 
 .card{
     background:white;
-    border-radius:18px;
+    border-radius:16px;
     overflow:hidden;
-    box-shadow:0 5px 18px rgba(0,0,0,0.12);
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
 }
 
 .card img{
     width:100%;
-    height:220px;
+    height:200px;
     object-fit:cover;
     display:block;
 }
 
 .card-content{
-    padding:18px;
+    padding:15px;
 }
 
 .card h3{
@@ -88,29 +88,29 @@ section{
 
 .about{
     background:white;
+    padding:30px;
+    border-radius:16px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
     max-width:1000px;
     margin:auto;
-    padding:35px;
-    border-radius:20px;
-    box-shadow:0 5px 18px rgba(0,0,0,0.08);
 }
 
 .contact{
     background:#0b5ed7;
     color:white;
+    text-align:center;
+    padding:35px 20px;
+    border-radius:16px;
     max-width:1000px;
     margin:auto;
-    padding:40px 20px;
-    border-radius:20px;
-    text-align:center;
 }
 
 footer{
     background:#002b66;
     color:white;
     text-align:center;
-    padding:20px;
-    margin-top:40px;
+    padding:18px;
+    margin-top:30px;
 }
 </style>
 </head>
@@ -129,10 +129,10 @@ footer{
 <section>
     <h2 class="title">Our Chemical Products</h2>
 
-    <div class="products">
+    <div class="grid">
 
         <div class="card">
-            <img src="https://dummyimage.com/600x400/0b5ed7/ffffff&text=Room+Spray" alt="">
+            <img src="https://dummyimage.com/600x400/0b5ed7/ffffff&text=Room+Spray">
             <div class="card-content">
                 <h3>Room Spray</h3>
                 <p>250ml & 500ml</p>
@@ -140,7 +140,7 @@ footer{
         </div>
 
         <div class="card">
-            <img src="https://dummyimage.com/600x400/198754/ffffff&text=Car+Wash+Shampoo" alt="">
+            <img src="https://dummyimage.com/600x400/198754/ffffff&text=Car+Wash+Shampoo">
             <div class="card-content">
                 <h3>Car Wash Shampoo</h3>
                 <p>500ml & 1L</p>
@@ -148,7 +148,7 @@ footer{
         </div>
 
         <div class="card">
-            <img src="https://dummyimage.com/600x400/d63384/ffffff&text=Carpet+Shampoo" alt="">
+            <img src="https://dummyimage.com/600x400/d63384/ffffff&text=Carpet+Shampoo">
             <div class="card-content">
                 <h3>Carpet Shampoo</h3>
                 <p>250ml & 500ml</p>
@@ -156,4 +156,89 @@ footer{
         </div>
 
         <div class="card">
-            <img src="https://dummyimage.com/600x400/f59e0b/ffffff&text=Hard+Spot+Cleaner" alt
+            <img src="https://dummyimage.com/600x400/f59e0b/ffffff&text=Hard+Spot+Cleaner">
+            <div class="card-content">
+                <h3>Hard Spot Cleaner</h3>
+                <p>500ml & 1L</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h2 class="title">Housekeeping Tools</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <img src="https://dummyimage.com/600x400/6f42c1/ffffff&text=Cleaning+Brush">
+            <div class="card-content">
+                <h3>Cleaning Brush</h3>
+                <p>Heavy Duty Quality</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://dummyimage.com/600x400/20c997/ffffff&text=Floor+Wiper">
+            <div class="card-content">
+                <h3>Floor Wiper</h3>
+                <p>Strong Rubber Wiper</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://dummyimage.com/600x400/6610f2/ffffff&text=Mop+Set">
+            <div class="card-content">
+                <h3>Mop Set</h3>
+                <p>Premium Mop Handle</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://dummyimage.com/600x400/0dcaf0/ffffff&text=Dust+Pan">
+            <div class="card-content">
+                <h3>Dust Pan</h3>
+                <p>Industrial Quality</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <div class="about">
+        <h2 class="title">About Us</h2>
+
+        <p style="line-height:1.8;font-size:17px;">
+            Harshit Chemical Industry is a trusted manufacturer and supplier of
+            cleaning chemicals and housekeeping products. We provide high-quality
+            solutions for homes, offices, hotels, hospitals, and industrial cleaning.
+            Our products are designed for effective cleaning, long-lasting performance,
+            and customer satisfaction.
+        </p>
+    </div>
+</section>
+
+<section>
+    <div class="contact">
+        <h2>Contact Us</h2>
+
+        <p><strong>Harshit Chemical Industry</strong></p>
+        <p>Phone / WhatsApp: +91 83599 06362</p>
+        <p>Email: harshitchemicalindustry@gmail.com</p>
+
+        <br>
+
+        <a class="btn" href="https://wa.me/918359906362">
+            Send WhatsApp Message
+        </a>
+    </div>
+</section>
+
+<footer>
+    © 2026 Harshit Chemical Industry. All Rights Reserved.
+</footer>
+
+</body>
+</html>
