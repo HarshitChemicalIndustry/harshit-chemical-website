@@ -7,106 +7,157 @@
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
 }
 
 body{
-    background:#f5f7fa;
-    color:#222;
+  background:#f5f5f5;
 }
 
+/* Header */
 .header{
-    background:linear-gradient(135deg,#0047ab,#0b5ed7);
-    color:white;
-    text-align:center;
-    padding:60px 20px;
+  background:white;
+  padding:15px;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08);
 }
 
-.header h1{
-    font-size:38px;
-    margin-bottom:10px;
+.logo{
+  font-size:24px;
+  font-weight:bold;
+  color:#0b5ed7;
 }
 
-.header p{
-    font-size:18px;
-    margin-bottom:25px;
+.search{
+  margin-top:12px;
 }
 
-.btn{
-    display:inline-block;
-    background:#25D366;
-    color:white;
-    text-decoration:none;
-    padding:14px 28px;
-    border-radius:40px;
-    font-size:18px;
-    font-weight:bold;
+.search input{
+  width:100%;
+  padding:14px;
+  border:1px solid #ddd;
+  border-radius:12px;
+  font-size:16px;
 }
 
-.section-title{
-    text-align:center;
-    color:#0b5ed7;
-    font-size:32px;
-    margin:40px 0 25px;
+/* Layout */
+.container{
+  display:flex;
 }
 
+/* Sidebar */
+.sidebar{
+  width:90px;
+  background:white;
+  min-height:100vh;
+  border-right:1px solid #eee;
+  padding-top:15px;
+}
+
+.category{
+  text-align:center;
+  padding:12px 5px;
+  font-size:12px;
+  color:#555;
+}
+
+.category.active{
+  background:#e8f1ff;
+  color:#0b5ed7;
+  font-weight:bold;
+}
+
+/* Content */
+.content{
+  flex:1;
+  padding:15px;
+}
+
+.banner{
+  background:linear-gradient(135deg,#0b5ed7,#003b8e);
+  color:white;
+  border-radius:18px;
+  padding:20px;
+  margin-bottom:20px;
+}
+
+.banner h2{
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.banner p{
+  margin-bottom:12px;
+}
+
+.banner a{
+  background:#25D366;
+  color:white;
+  text-decoration:none;
+  padding:10px 20px;
+  border-radius:25px;
+  display:inline-block;
+  font-weight:bold;
+}
+
+/* Products */
 .products{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-    padding:0 15px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
 }
 
 .card{
-    background:white;
-    border-radius:16px;
-    overflow:hidden;
-    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  background:white;
+  border-radius:16px;
+  padding:12px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08);
 }
 
 .card img{
-    width:100%;
-    height:200px;
-    object-fit:cover;
-    display:block;
-}
-
-.card-content{
-    padding:15px;
+  width:100%;
+  height:120px;
+  object-fit:cover;
+  border-radius:12px;
 }
 
 .card h3{
-    color:#0b5ed7;
-    margin-bottom:8px;
+  font-size:15px;
+  margin:10px 0 5px;
 }
 
-.about{
-    background:white;
-    padding:30px;
-    border-radius:16px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.08);
-    max-width:1000px;
-    margin:40px auto;
+.size{
+  color:#777;
+  font-size:13px;
 }
 
-.contact{
-    background:#0b5ed7;
-    color:white;
-    text-align:center;
-    padding:35px 20px;
-    border-radius:16px;
-    max-width:1000px;
-    margin:0 auto 30px;
+.price{
+  font-size:18px;
+  font-weight:bold;
+  color:#0b5ed7;
+  margin:8px 0;
 }
 
-.footer{
-    background:#002b66;
-    color:white;
-    text-align:center;
-    padding:18px;
+.card button{
+  width:100%;
+  padding:10px;
+  border:none;
+  border-radius:10px;
+  background:#25D366;
+  color:white;
+  font-weight:bold;
+  font-size:14px;
+}
+
+@media(min-width:768px){
+  .products{
+    grid-template-columns:repeat(3,1fr);
+  }
 }
 </style>
 </head>
@@ -114,118 +165,86 @@ body{
 <body>
 
 <div class="header">
-    <h1>Harshit Chemical Industry</h1>
-    <p>Professional Cleaning Chemicals & Housekeeping Solutions</p>
+  <div class="logo">Harshit Chemical Industry</div>
 
-    <a class="btn" href="https://wa.me/918359906362">
-        Order on WhatsApp
-    </a>
+  <div class="search">
+    <input type="text" placeholder="Search products">
+  </div>
 </div>
 
-<h2 class="section-title">Our Chemical Products</h2>
+<div class="container">
 
-<div class="products">
+  <div class="sidebar">
+    <div class="category active">Chemicals</div>
+    <div class="category">Room Spray</div>
+    <div class="category">Car Wash</div>
+    <div class="category">Carpet</div>
+    <div class="category">Cleaner</div>
+    <div class="category">Tools</div>
+  </div>
 
-    <div class="card">
-        <img src="https://dummyimage.com/600x400/0b5ed7/ffffff&text=Room+Spray">
-        <div class="card-content">
-            <h3>Room Spray</h3>
-            <p>250ml & 500ml</p>
-        </div>
+  <div class="content">
+
+    <div class="banner">
+      <h2>Top Cleaning Products</h2>
+      <p>Professional chemicals for home, office & industrial use.</p>
+
+      <a href="https://wa.me/918359906362">Order Now</a>
     </div>
 
-    <div class="card">
-        <img src="https://dummyimage.com/600x400/198754/ffffff&text=Car+Wash+Shampoo">
-        <div class="card-content">
-            <h3>Car Wash Shampoo</h3>
-            <p>500ml & 1L</p>
-        </div>
+    <div class="products">
+
+      <div class="card">
+        <img src="https://dummyimage.com/400x300/0b5ed7/ffffff&text=Room+Spray">
+        <h3>Room Spray</h3>
+        <div class="size">250ml</div>
+        <div class="price">₹120</div>
+        <button>ADD</button>
+      </div>
+
+      <div class="card">
+        <img src="https://dummyimage.com/400x300/198754/ffffff&text=Car+Wash">
+        <h3>Car Wash Shampoo</h3>
+        <div class="size">500ml</div>
+        <div class="price">₹250</div>
+        <button>ADD</button>
+      </div>
+
+      <div class="card">
+        <img src="https://dummyimage.com/400x300/d63384/ffffff&text=Carpet+Shampoo">
+        <h3>Carpet Shampoo</h3>
+        <div class="size">500ml</div>
+        <div class="price">₹180</div>
+        <button>ADD</button>
+      </div>
+
+      <div class="card">
+        <img src="https://dummyimage.com/400x300/f59e0b/ffffff&text=Hard+Spot">
+        <h3>Hard Spot Cleaner</h3>
+        <div class="size">1L</div>
+        <div class="price">₹150</div>
+        <button>ADD</button>
+      </div>
+
+      <div class="card">
+        <img src="https://dummyimage.com/400x300/6f42c1/ffffff&text=Floor+Wiper">
+        <h3>Floor Wiper</h3>
+        <div class="size">Heavy Duty</div>
+        <div class="price">₹120</div>
+        <button>ADD</button>
+      </div>
+
+      <div class="card">
+        <img src="https://dummyimage.com/400x300/20c997/ffffff&text=Mop+Set">
+        <h3>Mop Set</h3>
+        <div class="size">Premium</div>
+        <div class="price">₹350</div>
+        <button>ADD</button>
+      </div>
+
     </div>
 
-    <div class="card">
-        <img src="https://dummyimage.com/600x400/d63384/ffffff&text=Carpet+Shampoo">
-        <div class="card-content">
-            <h3>Carpet Shampoo</h3>
-            <p>250ml & 500ml</p>
-        </div>
-    </div>
-
-    <div class="card">
-        <img src="https://dummyimage.com/600x400/f59e0b/ffffff&text=Hard+Spot+Cleaner">
-        <div class="card-content">
-            <h3>Hard Spot Cleaner</h3>
-            <p>500ml & 1L</p>
-        </div>
-    </div>
-
-</div>
-
-<h2 class="section-title">Housekeeping Tools</h2>
-
-<div class="products">
-
-    <div class="card">
-        <img src="https://dummyimage.com/600x400/6f42c1/ffffff&text=Cleaning+Brush">
-        <div class="card-content">
-            <h3>Cleaning Brush</h3>
-            <p>Heavy Duty Quality</p>
-        </div>
-    </div>
-
-    <div class="card">
-        <img src="https://dummyimage.com/600x400/20c997/ffffff&text=Floor+Wiper">
-        <div class="card-content">
-            <h3>Floor Wiper</h3>
-            <p>Strong Rubber Wiper</p>
-        </div>
-    </div>
-
-    <div class="card">
-        <img src="https://dummyimage.com/600x400/6610f2/ffffff&text=Mop+Set">
-        <div class="card-content">
-            <h3>Mop Set</h3>
-            <p>Premium Mop Handle</p>
-        </div>
-    </div>
-
-    <div class="card">
-        <img src="https://dummyimage.com/600x400/0dcaf0/ffffff&text=Dust+Pan">
-        <div class="card-content">
-            <h3>Dust Pan</h3>
-            <p>Industrial Quality</p>
-        </div>
-    </div>
-
-</div>
-
-<div class="about">
-    <h2 class="section-title">About Us</h2>
-
-    <p style="line-height:1.8;font-size:17px;">
-        Harshit Chemical Industry is a trusted manufacturer and supplier of
-        cleaning chemicals and housekeeping products. We provide high-quality
-        solutions for homes, offices, hotels, hospitals, and industrial cleaning.
-        Our products are designed for effective cleaning, long-lasting performance,
-        and customer satisfaction.
-    </p>
-</div>
-
-<div class="contact">
-    <h2>Contact Us</h2>
-
-    <p><strong>Harshit Chemical Industry</strong></p>
-    <p>Phone / WhatsApp: +91 83599 06362</p>
-    <p>Email: harshitchemicalindustry@gmail.com</p>
-
-    <br>
-
-    <a class="btn" href="https://wa.me/918359906362">
-        Send WhatsApp Message
-    </a>
-</div>
-
-<div class="footer">
-    © 2026 Harshit Chemical Industry. All Rights Reserved.
+  </div>
 </div>
 
 </body>
