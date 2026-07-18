@@ -8,83 +8,159 @@
 <style>
 body{
     margin:0;
-    font-family:Arial, sans-serif;
-    background:#f4f7fa;
+    font-family:Arial,sans-serif;
+    background:#f3f5f9;
 }
 
 header{
-    background:#0b4d8c;
-    color:#fff;
-    padding:20px;
-    text-align:center;
+    background:#fff;
+    padding:15px 20px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+    position:sticky;
+    top:0;
+    z-index:100;
 }
 
-header h1{
-    margin:0;
-    font-size:32px;
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
 }
 
-header p{
-    margin-top:8px;
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#0057b8;
+}
+
+.contact{
+    font-size:14px;
+    color:#333;
 }
 
 .hero{
-    background:#1976d2;
-    color:white;
-    text-align:center;
+    background:linear-gradient(135deg,#0057b8,#007bff);
+    color:#fff;
     padding:40px 20px;
+    text-align:center;
+    border-radius:18px;
+    margin:20px;
 }
 
-.hero h2{
+.hero h1{
     margin:0;
-    font-size:28px;
+    font-size:34px;
 }
 
 .hero p{
     margin-top:10px;
+    font-size:16px;
 }
 
-.products{
-    padding:40px 20px;
+.whatsapp-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 24px;
+    background:#00c853;
+    color:#fff;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
 }
 
-.products h2{
-    text-align:center;
-    margin-bottom:30px;
-    color:#0b4d8c;
+.section{
+    padding:20px;
 }
 
-.product-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-}
-
-.product-card{
-    background:#fff;
-    border-radius:12px;
-    padding:15px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
-    text-align:center;
-}
-
-.product-card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-    border-radius:10px;
-}
-
-.product-card h3{
-    margin:12px 0 5px;
+.section h2{
+    margin-bottom:20px;
     color:#222;
 }
 
-footer{
-    background:#0b4d8c;
-    color:white;
-    text-align:center;
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+    gap:18px;
+}
+
+.card{
+    background:#fff;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card img{
+    width:100%;
+    height:170px;
+    object-fit:cover;
+    background:#eee;
+}
+
+.card-content{
+    padding:12px;
+}
+
+.card h3{
+    margin:0;
+    font-size:16px;
+    color:#222;
+}
+
+.price{
+    margin-top:8px;
+    font-size:18px;
+    font-weight:bold;
+    color:#0057b8;
+}
+
+.add-btn{
+    display:block;
+    margin-top:10px;
+    width:100%;
+    padding:10px;
+    background:#00c853;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.tools-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:15px;
+}
+
+.tool-card{
+    background:#fff;
     padding:15px;
+    border-radius:14px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.08);
+}
+
+.tool-card h4{
+    margin:0 0 8px;
+    font-size:15px;
+}
+
+.tool-price{
+    color:#0057b8;
+    font-weight:bold;
+}
+
+footer{
+    background:#0057b8;
+    color:#fff;
+    text-align:center;
+    padding:20px;
     margin-top:30px;
 }
 </style>
@@ -93,56 +169,96 @@ footer{
 <body>
 
 <header>
-    <h1>Harshit Chemical Industry</h1>
-    <p>Cleaning & Housekeeping Products Manufacturer</p>
+  <div class="topbar">
+    <div class="logo">Harshit Chemical Industry</div>
+    <div class="contact">📞 +91 83599 06362</div>
+  </div>
 </header>
 
 <section class="hero">
-    <h2>Premium Cleaning Solutions</h2>
-    <p>Quality Products for Home, Office & Industrial Use</p>
+  <h1>Professional Cleaning Solutions</h1>
+  <p>High quality chemicals for home, office & industrial use.</p>
+  <a class="whatsapp-btn" href="https://wa.me/918359906362">Order on WhatsApp</a>
 </section>
 
-<section class="products">
-    <h2>Our Products</h2>
+<section class="section">
+  <h2>Popular Products</h2>
 
-    <div class="product-grid">
+  <div class="grid">
 
-        <div class="product-card">
-            <img src="images/FB_IMG_1784054889549.jpg" alt="Room Spray">
-            <h3>Room Spray</h3>
-        </div>
+    <div class="card">
+      <img src="images/FB_IMG_1784054889549.jpg" alt="Room Spray">
+      <div class="card-content">
+        <h3>Room Spray</h3>
+        <div class="price">₹120</div>
+        <button class="add-btn">ADD</button>
+      </div>
+    </div>
 
-        <div class="product-card">
-            <img src="images/FB_IMG_1784054900382.jpg" alt="Car Wash Shampoo">
-            <h3>Car Wash Shampoo</h3>
-        </div>
+    <div class="card">
+      <img src="images/FB_IMG_1784054900382.jpg" alt="Car Wash Shampoo">
+      <div class="card-content">
+        <h3>Car Wash Shampoo</h3>
+        <div class="price">₹250</div>
+        <button class="add-btn">ADD</button>
+      </div>
+    </div>
 
-        <div class="product-card">
-            <img src="images/FB_IMG_1784054905325.jpg" alt="Carpet Shampoo">
-            <h3>Carpet Shampoo</h3>
-        </div>
+    <div class="card">
+      <img src="images/FB_IMG_1784054905325.jpg" alt="Carpet Shampoo">
+      <div class="card-content">
+        <h3>Carpet Shampoo</h3>
+        <div class="price">₹100</div>
+        <button class="add-btn">ADD</button>
+      </div>
+    </div>
 
-        <div class="product-card">
-            <img src="images/FB_IMG_1784054910348.jpg" alt="Hard Spot Cleaner">
-            <h3>Hard Spot Cleaner</h3>
-        </div>
+    <div class="card">
+      <img src="images/FB_IMG_1784054910348.jpg" alt="Hard Spot Cleaner">
+      <div class="card-content">
+        <h3>Hard Spot Cleaner</h3>
+        <div class="price">₹80</div>
+        <button class="add-btn">ADD</button>
+      </div>
+    </div>
 
-        <div class="product-card">
-            <img src="images/file_00000000111c71faaecfd9491eefec8.png" alt="Product">
-            <h3>Cleaning Product</h3>
-        </div>
+  </div>
+</section>
 
-        <div class="product-card">
-            <img src="images/file_000000004cb871fa91a4d7ed4a11fa9a.png" alt="Product">
-            <h3>Cleaning Product</h3>
-        </div>
+<section class="section">
+  <h2>Housekeeping Tools</h2>
 
-        <div class="product-card">
-            <img src="images/file_000000004ce71fb98a86fff30d08cac.png" alt="Product">
-            <h3>Cleaning Product</h3>
-        </div>
+  <div class="tools-grid">
 
-        <div class="product-card">
-            <img src="images/file_00000006ea871f95d5b1dec42664289.png" alt="Product">
-            <h3>Cleaning Product</h3>
-        </div
+    <div class="tool-card">
+      <h4>Mop</h4>
+      <div class="tool-price">₹250-350</div>
+    </div>
+
+    <div class="tool-card">
+      <h4>Cotton Mop</h4>
+      <div class="tool-price">₹120-180</div>
+    </div>
+
+    <div class="tool-card">
+      <h4>Floor Squeegee</h4>
+      <div class="tool-price">₹180-250</div>
+    </div>
+
+    <div class="tool-card">
+      <h4>Floor Brush</h4>
+      <div class="tool-price">₹150-220</div>
+    </div>
+
+    <div class="tool-card">
+      <h4>Dust Pan</h4>
+      <div class="tool-price">₹60-90</div>
+    </div>
+
+    <div class="tool-card">
+      <h4>Microfiber Duster</h4>
+      <div class="tool-price">₹90-150</div>
+    </div>
+
+    <div class="tool-card">
+      <h
