@@ -1,78 +1,166 @@
-<div class="section-title">
-<h2>Popular Products</h2>
-<a href="#">View All</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harshit Chemical Industry</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#f5f7fa;color:#222}
+.topbar{background:#fff;padding:10px 20px;display:flex;justify-content:space-between;font-size:14px;border-bottom:1px solid #eee}
+.header{background:#fff;padding:15px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-size:32px;font-weight:700;color:#0b5ed7}
+.search{flex:1;display:flex}
+.search input{width:100%;padding:14px;border:1px solid #ddd;border-radius:12px 0 0 12px;font-size:16px}
+.search button{background:#0b5ed7;color:#fff;border:none;padding:0 20px;border-radius:0 12px 12px 0}
+.cart{background:#f3f7ff;padding:12px 18px;border-radius:12px;font-weight:700}
+.banner{margin:20px;background:linear-gradient(135deg,#003b8e,#0b5ed7);color:#fff;border-radius:24px;padding:35px}
+.banner h1{font-size:42px;margin-bottom:10px}
+.banner p{font-size:18px;margin-bottom:20px}
+.banner a{display:inline-block;background:#25D366;color:#fff;text-decoration:none;padding:14px 26px;border-radius:30px;font-weight:700}
+.section{padding:0 20px 25px}
+.section-title{display:flex;justify-content:space-between;align-items:center;margin:25px 0 15px}
+.section-title h2{font-size:30px}
+.products{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.card{background:#fff;border-radius:18px;padding:12px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.card img{width:100%;height:180px;object-fit:cover;border-radius:14px}
+.card h3{font-size:17px;margin:10px 0 4px}
+.size{font-size:14px;color:#666;margin-bottom:10px}
+.price-row{display:flex;justify-content:space-between;align-items:center}
+.price{font-size:20px;font-weight:700;color:#0b5ed7}
+.add{background:#25D366;color:#fff;border:none;padding:10px 14px;border-radius:10px;font-weight:700}
+.footer{background:#002b66;color:#fff;padding:30px 20px;margin-top:30px}
+.footer p{margin:6px 0;color:#dbe7ff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.2);margin-top:15px;padding-top:15px;text-align:center}
+@media(min-width:768px){
+.products{grid-template-columns:repeat(4,1fr)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+<div>🚚 Fast Delivery • ⭐ Best Quality • 🔒 Secure Payment</div>
+<div>📞 +91 83599 06362</div>
 </div>
+
+<div class="header">
+<div class="logo">Harshit Chemical Industry</div>
+<div class="search">
+<input type="text" placeholder="Search for products...">
+<button>🔍</button>
+</div>
+<div class="cart">🛒 Cart (0)</div>
+</div>
+
+<div class="banner">
+<h1>Professional Cleaning Solutions</h1>
+<p>High quality chemicals for home, office & industrial use.</p>
+<a href="https://wa.me/918359906362">Order on WhatsApp</a>
+</div>
+
+<div class="section">
+<div class="section-title"><h2>Popular Products</h2></div>
 
 <div class="products">
 
 <div class="card">
-<img src="images/dish-wash.png" style="width:100%;height:170px;object-fit:cover;border-radius:12px;">
+<img src="images/dish-wash.png">
 <h3>Dish Wash</h3>
 <div class="size">250ml / 500ml / 1L</div>
 <div class="price-row"><div class="price">₹52</div><button class="add">ADD</button></div>
 </div>
 
 <div class="card">
-<img src="images/hand-wash.png" style="width:100%;height:170px;object-fit:cover;border-radius:12px;">
+<img src="images/hand-wash.png">
 <h3>Hand Wash</h3>
 <div class="size">250ml</div>
 <div class="price-row"><div class="price">₹55</div><button class="add">ADD</button></div>
 </div>
 
 <div class="card">
-<img src="images/toilet-cleaner.png" style="width:100%;height:170px;object-fit:cover;border-radius:12px;">
+<img src="images/toilet-cleaner.png">
 <h3>Toilet Cleaner</h3>
 <div class="size">250ml / 500ml / 1L</div>
 <div class="price-row"><div class="price">₹45</div><button class="add">ADD</button></div>
 </div>
 
 <div class="card">
-<img src="images/glass-cleaner.png" style="width:100%;height:170px;object-fit:cover;border-radius:12px;">
+<img src="images/glass-cleaner.png">
 <h3>Glass Cleaner</h3>
 <div class="size">250ml / 500ml</div>
 <div class="price-row"><div class="price">₹45</div><button class="add">ADD</button></div>
 </div>
 
 <div class="card">
-<img src="images/tiles-cleaner.png" style="width:100%;height:170px;object-fit:cover;border-radius:12px;">
+<img src="images/tiles-cleaner.png">
 <h3>Tiles Cleaner</h3>
 <div class="size">500ml / 1L</div>
 <div class="price-row"><div class="price">₹85</div><button class="add">ADD</button></div>
 </div>
 
 <div class="card">
-<img src="images/white-phenol.png" style="width:100%;height:170px;object-fit:cover;border-radius:12px;">
+<img src="images/white-phenol.png">
 <h3>White Phenol</h3>
 <div class="size">1 Litre</div>
 <div class="price-row"><div class="price">₹30</div><button class="add">ADD</button></div>
 </div>
 
 <div class="card">
-<img src="images/car-bike-shampoo.png" style="width:100%;height:170px;object-fit:cover;border-radius:12px;">
+<img src="images/car-bike-shampoo.png">
 <h3>Car & Bike Shampoo</h3>
 <div class="size">500ml / 1L</div>
 <div class="price-row"><div class="price">₹250</div><button class="add">ADD</button></div>
 </div>
 
 <div class="card">
-<img src="images/room-spray.png" style="width:100%;height:170px;object-fit:cover;border-radius:12px;">
+<img src="images/room-spray.png">
 <h3>Room Spray</h3>
 <div class="size">250ml / 500ml</div>
 <div class="price-row"><div class="price">₹120</div><button class="add">ADD</button></div>
 </div>
 
 <div class="card">
-<img src="images/hard-spot-cleaner.png" style="width:100%;height:170px;object-fit:cover;border-radius:12px;">
+<img src="images/hard-spot-cleaner.png">
 <h3>Hard Spot Cleaner</h3>
 <div class="size">500ml / 1L</div>
 <div class="price-row"><div class="price">₹80</div><button class="add">ADD</button></div>
 </div>
 
 <div class="card">
-<img src="images/carpet-shampoo.png" style="width:100%;height:170px;object-fit:cover;border-radius:12px;">
+<img src="images/carpet-shampoo.png">
 <h3>Carpet Shampoo</h3>
 <div class="size">250ml / 500ml</div>
 <div class="price-row"><div class="price">₹100</div><button class="add">ADD</button></div>
 </div>
 
 </div>
+</div>
+
+<div class="section">
+<div class="section-title"><h2>Housekeeping Tools</h2></div>
+
+<div class="products">
+
+<div class="card"><h3>Mop</h3><div class="size">Heavy Duty</div><div class="price-row"><div class="price">₹250-350</div><button class="add">ADD</button></div></div>
+<div class="card"><h3>Cotton Mop</h3><div class="size">Premium</div><div class="price-row"><div class="price">₹120-180</div><button class="add">ADD</button></div></div>
+<div class="card"><h3>Floor Squeegee</h3><div class="size">Rubber</div><div class="price-row"><div class="price">₹180-250</div><button class="add">ADD</button></div></div>
+<div class="card"><h3>Floor Brush</h3><div class="size">Hard Bristles</div><div class="price-row"><div class="price">₹150-220</div><button class="add">ADD</button></div></div>
+<div class="card"><h3>Dust Pan</h3><div class="size">Plastic</div><div class="price-row"><div class="price">₹60-90</div><button class="add">ADD</button></div></div>
+<div class="card"><h3>Microfiber Duster</h3><div class="size">Premium</div><div class="price-row"><div class="price">₹90-150</div><button class="add">ADD</button></div></div>
+<div class="card"><h3>Window Wiper</h3><div class="size">Glass Cleaning</div><div class="price-row"><div class="price">₹100-180</div><button class="add">ADD</button></div></div>
+<div class="card"><h3>Toilet Brush</h3><div class="size">Bathroom</div><div class="price-row"><div class="price">₹70-120</div><button class="add">ADD</button></div></div>
+<div class="card"><h3>Bucket</h3><div class="size">20 Litre</div><div class="price-row"><div class="price">₹60-120</div><button class="add">ADD</button></div></div>
+<div class="card"><h3>Gloves</h3><div class="size">Pair</div><div class="price-row"><div class="price">₹20-40</div><button class="add">ADD</button></div></div>
+<div class="card"><h3>Dustbin (Small)</h3><div class="size">Plastic</div><div class="price-row"><div class="price">₹150-250</div><button class="add">ADD</button></div></div>
+<div class="card"><h3>Dustbin (Large)</h3><div class="size">Heavy Duty</div><div class="price-row"><div class="price">₹400-700</div><button class="add">ADD</button></div></div>
+
+</div>
+</div>
+
+<div class="footer">
+<h3>Harshit Chemical Industry</h3>
+<p>📞 +91 83599 06362</p>
+<p>📧
