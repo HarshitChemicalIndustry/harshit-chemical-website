@@ -1,115 +1,241 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Harshit Chemical Industry</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harshit Chemical Industry</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f5f7fa;
+    color:#222;
+}
+
+header{
+    background:linear-gradient(135deg,#0b5ed7,#003b8e);
+    color:white;
+    text-align:center;
+    padding:60px 20px;
+}
+
+header h1{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+header p{
+    font-size:18px;
+}
+
+.whatsapp-btn{
+    display:inline-block;
+    margin-top:20px;
+    background:#25D366;
+    color:white;
+    padding:14px 30px;
+    border-radius:40px;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:18px;
+}
+
+section{
+    padding:50px 20px;
+}
+
+.section-title{
+    text-align:center;
+    font-size:32px;
+    color:#0b5ed7;
+    margin-bottom:35px;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.card h3{
+    padding:15px 15px 5px;
+    color:#0b5ed7;
+}
+
+.card p{
+    padding:0 15px 15px;
+}
+
+.about{
+    background:white;
+    border-radius:20px;
+    padding:35px;
+    max-width:1000px;
+    margin:auto;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+.contact{
+    background:#0b5ed7;
+    color:white;
+    text-align:center;
+    border-radius:20px;
+    padding:40px 20px;
+    max-width:1000px;
+    margin:auto;
+}
+
+.contact h2{
+    margin-bottom:15px;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#002b66;
+    color:white;
+    margin-top:40px;
+}
+
+@media(max-width:600px){
+    header h1{
+        font-size:32px;
+    }
+}
+</style>
 </head>
+
 <body>
 
-<header class="topbar">
-  <h1>Harshit Chemical Industry</h1>
-  <p>Housekeeping Chemicals & Tools</p>
+<header>
+    <h1>Harshit Chemical Industry</h1>
+    <p>Professional Cleaning Chemicals & Housekeeping Solutions</p>
+
+    <a class="whatsapp-btn"
+       href="https://wa.me/918359906362">
+       Order on WhatsApp
+    </a>
 </header>
 
-<section class="hero">
-  <div class="hero-text">
-    <h2>Professional Cleaning Solutions</h2>
-    <p>Hotel, Office, Hospital, Home & Industrial Cleaning Products</p>
-    <a href="https://wa.me/919630567669" class="btn">WhatsApp Order</a>
-  </div>
+<section>
+    <h2 class="section-title">Our Chemical Products</h2>
+
+    <div class="products">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600" alt="">
+            <h3>Room Spray</h3>
+            <p>250ml & 500ml</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=600" alt="">
+            <h3>Car Wash Shampoo</h3>
+            <p>500ml & 1L</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?w=600" alt="">
+            <h3>Carpet Shampoo</h3>
+            <p>250ml & 500ml</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1585421514738-01798e348b17?w=600" alt="">
+            <h3>Hard Spot Cleaner</h3>
+            <p>500ml & 1L</p>
+        </div>
+
+    </div>
 </section>
 
-<section class="products">
-  <h2>Our Products</h2>
+<section>
+    <h2 class="section-title">Housekeeping Tools</h2>
 
-  <div class="product-grid">
+    <div class="products">
 
-    <div class="card">
-      <img src="images/file_00000000111c71faaaecfd9491eefec8.png" alt="Room Spray">
-      <h3>Room Spray</h3>
-      <p>250ml - ₹120</p>
-      <p>500ml - ₹220</p>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=600" alt="">
+            <h3>Cleaning Brush</h3>
+            <p>Heavy Duty Quality</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1603712725038-e9334ae8f39f?w=600" alt="">
+            <h3>Floor Wiper</h3>
+            <p>Strong Rubber Wiper</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1585421514284-efb74c2b69ba?w=600" alt="">
+            <h3>Mop Set</h3>
+            <p>Premium Mop Handle</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=600" alt="">
+            <h3>Dust Pan</h3>
+            <p>Industrial Quality</p>
+        </div>
+
     </div>
-
-    <div class="card">
-      <img src="images/file_000000004cec71fb98a86fff30d08cac.png" alt="Car Wash Shampoo">
-      <h3>Car Wash Shampoo</h3>
-      <p>500ml - ₹250</p>
-      <p>1L - ₹450</p>
-    </div>
-
-    <div class="card">
-      <img src="images/file_000000006ea871f59d5b1dec42664289.png" alt="Carpet Shampoo">
-      <h3>Carpet Shampoo</h3>
-      <p>250ml - ₹100</p>
-      <p>500ml - ₹180</p>
-    </div>
-
-    <div class="card">
-      <img src="images/file_00000000851871fab8e0273bce5bcfd4.png" alt="Hard Spot Cleaner">
-      <h3>Hard Spot Cleaner</h3>
-      <p>500ml - ₹80</p>
-      <p>1L - ₹150</p>
-    </div>
-
-    <div class="card">
-      <img src="images/file_0000000096dc71fdb39c708a3825610e.png" alt="Hand Wash">
-      <h3>Hand Wash</h3>
-      <p>Premium Quality</p>
-    </div>
-
-    <div class="card">
-      <img src="images/file_00000000b84071fbaac9fda59a7bf8a4.png" alt="Floor Cleaner">
-      <h3>Floor Cleaner</h3>
-      <p>Available in Multiple Sizes</p>
-    </div>
-
-    <div class="card">
-      <img src="images/file_00000000bf7871fa903fca71f9a7f776.png" alt="Toilet Cleaner">
-      <h3>Toilet Cleaner</h3>
-      <p>Industrial Grade</p>
-    </div>
-
-    <div class="card">
-      <img src="images/file_00000000c14872079f56a41ed3ad9065.png" alt="Glass Cleaner">
-      <h3>Glass Cleaner</h3>
-      <p>Streak Free Shine</p>
-    </div>
-
-    <div class="card">
-      <img src="images/file_00000000d86471fbacf11cb3631ae6b2.png" alt="Dish Wash">
-      <h3>Dish Wash</h3>
-      <p>High Cleaning Power</p>
-    </div>
-
-    <div class="card">
-      <img src="images/file_00000000e5c071fba068208d3e61afab.png" alt="Phenyl">
-      <h3>Phenyl</h3>
-      <p>Fresh Fragrance</p>
-    </div>
-
-  </div>
 </section>
 
-<section class="about">
-  <h2>About Us</h2>
-  <p>
-    Harshit Chemical Industry provides high-quality housekeeping chemicals,
-    room sprays, floor cleaners, car care products, and professional cleaning solutions.
-  </p>
+<section>
+    <div class="about">
+        <h2 class="section-title">About Us</h2>
+
+        <p style="line-height:1.8;font-size:17px;">
+            Harshit Chemical Industry is a trusted manufacturer and supplier of
+            cleaning chemicals and housekeeping products. We provide high-quality
+            solutions for homes, offices, hotels, hospitals, and industrial cleaning.
+            Our products are designed for effective cleaning, long-lasting performance,
+            and customer satisfaction.
+        </p>
+    </div>
 </section>
 
-<section class="contact">
-  <h2>Contact</h2>
-  <p>📞 +91 96305 67669</p>
-  <p>📍 Gwalior, Madhya Pradesh</p>
-  <a href="https://wa.me/919630567669" class="btn">Order on WhatsApp</a>
+<section>
+    <div class="contact">
+        <h2>Contact Us</h2>
+
+        <p><strong>Harshit Chemical Industry</strong></p>
+        <p>Phone / WhatsApp: +91 83599 06362</p>
+        <p>Email: harshitchemicalindustry@gmail.com</p>
+
+        <a class="whatsapp-btn"
+           href="https://wa.me/918359906362">
+           Send WhatsApp Message
+        </a>
+    </div>
 </section>
 
 <footer>
-  <p>© 2026 Harshit Chemical Industry. All Rights Reserved.</p>
+    © 2026 Harshit Chemical Industry. All Rights Reserved.
 </footer>
 
 </body>
