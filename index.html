@@ -14,15 +14,15 @@
 }
 
 body{
-    background:#f5f7fa;
+    background:#f4f7fb;
     color:#222;
 }
 
 header{
-    background:linear-gradient(135deg,#0b5ed7,#003b8e);
+    background:linear-gradient(135deg,#0047ab,#0b5ed7);
     color:white;
     text-align:center;
-    padding:60px 20px;
+    padding:70px 20px;
 }
 
 header h1{
@@ -31,19 +31,19 @@ header h1{
 }
 
 header p{
-    font-size:18px;
+    font-size:20px;
+    margin-bottom:25px;
 }
 
 .whatsapp-btn{
     display:inline-block;
-    margin-top:20px;
     background:#25D366;
     color:white;
-    padding:14px 30px;
-    border-radius:40px;
     text-decoration:none;
+    padding:16px 32px;
+    border-radius:50px;
+    font-size:20px;
     font-weight:bold;
-    font-size:18px;
 }
 
 section{
@@ -52,7 +52,7 @@ section{
 
 .section-title{
     text-align:center;
-    font-size:32px;
+    font-size:34px;
     color:#0b5ed7;
     margin-bottom:35px;
 }
@@ -67,7 +67,7 @@ section{
     background:white;
     border-radius:18px;
     overflow:hidden;
-    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    box-shadow:0 5px 18px rgba(0,0,0,0.12);
     transition:0.3s;
 }
 
@@ -77,47 +77,50 @@ section{
 
 .card img{
     width:100%;
-    height:200px;
+    height:220px;
     object-fit:cover;
+    display:block;
+}
+
+.card-content{
+    padding:18px;
 }
 
 .card h3{
-    padding:15px 15px 5px;
     color:#0b5ed7;
-}
-
-.card p{
-    padding:0 15px 15px;
+    margin-bottom:8px;
+    font-size:22px;
 }
 
 .about{
     background:white;
-    border-radius:20px;
-    padding:35px;
     max-width:1000px;
     margin:auto;
-    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 5px 18px rgba(0,0,0,0.08);
 }
 
 .contact{
     background:#0b5ed7;
     color:white;
-    text-align:center;
-    border-radius:20px;
-    padding:40px 20px;
     max-width:1000px;
     margin:auto;
+    padding:40px 20px;
+    border-radius:20px;
+    text-align:center;
 }
 
 .contact h2{
     margin-bottom:15px;
+    font-size:30px;
 }
 
 footer{
-    text-align:center;
-    padding:20px;
     background:#002b66;
     color:white;
+    text-align:center;
+    padding:20px;
     margin-top:40px;
 }
 
@@ -135,9 +138,8 @@ footer{
     <h1>Harshit Chemical Industry</h1>
     <p>Professional Cleaning Chemicals & Housekeeping Solutions</p>
 
-    <a class="whatsapp-btn"
-       href="https://wa.me/918359906362">
-       Order on WhatsApp
+    <a class="whatsapp-btn" href="https://wa.me/918359906362">
+        Order on WhatsApp
     </a>
 </header>
 
@@ -147,27 +149,35 @@ footer{
     <div class="products">
 
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600" alt="">
-            <h3>Room Spray</h3>
-            <p>250ml & 500ml</p>
+            <img src="https://picsum.photos/600/400?random=1">
+            <div class="card-content">
+                <h3>Room Spray</h3>
+                <p>250ml & 500ml</p>
+            </div>
         </div>
 
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=600" alt="">
-            <h3>Car Wash Shampoo</h3>
-            <p>500ml & 1L</p>
+            <img src="https://picsum.photos/600/400?random=2">
+            <div class="card-content">
+                <h3>Car Wash Shampoo</h3>
+                <p>500ml & 1L</p>
+            </div>
         </div>
 
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?w=600" alt="">
-            <h3>Carpet Shampoo</h3>
-            <p>250ml & 500ml</p>
+            <img src="https://picsum.photos/600/400?random=3">
+            <div class="card-content">
+                <h3>Carpet Shampoo</h3>
+                <p>250ml & 500ml</p>
+            </div>
         </div>
 
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1585421514738-01798e348b17?w=600" alt="">
-            <h3>Hard Spot Cleaner</h3>
-            <p>500ml & 1L</p>
+            <img src="https://picsum.photos/600/400?random=4">
+            <div class="card-content">
+                <h3>Hard Spot Cleaner</h3>
+                <p>500ml & 1L</p>
+            </div>
         </div>
 
     </div>
@@ -179,27 +189,35 @@ footer{
     <div class="products">
 
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=600" alt="">
-            <h3>Cleaning Brush</h3>
-            <p>Heavy Duty Quality</p>
+            <img src="https://picsum.photos/600/400?random=5">
+            <div class="card-content">
+                <h3>Cleaning Brush</h3>
+                <p>Heavy Duty Quality</p>
+            </div>
         </div>
 
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1603712725038-e9334ae8f39f?w=600" alt="">
-            <h3>Floor Wiper</h3>
-            <p>Strong Rubber Wiper</p>
+            <img src="https://picsum.photos/600/400?random=6">
+            <div class="card-content">
+                <h3>Floor Wiper</h3>
+                <p>Strong Rubber Wiper</p>
+            </div>
         </div>
 
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1585421514284-efb74c2b69ba?w=600" alt="">
-            <h3>Mop Set</h3>
-            <p>Premium Mop Handle</p>
+            <img src="https://picsum.photos/600/400?random=7">
+            <div class="card-content">
+                <h3>Mop Set</h3>
+                <p>Premium Mop Handle</p>
+            </div>
         </div>
 
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=600" alt="">
-            <h3>Dust Pan</h3>
-            <p>Industrial Quality</p>
+            <img src="https://picsum.photos/600/400?random=8">
+            <div class="card-content">
+                <h3>Dust Pan</h3>
+                <p>Industrial Quality</p>
+            </div>
         </div>
 
     </div>
@@ -227,9 +245,10 @@ footer{
         <p>Phone / WhatsApp: +91 83599 06362</p>
         <p>Email: harshitchemicalindustry@gmail.com</p>
 
-        <a class="whatsapp-btn"
-           href="https://wa.me/918359906362">
-           Send WhatsApp Message
+        <br>
+
+        <a class="whatsapp-btn" href="https://wa.me/918359906362">
+            Send WhatsApp Message
         </a>
     </div>
 </section>
