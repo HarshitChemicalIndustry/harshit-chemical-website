@@ -1,1 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Harshit Chemical Industry</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#f5f7fa;
+color:#333;
+}
+
+/* Header */
+
+header{
+background:#0d6efd;
+color:#fff;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 2px 10px rgba(0,0,0,.2);
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+}
+
+nav a{
+color:#fff;
+text-decoration:none;
+margin-left:25px;
+font-weight:bold;
+transition:.3s;
+}
+
+nav a:hover{
+color:yellow;
+}
+
+/* Hero */
+
+.hero{
+height:450px;
+background:url("images/banner.jpg") center center/cover no-repeat;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.hero-content{
+background:rgba(0,0,0,.55);
+padding:30px;
+border-radius:10px;
+color:#fff;
+}
+
+.hero h1{
+font-size:45px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:20px;
+margin-bottom:20px;
+}
+
+.btn{
+background:#ff9800;
+padding:14px 30px;
+border-radius:6px;
+text-decoration:none;
+color:#fff;
+font-weight:bold;
+display:inline-block;
+}
+
+.btn:hover{
+background:#e68900;
+}
+
+/* Search */
+
+.search-box{
+padding:25px;
+text-align:center;
+background:#fff;
+}
+
+.search-box input{
+width:90%;
+max-width:700px;
+padding:15px;
+font-size:18px;
+border:2px solid #0d6efd;
+border-radius:30px;
+outline:none;
+}
+
+/* Products */
+
+.products{
+padding:40px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+}
+
+.product{
+background:#fff;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 5px 18px rgba(0,0,0,.15);
+transition:.3s;
+}
+
+.product:hover{
+transform:translateY(-8px);
+}
+
+.product img{
+width:100%;
+height:240px;
+object-fit:cover;
+}
+
+.product h3{
+padding:15px;
+font-size:22px;
+}
+
+.product p{
+padding:0 15px 15px;
+font-size:
+  18px;
+color:#555;
+}
+
+.price{
+padding:0 15px;
+font-size:22px;
+font-weight:bold;
+color:#0d6efd;
+}
+
+.order-btn{
+display:block;
+margin:15px;
+text-align:center;
+background:#25D366;
+color:#fff;
+padding:12px;
+text-decoration:none;
+border-radius:6px;
+font-weight:bold;
+}
+
+.order-btn:hover{
+background:#1ebd59;
+}
+
+footer{
+background:#0d6efd;
+color:#fff;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+@media(max-width:768px){
+
+header{
+flex-direction:column;
+}
+
+nav{
+margin-top:10px;
+}
+
+.hero{
+height:300px;
+}
+
+.hero h1{
+font-size:30px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+Harshit Chemical Industry
+</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#products">Products</a>
+<a href="https://wa.me/919691865574">WhatsApp</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Professional Cleaning Products</h1>
+
+<p>Manufacturer of Housekeeping Chemicals & Cleaning Tools</p>
+
+<a href="#products" class="btn">
+View Products
+</a>
+
+</div>
+
+</section>
+
+<section class="search-box">
+
+<input
+type="text"
+id="search"
+placeholder="Search Product..."
+onkeyup="searchProduct()">
+
+</section>
+
+<section class="products" id="products">
+
+<div class="product">
+<img src="images/phenyl.jpg">
+<h3>White Phenyl</h3>
+<p>Premium Floor Cleaner</p>
+<div class="price">Contact For Price</div>
+<a class="order-btn" href="https://wa.me/919691865574">Order Now</a>
+</div>
+
+<div class="product">
+<img src="images/black_phenyl.jpg" onerror="this.src='images/phenyl.jpg'">
+<h3>Black Phenyl</h3>
+<p>Industrial Cleaning</p>
+<div class="price">Contact For Price</div>
+<a class="order-btn" href="https://wa.me/919691865574">Order Now</a>
+</div>
+
+<div class="product">
+<img src="images/room_spray.jpg">
+<h3>Room Spray</h3>
+<p>Fresh Fragrance</p>
+<div class="price">Contact For Price</div>
+<a class="order-btn" href="https://wa.me/919691865574">Order Now</a>
+</div>
+
+<div class="product">
+<img src="images/hand_wash.jpg">
+<h3>Hand Wash</h3>
+<p>Gentle Hand Cleaner</p>
+<div class="price">Contact For Price</div>
+<a class="order-btn" href="https://wa.me/919691865574">Order Now</a>
+</div>
+
+<div class="product">
+<img src="images/dish_wash.jpg">
+<h3>Dish Wash</h3>
+<p>Powerful Dish Cleaner</p>
+<div class="price">Contact For Price</div>
+<a class="order-btn" href="https://wa.me/919691865574">Order Now</a>
+</div>
+
+<div class="product">
+<img src="images/glass_cleaner.jpg">
+<h3>Glass Cleaner</h3>
+<p>Crystal Clear Shine</p>
+<div class="price">Contact For Price</div>
+<a class="order-btn" href="https://wa.me/919691865574">Order Now</a>
+</div>
+
+<div class="product">
+<img src="images/toilet_cleaner.jpg">
+<h3>Toilet Cleaner</h3>
+<p>Removes Tough Stains</p>
+<div class="price">Contact For Price</div>
+<a class="order-btn" href="https://wa.me/919691865574">Order Now</a>
+</div>
+
+<div class="product">
+<img src="images/tiles_cleaner.jpg">
+<h3>Tiles Cleaner</h3>
+<p>Floor & Tiles Care</p>
+<div class="price">Contact For Price</div>
+<a class="order-btn" href="https://wa.me/919691865574">Order Now</a>
+</div>
+  <div class="product">
+<img src="images/car_bike_shampoo.jpg" alt="Car Bike Shampoo">
+<h3>Car & Bike Shampoo</h3>
+<p>High Foam Vehicle Wash</p>
+<div class="price">Contact For Price</div>
+<a class="order-btn" href="https://wa.me/919999999999">Order Now</a>
+</div>
+
+<div class="product">
+<img src="images/carpet_shampoo.jpg" alt="Carpet Shampoo">
+<h3>Carpet Shampoo</h3>
+<p>Deep Carpet Cleaning</p>
+<div class="price">Contact For Price</div>
+<a class="order-btn" href="https://wa.me/919999999999">Order Now</a>
+</div>
+
+<div class="product">
+<img src="images/hardspot_cleaner.jpg" alt="Hard Spot Cleaner">
+<h3>Hard Spot Cleaner</h3>
+<p>Removes Tough Marks</p>
+<div class="price">Contact For Price</div>
+<a class="order-btn" href="https://wa.me/919999999999">Order Now</a>
+</div>
+
+<div class="product">
+<img src="images/broom.jpg" alt="Broom">
+<h3>Broom</h3>
+<p>Heavy Duty Cleaning Broom</p>
+<div class="price">Contact For Price</div>
+<a class="order-btn" href="https://wa.me/919999999999">Order Now</a>
+</div>
+
+<div class="product">
+<img src="images/stick_broom.jpg" alt="Stick Broom">
+<h3>Stick Broom</h3>
+<p>Premium Stick Broom</p>
+<div class="price">Contact For Price</div>
+<a class="order-btn" href="https://wa.me/919999999999">Order Now</a>
+</div>
+
+<div class="product">
+<img src="images/bucket.jpg" alt="Bucket">
+<h3>Cleaning Bucket</h3>
+<p>Strong Plastic Bucket</p>
+<div class="price">Contact For Price</div>
+<a class="order-btn" href="https://wa.me/919999999999">Order Now</a>
+</div>
+
+<div class="product">
+<img src="images/cotton_mop.jpg" alt="Cotton Mop">
+<h3>Cotton Mop</h3>
+<p>Super Absorbent Mop</p>
+<div class="price">Contact For Price</div>
+<a class="order-btn" href="https://wa.me/919999999999">Order Now</a>
+</div>
+
+<div class="product">
+<img src="images/floor_brush.png" alt="Floor Brush">
+<h3>Floor Brush</h3>
+<p>Heavy Duty Floor Brush</p>
+<div class="price">Contact For Price</div>
+<a class="order-btn" href="https://wa.me/919999999999">Order Now</a>
+</div>
+
+<div class="product">
+<img src="images/floor_squeegee.jpg" alt="Floor Squeegee">
+<h3>Floor Squeegee</h3>
+<p>Water Removing Wiper</p>
+<div class="price">Contact For Price</div>
+<a class="order-btn" href="https://wa.me/919999999999">Order Now</a>
+</div>
+
+<div class="product">
+<img src="images/window_wiper.jpg" alt="Window Wiper">
+<h3>Window Wiper</h3>
+<p>Glass Cleaning Tool</p>
+<div class="price">Contact For Price</div>
+<a class="order-btn" href="https://wa.me/919999999999">Order Now</a>
+</div>
+
+<div class="product">
+<img src="images/squeegee.jpg" alt="Squeegee">
+<h3>Squeegee</h3>
+<p>Professional Glass Cleaner</p>
+<div class="price">Contact For Price</div>
+<a class="order-btn" href="https://wa.me/919691865574">Order Now</a>
+</div>
+
+<div class="product">
+<img src="images/duster.png" alt="Duster">
+<h3>Duster</h3>
+<p>Soft Dust Cleaning Tool</p>
+<div class="price">Contact For Price</div>
+<a class="order-btn" href="https://wa.me/919691865574">Order Now</a>
+  </div>
+  <div class="product">
+<img src="images/feather_duster.jpg" alt="Feather Duster">
+<h3>Feather Duster</h3>
+<p>Soft Feather Dust Cleaner</p>
+<div class="price">Contact For Price</div>
+<a class="order-btn" href="https://wa.me/919691865574">Order Now</a>
+</div>
+
+<div class="product">
+<img src="images/microfiber_duster.jpg" alt="Microfiber Duster">
+<h3>Microfiber Duster</h3>
+<p>Premium Dust Cleaning</p>
+<div class="price">Contact For Price</div>
+<a class="order-btn" href="https://wa.me/919691865574">Order Now</a>
+</div>
+
+<div class="product">
+<img src="images/microfiber_cloth.jpg" alt="Microfiber Cloth">
+<h3>Microfiber Cloth</h3>
+<p>Lint Free Cleaning Cloth</p>
+<div class="price">Contact For Price</div>
+<a class="order-btn" href="https://wa.me/919691865574">Order Now</a>
+</div>
+
+<div class="product">
+<img src="images/dust_cloth.jpg" alt="Dust Cloth">
+<h3>Dust Cloth</h3>
+<p>Multipurpose Cleaning Cloth</p>
+<div class="price">Contact For Price</div>
+<a class="order-btn" href="https://wa.me/919691865574">Order Now</a>
+</div>
+
+<div class="product">
+<img src="images/scrubber_pad.jpg" alt="Scrubber Pad">
+<h3>Scrubber Pad</h3>
+<p>Heavy Duty Scrubbing Pad</p>
+<div class="price">Contact For Price</div>
+<a class="order-btn" href="https://wa.me/919691865574">Order Now</a>
+</div>
+
+<div class="product">
+<img src="images/gloves.png" alt="Gloves">
+<h3>Cleaning Gloves</h3>
+<p>Reusable Rubber Gloves</p>
+<div class="price">Contact For Price</div>
+<a class="order-btn" href="https://wa.me/919691865574">Order Now</a>
+</div>
+
+<div class="product">
+<img src="images/dust_pan.jpg
+  
+  
