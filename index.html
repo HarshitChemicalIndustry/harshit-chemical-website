@@ -322,7 +322,7 @@ onkeyup="searchProduct()">
 <h3>Car & Bike Shampoo</h3>
 <p>High Foam Vehicle Wash</p>
 <div class="price">Contact For Price</div>
-<a class="order-btn" href="https://wa.me/919999999999">Order Now</a>
+<a class="order-btn" href="https://wa.me/919691865574">Order Now</a>
 </div>
 
 <div class="product">
@@ -330,7 +330,7 @@ onkeyup="searchProduct()">
 <h3>Carpet Shampoo</h3>
 <p>Deep Carpet Cleaning</p>
 <div class="price">Contact For Price</div>
-<a class="order-btn" href="https://wa.me/919999999999">Order Now</a>
+<a class="order-btn" href="https://wa.me/919691865574">Order Now</a>
 </div>
 
 <div class="product">
@@ -338,7 +338,7 @@ onkeyup="searchProduct()">
 <h3>Hard Spot Cleaner</h3>
 <p>Removes Tough Marks</p>
 <div class="price">Contact For Price</div>
-<a class="order-btn" href="https://wa.me/919999999999">Order Now</a>
+<a class="order-btn" href="https://wa.me/919691865574">Order Now</a>
 </div>
 
 <div class="product">
@@ -346,7 +346,7 @@ onkeyup="searchProduct()">
 <h3>Broom</h3>
 <p>Heavy Duty Cleaning Broom</p>
 <div class="price">Contact For Price</div>
-<a class="order-btn" href="https://wa.me/919999999999">Order Now</a>
+<a class="order-btn" href="https://wa.me/919691865574">Order Now</a>
 </div>
 
 <div class="product">
@@ -354,7 +354,7 @@ onkeyup="searchProduct()">
 <h3>Stick Broom</h3>
 <p>Premium Stick Broom</p>
 <div class="price">Contact For Price</div>
-<a class="order-btn" href="https://wa.me/919999999999">Order Now</a>
+<a class="order-btn" href="https://wa.me/919691865574">Order Now</a>
 </div>
 
 <div class="product">
@@ -362,7 +362,7 @@ onkeyup="searchProduct()">
 <h3>Cleaning Bucket</h3>
 <p>Strong Plastic Bucket</p>
 <div class="price">Contact For Price</div>
-<a class="order-btn" href="https://wa.me/919999999999">Order Now</a>
+<a class="order-btn" href="https://wa.me/919691865574">Order Now</a>
 </div>
 
 <div class="product">
@@ -370,7 +370,7 @@ onkeyup="searchProduct()">
 <h3>Cotton Mop</h3>
 <p>Super Absorbent Mop</p>
 <div class="price">Contact For Price</div>
-<a class="order-btn" href="https://wa.me/919999999999">Order Now</a>
+<a class="order-btn" href="https://wa.me/919691865574">Order Now</a>
 </div>
 
 <div class="product">
@@ -378,7 +378,7 @@ onkeyup="searchProduct()">
 <h3>Floor Brush</h3>
 <p>Heavy Duty Floor Brush</p>
 <div class="price">Contact For Price</div>
-<a class="order-btn" href="https://wa.me/919999999999">Order Now</a>
+<a class="order-btn" href="https://wa.me/919691865574">Order Now</a>
 </div>
 
 <div class="product">
@@ -386,7 +386,7 @@ onkeyup="searchProduct()">
 <h3>Floor Squeegee</h3>
 <p>Water Removing Wiper</p>
 <div class="price">Contact For Price</div>
-<a class="order-btn" href="https://wa.me/919999999999">Order Now</a>
+<a class="order-btn" href="https://wa.me/919691865574">Order Now</a>
 </div>
 
 <div class="product">
@@ -394,7 +394,7 @@ onkeyup="searchProduct()">
 <h3>Window Wiper</h3>
 <p>Glass Cleaning Tool</p>
 <div class="price">Contact For Price</div>
-<a class="order-btn" href="https://wa.me/919999999999">Order Now</a>
+<a class="order-btn" href="https://wa.me/919691865574">Order Now</a>
 </div>
 
 <div class="product">
@@ -462,5 +462,71 @@ onkeyup="searchProduct()">
 
 <div class="product">
 <img src="images/dust_pan.jpg
+  </section>
+
+<footer>
+<h2>Harshit Chemical Industry</h2>
+<p>Manufacturer of Housekeeping Chemicals & Cleaning Tools</p>
+
+<p>📞 Call / WhatsApp: <b>9691865574</b></p>
+
+<p>
+Address : Your Address Here
+</p>
+
+<p>
+© 2026 Harshit Chemical Industry. All Rights Reserved.
+</p>
+
+</footer>
+
+<script>
+
+function searchProduct(){
+
+let input=document.getElementById("search").value.toLowerCase();
+
+let product=document.getElementsByClassName("product");
+
+for(let i=0;i<product.length;i++){
+
+let title=product[i].getElementsByTagName("h3")[0];
+
+if(title.innerHTML.toLowerCase().indexOf(input)>-1){
+
+product[i].style.display="block";
+
+}else{
+
+product[i].style.display="none";
+
+}
+
+}
+
+}
+
+</script>
+
+<a href="https://wa.me/919691865574"
+style="
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px 18px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+font-size:18px;
+box-shadow:0 5px 15px rgba(0,0,0,.3);
+z-index:9999;
+">
+💬 WhatsApp
+</a>
+
+</body>
+</html>
   
   
