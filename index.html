@@ -6,742 +6,310 @@
 
 <title>Harshit Chemical Industry</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
-
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+font-family:Arial, sans-serif;
 }
 
 body{
-background:#f4f7fb;
+background:#f5f7fa;
 color:#222;
 }
 
 header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-background:#0d47a1;
+background:#0b5ed7;
+padding:15px 5%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px 8%;
-box-shadow:0 5px 15px rgba(0,0,0,.2);
-z-index:999;
+color:white;
 }
 
 .logo{
-font-size:28px;
-font-weight:700;
-color:#fff;
-}
-
-.logo span{
-color:#ffcc00;
+font-size:22px;
+font-weight:bold;
 }
 
 nav a{
+color:white;
 text-decoration:none;
-color:#fff;
-margin-left:25px;
-font-weight:500;
-transition:.3s;
-}
-
-nav a:hover{
-color:#ffcc00;
+margin-left:15px;
 }
 
 .hero{
-margin-top:75px;
-height:450px;
-background:url("images/banner.jpg") center center/cover no-repeat;
-position:relative;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-}
-
-.hero::before{
-content:"";
-position:absolute;
-left:0;
-top:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.55);
-}
-
-.hero-content{
-position:relative;
-z-index:2;
-color:#
-  .product-card{
-background:#fff;
-border-radius:20px;
-overflow:hidden;
-box-shadow:0 10px 30px rgba(0,0,0,.12);
-transition:.4s;
-}
-
-.product-card:hover{
-transform:translateY(-10px);
-box-shadow:0 18px 40px rgba(0,0,0,.2);
-}
-
-.product-card img{
-width:100%;
-height:240px;
-object-fit:cover;
-}
-
-.product-info{
-padding:20px;
-text-align:center;
-}
-
-.product-info h3{
-font-size:22px;
-margin-bottom:10px;
-color:#0d47a1;
-}
-
-.product-info p{
-font-size:15px;
-color:#666;
-margin-bottom:15px;
-}
-
-.price{
-font-size:24px;
-font-weight:bold;
-color:#ff5722;
-margin-bottom:15px;
-}
-
-.whatsapp-btn{
-display:inline-block;
-background:#25D366;
-color:#fff;
-padding:12px 25px;
-border-radius:40px;
-text-decoration:none;
-font-weight:600;
-transition:.3s;
-}
-
-.whatsapp-btn:hover{
-background:#128C7E;
-}
-
-footer{
-background:#0d47a1;
-color:#fff;
-text-align:center;
-padding:35px 20px;
-margin-top:50px;
-}
-
-footer p{
-margin:8px 0;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-</style>
-</head>
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/919691865574" class="floating-whatsapp" target="_blank">
-💬
-</a>
-
-<!-- Back To Top -->
-<button onclick="topFunction()" id="topBtn">↑</button>
-
-<style>
-
-.floating-whatsapp{
-position:fixed;
-right:20px;
-bottom:20px;
-width:60px;
-height:60px;
-background:#25D366;
-color:#fff;
-border-radius:50%;
+min-height:420px;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:30px;
-text-decoration:none;
-box-shadow:0 8px 20px rgba(0,0,0,.3);
-z-index:9999;
-transition:.3s;
-}
-
-.floating-whatsapp:hover{
-transform:scale(1.1);
-}
-
-#topBtn{
-display:none;
-position:fixed;
-bottom:95px;
-right:20px;
-width:50px;
-height:50px;
-border:none;
-border-radius:50%;
-background:#0d47a1;
-color:#fff;
-font-size:22px;
-cursor:pointer;
-box-shadow:0 8px 20px rgba(0,0,0,.3);
-z-index:9999;
-}
-
-#topBtn:hover{
-background:#ff9800;
-}
-
-</style>
-
-<script>
-
-let topbutton=document.getElementById("topBtn");
-
-window.onscroll=function(){
-
-if(document.body.scrollTop>300||document.documentElement.scrollTop>300){
-topbutton.style.display="block";
-}else{
-topbutton.style.display="none";
-}
-
-}
-
-function topFunction(){
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-}
-<!-- Firebase Order System -->
-
-<script type="module">
-
-import { initializeApp } from 
-"https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-
-import { getDatabase, ref, push }
-from 
-"https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
-
-
-const firebaseConfig = {
-
-apiKey: "YOUR_API_KEY",
-
-authDomain: "YOUR_PROJECT.firebaseapp.com",
-
-databaseURL: "YOUR_DATABASE_URL",
-
-projectId: "YOUR_PROJECT_ID",
-
-storageBucket: "YOUR_PROJECT.appspot.com",
-
-messagingSenderId: "YOUR_SENDER_ID",
-
-appId: "YOUR_APP_ID"
-
-};
-
-
-const app = initializeApp(firebaseConfig);
-
-const db = getDatabase(app);
-
-
-
-window.saveOrder=function(){
-
-let name=document.getElementById("custName").value;
-
-let mobile=document.getElementById("custMobile").value;
-
-let address=document.getElementById("custAddress").value;
-
-
-push(ref(db,"orders"),{
-
-name:name,
-
-mobile:mobile,
-
-address:address,
-
-cart:cart,
-
-date:new Date().toString()
-
-});
-
-
-alert("Order Successfully Placed ✅");
-
-}
-
-
-</script>
-</script>
-<body>
-
-<header>
-
-<div class="logo">
-Harshit <span>Chemical</span>
-</div>
-
-<nav>
-<a href="#">Home</a>
-<a href="#products">Products</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-</nav>
-
-</header>
-
-<section class="hero">
-
-<div class="hero-content">
-
-<h1>Premium Cleaning Products</h1>
-
-<p>Housekeeping Chemicals, Cleaning Tools & Industrial Solutions</p>
-
-<a href="#products" class="btn">Shop Now</a>
-
-</div>
-
-</section>
-
-<h2 class="section-title" id="products">
-Our Products
-</h2>
-
-<div class="products">
-  <div class="product-card">
-    <img src="images/broom.jpg" alt="Broom">
-    <div class="product-info">
-        <h3>Cleaning Broom</h3>
-        <p>High Quality Floor Cleaning Broom</p>
-        <div class="price">Best Price</div>
-        <a class="whatsapp-btn" href="https://wa.me/919691865574">Order Now</a>
-    </div>
-</div>
-
-<div class="product-card">
-    <img src="images/bucket.jpg" alt="Bucket">
-    <div class="product-info">
-        <h3>Cleaning Bucket</h3>
-        <p>Heavy Duty Plastic Bucket</p>
-        <div class="price">Best Price</div>
-        <a class="whatsapp-btn" href="https://wa.me/919691865574">Order Now</a>
-    </div>
-</div>
-
-<div class="product-card">
-    <img src="images/car_bike_shampoo.jpg" alt="Car Shampoo">
-    <div class="product-info">
-        <h3>Car & Bike Shampoo</h3>
-        <p>Premium Foam Wash</p>
-        <div class="price">₹250</div>
-        <a class="whatsapp-btn" href="https://
-          <div class="product-card">
-    <img src="images/hardspot_cleaner.jpg" alt="Hard Spot Cleaner">
-    <div class="product-info">
-        <h3>Hard Spot Cleaner</h3>
-        <p>Removes Tough Stains Easily</p>
-        <div class="price">₹150</div>
-        <a href="https://wa.me/919691865574" class="whatsapp-btn">Order Now</a>
-    </div>
-</div>
-
-<div class="product-card">
-    <img src="images/dustbin_large.jpg" alt="Large Dustbin">
-    <div class="product-info">
-        <h3>Large Dustbin</h3>
-        <p>Heavy Duty Waste Bin</p>
-        <div class="price">Best Price</div>
-        <a href="https://wa.me/919691865574" class="whatsapp-btn">Order Now</a>
-    </div>
-</div>
-
-<div class="product-card">
-    <img src="images/dustbin_small.jpg" alt="Small Dustbin">
-    <div class="product-info">
-        <h3>Small Dustbin</h3>
-        <p>Strong Plastic Dustbin</p>
-        <div class="price">Best Price</div>
-        <a href="https://wa.me/919691865574" class="whatsapp-btn">Order Now</a>
-    </div>
-</div>
-
-<div class="product-card">
-    <img src="images/gloves.png.jpg" alt="Gloves">
-    <div class="product-info">
-        <h3>Cleaning Gloves</h3>
-        <p>Comfortable & Durable</p>
-        <div class="price">Best Price</div>
-        <a href="https://wa.me/919691865574" class="whatsapp-btn">Order Now</a>
-    </div>
-</div>
-
-<div class="product-card">
-    <img src="images/garbage_bag.jpg" alt="Garbage Bag">
-    <div class="product-info">
-        <h3>Garbage Bags</h
-                          <!-- Part 6 : Products Section Continue -->
-
-<section class="products" id="products">
-<h2>Our Cleaning Products</h2>
-
-<div class="product-grid">
-
-<div class="card">
-<img src="images/hand_wash.jpg" alt="Hand Wash">
-<h3>Hand Wash</h3>
-<p>Premium Quality Hand Wash</p>
-<h4>₹120</h4>
-<a href="https://wa.me/919691865574?text=I%20want%20Hand%20Wash" class="btn">Order Now</a>
-</div>
-
-<div class="card">
-<img src="images/dish_wash.jpg" alt="Dish Wash">
-<h3>Dish Wash</h3>
-<p>Strong Grease Cleaner</p>
-<h4>₹150</h4>
-<a href="https://wa.me/919691865574?text=I%20want%20Dish%20Wash" class="btn">Order Now</a>
-</div>
-
-<div class="card">
-<img src="images/car_bike_shampoo.jpg" alt="Car Shampoo">
-<h3>Car & Bike Shampoo</h3>
-<p>Deep Cleaning Formula</p>
-<h4>₹250</h4>
-<a href="https://wa.me/919691865574?text=I%20want%20Car%20Shampoo" class="btn">Order Now</a>
-</div>
-
-<div class="card">
-<img src="images/carpet_shampoo.jpg" alt="Carpet Shampoo">
-<h3>Carpet Shampoo</h3>
-<p>Professional Carpet Cleaner</p>
-<h4>₹180</h4>
-<a href="https://wa.me/919691865574?text=I%20want%20Carpet%20Shampoo" class="btn">Order Now</a>
-</div>
-
-</div>
-</section>
-<!-- Part 7 : Contact & Footer -->
-
-<section class="contact" id="contact">
-
-<h2>Contact Us</h2>
-
-<p><b>Harshit Chemical Industry</b></p>
-<p>Quality Cleaning Products Manufacturer</p>
-
-<p>📞 Call / WhatsApp: 9691865574</p>
-
-<a href="https://wa.me/919691865574" class="btn">
-Chat on WhatsApp
-</a>
-
-</section>
-
-
-<footer>
-
-<h3>Harshit Chemical Industry</h3>
-
-<p>Premium Cleaning & Housekeeping Products</p>
-
-<p>© 2026 Harshit Chemical Industry. All Rights Reserved.</p>
-
-</footer>
-
-
-<style>
-<!-- Checkout Form -->
-
-<div id="checkout-form" style="display:none;">
-
-<h2>Delivery Details</h2>
-
-<input id="custName" type="text" placeholder="Your Name">
-
-<br><br>
-
-<input id="custMobile" type="number" placeholder="Mobile Number">
-
-<br><br>
-
-<textarea id="custAddress" placeholder="Full Address"></textarea>
-
-<br><br>
-
-<button class="btn" onclick="confirmOrder()">
-✅ Confirm Order
-</button>
-
-</div>
-
-
-<script>
-
-function checkout(){
-
-if(cart.length==0){
-
-alert("Cart is empty");
-return;
-
-}
-
-document.getElementById("checkout-form").style.display="block";
-
-}
-
-
-function confirmOrder(){
-
-let name=document.getElementById("custName").value;
-
-let mobile=document.getElementById("custMobile").value;
-
-let address=document.getElementById("custAddress").value;
-
-
-if(name=="" || mobile=="" || address==""){
-
-alert("Please fill all details");
-
-return;
-
-}
-
-
-alert(
-"🎉 Order Confirmed\n\n"+
-"Name: "+name+
-"\nMobile: "+mobile+
-"\nAddress: "+address+
-"\n\nThank You for Shopping!"
-);
-
-
-}
-
-</script>
-body{
-margin:0;
-font-family:Arial, sans-serif;
-background:#f5f7fb;
-}
-
-h2{
 text-align:center;
-color:#0b3d91;
+padding:40px 20px;
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url("images/banner.jpg");
+background-size:cover;
+background-position:center;
+color:white;
 }
 
-.products{
-padding:30px;
+.hero h1{
+font-size:42px;
+margin-bottom:15px;
 }
 
-.product-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-}
-
-.card{
-background:white;
-padding:15px;
-border-radius:15px;
-text-align:center;
-box-shadow:0 5px 15px #ccc;
-}
-
-.card img{
-width:100%;
-height:180px;
-object-fit:contain;
-border-radius:10px;
-}
-
-.card h3{
-color:#0b3d91;
-}
-
-.card h4{
-font-size:22px;
-color:green;
+.hero p{
+font-size:20px;
+margin-bottom:25px;
 }
 
 .btn{
-display:inline-block;
-background:#0b3d91;
-color:white;
-padding:10px 20px;
-border-radius:25px;
+background:#ffb000;
+color:#000;
+padding:14px 30px;
+border-radius:30px;
 text-decoration:none;
-margin-top:10px;
+font-weight:bold;
 }
-
-
-.contact{
-text-align:center;
-background:white;
-padding:30px;
-margin-top:20px;
-}
-
-
-footer{
-background:#0b3d91;
-color:white;
-text-align:center;
-padding:25px;
-margin-top:20px;
-}
-
-</style>
-<!-- Part 8 : Mobile Responsive & Animation -->
-
-<style>
 
 @media(max-width:600px){
 
 header{
-padding:15px;
-}
-
-.logo{
-font-size:22px;
+flex-direction:column;
+gap:10px;
 }
 
 .hero h1{
-font-size:28px;
+font-size:30px;
 }
 
 .hero p{
 font-size:16px;
 }
 
-.product-grid{
-grid-template-columns:repeat(2,1fr);
-gap:12px;
-}
-
-.card{
-padding:10px;
-}
-
-.card img{
-height:130px;
-}
-
-.card h3{
-font-size:16px;
-}
-
-.card h4{
-font-size:18px;
-}
-
-.btn{
-padding:8px 15px;
-font-size:14px;
-}
-
-}
-
-
-.card{
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-8px);
-}
-
-
-.hero{
-background:linear-gradient(135deg,#0b3d91,#00a8ff);
-color:white;
-padding:60px 20px;
-text-align:center;
-border-radius:0 0 30px 30px;
-}
-
-
-.hero h1{
-font-size:42px;
-animation:slide 1s;
-}
-
-
-@keyframes slide{
-
-from{
-opacity:0;
-transform:translateY(-30px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
-
-section{
-animation:fade 1s;
-}
-
-
-@keyframes fade{
-
-from{
-opacity:0;
-}
-
-to{
-opacity:1;
-}
-
 }
 
 </style>
-<!-- Part 9 : Add To Cart System -->
+</head>
 
-<div id="cart-box">
-<h2>🛒 Your Cart</h2>
-<div id="cart-items"></div>
+<body>
 
-<h3>Total: ₹<span id="total">0</span></h3>
+<header>
 
-<button onclick="checkout()" class="btn">
+<div class="logo">
+Harshit Chemical Industry
+</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Products</a>
+<a href="#">Contact</a>
+</nav>
+
+</header>
+
+
+<section class="hero">
+
+<div>
+
+<h1>Premium Cleaning Products</h1>
+
+<p>
+Quality Chemicals & Housekeeping Solutions
+</p>
+
+<a class="btn" href="#products">
+Shop Now
+</a>
+
+</div>
+
+</section>
+<section id="products">
+
+<h2 style="text-align:center;margin:40px 0 20px;">
+Our Products
+</h2>
+
+<div class="products">
+
+
+<div class="card">
+
+<img src="images/car_bike_shampoo.jpg">
+
+<h3>Car & Bike Shampoo</h3>
+
+<p>500 ml - ₹250</p>
+
+<button>
+Add to Cart
+</button>
+
+<button class="order">
+Direct Order
+</button>
+
+</div>
+
+
+
+<div class="card">
+
+<img src="images/dish_wash.jpg">
+
+<h3>Dish Wash</h3>
+
+<p>500 ml - ₹120</p>
+
+<button>
+Add to Cart
+</button>
+
+<button class="order">
+Direct Order
+</button>
+
+</div>
+
+
+
+<div class="card">
+
+<img src="images/hand_wash.jpg">
+
+<h3>Hand Wash</h3>
+
+<p>500 ml - ₹150</p>
+
+<button>
+Add to Cart
+</button>
+
+<button class="order">
+Direct Order
+</button>
+
+</div>
+
+
+
+<div class="card">
+
+<img src="images/carpet_shampoo.jpg">
+
+<h3>Carpet Shampoo</h3>
+
+<p>500 ml - ₹180</p>
+
+<button>
+Add to Cart
+</button>
+
+<button class="order">
+Direct Order
+</button>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<style>
+
+.products{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+padding:20px 5%;
+
+}
+
+
+.card{
+
+background:white;
+padding:15px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+text-align:center;
+
+}
+
+
+.card img{
+
+width:100%;
+height:200px;
+object-fit:contain;
+border-radius:10px;
+
+}
+
+
+.card h3{
+
+margin:15px 0 8px;
+
+}
+
+
+.card button{
+
+border:none;
+background:#0b5ed7;
+color:white;
+padding:10px 15px;
+border-radius:20px;
+margin:5px;
+cursor:pointer;
+
+}
+
+
+.card .order{
+
+background:#28a745;
+
+}
+
+
+</style>
+<section class="features">
+
+<div>
+<h3>🚚 Fast Delivery</h3>
+<p>पूरे भारत में डिलीवरी</p>
+</div>
+
+<div>
+<h3>💳 Easy Payment</h3>
+<p>UPI & Online Payment Available</p>
+</div>
+
+<div>
+<h3>✅ Quality Products</h3>
+<p>Premium Cleaning Solutions</p>
+</div>
+
+</section>
+
+
+<div class="cart-box">
+
+<h2>Your Cart</h2>
+
+<p id="cartCount">
+Cart is empty
+</p>
+
+<button onclick="orderNow()">
 Place Order
 </button>
 
@@ -752,85 +320,215 @@ Place Order
 
 let cart=[];
 
-function addToCart(name,price){
 
-cart.push({
-name:name,
-price:price
-});
+function addToCart(product){
 
-showCart();
+cart.push(product);
 
-}
-
-
-function showCart(){
-
-let items="";
-
-let total=0;
-
-cart.forEach((item,index)=>{
-
-items += `
-<p>
-${item.name} - ₹${item.price}
-<button onclick="removeItem(${index})">
-❌
-</button>
-</p>
-`;
-
-total += item.price;
-
-});
-
-
-document.getElementById("cart-items").innerHTML=items;
-
-document.getElementById("total").innerHTML=total;
+document.getElementById("cartCount").innerHTML =
+cart.length+" Product Added";
 
 }
 
 
-
-function removeItem(index){
-
-cart.splice(index,1);
-
-showCart();
-
-}
-
-
-function checkout(){
+function orderNow(){
 
 if(cart.length==0){
 
-alert("Cart is empty");
+alert("Please add product first");
 
-return;
+}
+
+else{
+
+alert("Order request received");
+
+}
+
+}
+
+</script>
+
+
+<style>
+
+.features{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+padding:40px 5%;
+text-align:center;
 
 }
 
 
-let name=prompt("Enter Your Name");
+.features div{
 
-let mobile=prompt("Enter Mobile Number");
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 4px 12px rgba(0,0,0,.1);
 
-let address=prompt("Enter Delivery Address");
+}
 
 
-alert(
-"Order Received\n\nName: "+
-name+
-"\nMobile: "+
-mobile+
-"\nAddress: "+
-address+
-"\n\nThank You!"
-);
+.cart-box{
 
+margin:20px 5%;
+background:white;
+padding:25px;
+border-radius:15px;
+text-align:center;
+
+}
+
+
+.cart-box button{
+
+background:#ff9800;
+border:none;
+padding:12px 30px;
+border-radius:25px;
+font-weight:bold;
+
+}
+
+</style>
+<footer>
+
+<h2>
+Harshit Chemical Industry
+</h2>
+
+<p>
+Premium Cleaning Chemicals & Housekeeping Products
+</p>
+
+<p>
+📞 Contact: 9691865574
+</p>
+
+<p>
+© 2026 Harshit Chemical Industry. All Rights Reserved.
+</p>
+
+</footer>
+
+
+<style>
+
+footer{
+
+background:#0b5ed7;
+color:white;
+text-align:center;
+padding:35px 15px;
+margin-top:40px;
+
+}
+
+
+footer h2{
+
+margin-bottom:10px;
+
+}
+
+
+</style>
+
+
+</body>
+</html>
+<section class="checkout">
+
+<h2>Place Your Order</h2>
+
+<input type="text" placeholder="Your Name" id="name">
+
+<input type="number" placeholder="Mobile Number" id="mobile">
+
+<textarea placeholder="Full Address" id="address"></textarea>
+
+<button onclick="submitOrder()">
+Submit Order
+</button>
+
+<p id="msg"></p>
+
+</section>
+
+
+<style>
+
+.checkout{
+
+background:white;
+margin:30px 5%;
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+text-align:center;
+
+}
+
+
+.checkout input,
+.checkout textarea{
+
+width:90%;
+padding:12px;
+margin:10px;
+border:1px solid #ccc;
+border-radius:8px;
+
+}
+
+
+.checkout textarea{
+
+height:100px;
+
+}
+
+
+.checkout button{
+
+background:#0b5ed7;
+color:white;
+border:none;
+padding:12px 30px;
+border-radius:25px;
+font-weight:bold;
+
+}
+
+</style>
+
+
+<script>
+
+function submitOrder(){
+
+let name=document.getElementById("name").value;
+let mobile=document.getElementById("mobile").value;
+let address=document.getElementById("address").value;
+
+
+if(name=="" || mobile=="" || address==""){
+
+document.getElementById("msg").innerHTML=
+"Please fill all details";
+
+}
+
+else{
+
+document.getElementById("msg").innerHTML=
+"Order Submitted Successfully!";
+
+}
 
 }
 
