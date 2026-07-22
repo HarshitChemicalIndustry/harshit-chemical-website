@@ -396,3 +396,43 @@ date:new Date().toLocaleString()
 saveOrder(newOrder);
 
 }
+// ==========================
+// Firebase Setup
+// ==========================
+
+// Firebase config यहाँ आएगा
+
+const firebaseConfig = {
+
+apiKey: "YOUR_API_KEY",
+
+authDomain: "YOUR_PROJECT.firebaseapp.com",
+
+databaseURL: "YOUR_DATABASE_URL",
+
+projectId: "YOUR_PROJECT_ID",
+
+storageBucket: "YOUR_BUCKET",
+
+messagingSenderId: "YOUR_SENDER_ID",
+
+appId: "YOUR_APP_ID"
+
+};
+
+
+// Firebase Initialize
+
+firebase.initializeApp(firebaseConfig);
+
+
+const database = firebase.database();
+
+
+// Save Online Order
+
+function saveOnlineOrder(order){
+
+database.ref("orders").push(order);
+
+}
