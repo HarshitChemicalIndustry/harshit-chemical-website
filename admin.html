@@ -1,1 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Harshit Chemical Admin</title>
+
+<style>
+
+body{
+font-family:Arial,sans-serif;
+background:#f5f7fb;
+padding:20px;
+}
+
+h1{
+text-align:center;
+color:#0a7f38;
+}
+
+.order-box{
+
+background:#fff;
+padding:20px;
+margin:20px auto;
+max-width:700px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,.1);
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<h1>Harshit Chemical Orders</h1>
+
+
+<div id="orders"></div>
+
+
+<script>
+
+let orders =
+JSON.parse(localStorage.getItem("orders"))
+|| [];
+
+
+let box =
+document.getElementById("orders");
+
+
+if(orders.length==0){
+
+box.innerHTML =
+"<h3>No Orders Available</h3>";
+
+}
+
+
+orders.forEach(order=>{
+
+
+box.innerHTML += `
+
+<div class="order-box">
+
+<h3>${order.product}</h3>
+
+<p>Name: ${order.customer}</p>
+
+<p>Mobile: ${order.mobile}</p>
+
+<p>Quantity: ${order.quantity}</p>
+
+<p>Date: ${order.date}</p>
+
+</div>
+
+`;
+
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>
