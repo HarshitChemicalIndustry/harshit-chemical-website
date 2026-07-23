@@ -1,470 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>Harshit Chemical Industry</title>
 
-<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" 
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<style>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
 
-</head>
+html{
+scroll-behavior:smooth;
+}
 
+body{
+background:#f3f5f9;
+color:#222;
+overflow-x:hidden;
+}
 
-<body>
+a{
+text-decoration:none;
+color:inherit;
+}
 
+img{
+display:block;
+max-width:100%;
+}
 
-<!-- Header -->
+header{
 
-<header class="top-header">
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:75px;
 
-<div class="logo">
+display:flex;
+justify-content:space-between;
+align-items:center;
 
-<h2>Harshit</h2>
-<span>Chemical Industry</span>
+padding:0 6%;
 
-</div>
+background:rgba(255,255,255,.95);
+backdrop-filter:blur(12px);
 
+box-shadow:0 10px 25px rgba(0,0,0,.08);
 
-<div class="search">
+z-index:9999;
 
-<input type="text" placeholder="Search Cleaning Products">
+}
 
-<button>
-<i class="fa fa-search"></i>
-</button>
+.logo{
 
-</div>
+font-size:28px;
+font-weight:800;
+color:#0a58ca;
 
+}
 
-<div class="header-btn">
+nav{
 
-<button>
-<i class="fa fa-user"></i>
-Login
-</button>
+display:flex;
+gap:28px;
 
+}
 
-<button>
-<i class="fa fa-cart-shopping"></i>
-Cart
-</button>
+nav a{
 
-</div>
+font-weight:600;
+transition:.35s;
 
+}
 
-</header>
+nav a:hover{
 
+color:#0d6efd;
 
-<!-- Category Menu -->
+}
 
-<div class="category-menu">
+.right{
 
-<div>
-<i class="fa fa-spray-can"></i>
-Cleaning Chemicals
-</div>
+display:flex;
+gap:15px;
+align-items:center;
 
+}
 
-<div>
-<i class="fa fa-broom"></i>
-Housekeeping
-</div>
+.search{
 
+width:270px;
+height:45px;
 
-<div>
-<i class="fa fa-car"></i>
-Car Care
-</div>
+border-radius:40px;
 
+border:none;
 
-<div>
-<i class="fa fa-pump-soap"></i>
-Hand Wash
-</div>
+padding:0 20px;
 
+background:#eef3ff;
 
-<div>
-<i class="fa fa-building"></i>
-Industrial
-</div>
+outline:none;
 
+font-size:15px;
 
-</div>
-<!-- Main Banner -->
+}
 
-<section class="main-banner">
+.cart{
 
-<div class="banner-text">
+background:#0d6efd;
+color:#fff;
 
-<h1>
-Premium Cleaning Products
-</h1>
+padding:11px 22px;
 
-<h2>
-For Home, Office & Industry
-</h2>
+border-radius:40px;
 
-<p>
-Quality Chemicals at Factory Price
-</p>
+font-weight:700;
 
-<button>
-Shop Now
-</button>
+}
 
-</div>
+.hero{
 
+margin-top:75px;
 
-<div class="banner-image">
+position:relative;
 
-<img src="images/banner.jpg" 
-alt="Harshit Chemical">
+width:100%;
+height:92vh;
 
-</div>
+overflow:hidden;
 
+}
 
-</section>
+.hero img{
 
+width:100%;
+height:100%;
 
-<!-- Offers -->
+object-fit:cover;
 
-<section class="offers">
+}
 
+.overlay{
 
-<div class="offer-card">
+position:absolute;
 
-<i class="fa fa-truck"></i>
+top:0;
+left:0;
 
-<h3>
-Fast Delivery
-</h3>
+width:100%;
+height:100%;
 
-<p>
-Across India
-</p>
+background:linear-gradient(90deg,rgba(0,0,0,.70),rgba(0,0,0,.20));
 
-</div>
+display:flex;
+align-items:center;
 
+padding-left:8%;
 
+}
 
-<div class="offer-card">
+.content{
 
-<i class="fa fa-shield"></i>
+max-width:650px;
 
-<h3>
-Premium Quality
-</h3>
+color:#fff;
 
-<p>
-Trusted Products
-</p>
+}
 
-</div>
+.content h1{
 
+font-size:60px;
+font-weight:800;
+line-height:1.2;
 
+margin-bottom:20px;
 
-<div class="offer-card">
+}
 
-<i class="fa fa-tags"></i>
+.content p{
 
-<h3>
-Best Price
-</h3>
+font-size:18px;
+line-height:1.8;
 
-<p>
-Bulk Orders Available
-</p>
+margin-bottom:35px;
 
-</div>
+}
 
+.btns{
 
+display:flex;
 
-<div class="offer-card">
+gap:18px;
 
-<i class="fa fa-headset"></i>
+}
 
-<h3>
-Support
-</h3>
+.shop{
 
-<p>
-24×7 Help
-</p>
+padding:16px 38px;
 
-</div>
+background:#0d6efd;
 
+border-radius:40px;
 
-</section>
-<!-- Products Section -->
+color:#fff;
 
-<section class="products">
+font-weight:700;
 
-<h2 class="title">
-Our Best Products
-</h2>
+}
 
+.contact{
 
-<div class="product-container">
+padding:16px 38px;
 
+background:#fff;
 
-<div class="product-card">
-
-<img src="images/floor_cleaner.jpg">
-
-<h3>Floor Cleaner</h3>
-
-<p>Premium Quality</p>
-
-<h2>₹120</h2>
-
-<button>
-Add to Cart
-</button>
-
-</div>
-
-
-
-<div class="product-card">
-
-<img src="images/glass_cleaner.jpg">
-
-<h3>Glass Cleaner</h3>
-
-<p>Crystal Shine</p>
-
-<h2>₹90</h2>
-
-<button>
-Add to Cart
-</button>
-
-</div>
-
-
-
-<div class="product-card">
-
-<img src="images/hand_wash.jpg">
-
-<h3>Hand Wash</h3>
-
-<p>Fresh Fragrance</p>
-
-<h2>₹80</h2>
-
-<button>
-Add to Cart
-</button>
-
-</div>
-
-
-
-<div class="product-card">
-
-<img src="images/car_bike_shampoo.jpg">
-
-<h3>Car Shampoo</h3>
-
-<p>High Foam Cleaning</p>
-
-<h2>₹250</h2>
-
-<button>
-Add to Cart
-</button>
-
-</div>
-
-
-
-<div class="product-card">
-
-<img src="images/carpet_shampoo.jpg">
-
-<h3>Carpet Shampoo</h3>
-
-<p>Deep Cleaning</p>
-
-<h2>₹180</h2>
-<!-- Customer Reviews -->
-
-<section class="reviews">
-
-<h2 class="title">
-Customer Reviews
-</h2>
-
-
-<div class="review-container">
-
-
-<div class="review-card">
-
-<div class="stars">
-★★★★★
-</div>
-
-<h3>Rahul Sharma</h3>
-
-<p>
-"Product quality बहुत अच्छी है और delivery fast मिली।"
-</p>
-
-</div>
-
-
-
-<div class="review-card">
-
-<div class="stars">
-★★★★★
-</div>
-
-<h3>Amit Kumar</h3>
-
-<p>
-"Floor cleaner की fragrance बहुत अच्छी है।"
-</p>
-
-</div>
-
-
-
-<div class="review-card">
-
-<div class="stars">
-★★★★☆
-</div>
-
-<h3>Vikas Singh</h3>
-
-<p>
-"Bulk order के लिए अच्छा supplier है।"
-</p>
-
-</div>
-
-
-</div>
-
-</section>
-<button>
-Add to Cart
-</button>
-
-</div>
-
-
-
-<div class="product-card">
-
-<img src="images/hardspot_cleaner.jpg">
-
-<h3>Hard Spot Cleaner</h3>
-
-<p>Powerful Cleaner</p>
-
-<h2>₹150</h2>
-
-<button>
-Add to Cart
-</button>
-
-</div>
-
-
-</div>
-
-</section>
-<!-- About Section -->
-
-<section class="about">
-
-<h2 class="title">
-About Harshit Chemical Industry
-</h2>
-
-<p>
-We provide premium quality cleaning chemicals,
-housekeeping products, car care and industrial
-cleaning solutions at affordable prices.
-</p>
-
-</section>
-
-
-<!-- Contact Section -->
-
-<section class="contact">
-
-<h2 class="title">
-Contact Us
-</h2>
-
-<div class="contact-box">
-
-<h3>
-Harshit Chemical Industry
-</h3>
-
-<p>
-📞 Mobile: 9691865574
-</p>
-
-<p>
-📍 Madhya Pradesh, India
-</p>
-
-<button>
-Call Now
-</button>
-
-</div>
-
-</section>
-
-
-
-<!-- Footer -->
-
-<footer>
-
-<h2>
-Harshit Chemical Industry
-</h2>
-
-<p>
-Premium Cleaning Products Manufacturer
-</p>
-
-<p>
-© 2026 All Rights Reserved
-</p>
-
-</footer>
-
-
-
-<script src="script.js"></script>
-<!-- WhatsApp Floating Button -->
-
-<a href="https://wa.me/919691865574" 
-class="whatsapp-btn"
-target="_blank">
-
-<i class="fa-brands fa-whatsapp"></i>
-
-</a>
-</body>
-
-</html>
+border-radius
