@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Harshit Chemical Industry | Luxury Store</title>
+    <title>Harshit Chemical Industry | Factory Direct</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Leaflet CSS for Maps -->
+    <!-- Leaflet CSS for Map -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
@@ -18,21 +18,13 @@
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            50: '#ecfdf5',
-                            100: '#d1fae5',
+                        emerald: {
                             500: '#10b981',
                             600: '#059669',
-                            700: '#047857',
                             800: '#065f46',
-                            900: '#022c22',
-                            950: '#011710'
+                            950: '#022c22'
                         },
-                        gold: {
-                            400: '#fbbf24',
-                            500: '#f59e0b',
-                            600: '#d97706'
-                        }
+                        gold: '#f59e0b'
                     }
                 }
             }
@@ -40,147 +32,119 @@
     </script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
-        
-        * { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            -webkit-tap-highlight-color: transparent; 
-        }
-
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap');
+        * { font-family: 'Plus Jakarta Sans', sans-serif; -webkit-tap-highlight-color: transparent; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-        #map { 
-            height: 230px; 
-            width: 100%; 
-            border-radius: 1.25rem; 
-        }
-
-        .glass-panel {
-            background: rgba(15, 23, 42, 0.75);
+        #map { height: 230px; width: 100%; border-radius: 1.25rem; }
+        
+        /* Dark Premium Glass Design */
+        .glass-header {
+            background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
         .glass-card {
-            background: linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
-            backdrop-filter: blur(12px);
+            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .glass-card:hover {
-            border-color: rgba(16, 185, 129, 0.5);
-            box-shadow: 0 0 25px rgba(16, 185, 129, 0.25);
-            transform: translateY(-3px);
-        }
-
-        .gold-badge {
-            background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
-        }
-
-        .emerald-gradient {
-            background: linear-gradient(135deg, #059669 0%, #022c22 100%);
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen pb-36 relative">
+<body class="bg-slate-950 text-slate-100 min-h-screen pb-36 relative overflow-x-hidden">
 
-    <!-- Header Section -->
-    <header class="sticky top-0 z-40 glass-panel border-b border-slate-800 shadow-2xl w-full">
-        <div class="max-w-md mx-auto px-4 py-3.5">
-            <div class="flex items-center justify-between gap-3">
+    <!-- Background Glow Effect -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-emerald-900/30 rounded-full blur-[120px]"></div>
+    </div>
+
+    <div class="relative z-10">
+        <!-- Top Navigation Bar -->
+        <header class="sticky top-0 z-40 glass-header border-b border-slate-800 w-full">
+            <div class="max-w-md mx-auto px-4 py-3.5">
+                <div class="flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-600 to-emerald-800 flex items-center justify-center text-white font-black text-2xl shadow-[0_0_15px_rgba(16,185,129,0.3)] border border-emerald-400/30">
+                            H
+                        </div>
+                        <div>
+                            <span class="bg-amber-500 text-slate-950 px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider">
+                                FACTORY DIRECT
+                            </span>
+                            <h1 class="text-base font-black text-white leading-tight mt-0.5">Harshit Chemical Industry</h1>
+                            <button onclick="openMapModal()" class="text-xs text-slate-400 flex items-center gap-1 font-semibold truncate max-w-[200px] hover:text-emerald-400">
+                                <i class="fa-solid fa-location-dot text-emerald-500"></i>
+                                <span id="selected-address-text">Select Delivery Location</span>
+                                <i class="fa-solid fa-chevron-down text-[9px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button onclick="openAdminModal()" class="w-10 h-10 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300">
+                        <i class="fa-solid fa-sliders text-base"></i>
+                    </button>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="mt-3 relative">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                    <input type="text" id="search-input" onkeyup="renderProducts()" placeholder="Search Phenyl, Cleaners, Brooms..." class="w-full pl-10 pr-4 py-2.5 bg-slate-900/90 border border-slate-800 rounded-2xl text-xs font-semibold text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500">
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Body Content -->
+        <main class="max-w-md mx-auto px-4 pt-4 space-y-5">
+
+            <!-- Hero Company Banner -->
+            <div class="w-full rounded-3xl overflow-hidden border border-slate-800 bg-slate-900 shadow-xl">
+                <img src="https://harshitchemicalindustry.github.io/harshit-chemical-website/hero_banner.jpg" alt="Company Banner" class="w-full h-auto object-cover block min-h-[120px]" onerror="this.src='https://harshitchemicalindustry.github.io/harshit-chemical-website/banner.jpg';">
+            </div>
+
+            <!-- Google Map Picker Card -->
+            <div class="glass-card rounded-2xl p-3.5 border border-slate-800 shadow-lg flex items-center justify-between cursor-pointer hover:border-emerald-500 transition" onclick="openMapModal()">
                 <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 rounded-2xl emerald-gradient flex items-center justify-center text-white font-black text-2xl shadow-[0_0_20px_rgba(16,185,129,0.4)] border border-emerald-400/30">
-                        H
+                    <div class="w-10 h-10 rounded-xl bg-emerald-950 border border-emerald-800 text-emerald-400 flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-map-location-dot"></i>
                     </div>
                     <div>
-                        <div class="flex items-center gap-1.5 text-[9px] font-black tracking-widest text-emerald-400 uppercase mb-0.5">
-                            <span class="gold-badge text-slate-950 px-2 py-0.5 rounded-full shadow-md flex items-center gap-1">
-                                <i class="fa-solid fa-crown text-[8px]"></i> DIRECT FACTORY
-                            </span>
-                        </div>
-                        <h1 class="text-base font-black text-white leading-tight tracking-tight">Harshit Chemical</h1>
-                        <button onclick="openMapModal()" class="text-xs text-slate-400 flex items-center gap-1 font-semibold truncate max-w-[200px] hover:text-emerald-400 transition-colors mt-0.5">
-                            <i class="fa-solid fa-location-dot text-emerald-500"></i>
-                            <span id="selected-address-text">Select Delivery Location</span>
-                            <i class="fa-solid fa-chevron-down text-[9px] opacity-70"></i>
-                        </button>
+                        <div class="text-xs font-extrabold text-slate-200">Pin Location on Map</div>
+                        <div class="text-[11px] text-slate-400 truncate max-w-[200px]" id="map-card-address">Tap to choose address</div>
                     </div>
                 </div>
-                <button onclick="openAdminModal()" class="w-10 h-10 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:bg-emerald-600 hover:text-white transition-all shadow-lg">
-                    <i class="fa-solid fa-sliders text-base"></i>
-                </button>
+                <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
             </div>
 
-            <!-- Search Bar -->
-            <div class="mt-3 relative">
-                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-                <input type="text" id="search-input" onkeyup="renderProducts()" placeholder="Search Phenyl, Floor Cleaner, Brooms..." class="w-full pl-10 pr-4 py-2.5 bg-slate-900/90 border border-slate-800 rounded-2xl text-xs font-semibold text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition-all">
+            <!-- Categories -->
+            <div>
+                <h3 class="font-extrabold text-slate-200 text-sm mb-2.5">Categories</h3>
+                <div class="flex gap-2.5 overflow-x-auto no-scrollbar py-1" id="category-chips"></div>
             </div>
-        </div>
-    </header>
-        <!-- Main Content Body -->
-    <main class="max-w-md mx-auto px-4 pt-4 space-y-5">
 
-        <!-- Hero Company Banner -->
-        <div class="w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-800 bg-slate-900 relative group">
-            <img src="./hero_banner.jpg" alt="Harshit Chemical Industry" class="w-full h-auto object-cover block min-h-[130px] transform group-hover:scale-105 transition-transform duration-500" onerror="this.src='./banner.jpg';">
-            <div class="p-4 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white flex justify-between items-center border-t border-slate-800">
-                <div>
-                    <div class="text-[10px] font-extrabold text-emerald-400 uppercase tracking-widest">ISO Certified Quality</div>
-                    <div class="text-xs font-black tracking-tight text-slate-200">Wholesale & Retail Chemical Supplies</div>
+            <!-- Products Grid -->
+            <div>
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="font-extrabold text-slate-200 text-base" id="category-title">All Products</h3>
+                    <span class="text-xs font-bold text-emerald-400 bg-emerald-950 border border-emerald-800 px-3 py-1 rounded-full" id="product-count">0 Items</span>
                 </div>
-                <span class="gold-badge text-slate-950 text-[10px] font-black px-2.5 py-1 rounded-full uppercase shadow-md">100% Guaranteed</span>
+                <div class="grid grid-cols-2 gap-3.5" id="product-grid"></div>
             </div>
-        </div>
 
-        <!-- Google Map Delivery Card -->
-        <div class="glass-card rounded-2xl p-3.5 border border-slate-800 shadow-lg flex items-center justify-between cursor-pointer hover:border-emerald-500 transition-all group" onclick="openMapModal()">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-emerald-950 border border-emerald-800/80 text-emerald-400 flex items-center justify-center font-bold text-lg group-hover:scale-110 transition-transform">
-                    <i class="fa-solid fa-map-location-dot"></i>
-                </div>
-                <div>
-                    <div class="text-xs font-extrabold text-slate-200">Pin Location on Live Map</div>
-                    <div class="text-[11px] text-slate-400 truncate max-w-[200px]" id="map-card-address">Tap to choose exact address</div>
-                </div>
-            </div>
-            <i class="fa-solid fa-chevron-right text-xs text-slate-500 group-hover:translate-x-1 transition-transform"></i>
-        </div>
-
-        <!-- Categories -->
-        <div>
-            <h3 class="font-extrabold text-slate-200 text-sm mb-2.5">Categories</h3>
-            <div class="flex gap-2.5 overflow-x-auto no-scrollbar py-1" id="category-chips"></div>
-        </div>
-
-        <!-- Products Grid -->
-        <div>
-            <div class="flex justify-between items-center mb-3">
-                <h3 class="font-extrabold text-slate-200 text-base" id="category-title">All Products</h3>
-                <span class="text-xs font-bold text-emerald-400 bg-emerald-950 border border-emerald-800 px-3 py-1 rounded-full" id="product-count">0 Items</span>
-            </div>
-            <div class="grid grid-cols-2 gap-3.5" id="product-grid"></div>
-        </div>
-
-    </main>
+        </main>
+    </div>
 
     <!-- Floating Bottom Cart Bar -->
     <div id="cart-bar" class="fixed bottom-4 left-0 right-0 max-w-md mx-auto px-4 hidden z-30">
-        <div class="glass-panel border border-emerald-500/40 text-white p-3.5 rounded-2xl shadow-2xl flex items-center justify-between cursor-pointer" onclick="openCartModal()">
+        <div class="bg-slate-900 border border-emerald-500/40 text-white p-3.5 rounded-2xl shadow-2xl flex items-center justify-between cursor-pointer" onclick="openCartModal()">
             <div class="flex items-center gap-3">
-                <div class="gold-badge text-slate-950 w-9 h-9 rounded-xl flex items-center justify-center font-black text-sm shadow">
+                <div class="bg-amber-500 text-slate-950 w-9 h-9 rounded-xl flex items-center justify-center font-black text-sm shadow">
                     <span id="cart-qty-badge">0</span>
                 </div>
                 <div>
-                    <div class="text-[9px] text-emerald-300 font-extrabold uppercase tracking-widest">TOTAL ORDER</div>
+                    <div class="text-[9px] text-emerald-300 font-extrabold uppercase">TOTAL ORDER</div>
                     <div class="font-black text-base text-white">₹<span id="cart-total-price">0</span></div>
                 </div>
             </div>
-            <div class="flex items-center gap-2 font-extrabold text-xs bg-emerald-600 text-white px-4 py-2.5 rounded-xl uppercase tracking-wider shadow-lg hover:bg-emerald-500 transition-colors">
+            <div class="flex items-center gap-2 font-extrabold text-xs bg-emerald-600 text-white px-4 py-2.5 rounded-xl uppercase">
                 <span>VIEW CART</span>
                 <i class="fa-solid fa-arrow-right text-xs"></i>
             </div>
@@ -191,15 +155,15 @@
     <div id="map-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-end justify-center">
         <div class="bg-slate-900 border-t border-slate-800 w-full max-w-md rounded-t-3xl p-5 space-y-4">
             <div class="flex justify-between items-center border-b border-slate-800 pb-3">
-                <h3 class="font-extrabold text-base text-slate-100"><i class="fa-solid fa-map-pin text-emerald-500 mr-2"></i> Set Delivery Location</h3>
-                <button onclick="closeMapModal()" class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+                <h3 class="font-extrabold text-base text-slate-100"><i class="fa-solid fa-map-pin text-emerald-500"></i> Set Location</h3>
+                <button onclick="closeMapModal()" class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div id="map" class="border border-slate-800 shadow-inner"></div>
+            <div id="map" class="border border-slate-800"></div>
             <div class="bg-slate-950 p-3 rounded-2xl border border-slate-800">
-                <div class="text-[10px] font-black text-emerald-400 uppercase tracking-widest">SELECTED LOCATION</div>
+                <div class="text-[10px] font-black text-emerald-400 uppercase">SELECTED LOCATION</div>
                 <div class="text-xs font-bold text-slate-200 mt-0.5" id="modal-address-text">Fetching location...</div>
             </div>
-            <button onclick="confirmLocation()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-3.5 rounded-xl text-xs uppercase tracking-wider shadow-lg transition-all">Confirm Address</button>
+            <button onclick="confirmLocation()" class="w-full bg-emerald-600 text-white font-extrabold py-3.5 rounded-xl text-xs uppercase">Confirm Address</button>
         </div>
     </div>
 
@@ -207,16 +171,16 @@
     <div id="cart-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-end justify-center">
         <div class="bg-slate-900 border-t border-slate-800 w-full max-w-md rounded-t-3xl max-h-[85vh] flex flex-col overflow-hidden">
             <div class="p-4 border-b border-slate-800 flex justify-between items-center bg-slate-950">
-                <h3 class="font-extrabold text-base text-slate-100"><i class="fa-solid fa-basket-shopping text-emerald-500 mr-2"></i> Shopping Basket</h3>
-                <button onclick="closeCartModal()" class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+                <h3 class="font-extrabold text-base text-slate-100"><i class="fa-solid fa-basket-shopping text-emerald-500"></i> Shopping Bag</h3>
+                <button onclick="closeCartModal()" class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="p-4 overflow-y-auto space-y-3 flex-1 no-scrollbar" id="cart-items-container"></div>
             <div class="p-4 border-t border-slate-800 bg-slate-950 space-y-3">
                 <div class="flex justify-between text-slate-100 font-black text-sm">
                     <span>Total Amount</span>
-                    <span class="text-emerald-400 text-base">₹<span id="cart-final-total">0</span></span>
+                    <span class="text-emerald-400">₹<span id="cart-final-total">0</span></span>
                 </div>
-                <button onclick="openCheckoutModal()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-3.5 rounded-xl text-xs uppercase tracking-wider shadow-lg transition-all">Proceed to Checkout</button>
+                <button onclick="openCheckoutModal()" class="w-full bg-emerald-600 text-white font-extrabold py-3.5 rounded-xl text-xs uppercase">Proceed to Checkout</button>
             </div>
         </div>
     </div>
@@ -225,28 +189,28 @@
     <div id="checkout-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-end justify-center">
         <div class="bg-slate-900 border-t border-slate-800 w-full max-w-md rounded-t-3xl max-h-[90vh] overflow-y-auto p-5 space-y-4 no-scrollbar">
             <div class="flex justify-between items-center border-b border-slate-800 pb-3">
-                <h3 class="font-extrabold text-base text-slate-100">Delivery & Payment</h3>
-                <button onclick="closeCheckoutModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+                <h3 class="font-extrabold text-base text-slate-100">Delivery Details</h3>
+                <button onclick="closeCheckoutModal()" class="text-slate-400"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
             <form onsubmit="handleCheckoutSubmit(event)" class="space-y-3">
                 <div>
-                    <label class="block text-[11px] font-extrabold text-slate-300 mb-1 uppercase tracking-wider">Full Name</label>
-                    <input type="text" id="cust-name" required placeholder="Enter full name" class="w-full p-2.5 bg-slate-950 border border-slate-800 rounded-xl text-xs font-semibold text-slate-100 outline-none focus:border-emerald-500">
+                    <label class="block text-[11px] font-extrabold text-slate-300 mb-1 uppercase">Full Name</label>
+                    <input type="text" id="cust-name" required placeholder="Enter full name" class="w-full p-2.5 bg-slate-950 border border-slate-800 rounded-xl text-xs font-semibold text-slate-100">
                 </div>
                 <div>
-                    <label class="block text-[11px] font-extrabold text-slate-300 mb-1 uppercase tracking-wider">Mobile Number</label>
-                    <input type="tel" id="cust-phone" required placeholder="10 Digit Phone Number" class="w-full p-2.5 bg-slate-950 border border-slate-800 rounded-xl text-xs font-semibold text-slate-100 outline-none focus:border-emerald-500">
+                    <label class="block text-[11px] font-extrabold text-slate-300 mb-1 uppercase">Mobile Number</label>
+                    <input type="tel" id="cust-phone" required placeholder="10 Digit Phone Number" class="w-full p-2.5 bg-slate-950 border border-slate-800 rounded-xl text-xs font-semibold text-slate-100">
                 </div>
                 <div>
-                    <label class="block text-[11px] font-extrabold text-slate-300 mb-1 uppercase tracking-wider">Delivery Address</label>
-                    <textarea id="cust-address" required rows="2" class="w-full p-2.5 bg-slate-950 border border-slate-800 rounded-xl text-xs font-semibold text-slate-100 outline-none focus:border-emerald-500"></textarea>
+                    <label class="block text-[11px] font-extrabold text-slate-300 mb-1 uppercase">Delivery Address</label>
+                    <textarea id="cust-address" required rows="2" class="w-full p-2.5 bg-slate-950 border border-slate-800 rounded-xl text-xs font-semibold text-slate-100"></textarea>
                 </div>
                 <div>
-                    <label class="block text-[11px] font-extrabold text-slate-300 mb-1 uppercase tracking-wider">Payment Options</label>
+                    <label class="block text-[11px] font-extrabold text-slate-300 mb-1 uppercase">Payment Options</label>
                     <div class="grid grid-cols-2 gap-2.5">
-                        <label class="border-2 p-3 rounded-2xl flex items-center gap-2 cursor-pointer border-emerald-600 bg-emerald-950/60">
+                        <label class="border-2 p-3 rounded-2xl flex items-center gap-2 cursor-pointer border-emerald-600 bg-emerald-950">
                             <input type="radio" name="payment_mode" value="ONLINE" checked class="accent-emerald-500">
-                            <span class="text-xs font-extrabold text-slate-100">Online UPI / QR</span>
+                            <span class="text-xs font-extrabold text-slate-100">Online UPI</span>
                         </label>
                         <label class="border-2 p-3 rounded-2xl flex items-center gap-2 cursor-pointer border-slate-800 bg-slate-950">
                             <input type="radio" name="payment_mode" value="COD" class="accent-emerald-500">
@@ -254,7 +218,7 @@
                         </label>
                     </div>
                 </div>
-                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-3.5 rounded-xl text-xs uppercase shadow-lg mt-2 transition-all">Confirm Order on WhatsApp</button>
+                <button type="submit" class="w-full bg-emerald-600 text-white font-extrabold py-3.5 rounded-xl text-xs uppercase shadow-lg mt-2">Place Order on WhatsApp</button>
             </form>
         </div>
     </div>
@@ -263,11 +227,11 @@
     <div id="admin-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div class="bg-slate-900 border border-slate-800 w-full max-w-md rounded-3xl p-5 space-y-4 max-h-[85vh] overflow-y-auto no-scrollbar">
             <div class="flex justify-between items-center border-b border-slate-800 pb-3">
-                <h3 class="font-extrabold text-base text-slate-100"><i class="fa-solid fa-gears text-emerald-500 mr-2"></i> Admin Panel</h3>
-                <button onclick="closeAdminModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+                <h3 class="font-extrabold text-base text-slate-100"><i class="fa-solid fa-gears text-emerald-500"></i> Admin Panel</h3>
+                <button onclick="closeAdminModal()" class="text-slate-400"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
             <div class="bg-slate-950 p-4 rounded-2xl space-y-2.5 border border-slate-800">
-                <h4 class="font-extrabold text-xs text-emerald-400 uppercase tracking-wider">Add Custom Product</h4>
+                <h4 class="font-extrabold text-xs text-emerald-400 uppercase">Add Custom Product</h4>
                 <input type="text" id="add-prod-name" placeholder="Product Name" class="w-full p-2.5 bg-slate-900 border border-slate-800 rounded-xl text-xs text-slate-100">
                 <div class="grid grid-cols-2 gap-2">
                     <input type="number" id="add-prod-price" placeholder="Price ₹" class="p-2.5 bg-slate-900 border border-slate-800 rounded-xl text-xs text-slate-100">
@@ -279,57 +243,60 @@
                     <option value="Dustbins & Bags">Dustbins & Bags</option>
                 </select>
                 <input type="file" id="add-prod-img-file" accept="image/*" class="text-xs w-full bg-slate-900 p-2 border border-slate-800 rounded-xl text-slate-300">
-                <button onclick="saveNewProduct()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-2.5 rounded-xl text-xs uppercase tracking-wider transition-all">Save Product</button>
+                <button onclick="saveNewProduct()" class="w-full bg-emerald-600 text-white font-extrabold py-2.5 rounded-xl text-xs uppercase">Save Product</button>
             </div>
             <div id="admin-products-list" class="space-y-2 max-h-40 overflow-y-auto no-scrollbar"></div>
         </div>
-                </div>
-                    <!-- JavaScript Application Engine -->
+    </div>
+
+    <!-- JavaScript Application -->
     <script>
-        // Force Clear Browser Storage Cache to fix old missing image memory bug
+        // Force clear browser cache to remove old missing-image memory
         try { localStorage.clear(); } catch(e){}
 
-        // Exact Filenames Mapping directly from your GitHub Repository root
+        const baseUrl = "https://harshitchemicalindustry.github.io/harshit-chemical-website/";
+
+        // 39 Products mapping directly with FULL GitHub Pages URLs
         const productsList = [
-            { id: 1, name: "Premium Phenyl", cat: "Chemicals", price: 35, mrp: 50, img: "./phenyl.jpg" },
-            { id: 2, name: "Glass Cleaner", cat: "Chemicals", price: 65, mrp: 85, img: "./glas_cleaner.jpg" },
-            { id: 3, name: "Tiles Cleaner", cat: "Chemicals", price: 85, mrp: 110, img: "./tiles_cleaner.jpg" },
-            { id: 4, name: "Toilet Cleaner Liquid", cat: "Chemicals", price: 75, mrp: 95, img: "./toilet_cleaner.jpg" },
-            { id: 5, name: "Hardspot Cleaner", cat: "Chemicals", price: 95, mrp: 130, img: "./hardspot_cleaner.jpg" },
-            { id: 6, name: "Dish Wash Soap", cat: "Chemicals", price: 45, mrp: 60, img: "./dish_wash.jpg" },
-            { id: 7, name: "Hand Wash Liquid", cat: "Chemicals", price: 55, mrp: 75, img: "./hand_wash.jpg" },
-            { id: 8, name: "Car & Bike Shampoo", cat: "Chemicals", price: 120, mrp: 160, img: "./car_bike_shampoo.jpg" },
-            { id: 9, name: "Carpet Shampoo", cat: "Chemicals", price: 140, mrp: 190, img: "./carpet_shampoo.jpg" },
-            { id: 10, name: "Room Fragrance Spray", cat: "Chemicals", price: 110, mrp: 150, img: "./room_spray.jpg" },
-            { id: 11, name: "Soft Broom", cat: "Cleaning Tools", price: 80, mrp: 120, img: "./broom.jpg" },
-            { id: 12, name: "Stick Broom", cat: "Cleaning Tools", price: 90, mrp: 130, img: "./stick_broom.jpg" },
-            { id: 13, name: "Floor Squeegee Wiper", cat: "Cleaning Tools", price: 130, mrp: 180, img: "./floor_squeegee.jpg" },
-            { id: 14, name: "Squeegee Wiper", cat: "Cleaning Tools", price: 95, mrp: 140, img: "./squeegee.jpg" },
-            { id: 15, name: "Window Wiper", cat: "Cleaning Tools", price: 95, mrp: 140, img: "./window_wiper.jpg" },
-            { id: 16, name: "Extension Pole", cat: "Cleaning Tools", price: 250, mrp: 350, img: "./extension_pole.jpg" },
-            { id: 17, name: "Toilet Brush", cat: "Cleaning Tools", price: 60, mrp: 90, img: "./toilet_brush.jpg" },
-            { id: 18, name: "Toilet Cleaner Applicator", cat: "Cleaning Tools", price: 75, mrp: 110, img: "./toilet_cleaner_applicator.jpg" },
-            { id: 19, name: "Urinal Brush", cat: "Cleaning Tools", price: 50, mrp: 75, img: "./urinal_brush.jpg" },
-            { id: 20, name: "Bottle Brush", cat: "Cleaning Tools", price: 40, mrp: 65, img: "./botal_brush.jpg" },
-            { id: 21, name: "Handy Picker", cat: "Cleaning Tools", price: 180, mrp: 260, img: "./handy_picker.jpg" },
-            { id: 22, name: "Garbage Tongs", cat: "Cleaning Tools", price: 150, mrp: 220, img: "./garbage_tongs.jpg" },
-            { id: 23, name: "Rubber Gloves", cat: "Cleaning Tools", price: 40, mrp: 60, img: "./gloves.png.jpg" },
-            { id: 24, name: "Dust Cloth", cat: "Cleaning Tools", price: 30, mrp: 50, img: "./dust_cloth.jpg" },
-            { id: 25, name: "Microfiber Cloth", cat: "Cleaning Tools", price: 45, mrp: 70, img: "./microfiber_cloth.jpg" },
-            { id: 26, name: "Microfiber Duster", cat: "Cleaning Tools", price: 85, mrp: 120, img: "./microfiber_duster.jpg" },
-            { id: 27, name: "Feather Duster", cat: "Cleaning Tools", price: 75, mrp: 110, img: "./feather_duster.jpg" },
-            { id: 28, name: "Spider Web Duster", cat: "Cleaning Tools", price: 90, mrp: 140, img: "./spider_duster.jpg" },
-            { id: 29, name: "Cotton Mop", cat: "Cleaning Tools", price: 110, mrp: 160, img: "./cotton_mop.jpg" },
-            { id: 30, name: "Dust Pan", cat: "Cleaning Tools", price: 45, mrp: 70, img: "./dust_pan.jpg" },
-            { id: 31, name: "Scoop Pan", cat: "Cleaning Tools", price: 45, mrp: 70, img: "./scoop.png.jpg" },
-            { id: 32, name: "Measuring Jug", cat: "Cleaning Tools", price: 50, mrp: 80, img: "./measuring_jug.jpg" },
-            { id: 33, name: "Heavy Plastic Bucket", cat: "Cleaning Tools", price: 110, mrp: 160, img: "./bucket.jpg" },
-            { id: 34, name: "Scrubber Pad", cat: "Cleaning Tools", price: 20, mrp: 35, img: "./scrubber_pad.png.jpg" },
-            { id: 35, name: "Small Dustbin", cat: "Dustbins & Bags", price: 120, mrp: 180, img: "./dustbin_small.jpg" },
-            { id: 36, name: "Large Commercial Dustbin", cat: "Dustbins & Bags", price: 350, mrp: 500, img: "./dustbin_large.jpg" },
-            { id: 37, name: "Garbage Bags Roll", cat: "Dustbins & Bags", price: 70, mrp: 100, img: "./garbage_bag.jpg" },
-            { id: 38, name: "Janitor Trolley", cat: "Cleaning Tools", price: 1200, mrp: 1800, img: "./trolley.jpg" },
-            { id: 39, name: "Wet Floor Sign", cat: "Cleaning Tools", price: 220, mrp: 320, img: "./wet_floor_sign.jpg" }
+            { id: 1, name: "Premium Phenyl", cat: "Chemicals", price: 35, mrp: 50, img: baseUrl + "phenyl.jpg" },
+            { id: 2, name: "Glass Cleaner", cat: "Chemicals", price: 65, mrp: 85, img: baseUrl + "glas_cleaner.jpg" },
+            { id: 3, name: "Tiles Cleaner", cat: "Chemicals", price: 85, mrp: 110, img: baseUrl + "tiles_cleaner.jpg" },
+            { id: 4, name: "Toilet Cleaner Liquid", cat: "Chemicals", price: 75, mrp: 95, img: baseUrl + "toilet_cleaner.jpg" },
+            { id: 5, name: "Hardspot Cleaner", cat: "Chemicals", price: 95, mrp: 130, img: baseUrl + "hardspot_cleaner.jpg" },
+            { id: 6, name: "Dish Wash Soap", cat: "Chemicals", price: 45, mrp: 60, img: baseUrl + "dish_wash.jpg" },
+            { id: 7, name: "Hand Wash Liquid", cat: "Chemicals", price: 55, mrp: 75, img: baseUrl + "hand_wash.jpg" },
+            { id: 8, name: "Car & Bike Shampoo", cat: "Chemicals", price: 120, mrp: 160, img: baseUrl + "car_bike_shampoo.jpg" },
+            { id: 9, name: "Carpet Shampoo", cat: "Chemicals", price: 140, mrp: 190, img: baseUrl + "carpet_shampoo.jpg" },
+            { id: 10, name: "Room Fragrance Spray", cat: "Chemicals", price: 110, mrp: 150, img: baseUrl + "room_spray.jpg" },
+            { id: 11, name: "Soft Broom", cat: "Cleaning Tools", price: 80, mrp: 120, img: baseUrl + "broom.jpg" },
+            { id: 12, name: "Stick Broom", cat: "Cleaning Tools", price: 90, mrp: 130, img: baseUrl + "stick_broom.jpg" },
+            { id: 13, name: "Floor Squeegee Wiper", cat: "Cleaning Tools", price: 130, mrp: 180, img: baseUrl + "floor_squeegee.jpg" },
+            { id: 14, name: "Squeegee Wiper", cat: "Cleaning Tools", price: 95, mrp: 140, img: baseUrl + "squeegee.jpg" },
+            { id: 15, name: "Window Wiper", cat: "Cleaning Tools", price: 95, mrp: 140, img: baseUrl + "window_wiper.jpg" },
+            { id: 16, name: "Extension Pole", cat: "Cleaning Tools", price: 250, mrp: 350, img: baseUrl + "extension_pole.jpg" },
+            { id: 17, name: "Toilet Brush", cat: "Cleaning Tools", price: 60, mrp: 90, img: baseUrl + "toilet_brush.jpg" },
+            { id: 18, name: "Toilet Cleaner Applicator", cat: "Cleaning Tools", price: 75, mrp: 110, img: baseUrl + "toilet_cleaner_applicator.jpg" },
+            { id: 19, name: "Urinal Brush", cat: "Cleaning Tools", price: 50, mrp: 75, img: baseUrl + "urinal_brush.jpg" },
+            { id: 20, name: "Bottle Brush", cat: "Cleaning Tools", price: 40, mrp: 65, img: baseUrl + "botal_brush.jpg" },
+            { id: 21, name: "Handy Picker", cat: "Cleaning Tools", price: 180, mrp: 260, img: baseUrl + "handy_picker.jpg" },
+            { id: 22, name: "Garbage Tongs", cat: "Cleaning Tools", price: 150, mrp: 220, img: baseUrl + "garbage_tongs.jpg" },
+            { id: 23, name: "Rubber Gloves", cat: "Cleaning Tools", price: 40, mrp: 60, img: baseUrl + "gloves.png.jpg" },
+            { id: 24, name: "Dust Cloth", cat: "Cleaning Tools", price: 30, mrp: 50, img: baseUrl + "dust_cloth.jpg" },
+            { id: 25, name: "Microfiber Cloth", cat: "Cleaning Tools", price: 45, mrp: 70, img: baseUrl + "microfiber_cloth.jpg" },
+            { id: 26, name: "Microfiber Duster", cat: "Cleaning Tools", price: 85, mrp: 120, img: baseUrl + "microfiber_duster.jpg" },
+            { id: 27, name: "Feather Duster", cat: "Cleaning Tools", price: 75, mrp: 110, img: baseUrl + "feather_duster.jpg" },
+            { id: 28, name: "Spider Web Duster", cat: "Cleaning Tools", price: 90, mrp: 140, img: baseUrl + "spider_duster.jpg" },
+            { id: 29, name: "Cotton Mop", cat: "Cleaning Tools", price: 110, mrp: 160, img: baseUrl + "cotton_mop.jpg" },
+            { id: 30, name: "Dust Pan", cat: "Cleaning Tools", price: 45, mrp: 70, img: baseUrl + "dust_pan.jpg" },
+            { id: 31, name: "Scoop Pan", cat: "Cleaning Tools", price: 45, mrp: 70, img: baseUrl + "scoop.png.jpg" },
+            { id: 32, name: "Measuring Jug", cat: "Cleaning Tools", price: 50, mrp: 80, img: baseUrl + "measuring_jug.jpg" },
+            { id: 33, name: "Heavy Plastic Bucket", cat: "Cleaning Tools", price: 110, mrp: 160, img: baseUrl + "bucket.jpg" },
+            { id: 34, name: "Scrubber Pad", cat: "Cleaning Tools", price: 20, mrp: 35, img: baseUrl + "scrubber_pad.png.jpg" },
+            { id: 35, name: "Small Dustbin", cat: "Dustbins & Bags", price: 120, mrp: 180, img: baseUrl + "dustbin_small.jpg" },
+            { id: 36, name: "Large Commercial Dustbin", cat: "Dustbins & Bags", price: 350, mrp: 500, img: baseUrl + "dustbin_large.jpg" },
+            { id: 37, name: "Garbage Bags Roll", cat: "Dustbins & Bags", price: 70, mrp: 100, img: baseUrl + "garbage_bag.jpg" },
+            { id: 38, name: "Janitor Trolley", cat: "Cleaning Tools", price: 1200, mrp: 1800, img: baseUrl + "trolley.jpg" },
+            { id: 39, name: "Wet Floor Sign", cat: "Cleaning Tools", price: 220, mrp: 320, img: baseUrl + "wet_floor_sign.jpg" }
         ];
 
         let products = productsList;
@@ -372,9 +339,9 @@
                 let discount = Math.round(((p.mrp - p.price) / p.mrp) * 100);
                 return `
                     <div class="glass-card rounded-3xl p-3 shadow-lg flex flex-col justify-between relative group">
-                        ${discount > 0 ? `<span class="absolute top-3 left-3 gold-badge text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full z-10 shadow">${discount}% OFF</span>` : ''}
+                        ${discount > 0 ? `<span class="absolute top-3 left-3 bg-amber-500 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full z-10 shadow">${discount}% OFF</span>` : ''}
                         <div class="h-32 w-full flex items-center justify-center my-1 overflow-hidden rounded-2xl bg-slate-950 border border-slate-800/80 relative">
-                            <img src="${p.img}" alt="${p.name}" class="object-contain h-full w-full p-1.5" onerror="this.src='./phenyl.jpg';">
+                            <img src="${p.img}" alt="${p.name}" class="object-contain h-full w-full p-1.5">
                         </div>
                         <div class="mt-1">
                             <span class="text-[9px] font-black text-emerald-400 uppercase tracking-widest">${p.cat}</span>
@@ -421,7 +388,7 @@
                 return `
                     <div class="flex items-center justify-between bg-slate-950 p-2.5 rounded-2xl border border-slate-800">
                         <div class="flex items-center gap-3">
-                            <img src="${p.img}" class="w-12 h-12 rounded-xl object-contain border border-slate-800 bg-slate-900" onerror="this.src='./phenyl.jpg'">
+                            <img src="${p.img}" class="w-12 h-12 rounded-xl object-contain border border-slate-800 bg-slate-900">
                             <div>
                                 <h5 class="font-extrabold text-xs text-slate-100">${p.name}</h5>
                                 <div class="text-xs font-black text-emerald-400">₹${p.price * cart[id]}</div>
@@ -510,7 +477,7 @@
                 reader.onload = e => save(e.target.result);
                 reader.readAsDataURL(imgFile);
             } else {
-                save("./phenyl.jpg");
+                save(baseUrl + "phenyl.jpg");
             }
         }
 
