@@ -39,7 +39,7 @@
                         <h1 class="text-sm font-black text-gray-900 leading-tight">Harshit Chemical Industry</h1>
                         <button onclick="openMapModal()" class="text-[11px] text-gray-500 flex items-center gap-1 font-semibold truncate max-w-[180px]">
                             <i class="fa-solid fa-location-dot text-emerald-600"></i>
-                            <span id="selected-address-text">Select Location</span>
+                            <span id="selected-address-text">Select Delivery Location</span>
                             <i class="fa-solid fa-chevron-down text-[9px]"></i>
                         </button>
                     </div>
@@ -52,7 +52,7 @@
             <!-- Search Bar -->
             <div class="mt-2.5 relative">
                 <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
-                <input type="text" id="search-input" onkeyup="renderProducts()" placeholder="Search Phenyl, Floor Cleaner..." class="w-full pl-9 pr-3 py-2 bg-gray-100 border border-gray-200 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                <input type="text" id="search-input" onkeyup="renderProducts()" placeholder="Search Phenyl, Cleaners, Brooms, Dustbin..." class="w-full pl-9 pr-3 py-2 bg-gray-100 border border-gray-200 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500">
             </div>
         </div>
     </header>
@@ -63,11 +63,11 @@
         <!-- Banner -->
         <div class="bg-gradient-to-r from-emerald-600 to-teal-800 rounded-2xl p-4 text-white shadow-md relative overflow-hidden">
             <div class="relative z-10 space-y-0.5">
-                <span class="bg-white/20 text-emerald-100 text-[9px] font-black px-2 py-0.5 rounded-full uppercase">FACTORY DIRECT</span>
-                <h2 class="text-lg font-black tracking-tight leading-tight">Cleaning Essentials</h2>
-                <p class="text-[11px] text-emerald-100">Best Quality & Wholesale Rates</p>
+                <span class="bg-white/20 text-emerald-100 text-[9px] font-black px-2 py-0.5 rounded-full uppercase">FACTORY DIRECT SUPPLIES</span>
+                <h2 class="text-lg font-black tracking-tight leading-tight">Chemicals & Housekeeping Tools</h2>
+                <p class="text-[11px] text-emerald-100">Wholesale Rates • 100% Quality Guaranteed</p>
             </div>
-            <i class="fa-solid fa-flask-vial absolute -right-2 -bottom-2 text-7xl text-white/10 rotate-12"></i>
+            <i class="fa-solid fa-pump-soap absolute -right-2 -bottom-2 text-7xl text-white/10 rotate-12"></i>
         </div>
 
         <!-- Map Picker Card -->
@@ -109,7 +109,7 @@
                     <span id="cart-qty-badge">0</span>
                 </div>
                 <div>
-                    <div class="text-[9px] text-emerald-200 font-bold uppercase">TOTAL</div>
+                    <div class="text-[9px] text-emerald-200 font-bold uppercase">TOTAL AMOUNT</div>
                     <div class="font-black text-sm">₹<span id="cart-total-price">0</span></div>
                 </div>
             </div>
@@ -158,7 +158,7 @@
     <div id="checkout-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-end justify-center">
         <div class="bg-white w-full rounded-t-3xl max-h-[85vh] overflow-y-auto p-4 space-y-3">
             <div class="flex justify-between items-center border-b pb-2">
-                <h3 class="font-extrabold text-sm text-gray-900">Delivery Details</h3>
+                <h3 class="font-extrabold text-sm text-gray-900">Delivery & Payment</h3>
                 <button onclick="closeCheckoutModal()" class="text-gray-500"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <form onsubmit="handleCheckoutSubmit(event)" class="space-y-2.5">
@@ -200,17 +200,16 @@
                 <button onclick="closeAdminModal()" class="text-gray-500"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="bg-gray-50 p-3 rounded-xl space-y-2 border">
-                <h4 class="font-extrabold text-xs text-gray-800">Add New Product (With Custom Photo)</h4>
+                <h4 class="font-extrabold text-xs text-gray-800">Add New Product</h4>
                 <input type="text" id="add-prod-name" placeholder="Product Name" class="w-full p-2 border rounded-lg text-xs">
                 <div class="grid grid-cols-2 gap-2">
                     <input type="number" id="add-prod-price" placeholder="Selling Price ₹" class="p-2 border rounded-lg text-xs">
                     <input type="number" id="add-prod-mrp" placeholder="MRP ₹" class="p-2 border rounded-lg text-xs">
                 </div>
                 <select id="add-prod-cat" class="w-full p-2 border rounded-lg text-xs bg-white">
-                    <option value="Phenyls">Phenyls</option>
-                    <option value="Floor Cleaners">Floor Cleaners</option>
-                    <option value="Toilet Cleaners">Toilet Cleaners</option>
-                    <option value="Household Tools">Household Tools</option>
+                    <option value="Chemicals">Chemicals</option>
+                    <option value="Cleaning Tools">Cleaning Tools</option>
+                    <option value="Dustbins & Bags">Dustbins & Bags</option>
                 </select>
                 <input type="file" id="add-prod-img-file" accept="image/*" class="text-xs w-full bg-white p-1.5 border rounded-lg">
                 <button onclick="saveNewProduct()" class="w-full bg-emerald-600 text-white font-bold py-2 rounded-lg text-xs">Add Product</button>
@@ -222,16 +221,42 @@
     <!-- Logic Script -->
     <script>
         const productsList = [
-            { id: 1, name: "Harshit White Phenyl (1L Bottle)", cat: "Phenyls", price: 35, mrp: 50, img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop&q=80" },
-            { id: 2, name: "Harshit Green Herbal Phenyl (5L Can)", cat: "Phenyls", price: 160, mrp: 220, img: "https://images.unsplash.com/photo-1585435557343-3b092031a831?w=300&auto=format&fit=crop&q=80" },
-            { id: 3, name: "Lemon Fragrance Floor Cleaner (1L)", cat: "Floor Cleaners", price: 85, mrp: 110, img: "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?w=300&auto=format&fit=crop&q=80" },
-            { id: 4, name: "Power Toilet Cleaner Liquid (750ml)", cat: "Toilet Cleaners", price: 75, mrp: 95, img: "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=300&auto=format&fit=crop&q=80" },
-            { id: 5, name: "Heavy Duty Floor Wiper", cat: "Household Tools", price: 120, mrp: 180, img: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=300&auto=format&fit=crop&q=80" },
-            { id: 6, name: "Dishwash Gel Soap (500ml)", cat: "Household Tools", price: 45, mrp: 60, img: "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=300&auto=format&fit=crop&q=80" }
+            { id: 1, name: "Premium Phenyl (1L)", cat: "Chemicals", price: 35, mrp: 50, img: "images/phenyl.jpg" },
+            { id: 2, name: "Tiles Cleaner", cat: "Chemicals", price: 85, mrp: 110, img: "images/tiles_cleaner.jpg" },
+            { id: 3, name: "Toilet Cleaner Liquid", cat: "Chemicals", price: 75, mrp: 95, img: "images/toilet_cleaner.jpg" },
+            { id: 4, name: "Glass & Mirror Cleaner", cat: "Chemicals", price: 65, mrp: 85, img: "images/gilas_cleaner.jpg" },
+            { id: 5, name: "Hardspot Remover Liquid", cat: "Chemicals", price: 95, mrp: 130, img: "images/hardspot_cleaner.jpg" },
+            { id: 6, name: "Dish Wash Liquid Soap", cat: "Chemicals", price: 45, mrp: 60, img: "images/dish_wash.jpg" },
+            { id: 7, name: "Hand Wash Liquid Soap", cat: "Chemicals", price: 55, mrp: 75, img: "images/hand_wash.jpg" },
+            { id: 8, name: "Car & Bike Wash Shampoo", cat: "Chemicals", price: 120, mrp: 160, img: "images/car_bike_shampoo.jpg" },
+            { id: 9, name: "Carpet Cleaning Shampoo", cat: "Chemicals", price: 140, mrp: 190, img: "images/carpet_shampoo.jpg" },
+            { id: 10, name: "Aromatic Room Spray", cat: "Chemicals", price: 110, mrp: 150, img: "images/room_spray.jpg" },
+            { id: 11, name: "Soft Cleaning Broom", cat: "Cleaning Tools", price: 80, mrp: 120, img: "images/Broom.jpg" },
+            { id: 12, name: "Hard Stick Broom", cat: "Cleaning Tools", price: 90, mrp: 130, img: "images/stick_broom.jpg" },
+            { id: 13, name: "Floor Cleaning Squeegee Wipers", cat: "Cleaning Tools", price: 130, mrp: 180, img: "images/squeegee.jpg" },
+            { id: 14, name: "Window Wiper Squeegee", cat: "Cleaning Tools", price: 95, mrp: 140, img: "images/window_wiper.jpg" },
+            { id: 15, name: "Telescopic Extension Pole", cat: "Cleaning Tools", price: 250, mrp: 350, img: "images/extension_pole.jpg" },
+            { id: 16, name: "Toilet Cleaning Brush", cat: "Cleaning Tools", price: 60, mrp: 90, img: "images/toilet_brush.jpg" },
+            { id: 17, name: "Toilet Cleaner Applicator", cat: "Cleaning Tools", price: 75, mrp: 110, img: "images/toilet_cleaner_applicator.jpg" },
+            { id: 18, name: "Urinal Rim Brush", cat: "Cleaning Tools", price: 50, mrp: 75, img: "images/urinal_brush.jpg" },
+            { id: 19, name: "Handy Picker Grabber", cat: "Cleaning Tools", price: 180, mrp: 260, img: "images/handy_picker.jpg" },
+            { id: 20, name: "Garbage Tongs Heavy Duty", cat: "Cleaning Tools", price: 150, mrp: 220, img: "images/garbage_tongs.jpg" },
+            { id: 21, name: "Safety Rubber Hand Gloves", cat: "Cleaning Tools", price: 40, mrp: 60, img: "images/gloves.png.jpg" },
+            { id: 22, name: "Microfiber Dust Cloth", cat: "Cleaning Tools", price: 30, mrp: 50, img: "images/dust_cloth.jpg" },
+            { id: 23, name: "Dust Scoop / Pan", cat: "Cleaning Tools", price: 45, mrp: 70, img: "images/scoop.png.jpg" },
+            { id: 24, name: "Chemical Measuring Jug", cat: "Cleaning Tools", price: 50, mrp: 80, img: "images/measuring_jug.jpg" },
+            { id: 25, name: "Small Dustbin", cat: "Dustbins & Bags", price: 120, mrp: 180, img: "images/dustbin_small.jpg" },
+            { id: 26, name: "Large Commercial Dustbin", cat: "Dustbins & Bags", price: 350, mrp: 500, img: "images/dustbin_large.jpg" },
+            { id: 27, name: "Black Garbage Bags (Roll)", cat: "Dustbins & Bags", price: 70, mrp: 100, img: "images/garbage_bag.jpg" },
+            { id: 28, name: "Heavy Plastic Bucket", cat: "Cleaning Tools", price: 110, mrp: 160, img: "images/bucket.jpg" },
+            { id: 29, name: "Housekeeping Janitor Trolley", cat: "Cleaning Tools", price: 1200, mrp: 1800, img: "images/trolley.jpg" },
+            { id: 30, name: "Wet Floor Caution Sign", cat: "Cleaning Tools", price: 220, mrp: 320, img: "images/wet_floor_sign.jpg" }
         ];
 
-        let products = JSON.parse(localStorage.getItem('harshit_products')) || productsList;
-        let categories = ["All", "Phenyls", "Floor Cleaners", "Toilet Cleaners", "Household Tools"];
+        // Ensure clear cache for new image paths
+        localStorage.removeItem('harshit_products');
+        let products = productsList;
+        let categories = ["All", "Chemicals", "Cleaning Tools", "Dustbins & Bags"];
         let currentCat = "All";
         let cart = {};
         let map, marker;
@@ -271,8 +296,8 @@
                 return `
                     <div class="bg-white rounded-2xl p-2.5 border border-gray-200 shadow-sm flex flex-col justify-between relative">
                         ${discount > 0 ? `<span class="absolute top-2 left-2 bg-emerald-100 text-emerald-800 text-[9px] font-black px-1.5 py-0.5 rounded">${discount}% OFF</span>` : ''}
-                        <div class="h-24 w-full flex items-center justify-center my-1 overflow-hidden rounded-xl bg-gray-50 border">
-                            <img src="${p.img}" alt="${p.name}" class="object-cover h-full w-full">
+                        <div class="h-28 w-full flex items-center justify-center my-1 overflow-hidden rounded-xl bg-gray-50 border">
+                            <img src="${p.img}" alt="${p.name}" class="object-contain h-full w-full" onerror="this.src='https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop&q=80'">
                         </div>
                         <div>
                             <span class="text-[9px] font-black text-gray-400 uppercase">${p.cat}</span>
@@ -319,7 +344,7 @@
                 return `
                     <div class="flex items-center justify-between bg-gray-50 p-2 rounded-xl border">
                         <div class="flex items-center gap-2">
-                            <img src="${p.img}" class="w-10 h-10 rounded-lg object-cover">
+                            <img src="${p.img}" class="w-10 h-10 rounded-lg object-contain">
                             <div>
                                 <h5 class="font-bold text-xs text-gray-900">${p.name}</h5>
                                 <div class="text-xs font-black text-emerald-700">₹${p.price * cart[id]}</div>
@@ -409,7 +434,7 @@
                 reader.onload = e => save(e.target.result);
                 reader.readAsDataURL(imgFile);
             } else {
-                save("https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop&q=80");
+                save("images/phenyl.jpg");
             }
         }
 
