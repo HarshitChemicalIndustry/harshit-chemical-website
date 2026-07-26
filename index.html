@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Harshit Chemical Industry | Premium Store</title>
+    <title>Harshit Chemical Industry | Quick Commerce Store</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -79,10 +79,10 @@
         <div class="relative w-full rounded-3xl overflow-hidden border border-slate-200 shadow-md bg-white">
             <div id="banner-slider" class="flex transition-transform duration-700 ease-in-out">
                 <div class="w-full flex-shrink-0 relative">
-                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&auto=format&fit=crop&q=80" alt="Company Banner" class="w-full h-40 sm:h-64 md:h-80 object-cover block">
+                    <img src="./images/hero_banner.jpg" alt="Company Banner" class="w-full h-40 sm:h-64 md:h-80 object-cover block" onerror="this.onerror=null; this.src='./images/banner.jpg';">
                 </div>
                 <div class="w-full flex-shrink-0 relative">
-                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=1200&auto=format&fit=crop&q=80" alt="Special Offer Banner" class="w-full h-40 sm:h-64 md:h-80 object-cover block">
+                    <img src="./images/banner.jpg" alt="Special Offer Banner" class="w-full h-40 sm:h-64 md:h-80 object-cover block" onerror="this.onerror=null; this.src='./images/hero_banner.jpg';">
                 </div>
                 <div class="w-full flex-shrink-0 bg-gradient-to-r from-emerald-800 to-teal-900 text-white h-40 sm:h-64 md:h-80 p-6 flex flex-col justify-center items-start relative overflow-hidden">
                     <span class="bg-amber-400 text-slate-950 text-[10px] sm:text-xs font-black px-3 py-1 rounded-full uppercase shadow">50% OFF Wholesale Deals</span>
@@ -110,6 +110,16 @@
             <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
         </div>
 
+        <section class="mt-2">
+            <div class="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest mb-2 px-1">Trending Searches</div>
+            <div class="flex gap-2 overflow-x-auto no-scrollbar py-0.5">
+                <button onclick="syncSearch('phenyl')" class="bg-white hover:bg-emerald-50 text-slate-700 hover:text-[#0c831f] border border-slate-200 px-3 py-1.5 rounded-full text-xs font-extrabold shadow-sm whitespace-nowrap transition">🔥 Phenyl</button>
+                <button onclick="syncSearch('cleaner')" class="bg-white hover:bg-emerald-50 text-slate-700 hover:text-[#0c831f] border border-slate-200 px-3 py-1.5 rounded-full text-xs font-extrabold shadow-sm whitespace-nowrap transition">✨ Glass & Tiles</button>
+                <button onclick="syncSearch('broom')" class="bg-white hover:bg-emerald-50 text-slate-700 hover:text-[#0c831f] border border-slate-200 px-3 py-1.5 rounded-full text-xs font-extrabold shadow-sm whitespace-nowrap transition">🧹 Brooms & Wipers</button>
+                <button onclick="syncSearch('dustbin')" class="bg-white hover:bg-emerald-50 text-slate-700 hover:text-[#0c831f] border border-slate-200 px-3 py-1.5 rounded-full text-xs font-extrabold shadow-sm whitespace-nowrap transition">🗑️ Dustbins</button>
+            </div>
+        </section>
+
         <div>
             <div class="flex justify-between items-center mb-4">
                 <h3 class="font-black text-slate-900 text-base sm:text-xl" id="category-title">All Products</h3>
@@ -117,6 +127,17 @@
             </div>
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-5" id="product-grid"></div>
         </div>
+
+        <section class="mt-6 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-5 text-white shadow-lg border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="space-y-1 text-center sm:text-left">
+                <span class="bg-emerald-500 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-widest">BULK ORDERS</span>
+                <h4 class="font-black text-base">Running a Hotel, Hospital or Agency?</h4>
+                <p class="text-xs text-slate-300 font-medium">Get customized commercial cleaning supplies at factory rates.</p>
+            </div>
+            <a href="https://wa.me/?text=Hello%20Harshit%20Chemical%20Industry,%20I%20want%20to%20place%20a%20Bulk%20Wholesale%20Order." target="_blank" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-5 py-3 rounded-2xl text-xs uppercase tracking-wider shadow-lg transition whitespace-nowrap">
+                <i class="fa-brands fa-whatsapp mr-1 text-sm"></i> Get Wholesale Quote
+            </a>
+        </section>
 
         <footer class="mt-8 bg-white border-t border-slate-200 rounded-3xl p-6 shadow-sm">
             <div class="max-w-7xl mx-auto text-center sm:text-left sm:flex sm:justify-between sm:items-center space-y-3 sm:space-y-0">
@@ -246,50 +267,64 @@
         </div>
     </div>
 
-    <!-- Application Script Engine -->
+    <div id="live-sales-toast" class="fixed bottom-24 left-4 z-40 bg-white/95 backdrop-blur-md border border-slate-200 p-3 rounded-2xl shadow-2xl flex items-center gap-3 max-w-xs transition-all duration-500 transform translate-y-20 opacity-0 pointer-events-none">
+        <div class="w-10 h-10 rounded-xl bg-emerald-100 text-[#0c831f] flex items-center justify-center text-lg font-bold shrink-0">
+            <i class="fa-solid fa-bag-shopping"></i>
+        </div>
+        <div>
+            <div class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Just now</div>
+            <div class="text-xs font-extrabold text-slate-900 leading-tight" id="toast-text">Someone ordered Premium Phenyl!</div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/?text=Hello%20Harshit%20Chemical%20Industry,%20I%20want%20to%20inquire%20about%20products" target="_blank" class="fixed bottom-20 right-4 z-40 bg-[#25D366] text-white w-12 h-12 rounded-full flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition-transform border-2 border-white">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Application Script Engine with Images Folder Path Integration -->
     <script>
         var fallbackImg = "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=80";
 
         var productsList = [
-            { id: 1, name: "Premium Phenyl", cat: "Chemicals", price: 35, mrp: 50, img: "https://images.unsplash.com/photo-1585421514284-efb74c2b69ba?w=500&auto=format&fit=crop&q=80" },
-            { id: 2, name: "Glass Cleaner", cat: "Chemicals", price: 65, mrp: 85, img: "https://images.unsplash.com/photo-1585670149967-b4f4da88cc9f?w=500&auto=format&fit=crop&q=80" },
-            { id: 3, name: "Tiles Cleaner", cat: "Chemicals", price: 85, mrp: 110, img: "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=500&auto=format&fit=crop&q=80" },
-            { id: 4, name: "Toilet Cleaner Liquid", cat: "Chemicals", price: 75, mrp: 95, img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=80" },
-            { id: 5, name: "Hardspot Cleaner", cat: "Chemicals", price: 95, mrp: 130, img: "https://images.unsplash.com/photo-1585421514284-efb74c2b69ba?w=500&auto=format&fit=crop&q=80" },
-            { id: 6, name: "Dish Wash Soap", cat: "Chemicals", price: 45, mrp: 60, img: "https://images.unsplash.com/photo-1585670149967-b4f4da88cc9f?w=500&auto=format&fit=crop&q=80" },
-            { id: 7, name: "Hand Wash Liquid", cat: "Chemicals", price: 55, mrp: 75, img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=80" },
-            { id: 8, name: "Car & Bike Shampoo", cat: "Chemicals", price: 120, mrp: 160, img: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=500&auto=format&fit=crop&q=80" },
-            { id: 9, name: "Carpet Shampoo", cat: "Chemicals", price: 140, mrp: 190, img: "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=500&auto=format&fit=crop&q=80" },
-            { id: 10, name: "Room Fragrance Spray", cat: "Chemicals", price: 110, mrp: 150, img: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=500&auto=format&fit=crop&q=80" },
-            { id: 11, name: "Soft Broom", cat: "Cleaning Tools", price: 80, mrp: 120, img: "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=500&auto=format&fit=crop&q=80" },
-            { id: 12, name: "Stick Broom", cat: "Cleaning Tools", price: 90, mrp: 130, img: "https://images.unsplash.com/photo-1585421514284-efb74c2b69ba?w=500&auto=format&fit=crop&q=80" },
-            { id: 13, name: "Floor Squeegee Wiper", cat: "Cleaning Tools", price: 130, mrp: 180, img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=80" },
-            { id: 14, name: "Squeegee Wiper", cat: "Cleaning Tools", price: 95, mrp: 140, img: "https://images.unsplash.com/photo-1585670149967-b4f4da88cc9f?w=500&auto=format&fit=crop&q=80" },
-            { id: 15, name: "Window Wiper", cat: "Cleaning Tools", price: 95, mrp: 140, img: "https://images.unsplash.com/photo-1585421514284-efb74c2b69ba?w=500&auto=format&fit=crop&q=80" },
-            { id: 16, name: "Extension Pole", cat: "Cleaning Tools", price: 250, mrp: 350, img: "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=500&auto=format&fit=crop&q=80" },
-            { id: 17, name: "Toilet Brush", cat: "Cleaning Tools", price: 60, mrp: 90, img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=80" },
-            { id: 18, name: "Toilet Cleaner Applicator", cat: "Cleaning Tools", price: 75, mrp: 110, img: "https://images.unsplash.com/photo-1585421514284-efb74c2b69ba?w=500&auto=format&fit=crop&q=80" },
-            { id: 19, name: "Urinal Brush", cat: "Cleaning Tools", price: 50, mrp: 75, img: "https://images.unsplash.com/photo-1585670149967-b4f4da88cc9f?w=500&auto=format&fit=crop&q=80" },
-            { id: 20, name: "Bottle Brush", cat: "Cleaning Tools", price: 40, mrp: 65, img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=80" },
-            { id: 21, name: "Handy Picker", cat: "Cleaning Tools", price: 180, mrp: 260, img: "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=500&auto=format&fit=crop&q=80" },
-            { id: 22, name: "Garbage Tongs", cat: "Cleaning Tools", price: 150, mrp: 220, img: "https://images.unsplash.com/photo-1585421514284-efb74c2b69ba?w=500&auto=format&fit=crop&q=80" },
-            { id: 23, name: "Rubber Gloves", cat: "Cleaning Tools", price: 40, mrp: 60, img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=80" },
-            { id: 24, name: "Dust Cloth", cat: "Cleaning Tools", price: 30, mrp: 50, img: "https://images.unsplash.com/photo-1585670149967-b4f4da88cc9f?w=500&auto=format&fit=crop&q=80" },
-            { id: 25, name: "Microfiber Cloth", cat: "Cleaning Tools", price: 45, mrp: 70, img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=80" },
-            { id: 26, name: "Microfiber Duster", cat: "Cleaning Tools", price: 85, mrp: 120, img: "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=500&auto=format&fit=crop&q=80" },
-            { id: 27, name: "Feather Duster", cat: "Cleaning Tools", price: 75, mrp: 110, img: "https://images.unsplash.com/photo-1585421514284-efb74c2b69ba?w=500&auto=format&fit=crop&q=80" },
-            { id: 28, name: "Spider Web Duster", cat: "Cleaning Tools", price: 90, mrp: 140, img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=80" },
-            { id: 29, name: "Cotton Mop", cat: "Cleaning Tools", price: 110, mrp: 160, img: "https://images.unsplash.com/photo-1585670149967-b4f4da88cc9f?w=500&auto=format&fit=crop&q=80" },
-            { id: 30, name: "Dust Pan", cat: "Cleaning Tools", price: 45, mrp: 70, img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=80" },
-            { id: 31, name: "Scoop Pan", cat: "Cleaning Tools", price: 45, mrp: 70, img: "https://images.unsplash.com/photo-1585421514284-efb74c2b69ba?w=500&auto=format&fit=crop&q=80" },
-            { id: 32, name: "Measuring Jug", cat: "Cleaning Tools", price: 50, mrp: 80, img: "https://images.unsplash.com/photo-1585670149967-b4f4da88cc9f?w=500&auto=format&fit=crop&q=80" },
-            { id: 33, name: "Heavy Plastic Bucket", cat: "Cleaning Tools", price: 110, mrp: 160, img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=80" },
-            { id: 34, name: "Scrubber Pad", cat: "Cleaning Tools", price: 20, mrp: 35, img: "https://images.unsplash.com/photo-1585421514284-efb74c2b69ba?w=500&auto=format&fit=crop&q=80" },
-            { id: 35, name: "Small Dustbin", cat: "Dustbins & Bags", price: 120, mrp: 180, img: "https://images.unsplash.com/photo-1593113598332-cd288d649433?w=500&auto=format&fit=crop&q=80" },
-            { id: 36, name: "Large Commercial Dustbin", cat: "Dustbins & Bags", price: 350, mrp: 500, img: "https://images.unsplash.com/photo-1593113598332-cd288d649433?w=500&auto=format&fit=crop&q=80" },
-            { id: 37, name: "Garbage Bags Roll", cat: "Dustbins & Bags", price: 70, mrp: 100, img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=80" },
-            { id: 38, name: "Janitor Trolley", cat: "Cleaning Tools", price: 1200, mrp: 1800, img: "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=500&auto=format&fit=crop&q=80" },
-            { id: 39, name: "Wet Floor Sign", cat: "Cleaning Tools", price: 220, mrp: 320, img: "https://images.unsplash.com/photo-1585421514284-efb74c2b69ba?w=500&auto=format&fit=crop&q=80" }
+            { id: 1, name: "Premium Phenyl", cat: "Chemicals", price: 35, mrp: 50, img: "./images/phenyl.jpg" },
+            { id: 2, name: "Glass Cleaner", cat: "Chemicals", price: 65, mrp: 85, img: "./images/glas_cleaner.jpg" },
+            { id: 3, name: "Tiles Cleaner", cat: "Chemicals", price: 85, mrp: 110, img: "./images/tiles_cleaner.jpg" },
+            { id: 4, name: "Toilet Cleaner Liquid", cat: "Chemicals", price: 75, mrp: 95, img: "./images/toilet_cleaner.jpg" },
+            { id: 5, name: "Hardspot Cleaner", cat: "Chemicals", price: 95, mrp: 130, img: "./images/hardspot_cleaner.jpg" },
+            { id: 6, name: "Dish Wash Soap", cat: "Chemicals", price: 45, mrp: 60, img: "./images/dish_wash.jpg" },
+            { id: 7, name: "Hand Wash Liquid", cat: "Chemicals", price: 55, mrp: 75, img: "./images/hand_wash.jpg" },
+            { id: 8, name: "Car & Bike Shampoo", cat: "Chemicals", price: 120, mrp: 160, img: "./images/car_bike_shampoo.jpg" },
+            { id: 9, name: "Carpet Shampoo", cat: "Chemicals", price: 140, mrp: 190, img: "./images/carpet_shampoo.jpg" },
+            { id: 10, name: "Room Fragrance Spray", cat: "Chemicals", price: 110, mrp: 150, img: "./images/room_spray.jpg" },
+            { id: 11, name: "Soft Broom", cat: "Cleaning Tools", price: 80, mrp: 120, img: "./images/broom.jpg" },
+            { id: 12, name: "Stick Broom", cat: "Cleaning Tools", price: 90, mrp: 130, img: "./images/stick_broom.jpg" },
+            { id: 13, name: "Floor Squeegee Wiper", cat: "Cleaning Tools", price: 130, mrp: 180, img: "./images/floor_squeegee.jpg" },
+            { id: 14, name: "Squeegee Wiper", cat: "Cleaning Tools", price: 95, mrp: 140, img: "./images/squeegee.jpg" },
+            { id: 15, name: "Window Wiper", cat: "Cleaning Tools", price: 95, mrp: 140, img: "./images/window_wiper.jpg" },
+            { id: 16, name: "Extension Pole", cat: "Cleaning Tools", price: 250, mrp: 350, img: "./images/extension_pole.jpg" },
+            { id: 17, name: "Toilet Brush", cat: "Cleaning Tools", price: 60, mrp: 90, img: "./images/toilet_brush.jpg" },
+            { id: 18, name: "Toilet Cleaner Applicator", cat: "Cleaning Tools", price: 75, mrp: 110, img: "./images/toilet_cleaner_applicator.jpg" },
+            { id: 19, name: "Urinal Brush", cat: "Cleaning Tools", price: 50, mrp: 75, img: "./images/urinal_brush.jpg" },
+            { id: 20, name: "Bottle Brush", cat: "Cleaning Tools", price: 40, mrp: 65, img: "./images/botal_brush.jpg" },
+            { id: 21, name: "Handy Picker", cat: "Cleaning Tools", price: 180, mrp: 260, img: "./images/handy_picker.jpg" },
+            { id: 22, name: "Garbage Tongs", cat: "Cleaning Tools", price: 150, mrp: 220, img: "./images/garbage_tongs.jpg" },
+            { id: 23, name: "Rubber Gloves", cat: "Cleaning Tools", price: 40, mrp: 60, img: "./images/gloves.png.jpg" },
+            { id: 24, name: "Dust Cloth", cat: "Cleaning Tools", price: 30, mrp: 50, img: "./images/dust_cloth.jpg" },
+            { id: 25, name: "Microfiber Cloth", cat: "Cleaning Tools", price: 45, mrp: 70, img: "./images/microfiber_cloth.jpg" },
+            { id: 26, name: "Microfiber Duster", cat: "Cleaning Tools", price: 85, mrp: 120, img: "./images/microfiber_duster.jpg" },
+            { id: 27, name: "Feather Duster", cat: "Cleaning Tools", price: 75, mrp: 110, img: "./images/feather_duster.jpg" },
+            { id: 28, name: "Spider Web Duster", cat: "Cleaning Tools", price: 90, mrp: 140, img: "./images/spider_duster.jpg" },
+            { id: 29, name: "Cotton Mop", cat: "Cleaning Tools", price: 110, mrp: 160, img: "./images/cotton_mop.jpg" },
+            { id: 30, name: "Dust Pan", cat: "Cleaning Tools", price: 45, mrp: 70, img: "./images/dust_pan.jpg" },
+            { id: 31, name: "Scoop Pan", cat: "Cleaning Tools", price: 45, mrp: 70, img: "./images/scoop.png.jpg" },
+            { id: 32, name: "Measuring Jug", cat: "Cleaning Tools", price: 50, mrp: 80, img: "./images/measuring_jug.jpg" },
+            { id: 33, name: "Heavy Plastic Bucket", cat: "Cleaning Tools", price: 110, mrp: 160, img: "./images/bucket.jpg" },
+            { id: 34, name: "Scrubber Pad", cat: "Cleaning Tools", price: 20, mrp: 35, img: "./images/scrubber_pad.png.jpg" },
+            { id: 35, name: "Small Dustbin", cat: "Dustbins & Bags", price: 120, mrp: 180, img: "./images/dustbin_small.jpg" },
+            { id: 36, name: "Large Commercial Dustbin", cat: "Dustbins & Bags", price: 350, mrp: 500, img: "./images/dustbin_large.jpg" },
+            { id: 37, name: "Garbage Bags Roll", cat: "Dustbins & Bags", price: 70, mrp: 100, img: "./images/garbage_bag.jpg" },
+            { id: 38, name: "Janitor Trolley", cat: "Cleaning Tools", price: 1200, mrp: 1800, img: "./images/trolley.jpg" },
+            { id: 39, name: "Wet Floor Sign", cat: "Cleaning Tools", price: 220, mrp: 320, img: "./images/wet_floor_sign.jpg" }
         ];
 
         var products = productsList;
@@ -596,7 +631,7 @@
                 reader.onload = function(e) { save(e.target.result); };
                 reader.readAsDataURL(imgFile);
             } else {
-                save(fallbackImg);
+                save("./images/phenyl.jpg");
             }
         }
 
