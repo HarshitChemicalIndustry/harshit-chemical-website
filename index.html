@@ -220,41 +220,51 @@
 
     <!-- Logic Script -->
     <script>
+        // Exact filenames mapped directly from your GitHub repository screenshot
         const productsList = [
-            { id: 1, name: "Soft Cleaning Broom", cat: "Cleaning Tools", price: 80, mrp: 120, img: "images/Broom.jpg" },
-            { id: 2, name: "Heavy Plastic Bucket", cat: "Cleaning Tools", price: 110, mrp: 160, img: "images/bucket.jpg" },
-            { id: 3, name: "Car & Bike Wash Shampoo", cat: "Chemicals", price: 120, mrp: 160, img: "images/car_bike_shampoo.jpg" },
-            { id: 4, name: "Carpet Cleaning Shampoo", cat: "Chemicals", price: 140, mrp: 190, img: "images/carpet_shampoo.jpg" },
-            { id: 5, name: "Dish Wash Liquid Soap", cat: "Chemicals", price: 45, mrp: 60, img: "images/dish_wash.jpg" },
-            { id: 6, name: "Microfiber Dust Cloth", cat: "Cleaning Tools", price: 30, mrp: 50, img: "images/dust_cloth.jpg" },
-            { id: 7, name: "Large Commercial Dustbin", cat: "Dustbins & Bags", price: 350, mrp: 500, img: "images/dustbin_large.jpg" },
-            { id: 8, name: "Small Dustbin", cat: "Dustbins & Bags", price: 120, mrp: 180, img: "images/dustbin_small.jpg" },
-            { id: 9, name: "Telescopic Extension Pole", cat: "Cleaning Tools", price: 250, mrp: 350, img: "images/extension_pole.jpg" },
-            { id: 10, name: "Black Garbage Bags (Roll)", cat: "Dustbins & Bags", price: 70, mrp: 100, img: "images/garbage_bag.jpg" },
-            { id: 11, name: "Garbage Tongs Heavy Duty", cat: "Cleaning Tools", price: 150, mrp: 220, img: "images/garbage_tongs.jpg" },
-            { id: 12, name: "Glass & Mirror Cleaner", cat: "Chemicals", price: 65, mrp: 85, img: "images/gilas_cleaner.jpg" },
-            { id: 13, name: "Safety Rubber Hand Gloves", cat: "Cleaning Tools", price: 40, mrp: 60, img: "images/gloves.png.jpg" },
-            { id: 14, name: "Hand Wash Liquid Soap", cat: "Chemicals", price: 55, mrp: 75, img: "images/hand_wash.jpg" },
-            { id: 15, name: "Handy Picker Grabber", cat: "Cleaning Tools", price: 180, mrp: 260, img: "images/handy_picker.jpg" },
-            { id: 16, name: "Hardspot Remover Liquid", cat: "Chemicals", price: 95, mrp: 130, img: "images/hardspot_cleaner.jpg" },
-            { id: 17, name: "Chemical Measuring Jug", cat: "Cleaning Tools", price: 50, mrp: 80, img: "images/measuring_jug.jpg" },
-            { id: 18, name: "Premium Phenyl (1L)", cat: "Chemicals", price: 35, mrp: 50, img: "images/phenyl.jpg" },
-            { id: 19, name: "Aromatic Room Spray", cat: "Chemicals", price: 110, mrp: 150, img: "images/room_spray.jpg" },
-            { id: 20, name: "Dust Scoop / Pan", cat: "Cleaning Tools", price: 45, mrp: 70, img: "images/scoop.png.jpg" },
-            { id: 21, name: "Floor Cleaning Squeegee Wipers", cat: "Cleaning Tools", price: 130, mrp: 180, img: "images/squeegee.jpg" },
-            { id: 22, name: "Hard Stick Broom", cat: "Cleaning Tools", price: 90, mrp: 130, img: "images/stick_broom.jpg" },
-            { id: 23, name: "Tiles Cleaner", cat: "Chemicals", price: 85, mrp: 110, img: "images/tiles_cleaner.jpg" },
-            { id: 24, name: "Toilet Cleaning Brush", cat: "Cleaning Tools", price: 60, mrp: 90, img: "images/toilet_brush.jpg" },
-            { id: 25, name: "Toilet Cleaner Liquid", cat: "Chemicals", price: 75, mrp: 95, img: "images/toilet_cleaner.jpg" },
-            { id: 26, name: "Toilet Cleaner Applicator", cat: "Cleaning Tools", price: 75, mrp: 110, img: "images/toilet_cleaner_applicator.jpg" },
-            { id: 27, name: "Housekeeping Janitor Trolley", cat: "Cleaning Tools", price: 1200, mrp: 1800, img: "images/trolley.jpg" },
-            { id: 28, name: "Urinal Rim Brush", cat: "Cleaning Tools", price: 50, mrp: 75, img: "images/urinal_brush.jpg" },
-            { id: 29, name: "Wet Floor Caution Sign", cat: "Cleaning Tools", price: 220, mrp: 320, img: "images/wet_floor_sign.jpg" },
-            { id: 30, name: "Window Wiper Squeegee", cat: "Cleaning Tools", price: 95, mrp: 140, img: "images/window_wiper.jpg" }
+            { id: 1, name: "Premium Phenyl", cat: "Chemicals", price: 35, mrp: 50, img: "phenyl.jpg" },
+            { id: 2, name: "Glass Cleaner", cat: "Chemicals", price: 65, mrp: 85, img: "glas_cleaner.jpg" },
+            { id: 3, name: "Tiles Cleaner", cat: "Chemicals", price: 85, mrp: 110, img: "tiles_cleaner.jpg" },
+            { id: 4, name: "Toilet Cleaner Liquid", cat: "Chemicals", price: 75, mrp: 95, img: "toilet_cleaner.jpg" },
+            { id: 5, name: "Hardspot Cleaner", cat: "Chemicals", price: 95, mrp: 130, img: "hardspot_cleaner.jpg" },
+            { id: 6, name: "Dish Wash Soap", cat: "Chemicals", price: 45, mrp: 60, img: "dish_wash.jpg" },
+            { id: 7, name: "Hand Wash Liquid", cat: "Chemicals", price: 55, mrp: 75, img: "hand_wash.jpg" },
+            { id: 8, name: "Car & Bike Shampoo", cat: "Chemicals", price: 120, mrp: 160, img: "car_bike_shampoo.jpg" },
+            { id: 9, name: "Carpet Shampoo", cat: "Chemicals", price: 140, mrp: 190, img: "carpet_shampoo.jpg" },
+            { id: 10, name: "Room Fragrance Spray", cat: "Chemicals", price: 110, mrp: 150, img: "room_spray.jpg" },
+            { id: 11, name: "Soft Broom", cat: "Cleaning Tools", price: 80, mrp: 120, img: "broom.jpg" },
+            { id: 12, name: "Stick Broom", cat: "Cleaning Tools", price: 90, mrp: 130, img: "stick_broom.jpg" },
+            { id: 13, name: "Floor Squeegee Wiper", cat: "Cleaning Tools", price: 130, mrp: 180, img: "floor_squeegee.jpg" },
+            { id: 14, name: "Squeegee Wiper", cat: "Cleaning Tools", price: 95, mrp: 140, img: "squeegee.jpg" },
+            { id: 15, name: "Window Wiper", cat: "Cleaning Tools", price: 95, mrp: 140, img: "window_wiper.jpg" },
+            { id: 16, name: "Extension Pole", cat: "Cleaning Tools", price: 250, mrp: 350, img: "extension_pole.jpg" },
+            { id: 17, name: "Toilet Brush", cat: "Cleaning Tools", price: 60, mrp: 90, img: "toilet_brush.jpg" },
+            { id: 18, name: "Toilet Cleaner Applicator", cat: "Cleaning Tools", price: 75, mrp: 110, img: "toilet_cleaner_applicator.jpg" },
+            { id: 19, name: "Urinal Brush", cat: "Cleaning Tools", price: 50, mrp: 75, img: "urinal_brush.jpg" },
+            { id: 20, name: "Bottle Brush", cat: "Cleaning Tools", price: 40, mrp: 65, img: "botal_brush.jpg" },
+            { id: 21, name: "Handy Picker", cat: "Cleaning Tools", price: 180, mrp: 260, img: "handy_picker.jpg" },
+            { id: 22, name: "Garbage Tongs", cat: "Cleaning Tools", price: 150, mrp: 220, img: "garbage_tongs.jpg" },
+            { id: 23, name: "Rubber Gloves", cat: "Cleaning Tools", price: 40, mrp: 60, img: "gloves.png.jpg" },
+            { id: 24, name: "Dust Cloth", cat: "Cleaning Tools", price: 30, mrp: 50, img: "dust_cloth.jpg" },
+            { id: 25, name: "Microfiber Cloth", cat: "Cleaning Tools", price: 45, mrp: 70, img: "microfiber_cloth.jpg" },
+            { id: 26, name: "Microfiber Duster", cat: "Cleaning Tools", price: 85, mrp: 120, img: "microfiber_duster.jpg" },
+            { id: 27, name: "Feather Duster", cat: "Cleaning Tools", price: 75, mrp: 110, img: "feather_duster.jpg" },
+            { id: 28, name: "Spider Web Duster", cat: "Cleaning Tools", price: 90, mrp: 140, img: "spider_duster.jpg" },
+            { id: 29, name: "Cotton Mop", cat: "Cleaning Tools", price: 110, mrp: 160, img: "cotton_mop.jpg" },
+            { id: 30, name: "Dust Pan", cat: "Cleaning Tools", price: 45, mrp: 70, img: "dust_pan.jpg" },
+            { id: 31, name: "Scoop Pan", cat: "Cleaning Tools", price: 45, mrp: 70, img: "scoop.png.jpg" },
+            { id: 32, name: "Measuring Jug", cat: "Cleaning Tools", price: 50, mrp: 80, img: "measuring_jug.jpg" },
+            { id: 33, name: "Heavy Plastic Bucket", cat: "Cleaning Tools", price: 110, mrp: 160, img: "bucket.jpg" },
+            { id: 34, name: "Scrubber Pad", cat: "Cleaning Tools", price: 20, mrp: 35, img: "scrubber_pad.png.jpg" },
+            { id: 35, name: "Small Dustbin", cat: "Dustbins & Bags", price: 120, mrp: 180, img: "dustbin_small.jpg" },
+            { id: 36, name: "Large Commercial Dustbin", cat: "Dustbins & Bags", price: 350, mrp: 500, img: "dustbin_large.jpg" },
+            { id: 37, name: "Garbage Bags Roll", cat: "Dustbins & Bags", price: 70, mrp: 100, img: "garbage_bag.jpg" },
+            { id: 38, name: "Janitor Trolley", cat: "Cleaning Tools", price: 1200, mrp: 1800, img: "trolley.jpg" },
+            { id: 39, name: "Wet Floor Sign", cat: "Cleaning Tools", price: 220, mrp: 320, img: "wet_floor_sign.jpg" }
         ];
 
-        // Clear older saved data to load fresh images correctly
-        localStorage.removeItem('harshit_products');
+        // Force reset old browser cache
+        localStorage.clear();
         let products = productsList;
         let categories = ["All", "Chemicals", "Cleaning Tools", "Dustbins & Bags"];
         let currentCat = "All";
@@ -297,7 +307,7 @@
                     <div class="bg-white rounded-2xl p-2.5 border border-gray-200 shadow-sm flex flex-col justify-between relative">
                         ${discount > 0 ? `<span class="absolute top-2 left-2 bg-emerald-100 text-emerald-800 text-[9px] font-black px-1.5 py-0.5 rounded">${discount}% OFF</span>` : ''}
                         <div class="h-28 w-full flex items-center justify-center my-1 overflow-hidden rounded-xl bg-gray-50 border">
-                            <img src="${p.img}" alt="${p.name}" class="object-contain h-full w-full" onerror="this.onerror=null; this.src='images/phenyl.jpg';">
+                            <img src="${p.img}" alt="${p.name}" class="object-contain h-full w-full">
                         </div>
                         <div>
                             <span class="text-[9px] font-black text-gray-400 uppercase">${p.cat}</span>
@@ -425,7 +435,6 @@
 
             const save = (img) => {
                 products.push({ id: Date.now(), name, cat, price, mrp, img });
-                localStorage.setItem('harshit_products', JSON.stringify(products));
                 renderProducts(); renderAdminList(); alert('Product Added!');
             };
 
@@ -434,7 +443,7 @@
                 reader.onload = e => save(e.target.result);
                 reader.readAsDataURL(imgFile);
             } else {
-                save("images/phenyl.jpg");
+                save("phenyl.jpg");
             }
         }
 
@@ -449,7 +458,6 @@
 
         function removeProduct(id) {
             products = products.filter(p => p.id !== id);
-            localStorage.setItem('harshit_products', JSON.stringify(products));
             renderProducts(); renderAdminList(); updateCartUI();
         }
 
