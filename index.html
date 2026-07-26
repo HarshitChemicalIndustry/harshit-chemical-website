@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Harshit Chemical Industry | Quick Commerce Store</title>
     
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet Maps CSS & JS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
@@ -28,7 +31,7 @@
         * { font-family: 'Plus Jakarta Sans', sans-serif; -webkit-tap-highlight-color: transparent; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        #map { height: 250px; width: 100%; border-radius: 1.25rem; }
+        #map { height: 260px; width: 100%; border-radius: 1.25rem; }
         body { background-color: #f4f6fb; }
         .active-tab {
             background-color: #0c831f !important;
@@ -39,6 +42,7 @@
 </head>
 <body class="text-slate-900 min-h-screen pb-32">
 
+    <!-- Top Sticky Navigation Bar -->
     <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm w-full">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <div class="flex items-center justify-between gap-3">
@@ -78,6 +82,7 @@
         </div>
     </header>
 
+    <!-- Main Container -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 space-y-5">
 
         <div class="bg-white rounded-3xl p-3 border border-slate-200 shadow-sm">
@@ -180,6 +185,7 @@
         </div>
     </div>
 
+    <!-- Map Modal with Live Moving Bike Delivery Animation -->
     <div id="map-modal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
         <div class="bg-white border border-slate-200 w-full max-w-lg rounded-t-3xl sm:rounded-3xl p-5 space-y-4 shadow-2xl">
             <div class="flex justify-between items-center border-b pb-3">
@@ -257,268 +263,7 @@
             </div>
             <div class="bg-slate-50 p-4 rounded-2xl space-y-2.5 border border-slate-200">
                 <h4 class="font-extrabold text-xs text-[#0c831f] uppercase tracking-wider">Add Custom Product</h4>
-                <input type="text" id="add-prod-name" placeholder="Product Name" class="w-full p-2.5 bg-white border border-slate-300 rounded-xl text-xs text-slate-900">
-                <div class="grid grid-cols-2 gap-2">
-                    <input type="number" id="add-prod-price" placeholder="Price ₹" class="p-2.5 bg-white border border-slate-300 rounded-xl text-xs text-slate-900">
-                    <input type="number" id="add-prod-mrp" placeholder="MRP ₹" class="p-2.5 bg-white border border-slate-300 rounded-xl text-xs text-slate-900">
-                </div>
-                <select id="add-prod-cat" class="w-full p-2.5 bg-white border border-slate-300 rounded-xl text-xs text-slate-900">
-                    <option value="Chemicals">Chemicals</option>
-                    <option value="Cleaning Tools">Cleaning Tools</option>
-                    <option value="Dustbins & Bags">Dustbins & Bags</option>
-                </select>
-                <input type="file" id="add-prod-img-file" accept="image/*" class="text-xs w-full bg-white p-2 border border-slate-300 rounded-xl text-slate-700">
-                <button onclick="saveNewProduct()" class="w-full bg-[#0c831f] text-white font-extrabold py-2.5 rounded-xl text-xs uppercase shadow hover:bg-emerald-800 transition">Save Product</button>
-            </div>
-            <div id="admin-products-list" class="space-y-2 max-h-40 overflow-y-auto no-scrollbar"></div>
-        </div>
-    </div>
-
-    <div id="live-sales-toast" class="fixed bottom-24 left-4 z-40 bg-white/95 backdrop-blur-md border border-slate-200 p-3 rounded-2xl shadow-2xl flex items-center gap-3 max-w-xs transition-all duration-500 transform translate-y-20 opacity-0 pointer-events-none">
-        <div class="w-10 h-10 rounded-xl bg-emerald-100 text-[#0c831f] flex items-center justify-center text-lg font-bold shrink-0">
-            <i class="fa-solid fa-bag-shopping"></i>
-        </div>
-        <div>
-            <div class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Just now</div>
-            <div class="text-xs font-extrabold text-slate-900 leading-tight" id="toast-text">Someone ordered Premium Phenyl!</div>
-        </div>
-    </div>
-
-    <a href="https://wa.me/?text=Hello%20Harshit%20Chemical%20Industry,%20I%20want%20to%20inquire%20about%20products" target="_blank" class="fixed bottom-20 right-4 z-40 bg-[#25D366] text-white w-12 h-12 rounded-full flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition-transform border-2 border-white">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-    <script>
-        var fallbackImg = "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=80";
-
-        var productsList = [
-            { id: 1, name: "Premium Phenyl", cat: "Chemicals", price: 35, mrp: 50, img: "./phenyl.jpg" },
-            { id: 2, name: "Glass Cleaner", cat: "Chemicals", price: 65, mrp: 85, img: "./glas_cleaner.jpg" },
-            { id: 3, name: "Tiles Cleaner", cat: "Chemicals", price: 85, mrp: 110, img: "./tiles_cleaner.jpg" },
-            { id: 4, name: "Toilet Cleaner Liquid", cat: "Chemicals", price: 75, mrp: 95, img: "./toilet_cleaner.jpg" },
-            { id: 5, name: "Hardspot Cleaner", cat: "Chemicals", price: 95, mrp: 130, img: "./hardspot_cleaner.jpg" },
-            { id: 6, name: "Dish Wash Soap", cat: "Chemicals", price: 45, mrp: 60, img: "./dish_wash.jpg" },
-            { id: 7, name: "Hand Wash Liquid", cat: "Chemicals", price: 55, mrp: 75, img: "./hand_wash.jpg" },
-            { id: 8, name: "Car & Bike Shampoo", cat: "Chemicals", price: 120, mrp: 160, img: "./car_bike_shampoo.jpg" },
-            { id: 9, name: "Carpet Shampoo", cat: "Chemicals", price: 140, mrp: 190, img: "./carpet_shampoo.jpg" },
-            { id: 10, name: "Room Fragrance Spray", cat: "Chemicals", price: 110, mrp: 150, img: "./room_spray.jpg" },
-            { id: 11, name: "Soft Broom", cat: "Cleaning Tools", price: 80, mrp: 120, img: "./broom.jpg" },
-            { id: 12, name: "Stick Broom", cat: "Cleaning Tools", price: 90, mrp: 130, img: "./stick_broom.jpg" },
-            { id: 13, name: "Floor Squeegee Wiper", cat: "Cleaning Tools", price: 130, mrp: 180, img: "./floor_squeegee.jpg" },
-            { id: 14, name: "Squeegee Wiper", cat: "Cleaning Tools", price: 95, mrp: 140, img: "./squeegee.jpg" },
-            { id: 15, name: "Window Wiper", cat: "Cleaning Tools", price: 95, mrp: 140, img: "./window_wiper.jpg" },
-            { id: 16, name: "Extension Pole", cat: "Cleaning Tools", price: 250, mrp: 350, img: "./extension_pole.jpg" },
-            { id: 17, name: "Toilet Brush", cat: "Cleaning Tools", price: 60, mrp: 90, img: "./toilet_brush.jpg" },
-            { id: 18, name: "Toilet Cleaner Applicator", cat: "Cleaning Tools", price: 75, mrp: 110, img: "./toilet_cleaner_applicator.jpg" },
-            { id: 19, name: "Urinal Brush", cat: "Cleaning Tools", price: 50, mrp: 75, img: "./urinal_brush.jpg" },
-            { id: 20, name: "Bottle Brush", cat: "Cleaning Tools", price: 40, mrp: 65, img: "./botal_brush.jpg" },
-            { id: 21, name: "Handy Picker", cat: "Cleaning Tools", price: 180, mrp: 260, img: "./handy_picker.jpg" },
-            { id: 22, name: "Garbage Tongs", cat: "Cleaning Tools", price: 150, mrp: 220, img: "./garbage_tongs.jpg" },
-            { id: 23, name: "Rubber Gloves", cat: "Cleaning Tools", price: 40, mrp: 60, img: "./gloves.png.jpg" },
-            { id: 24, name: "Dust Cloth", cat: "Cleaning Tools", price: 30, mrp: 50, img: "./dust_cloth.jpg" },
-            { id: 25, name: "Microfiber Cloth", cat: "Cleaning Tools", price: 45, mrp: 70, img: "./microfiber_cloth.jpg" },
-            { id: 26, name: "Microfiber Duster", cat: "Cleaning Tools", price: 85, mrp: 120, img: "./microfiber_duster.jpg" },
-            { id: 27, name: "Feather Duster", cat: "Cleaning Tools", price: 75, mrp: 110, img: "./feather_duster.jpg" },
-            { id: 28, name: "Spider Web Duster", cat: "Cleaning Tools", price: 90, mrp: 140, img: "./spider_duster.jpg" },
-            { id: 29, name: "Cotton Mop", cat: "Cleaning Tools", price: 110, mrp: 160, img: "./cotton_mop.jpg" },
-            { id: 30, name: "Dust Pan", cat: "Cleaning Tools", price: 45, mrp: 70, img: "./dust_pan.jpg" },
-            { id: 31, name: "Scoop Pan", cat: "Cleaning Tools", price: 45, mrp: 70, img: "./scoop.png.jpg" },
-            { id: 32, name: "Measuring Jug", cat: "Cleaning Tools", price: 50, mrp: 80, img: "./measuring_jug.jpg" },
-            { id: 33, name: "Heavy Plastic Bucket", cat: "Cleaning Tools", price: 110, mrp: 160, img: "./bucket.jpg" },
-            { id: 34, name: "Scrubber Pad", cat: "Cleaning Tools", price: 20, mrp: 35, img: "./scrubber_pad.png.jpg" },
-            { id: 35, name: "Small Dustbin", cat: "Dustbins & Bags", price: 120, mrp: 180, img: "./dustbin_small.jpg" },
-            { id: 36, name: "Large Commercial Dustbin", cat: "Dustbins & Bags", price: 350, mrp: 500, img: "./dustbin_large.jpg" },
-            { id: 37, name: "Garbage Bags Roll", cat: "Dustbins & Bags", price: 70, mrp: 100, img: "./garbage_bag.jpg" },
-            { id: 38, name: "Janitor Trolley", cat: "Cleaning Tools", price: 1200, mrp: 1800, img: "./trolley.jpg" },
-            { id: 39, name: "Wet Floor Sign", cat: "Cleaning Tools", price: 220, mrp: 320, img: "./wet_floor_sign.jpg" }
-        ];
-
-        var products = productsList;
-        var categories = ["All", "Chemicals", "Cleaning Tools", "Dustbins & Bags"];
-        var currentCat = "All";
-        var cart = {};
-        var searchQuery = "";
-        var currentSlide = 0;
-        var map, marker, bikeMarker, routePolyline, animationInterval;
-        var selectedLat = 28.6139, selectedLng = 77.2090;
-        var selectedAddress = "Main Factory Store Address";
-
-        function goToSlide(index) {
-            currentSlide = index;
-            var slider = document.getElementById('banner-slider');
-            if(slider) {
-                slider.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
-            }
-            var dots = document.querySelectorAll('.banner-dot');
-            for(var i=0; i<dots.length; i++) {
-                if(i === currentSlide) {
-                    dots[i].classList.remove('bg-white/40');
-                    dots[i].classList.add('bg-white/90');
-                } else {
-                    dots[i].classList.remove('bg-white/90');
-                    dots[i].classList.add('bg-white/40');
-                }
-            }
-        }
-
-        setInterval(function() {
-            currentSlide = (currentSlide + 1) % 3;
-            goToSlide(currentSlide);
-        }, 3500);
-
-        function syncSearch(val) {
-            searchQuery = val.toLowerCase();
-            var m = document.getElementById('search-mobile');
-            var d = document.getElementById('search-desktop');
-            if(m) m.value = val;
-            if(d) d.value = val;
-            renderProducts();
-        }
-
-        function renderCategories() {
-            var el = document.getElementById('category-chips');
-            if(!el) return;
-            var html = '';
-            var icons = {
-                "All": "fa-layer-group",
-                "Chemicals": "fa-bottle-droplet",
-                "Cleaning Tools": "fa-broom",
-                "Dustbins & Bags": "fa-trash"
-            };
-            for(var i=0; i<categories.length; i++) {
-                var cat = categories[i];
-                var icon = icons[cat] || "fa-basket-shopping";
-                var active = (currentCat === cat) ? 'active-tab' : 'bg-slate-100 text-slate-700 hover:bg-slate-200';
-                html += '<button onclick="selectCategory(\'' + cat + '\')" class="flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-extrabold whitespace-nowrap transition-all ' + active + '"><i class="fa-solid ' + icon + '"></i> ' + cat + '</button>';
-            }
-            el.innerHTML = html;
-        }
-
-        function selectCategory(cat) {
-            currentCat = cat;
-            document.getElementById('category-title').innerText = (cat === 'All') ? 'All Products' : cat;
-            renderCategories();
-            renderProducts();
-        }
-
-        function renderProducts() {
-            var container = document.getElementById('product-grid');
-            if(!container) return;
-            
-            var filtered = [];
-            for(var i=0; i<products.length; i++) {
-                var p = products[i];
-                var matchCat = (currentCat === 'All' || p.cat === currentCat);
-                var matchSearch = p.name.toLowerCase().indexOf(searchQuery) !== -1;
-                if(matchCat && matchSearch) {
-                    filtered.push(p);
-                }
-            }
-
-            document.getElementById('product-count').innerText = filtered.length + ' Items';
-
-            if(filtered.length === 0) {
-                container.innerHTML = '<div class="col-span-full text-center py-12 text-slate-400 font-bold text-sm">No products found</div>';
-                return;
-            }
-
-            var html = '';
-            for(var j=0; j<filtered.length; j++) {
-                var item = filtered[j];
-                var qty = cart[item.id] || 0;
-                var discount = Math.round(((item.mrp - item.price) / item.mrp) * 100);
-                
-                html += '<div class="bg-white rounded-3xl p-3 sm:p-4 border border-slate-200/80 shadow-sm hover:shadow-md flex flex-col justify-between relative transition">';
-                if(discount > 0) {
-                    html += '<span class="absolute top-3 left-3 bg-amber-400 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full z-10 shadow">' + discount + '% OFF</span>';
-                }
-                html += '<div class="h-32 sm:h-44 w-full flex items-center justify-center my-1 overflow-hidden rounded-2xl bg-slate-50 border border-slate-100 relative">';
-                html += '<img src="' + item.img + '" alt="' + item.name + '" class="object-contain h-full w-full p-2" onerror="this.onerror=null; this.src=\'' + fallbackImg + '\';">';
-                html += '</div>';
-                html += '<div class="mt-2">';
-                html += '<span class="text-[9px] font-black text-slate-400 uppercase tracking-widest">' + item.cat + '</span>';
-                html += '<h4 class="font-extrabold text-xs sm:text-sm text-slate-900 leading-tight line-clamp-2 mt-0.5">' + item.name + '</h4>';
-                html += '<div class="flex items-baseline gap-1.5 mt-1.5">';
-                html += '<span class="font-black text-sm sm:text-base text-slate-900">₹' + item.price + '</span>';
-                if(item.mrp > item.price) {
-                    html += '<span class="text-[10px] sm:text-xs text-slate-400 font-bold line-through">₹' + item.mrp + '</span>';
-                }
-                html += '</div></div>';
-                html += '<div class="mt-3">';
-                if(qty === 0) {
-                    html += '<button onclick="addToCart(' + item.id + ')" class="w-full border-2 border-[#0c831f] text-[#0c831f] font-extrabold text-xs py-2 rounded-xl hover:bg-[#0c831f] hover:text-white transition-all uppercase tracking-wider">ADD</button>';
-                } else {
-                    html += '<div class="flex items-center justify-between bg-[#0c831f] text-white rounded-xl py-1 px-2 font-black text-xs sm:text-sm shadow-inner">';
-                    html += '<button onclick="changeQty(' + item.id + ', -1)" class="w-7 h-7 flex items-center justify-center font-black">-</button>';
-                    html += '<span>' + qty + '</span>';
-                    html += '<button onclick="changeQty(' + item.id + ', 1)" class="w-7 h-7 flex items-center justify-center font-black">+</button>';
-                    html += '</div>';
-                }
-                html += '</div></div>';
-            }
-            container.innerHTML = html;
-        }
-
-        function addToCart(id) { cart[id] = 1; updateCartUI(); renderProducts(); }
-        function changeQty(id, delta) { cart[id] = (cart[id] || 0) + delta; if(cart[id] <= 0) delete cart[id]; updateCartUI(); renderProducts(); }
-
-        function updateCartUI() {
-            var totalQty = 0, totalPrice = 0;
-            for(var id in cart) {
-                for(var i=0; i<products.length; i++) {
-                    if(products[i].id == id) {
-                        totalQty += cart[id];
-                        totalPrice += products[i].price * cart[id];
-                    }
-                }
-            }
-            document.getElementById('cart-qty-badge').innerText = totalQty;
-            document.getElementById('cart-total-price').innerText = totalPrice;
-            document.getElementById('cart-final-total').innerText = totalPrice;
-            var bar = document.getElementById('cart-bar');
-            if(bar) {
-                if(totalQty > 0) bar.classList.remove('hidden');
-                else bar.classList.add('hidden');
-            }
-        }
-
-        function openCartModal() {
-            var container = document.getElementById('cart-items-container');
-            var html = '';
-            for(var id in cart) {
-                var p = null;
-                for(var i=0; i<products.length; i++) {
-                    if(products[i].id == id) { p = products[i]; break; }
-                }
-                if(p) {
-                    html += '<div class="flex items-center justify-between bg-slate-50 p-2.5 rounded-2xl border border-slate-200">';
-                    html += '<div class="flex items-center gap-3">';
-                    html += '<img src="' + p.img + '" class="w-12 h-12 rounded-xl object-contain border border-slate-200 bg-white" onerror="this.src=\'' + fallbackImg + '\'">';
-                    html += '<div><h5 class="font-extrabold text-xs text-slate-900">' + p.name + '</h5><div class="text-xs font-black text-[#0c831f]">₹' + (p.price * cart[id]) + '</div></div>';
-                    html += '</div>';
-                    html += '<div class="flex items-center gap-2 bg-[#0c831f] text-white px-2.5 py-1 rounded-xl text-xs font-black">';
-                    html += '<button onclick="changeQty(' + p.id + ', -1)">-</button>';
-                    html += '<span>' + cart[id] + '</span>';
-                    html += '<button onclick="changeQty(' + p.id + ', 1)">+</button>';
-                    html += '</div></div>';
-                }
-            }
-            container.innerHTML = html;
-            document.getElementById('cart-modal').classList.remove('hidden');
-        }
-
-        function closeCartModal() { document.getElementById('cart-modal').classList.add('hidden'); }
-        function openCheckoutModal() { closeCartModal(); document.getElementById('cust-address').value = selectedAddress; document.getElementById('checkout-modal').classList.remove('hidden'); }
-        function closeCheckoutModal() { document.getElementById('checkout-modal').classList.add('hidden'); }
-
-        function startLiveBikeDeliveryAnimation() {
-            if (!map) return;
-
-            if (bikeMarker) map.removeLayer(bikeMarker);
-            if (routePolyline) map.removeLayer(routePolyline);
-            if (animationInterval) clearInterval(animationInterval);
-
-            var startLat = selectedLat - 0.015;
+                <input type="text" id="add-prod-name" placeholder="            var startLat = selectedLat - 0.015;
             var startLng = selectedLng - 0.015;
             var endLat = selectedLat;
             var endLng = selectedLng;
