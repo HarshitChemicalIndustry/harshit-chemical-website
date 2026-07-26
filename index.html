@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="hi" class="h-full bg-slate-950 scroll-smooth">
+<html lang="hi" class="h-full bg-slate-950">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Harshit Chemical Industry | Factory Direct</title>
+    <title>Harshit Chemical Industry</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,126 +13,93 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        emerald: {
-                            500: '#10b981',
-                            600: '#059669',
-                            800: '#065f46',
-                            950: '#022c22'
-                        },
-                        gold: '#f59e0b'
-                    }
-                }
-            }
-        }
-    </script>
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap');
         * { font-family: 'Plus Jakarta Sans', sans-serif; -webkit-tap-highlight-color: transparent; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        #map { height: 230px; width: 100%; border-radius: 1.25rem; }
-        
-        /* Dark Premium Glass Design */
-        .glass-header {
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-        }
+        #map { height: 220px; width: 100%; border-radius: 1.25rem; }
         .glass-card {
-            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen pb-36 relative overflow-x-hidden">
+<body class="bg-slate-950 text-slate-100 min-h-screen pb-36">
 
-    <!-- Background Glow Effect -->
-    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-emerald-900/30 rounded-full blur-[120px]"></div>
-    </div>
-
-    <div class="relative z-10">
-        <!-- Top Navigation Bar -->
-        <header class="sticky top-0 z-40 glass-header border-b border-slate-800 w-full">
-            <div class="max-w-md mx-auto px-4 py-3.5">
-                <div class="flex items-center justify-between gap-3">
-                    <div class="flex items-center gap-3">
-                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-600 to-emerald-800 flex items-center justify-center text-white font-black text-2xl shadow-[0_0_15px_rgba(16,185,129,0.3)] border border-emerald-400/30">
-                            H
-                        </div>
-                        <div>
-                            <span class="bg-amber-500 text-slate-950 px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider">
-                                FACTORY DIRECT
-                            </span>
-                            <h1 class="text-base font-black text-white leading-tight mt-0.5">Harshit Chemical Industry</h1>
-                            <button onclick="openMapModal()" class="text-xs text-slate-400 flex items-center gap-1 font-semibold truncate max-w-[200px] hover:text-emerald-400">
-                                <i class="fa-solid fa-location-dot text-emerald-500"></i>
-                                <span id="selected-address-text">Select Delivery Location</span>
-                                <i class="fa-solid fa-chevron-down text-[9px]"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <button onclick="openAdminModal()" class="w-10 h-10 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300">
-                        <i class="fa-solid fa-sliders text-base"></i>
-                    </button>
-                </div>
-
-                <!-- Search Bar -->
-                <div class="mt-3 relative">
-                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-                    <input type="text" id="search-input" onkeyup="renderProducts()" placeholder="Search Phenyl, Cleaners, Brooms..." class="w-full pl-10 pr-4 py-2.5 bg-slate-900/90 border border-slate-800 rounded-2xl text-xs font-semibold text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500">
-                </div>
-            </div>
-        </header>
-
-        <!-- Main Body Content -->
-        <main class="max-w-md mx-auto px-4 pt-4 space-y-5">
-
-            <!-- Hero Company Banner -->
-            <div class="w-full rounded-3xl overflow-hidden border border-slate-800 bg-slate-900 shadow-xl">
-                <img src="https://harshitchemicalindustry.github.io/harshit-chemical-website/hero_banner.jpg" alt="Company Banner" class="w-full h-auto object-cover block min-h-[120px]" onerror="this.src='https://harshitchemicalindustry.github.io/harshit-chemical-website/banner.jpg';">
-            </div>
-
-            <!-- Google Map Picker Card -->
-            <div class="glass-card rounded-2xl p-3.5 border border-slate-800 shadow-lg flex items-center justify-between cursor-pointer hover:border-emerald-500 transition" onclick="openMapModal()">
+    <!-- Header Section -->
+    <header class="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 w-full">
+        <div class="max-w-md mx-auto px-4 py-3.5">
+            <div class="flex items-center justify-between gap-3">
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-emerald-950 border border-emerald-800 text-emerald-400 flex items-center justify-center font-bold text-lg">
-                        <i class="fa-solid fa-map-location-dot"></i>
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-600 flex items-center justify-center text-white font-black text-2xl shadow-lg border border-emerald-400/30">
+                        H
                     </div>
                     <div>
-                        <div class="text-xs font-extrabold text-slate-200">Pin Location on Map</div>
-                        <div class="text-[11px] text-slate-400 truncate max-w-[200px]" id="map-card-address">Tap to choose address</div>
+                        <span class="bg-amber-500 text-slate-950 px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider">
+                            FACTORY DIRECT
+                        </span>
+                        <h1 class="text-base font-black text-white leading-tight mt-0.5">Harshit Chemical Industry</h1>
+                        <button onclick="openMapModal()" class="text-xs text-slate-400 flex items-center gap-1 font-semibold truncate max-w-[200px] hover:text-emerald-400">
+                            <i class="fa-solid fa-location-dot text-emerald-500"></i>
+                            <span id="selected-address-text">Select Delivery Location</span>
+                            <i class="fa-solid fa-chevron-down text-[9px]"></i>
+                        </button>
                     </div>
                 </div>
-                <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
+                <button onclick="openAdminModal()" class="w-10 h-10 rounded-2xl bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300">
+                    <i class="fa-solid fa-sliders text-base"></i>
+                </button>
             </div>
 
-            <!-- Categories -->
-            <div>
-                <h3 class="font-extrabold text-slate-200 text-sm mb-2.5">Categories</h3>
-                <div class="flex gap-2.5 overflow-x-auto no-scrollbar py-1" id="category-chips"></div>
+            <!-- Search Bar -->
+            <div class="mt-3 relative">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                <input type="text" id="search-input" onkeyup="renderProducts()" placeholder="Search Phenyl, Cleaners, Brooms..." class="w-full pl-10 pr-4 py-2.5 bg-slate-950 border border-slate-800 rounded-2xl text-xs font-semibold text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500">
             </div>
+        </div>
+    </header>
 
-            <!-- Products Grid -->
-            <div>
-                <div class="flex justify-between items-center mb-3">
-                    <h3 class="font-extrabold text-slate-200 text-base" id="category-title">All Products</h3>
-                    <span class="text-xs font-bold text-emerald-400 bg-emerald-950 border border-emerald-800 px-3 py-1 rounded-full" id="product-count">0 Items</span>
+    <!-- Main Container -->
+    <main class="max-w-md mx-auto px-4 pt-4 space-y-5">
+
+        <!-- Banner -->
+        <div class="w-full rounded-3xl overflow-hidden border border-slate-800 bg-slate-900 shadow-xl">
+            <img src="hero_banner.jpg" alt="Company Banner" class="w-full h-auto object-cover block min-h-[120px]" onerror="this.onerror=null; this.src='banner.jpg';">
+        </div>
+
+        <!-- Google Map Picker Card -->
+        <div class="glass-card rounded-2xl p-3.5 border border-slate-800 shadow-lg flex items-center justify-between cursor-pointer hover:border-emerald-500 transition" onclick="openMapModal()">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-950 border border-emerald-800 text-emerald-400 flex items-center justify-center font-bold text-lg">
+                    <i class="fa-solid fa-map-location-dot"></i>
                 </div>
-                <div class="grid grid-cols-2 gap-3.5" id="product-grid"></div>
+                <div>
+                    <div class="text-xs font-extrabold text-slate-200">Pin Location on Map</div>
+                    <div class="text-[11px] text-slate-400 truncate max-w-[200px]" id="map-card-address">Tap to choose address</div>
+                </div>
             </div>
+            <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
+        </div>
 
-        </main>
-    </div>
+        <!-- Categories -->
+        <div>
+            <h3 class="font-extrabold text-slate-200 text-sm mb-2.5">Categories</h3>
+            <div class="flex gap-2.5 overflow-x-auto no-scrollbar py-1" id="category-chips"></div>
+        </div>
 
-    <!-- Floating Bottom Cart Bar -->
+        <!-- Products Grid -->
+        <div>
+            <div class="flex justify-between items-center mb-3">
+                <h3 class="font-extrabold text-slate-200 text-base" id="category-title">All Products</h3>
+                <span class="text-xs font-bold text-emerald-400 bg-emerald-950 border border-emerald-800 px-3 py-1 rounded-full" id="product-count">0 Items</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3.5" id="product-grid"></div>
+        </div>
+
+    </main>
+
+    <!-- Bottom Cart Bar -->
     <div id="cart-bar" class="fixed bottom-4 left-0 right-0 max-w-md mx-auto px-4 hidden z-30">
         <div class="bg-slate-900 border border-emerald-500/40 text-white p-3.5 rounded-2xl shadow-2xl flex items-center justify-between cursor-pointer" onclick="openCartModal()">
             <div class="flex items-center gap-3">
@@ -249,159 +216,182 @@
         </div>
     </div>
 
-    <!-- JavaScript Application -->
+    <!-- Application Script Engine -->
     <script>
-        // Force clear browser cache to remove old missing-image memory
-        try { localStorage.clear(); } catch(e){}
-
-        const baseUrl = "https://harshitchemicalindustry.github.io/harshit-chemical-website/";
-
-        // 39 Products mapping directly with FULL GitHub Pages URLs
-        const productsList = [
-            { id: 1, name: "Premium Phenyl", cat: "Chemicals", price: 35, mrp: 50, img: baseUrl + "phenyl.jpg" },
-            { id: 2, name: "Glass Cleaner", cat: "Chemicals", price: 65, mrp: 85, img: baseUrl + "glas_cleaner.jpg" },
-            { id: 3, name: "Tiles Cleaner", cat: "Chemicals", price: 85, mrp: 110, img: baseUrl + "tiles_cleaner.jpg" },
-            { id: 4, name: "Toilet Cleaner Liquid", cat: "Chemicals", price: 75, mrp: 95, img: baseUrl + "toilet_cleaner.jpg" },
-            { id: 5, name: "Hardspot Cleaner", cat: "Chemicals", price: 95, mrp: 130, img: baseUrl + "hardspot_cleaner.jpg" },
-            { id: 6, name: "Dish Wash Soap", cat: "Chemicals", price: 45, mrp: 60, img: baseUrl + "dish_wash.jpg" },
-            { id: 7, name: "Hand Wash Liquid", cat: "Chemicals", price: 55, mrp: 75, img: baseUrl + "hand_wash.jpg" },
-            { id: 8, name: "Car & Bike Shampoo", cat: "Chemicals", price: 120, mrp: 160, img: baseUrl + "car_bike_shampoo.jpg" },
-            { id: 9, name: "Carpet Shampoo", cat: "Chemicals", price: 140, mrp: 190, img: baseUrl + "carpet_shampoo.jpg" },
-            { id: 10, name: "Room Fragrance Spray", cat: "Chemicals", price: 110, mrp: 150, img: baseUrl + "room_spray.jpg" },
-            { id: 11, name: "Soft Broom", cat: "Cleaning Tools", price: 80, mrp: 120, img: baseUrl + "broom.jpg" },
-            { id: 12, name: "Stick Broom", cat: "Cleaning Tools", price: 90, mrp: 130, img: baseUrl + "stick_broom.jpg" },
-            { id: 13, name: "Floor Squeegee Wiper", cat: "Cleaning Tools", price: 130, mrp: 180, img: baseUrl + "floor_squeegee.jpg" },
-            { id: 14, name: "Squeegee Wiper", cat: "Cleaning Tools", price: 95, mrp: 140, img: baseUrl + "squeegee.jpg" },
-            { id: 15, name: "Window Wiper", cat: "Cleaning Tools", price: 95, mrp: 140, img: baseUrl + "window_wiper.jpg" },
-            { id: 16, name: "Extension Pole", cat: "Cleaning Tools", price: 250, mrp: 350, img: baseUrl + "extension_pole.jpg" },
-            { id: 17, name: "Toilet Brush", cat: "Cleaning Tools", price: 60, mrp: 90, img: baseUrl + "toilet_brush.jpg" },
-            { id: 18, name: "Toilet Cleaner Applicator", cat: "Cleaning Tools", price: 75, mrp: 110, img: baseUrl + "toilet_cleaner_applicator.jpg" },
-            { id: 19, name: "Urinal Brush", cat: "Cleaning Tools", price: 50, mrp: 75, img: baseUrl + "urinal_brush.jpg" },
-            { id: 20, name: "Bottle Brush", cat: "Cleaning Tools", price: 40, mrp: 65, img: baseUrl + "botal_brush.jpg" },
-            { id: 21, name: "Handy Picker", cat: "Cleaning Tools", price: 180, mrp: 260, img: baseUrl + "handy_picker.jpg" },
-            { id: 22, name: "Garbage Tongs", cat: "Cleaning Tools", price: 150, mrp: 220, img: baseUrl + "garbage_tongs.jpg" },
-            { id: 23, name: "Rubber Gloves", cat: "Cleaning Tools", price: 40, mrp: 60, img: baseUrl + "gloves.png.jpg" },
-            { id: 24, name: "Dust Cloth", cat: "Cleaning Tools", price: 30, mrp: 50, img: baseUrl + "dust_cloth.jpg" },
-            { id: 25, name: "Microfiber Cloth", cat: "Cleaning Tools", price: 45, mrp: 70, img: baseUrl + "microfiber_cloth.jpg" },
-            { id: 26, name: "Microfiber Duster", cat: "Cleaning Tools", price: 85, mrp: 120, img: baseUrl + "microfiber_duster.jpg" },
-            { id: 27, name: "Feather Duster", cat: "Cleaning Tools", price: 75, mrp: 110, img: baseUrl + "feather_duster.jpg" },
-            { id: 28, name: "Spider Web Duster", cat: "Cleaning Tools", price: 90, mrp: 140, img: baseUrl + "spider_duster.jpg" },
-            { id: 29, name: "Cotton Mop", cat: "Cleaning Tools", price: 110, mrp: 160, img: baseUrl + "cotton_mop.jpg" },
-            { id: 30, name: "Dust Pan", cat: "Cleaning Tools", price: 45, mrp: 70, img: baseUrl + "dust_pan.jpg" },
-            { id: 31, name: "Scoop Pan", cat: "Cleaning Tools", price: 45, mrp: 70, img: baseUrl + "scoop.png.jpg" },
-            { id: 32, name: "Measuring Jug", cat: "Cleaning Tools", price: 50, mrp: 80, img: baseUrl + "measuring_jug.jpg" },
-            { id: 33, name: "Heavy Plastic Bucket", cat: "Cleaning Tools", price: 110, mrp: 160, img: baseUrl + "bucket.jpg" },
-            { id: 34, name: "Scrubber Pad", cat: "Cleaning Tools", price: 20, mrp: 35, img: baseUrl + "scrubber_pad.png.jpg" },
-            { id: 35, name: "Small Dustbin", cat: "Dustbins & Bags", price: 120, mrp: 180, img: baseUrl + "dustbin_small.jpg" },
-            { id: 36, name: "Large Commercial Dustbin", cat: "Dustbins & Bags", price: 350, mrp: 500, img: baseUrl + "dustbin_large.jpg" },
-            { id: 37, name: "Garbage Bags Roll", cat: "Dustbins & Bags", price: 70, mrp: 100, img: baseUrl + "garbage_bag.jpg" },
-            { id: 38, name: "Janitor Trolley", cat: "Cleaning Tools", price: 1200, mrp: 1800, img: baseUrl + "trolley.jpg" },
-            { id: 39, name: "Wet Floor Sign", cat: "Cleaning Tools", price: 220, mrp: 320, img: baseUrl + "wet_floor_sign.jpg" }
+        var productsList = [
+            { id: 1, name: "Premium Phenyl", cat: "Chemicals", price: 35, mrp: 50, img: "phenyl.jpg" },
+            { id: 2, name: "Glass Cleaner", cat: "Chemicals", price: 65, mrp: 85, img: "glas_cleaner.jpg" },
+            { id: 3, name: "Tiles Cleaner", cat: "Chemicals", price: 85, mrp: 110, img: "tiles_cleaner.jpg" },
+            { id: 4, name: "Toilet Cleaner Liquid", cat: "Chemicals", price: 75, mrp: 95, img: "toilet_cleaner.jpg" },
+            { id: 5, name: "Hardspot Cleaner", cat: "Chemicals", price: 95, mrp: 130, img: "hardspot_cleaner.jpg" },
+            { id: 6, name: "Dish Wash Soap", cat: "Chemicals", price: 45, mrp: 60, img: "dish_wash.jpg" },
+            { id: 7, name: "Hand Wash Liquid", cat: "Chemicals", price: 55, mrp: 75, img: "hand_wash.jpg" },
+            { id: 8, name: "Car & Bike Shampoo", cat: "Chemicals", price: 120, mrp: 160, img: "car_bike_shampoo.jpg" },
+            { id: 9, name: "Carpet Shampoo", cat: "Chemicals", price: 140, mrp: 190, img: "carpet_shampoo.jpg" },
+            { id: 10, name: "Room Fragrance Spray", cat: "Chemicals", price: 110, mrp: 150, img: "room_spray.jpg" },
+            { id: 11, name: "Soft Broom", cat: "Cleaning Tools", price: 80, mrp: 120, img: "broom.jpg" },
+            { id: 12, name: "Stick Broom", cat: "Cleaning Tools", price: 90, mrp: 130, img: "stick_broom.jpg" },
+            { id: 13, name: "Floor Squeegee Wiper", cat: "Cleaning Tools", price: 130, mrp: 180, img: "floor_squeegee.jpg" },
+            { id: 14, name: "Squeegee Wiper", cat: "Cleaning Tools", price: 95, mrp: 140, img: "squeegee.jpg" },
+            { id: 15, name: "Window Wiper", cat: "Cleaning Tools", price: 95, mrp: 140, img: "window_wiper.jpg" },
+            { id: 16, name: "Extension Pole", cat: "Cleaning Tools", price: 250, mrp: 350, img: "extension_pole.jpg" },
+            { id: 17, name: "Toilet Brush", cat: "Cleaning Tools", price: 60, mrp: 90, img: "toilet_brush.jpg" },
+            { id: 18, name: "Toilet Cleaner Applicator", cat: "Cleaning Tools", price: 75, mrp: 110, img: "toilet_cleaner_applicator.jpg" },
+            { id: 19, name: "Urinal Brush", cat: "Cleaning Tools", price: 50, mrp: 75, img: "urinal_brush.jpg" },
+            { id: 20, name: "Bottle Brush", cat: "Cleaning Tools", price: 40, mrp: 65, img: "botal_brush.jpg" },
+            { id: 21, name: "Handy Picker", cat: "Cleaning Tools", price: 180, mrp: 260, img: "handy_picker.jpg" },
+            { id: 22, name: "Garbage Tongs", cat: "Cleaning Tools", price: 150, mrp: 220, img: "garbage_tongs.jpg" },
+            { id: 23, name: "Rubber Gloves", cat: "Cleaning Tools", price: 40, mrp: 60, img: "gloves.png.jpg" },
+            { id: 24, name: "Dust Cloth", cat: "Cleaning Tools", price: 30, mrp: 50, img: "dust_cloth.jpg" },
+            { id: 25, name: "Microfiber Cloth", cat: "Cleaning Tools", price: 45, mrp: 70, img: "microfiber_cloth.jpg" },
+            { id: 26, name: "Microfiber Duster", cat: "Cleaning Tools", price: 85, mrp: 120, img: "microfiber_duster.jpg" },
+            { id: 27, name: "Feather Duster", cat: "Cleaning Tools", price: 75, mrp: 110, img: "feather_duster.jpg" },
+            { id: 28, name: "Spider Web Duster", cat: "Cleaning Tools", price: 90, mrp: 140, img: "spider_duster.jpg" },
+            { id: 29, name: "Cotton Mop", cat: "Cleaning Tools", price: 110, mrp: 160, img: "cotton_mop.jpg" },
+            { id: 30, name: "Dust Pan", cat: "Cleaning Tools", price: 45, mrp: 70, img: "dust_pan.jpg" },
+            { id: 31, name: "Scoop Pan", cat: "Cleaning Tools", price: 45, mrp: 70, img: "scoop.png.jpg" },
+            { id: 32, name: "Measuring Jug", cat: "Cleaning Tools", price: 50, mrp: 80, img: "measuring_jug.jpg" },
+            { id: 33, name: "Heavy Plastic Bucket", cat: "Cleaning Tools", price: 110, mrp: 160, img: "bucket.jpg" },
+            { id: 34, name: "Scrubber Pad", cat: "Cleaning Tools", price: 20, mrp: 35, img: "scrubber_pad.png.jpg" },
+            { id: 35, name: "Small Dustbin", cat: "Dustbins & Bags", price: 120, mrp: 180, img: "dustbin_small.jpg" },
+            { id: 36, name: "Large Commercial Dustbin", cat: "Dustbins & Bags", price: 350, mrp: 500, img: "dustbin_large.jpg" },
+            { id: 37, name: "Garbage Bags Roll", cat: "Dustbins & Bags", price: 70, mrp: 100, img: "garbage_bag.jpg" },
+            { id: 38, name: "Janitor Trolley", cat: "Cleaning Tools", price: 1200, mrp: 1800, img: "trolley.jpg" },
+            { id: 39, name: "Wet Floor Sign", cat: "Cleaning Tools", price: 220, mrp: 320, img: "wet_floor_sign.jpg" }
         ];
 
-        let products = productsList;
-        let categories = ["All", "Chemicals", "Cleaning Tools", "Dustbins & Bags"];
-        let currentCat = "All";
-        let cart = {};
-        let map, marker;
-        let selectedLat = 28.6139, selectedLng = 77.2090;
-        let selectedAddress = "Main Factory Store Address";
+        var products = productsList;
+        var categories = ["All", "Chemicals", "Cleaning Tools", "Dustbins & Bags"];
+        var currentCat = "All";
+        var cart = {};
+        var map, marker;
+        var selectedLat = 28.6139, selectedLng = 77.2090;
+        var selectedAddress = "Main Factory Store Address";
 
         function renderCategories() {
-            document.getElementById('category-chips').innerHTML = categories.map(cat => `
-                <button onclick="selectCategory('${cat}')" class="px-4 py-2 rounded-2xl text-xs font-black whitespace-nowrap transition-all ${currentCat === cat ? 'bg-emerald-600 text-white shadow-lg' : 'bg-slate-900 text-slate-300 border border-slate-800'}">
-                    ${cat}
-                </button>
-            `).join('');
+            var el = document.getElementById('category-chips');
+            if(!el) return;
+            var html = '';
+            for(var i=0; i<categories.length; i++) {
+                var cat = categories[i];
+                var activeClass = (currentCat === cat) ? 'bg-emerald-600 text-white shadow-lg' : 'bg-slate-900 text-slate-300 border border-slate-800';
+                html += '<button onclick="selectCategory(\'' + cat + '\')" class="px-4 py-2 rounded-2xl text-xs font-black whitespace-nowrap transition-all ' + activeClass + '">' + cat + '</button>';
+            }
+            el.innerHTML = html;
         }
 
         function selectCategory(cat) {
             currentCat = cat;
-            document.getElementById('category-title').innerText = cat === 'All' ? 'All Products' : cat;
+            document.getElementById('category-title').innerText = (cat === 'All') ? 'All Products' : cat;
             renderCategories();
             renderProducts();
         }
 
         function renderProducts() {
-            const container = document.getElementById('product-grid');
-            const searchVal = document.getElementById('search-input').value.toLowerCase();
+            var container = document.getElementById('product-grid');
+            if(!container) return;
+            var searchInput = document.getElementById('search-input');
+            var searchVal = searchInput ? searchInput.value.toLowerCase() : '';
             
-            let filtered = products.filter(p => (currentCat === 'All' || p.cat === currentCat) && p.name.toLowerCase().includes(searchVal));
-            document.getElementById('product-count').innerText = `${filtered.length} Items`;
+            var filtered = [];
+            for(var i=0; i<products.length; i++) {
+                var p = products[i];
+                var matchCat = (currentCat === 'All' || p.cat === currentCat);
+                var matchSearch = p.name.toLowerCase().indexOf(searchVal) !== -1;
+                if(matchCat && matchSearch) {
+                    filtered.push(p);
+                }
+            }
 
-            if(!filtered.length) {
-                container.innerHTML = `<div class="col-span-2 text-center py-8 text-slate-500 font-bold text-xs">No products found</div>`;
+            document.getElementById('product-count').innerText = filtered.length + ' Items';
+
+            if(filtered.length === 0) {
+                container.innerHTML = '<div class="col-span-2 text-center py-8 text-slate-500 font-bold text-xs">No products found</div>';
                 return;
             }
 
-            container.innerHTML = filtered.map(p => {
-                let qty = cart[p.id] || 0;
-                let discount = Math.round(((p.mrp - p.price) / p.mrp) * 100);
-                return `
-                    <div class="glass-card rounded-3xl p-3 shadow-lg flex flex-col justify-between relative group">
-                        ${discount > 0 ? `<span class="absolute top-3 left-3 bg-amber-500 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full z-10 shadow">${discount}% OFF</span>` : ''}
-                        <div class="h-32 w-full flex items-center justify-center my-1 overflow-hidden rounded-2xl bg-slate-950 border border-slate-800/80 relative">
-                            <img src="${p.img}" alt="${p.name}" class="object-contain h-full w-full p-1.5">
-                        </div>
-                        <div class="mt-1">
-                            <span class="text-[9px] font-black text-emerald-400 uppercase tracking-widest">${p.cat}</span>
-                            <h4 class="font-extrabold text-xs text-slate-100 leading-tight line-clamp-2">${p.name}</h4>
-                            <div class="flex items-baseline gap-1.5 mt-1.5">
-                                <span class="font-black text-sm text-white">₹${p.price}</span>
-                                ${p.mrp > p.price ? `<span class="text-[10px] text-slate-500 font-bold line-through">₹${p.mrp}</span>` : ''}
-                            </div>
-                        </div>
-                        <div class="mt-2.5">
-                            ${qty === 0 ? `
-                                <button onclick="addToCart(${p.id})" class="w-full border-2 border-emerald-500 text-emerald-400 font-extrabold text-xs py-1.5 rounded-xl hover:bg-emerald-600 hover:text-white transition-all uppercase">ADD</button>
-                            ` : `
-                                <div class="flex items-center justify-between bg-emerald-600 text-white rounded-xl py-1 px-2 font-black text-xs">
-                                    <button onclick="changeQty(${p.id}, -1)" class="w-6 h-6 flex items-center justify-center text-sm font-black">-</button>
-                                    <span>${qty}</span>
-                                    <button onclick="changeQty(${p.id}, 1)" class="w-6 h-6 flex items-center justify-center text-sm font-black">+</button>
-                                </div>
-                            `}
-                        </div>
-                    </div>
-                `;
-            }).join('');
+            var html = '';
+            for(var j=0; j<filtered.length; j++) {
+                var item = filtered[j];
+                var qty = cart[item.id] || 0;
+                var discount = Math.round(((item.mrp - item.price) / item.mrp) * 100);
+                
+                html += '<div class="glass-card rounded-3xl p-3 shadow-lg flex flex-col justify-between relative">';
+                if(discount > 0) {
+                    html += '<span class="absolute top-3 left-3 bg-amber-500 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full z-10 shadow">' + discount + '% OFF</span>';
+                }
+                html += '<div class="h-32 w-full flex items-center justify-center my-1 overflow-hidden rounded-2xl bg-slate-950 border border-slate-800/80 relative">';
+                html += '<img src="' + item.img + '" alt="' + item.name + '" class="object-contain h-full w-full p-1.5" onerror="this.onerror=null; this.src=\'phenyl.jpg\';">';
+                html += '</div>';
+                html += '<div class="mt-1">';
+                html += '<span class="text-[9px] font-black text-emerald-400 uppercase tracking-widest">' + item.cat + '</span>';
+                html += '<h4 class="font-extrabold text-xs text-slate-100 leading-tight line-clamp-2">' + item.name + '</h4>';
+                html += '<div class="flex items-baseline gap-1.5 mt-1.5">';
+                html += '<span class="font-black text-sm text-white">₹' + item.price + '</span>';
+                if(item.mrp > item.price) {
+                    html += '<span class="text-[10px] text-slate-500 font-bold line-through">₹' + item.mrp + '</span>';
+                }
+                html += '</div></div>';
+                html += '<div class="mt-2.5">';
+                if(qty === 0) {
+                    html += '<button onclick="addToCart(' + item.id + ')" class="w-full border-2 border-emerald-500 text-emerald-400 font-extrabold text-xs py-1.5 rounded-xl hover:bg-emerald-600 hover:text-white transition-all uppercase">ADD</button>';
+                } else {
+                    html += '<div class="flex items-center justify-between bg-emerald-600 text-white rounded-xl py-1 px-2 font-black text-xs">';
+                    html += '<button onclick="changeQty(' + item.id + ', -1)" class="w-6 h-6 flex items-center justify-center text-sm font-black">-</button>';
+                    html += '<span>' + qty + '</span>';
+                    html += '<button onclick="changeQty(' + item.id + ', 1)" class="w-6 h-6 flex items-center justify-center text-sm font-black">+</button>';
+                    html += '</div>';
+                }
+                html += '</div></div>';
+            }
+            container.innerHTML = html;
         }
 
         function addToCart(id) { cart[id] = 1; updateCartUI(); renderProducts(); }
         function changeQty(id, delta) { cart[id] = (cart[id] || 0) + delta; if(cart[id] <= 0) delete cart[id]; updateCartUI(); renderProducts(); }
 
         function updateCartUI() {
-            let totalQty = 0, totalPrice = 0;
-            for(let id in cart) {
-                let p = products.find(prod => prod.id == id);
-                if(p) { totalQty += cart[id]; totalPrice += p.price * cart[id]; }
+            var totalQty = 0, totalPrice = 0;
+            for(var id in cart) {
+                for(var i=0; i<products.length; i++) {
+                    if(products[i].id == id) {
+                        totalQty += cart[id];
+                        totalPrice += products[i].price * cart[id];
+                    }
+                }
             }
             document.getElementById('cart-qty-badge').innerText = totalQty;
             document.getElementById('cart-total-price').innerText = totalPrice;
             document.getElementById('cart-final-total').innerText = totalPrice;
-            document.getElementById('cart-bar').classList.toggle('hidden', totalQty === 0);
+            var bar = document.getElementById('cart-bar');
+            if(bar) {
+                if(totalQty > 0) bar.classList.remove('hidden');
+                else bar.classList.add('hidden');
+            }
         }
 
         function openCartModal() {
-            document.getElementById('cart-items-container').innerHTML = Object.keys(cart).map(id => {
-                let p = products.find(prod => prod.id == id);
-                return `
-                    <div class="flex items-center justify-between bg-slate-950 p-2.5 rounded-2xl border border-slate-800">
-                        <div class="flex items-center gap-3">
-                            <img src="${p.img}" class="w-12 h-12 rounded-xl object-contain border border-slate-800 bg-slate-900">
-                            <div>
-                                <h5 class="font-extrabold text-xs text-slate-100">${p.name}</h5>
-                                <div class="text-xs font-black text-emerald-400">₹${p.price * cart[id]}</div>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-2 bg-emerald-600 text-white px-2.5 py-1 rounded-xl text-xs font-black">
-                            <button onclick="changeQty(${p.id}, -1)">-</button>
-                            <span>${cart[id]}</span>
-                            <button onclick="changeQty(${p.id}, 1)">+</button>
-                        </div>
-                    </div>
-                `;
-            }).join('');
+            var container = document.getElementById('cart-items-container');
+            var html = '';
+            for(var id in cart) {
+                var p = null;
+                for(var i=0; i<products.length; i++) {
+                    if(products[i].id == id) { p = products[i]; break; }
+                }
+                if(p) {
+                    html += '<div class="flex items-center justify-between bg-slate-950 p-2.5 rounded-2xl border border-slate-800">';
+                    html += '<div class="flex items-center gap-3">';
+                    html += '<img src="' + p.img + '" class="w-12 h-12 rounded-xl object-contain border border-slate-800 bg-slate-900" onerror="this.src=\'phenyl.jpg\'">';
+                    html += '<div><h5 class="font-extrabold text-xs text-slate-100">' + p.name + '</h5><div class="text-xs font-black text-emerald-400">₹' + (p.price * cart[id]) + '</div></div>';
+                    html += '</div>';
+                    html += '<div class="flex items-center gap-2 bg-emerald-600 text-white px-2.5 py-1 rounded-xl text-xs font-black">';
+                    html += '<button onclick="changeQty(' + p.id + ', -1)">-</button>';
+                    html += '<span>' + cart[id] + '</span>';
+                    html += '<button onclick="changeQty(' + p.id + ', 1)">+</button>';
+                    html += '</div></div>';
+                }
+            }
+            container.innerHTML = html;
             document.getElementById('cart-modal').classList.remove('hidden');
         }
 
@@ -411,21 +401,22 @@
 
         function openMapModal() {
             document.getElementById('map-modal').classList.remove('hidden');
-            setTimeout(() => {
+            setTimeout(function() {
                 if(!map) {
                     map = L.map('map').setView([selectedLat, selectedLng], 13);
                     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
                     marker = L.marker([selectedLat, selectedLng], {draggable: true}).addTo(map);
-                    map.on('click', e => { marker.setLatLng(e.latlng); updateAddress(e.latlng.lat, e.latlng.lng); });
+                    map.on('click', function(e) { marker.setLatLng(e.latlng); updateAddress(e.latlng.lat, e.latlng.lng); });
                 }
             }, 200);
         }
 
         function updateAddress(lat, lng) {
             selectedLat = lat; selectedLng = lng;
-            document.getElementById('modal-address-text').innerText = `Location (${lat.toFixed(4)}, ${lng.toFixed(4)})`;
-            fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`)
-                .then(r => r.json()).then(d => { if(d.display_name) { selectedAddress = d.display_name; document.getElementById('modal-address-text').innerText = selectedAddress; }});
+            document.getElementById('modal-address-text').innerText = 'Location (' + lat.toFixed(4) + ', ' + lng.toFixed(4) + ')';
+            fetch('https://nominatim.openstreetmap.org/reverse?format=json&lat=' + lat + '&lon=' + lng)
+                .then(function(r){ return r.json(); })
+                .then(function(d){ if(d.display_name) { selectedAddress = d.display_name; document.getElementById('modal-address-text').innerText = selectedAddress; }});
         }
 
         function confirmLocation() {
@@ -438,20 +429,25 @@
 
         function handleCheckoutSubmit(e) {
             e.preventDefault();
-            const name = document.getElementById('cust-name').value;
-            const phone = document.getElementById('cust-phone').value;
-            const address = document.getElementById('cust-address').value;
-            const payMode = document.querySelector('input[name="payment_mode"]:checked').value;
+            var name = document.getElementById('cust-name').value;
+            var phone = document.getElementById('cust-phone').value;
+            var address = document.getElementById('cust-address').value;
+            var payMode = document.querySelector('input[name="payment_mode"]:checked').value;
 
-            let text = `*NEW ORDER - HARSHIT CHEMICAL INDUSTRY*%0A%0AName: ${name}%0APhone: ${phone}%0AAddress: ${address}%0APayment: ${payMode}%0A%0A*Items:*%0A`;
-            let total = 0;
-            for(let id in cart) {
-                let p = products.find(prod => prod.id == id);
-                text += `• ${p.name} x ${cart[id]} = ₹${p.price * cart[id]}%0A`;
-                total += p.price * cart[id];
+            var text = '*NEW ORDER - HARSHIT CHEMICAL INDUSTRY*%0A%0AName: ' + name + '%0APhone: ' + phone + '%0AAddress: ' + address + '%0APayment: ' + payMode + '%0A%0A*Items:*%0A';
+            var total = 0;
+            for(var id in cart) {
+                var p = null;
+                for(var i=0; i<products.length; i++) {
+                    if(products[i].id == id) { p = products[i]; break; }
+                }
+                if(p) {
+                    text += '• ' + p.name + ' x ' + cart[id] + ' = ₹' + (p.price * cart[id]) + '%0A';
+                    total += p.price * cart[id];
+                }
             }
-            text += `%0A*TOTAL AMOUNT:* ₹${total}`;
-            window.open(`https://wa.me/?text=${text}`, '_blank');
+            text += '%0A*TOTAL AMOUNT:* ₹' + total;
+            window.open('https://wa.me/?text=' + text, '_blank');
             cart = {}; updateCartUI(); closeCheckoutModal();
         }
 
@@ -459,43 +455,55 @@
         function closeAdminModal() { document.getElementById('admin-modal').classList.add('hidden'); }
 
         function saveNewProduct() {
-            const name = document.getElementById('add-prod-name').value;
-            const price = parseFloat(document.getElementById('add-prod-price').value);
-            const mrp = parseFloat(document.getElementById('add-prod-mrp').value) || price;
-            const cat = document.getElementById('add-prod-cat').value;
-            const imgFile = document.getElementById('add-prod-img-file').files[0];
+            var name = document.getElementById('add-prod-name').value;
+            var price = parseFloat(document.getElementById('add-prod-price').value);
+            var mrp = parseFloat(document.getElementById('add-prod-mrp').value) || price;
+            var cat = document.getElementById('add-prod-cat').value;
+            var imgFile = document.getElementById('add-prod-img-file').files[0];
 
             if(!name || !price) return alert('Enter Name & Price');
 
-            const save = (img) => {
-                products.push({ id: Date.now(), name, cat, price, mrp, img });
+            var save = function(img) {
+                products.push({ id: Date.now(), name: name, cat: cat, price: price, mrp: mrp, img: img });
                 renderProducts(); renderAdminList(); alert('Product Saved!');
             };
 
             if(imgFile) {
-                const reader = new FileReader();
-                reader.onload = e => save(e.target.result);
+                var reader = new FileReader();
+                reader.onload = function(e) { save(e.target.result); };
                 reader.readAsDataURL(imgFile);
             } else {
-                save(baseUrl + "phenyl.jpg");
+                save("phenyl.jpg");
             }
         }
 
         function renderAdminList() {
-            document.getElementById('admin-products-list').innerHTML = products.map(p => `
-                <div class="flex items-center justify-between bg-slate-950 p-2.5 rounded-xl border border-slate-800 text-xs font-bold text-slate-200">
-                    <span>${p.name} (₹${p.price})</span>
-                    <button onclick="removeProduct(${p.id})" class="text-red-500"><i class="fa-solid fa-trash"></i></button>
-                </div>
-            `).join('');
+            var container = document.getElementById('admin-products-list');
+            var html = '';
+            for(var i=0; i<products.length; i++) {
+                var p = products[i];
+                html += '<div class="flex items-center justify-between bg-slate-950 p-2.5 rounded-xl border border-slate-800 text-xs font-bold text-slate-200">';
+                html += '<span>' + p.name + ' (₹' + p.price + ')</span>';
+                html += '<button onclick="removeProduct(' + p.id + ')" class="text-red-500"><i class="fa-solid fa-trash"></i></button>';
+                html += '</div>';
+            }
+            container.innerHTML = html;
         }
 
         function removeProduct(id) {
-            products = products.filter(p => p.id !== id);
+            var temp = [];
+            for(var i=0; i<products.length; i++) {
+                if(products[i].id != id) temp.push(products[i]);
+            }
+            products = temp;
             renderProducts(); renderAdminList(); updateCartUI();
         }
 
-        window.onload = function() { renderCategories(); renderProducts(); };
+        // Direct Execution on Load
+        window.addEventListener('DOMContentLoaded', function() {
+            renderCategories();
+            renderProducts();
+        });
     </script>
 </body>
 </html>
