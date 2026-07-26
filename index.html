@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="hi" class="h-full">
+<html lang="hi" class="h-full bg-slate-50">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Harshit Chemical Industry | Cyber Luxury & Meme Store</title>
+    <title>Harshit Chemical Industry | Official Direct Store</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -18,9 +18,15 @@
             theme: {
                 extend: {
                     colors: {
-                        neonGold: '#f59e0b',
-                        cyberDark: '#05070b',
-                        cardNeon: '#0f172a'
+                        emerald: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#022c22'
+                        }
                     }
                 }
             }
@@ -32,86 +38,56 @@
         * { font-family: 'Plus Jakarta Sans', sans-serif; -webkit-tap-highlight-color: transparent; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        #map { height: 260px; width: 100%; border-radius: 1rem; }
-        body { background-color: #05070b; color: #f8fafc; }
-
-        /* Cyber Glassmorphism & Neon Glow */
-        .cyber-card {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(5, 7, 11, 0.95) 100%);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(245, 158, 11, 0.2);
-            box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.8), 0 0 15px rgba(245, 158, 11, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .cyber-card:hover {
-            border-color: rgba(245, 158, 11, 0.6);
-            box-shadow: 0 0 25px rgba(245, 158, 11, 0.25);
-            transform: translateY(-3px);
-        }
-
+        #map { height: 260px; width: 100%; border-radius: 1.25rem; }
         .active-tab {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
-            color: #05070b !important;
-            font-weight: 900;
-            box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
-        }
-
-        /* Meme Floating Animation */
-        @keyframes memeFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-5px) rotate(1deg); }
-        }
-        .meme-badge {
-            animation: memeFloat 3s ease-in-out infinite;
+            background-color: #059669 !important;
+            color: #ffffff !important;
+            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
         }
     </style>
 </head>
-<body class="min-h-screen pb-32">
-
-    <!-- Top Meme & Offer Ticker Bar -->
-    <div class="bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 text-slate-950 text-[10px] sm:text-xs font-black py-2 px-4 text-center tracking-wider uppercase shadow-lg flex items-center justify-center gap-3">
-        <span>🔥 "दाग इतने जिद्दी कि टाइड भी रोये, हरshit Phenyl जब फर्श पर धोए!" 😂</span>
-    </div>
+<body class="bg-slate-100 text-slate-800 min-h-screen pb-32">
 
     <!-- Top Navigation Bar -->
-    <header class="sticky top-0 z-40 bg-[#05070b]/90 backdrop-blur-xl border-b border-amber-500/20 w-full shadow-2xl">
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm w-full">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
-            <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center justify-between gap-4">
                 <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-400 flex items-center justify-center text-slate-950 font-black text-2xl shadow-[0_0_20px_rgba(245,158,11,0.5)] border border-amber-300/40 meme-badge">
+                    <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-emerald-600 flex items-center justify-center text-white font-black text-2xl shadow-md border border-emerald-400">
                         H
                     </div>
                     <div>
-                        <div class="flex items-center gap-1.5">
-                            <span class="text-[10px] font-black text-amber-400 tracking-wider">HARSHIT CYBER STORE</span>
-                            <span class="bg-amber-500/20 text-amber-300 text-[9px] font-black px-1.5 py-0.2 rounded-full uppercase border border-amber-500/30">Meme Edition</span>
+                        <div class="flex items-center gap-2">
+                            <span class="bg-emerald-100 text-emerald-800 text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider">
+                                DIRECT FACTORY
+                            </span>
                         </div>
-                        <button onclick="openMapModal()" class="text-xs text-slate-400 flex items-center gap-1 font-bold truncate max-w-[210px] sm:max-w-md hover:text-amber-400 mt-0.5 transition-colors">
-                            <i class="fa-solid fa-location-dot text-amber-500"></i>
+                        <h1 class="text-base sm:text-lg font-black text-slate-900 leading-tight">Harshit Chemical Industry</h1>
+                        <button onclick="openMapModal()" class="text-xs text-slate-500 flex items-center gap-1 font-semibold truncate max-w-[200px] sm:max-w-md hover:text-emerald-600">
+                            <i class="fa-solid fa-location-dot text-emerald-600"></i>
                             <span id="selected-address-text">Select Delivery Location</span>
                             <i class="fa-solid fa-chevron-down text-[9px]"></i>
                         </button>
                     </div>
                 </div>
 
-                <!-- Desktop Search Bar -->
-                <div class="hidden md:flex flex-1 max-w-xl relative mx-6">
-                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-amber-500/70 text-sm"></i>
-                    <input type="text" id="search-desktop" oninput="handleSearch(this.value)" placeholder="Search Phenyl, Glass Cleaner, Brooms..." class="w-full pl-11 pr-4 py-3 bg-[#0f172a] border border-amber-500/20 rounded-2xl text-xs font-bold text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-500 transition shadow-inner">
+                <!-- Desktop Search -->
+                <div class="hidden md:flex flex-1 max-w-md relative">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                    <input type="text" id="search-desktop" oninput="handleSearch(this.value)" placeholder="Search Phenyl, Glass Cleaner, Brooms..." class="w-full pl-10 pr-4 py-2.5 bg-slate-100 border border-slate-200 rounded-2xl text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500">
                 </div>
 
                 <div class="flex items-center gap-2">
-                    <button onclick="openAdminModal()" class="w-10 h-10 rounded-2xl bg-[#0f172a] border border-amber-500/20 flex items-center justify-center text-slate-300 hover:bg-amber-500 hover:text-slate-950 transition shadow-lg">
+                    <button onclick="openAdminModal()" class="w-10 h-10 rounded-2xl bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition">
                         <i class="fa-solid fa-sliders text-base"></i>
                     </button>
                 </div>
             </div>
 
-            <!-- Mobile Search Bar -->
+            <!-- Mobile Search -->
             <div class="mt-3 relative md:hidden">
-                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-amber-500/70 text-sm"></i>
-                <input type="text" id="search-mobile" oninput="handleSearch(this.value)" placeholder="Search Phenyl, Glass Cleaner, Brooms..." class="w-full pl-11 pr-4 py-3 bg-[#0f172a] border border-amber-500/20 rounded-2xl text-xs font-bold text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-500 transition shadow-inner">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                <input type="text" id="search-mobile" oninput="handleSearch(this.value)" placeholder="Search Phenyl, Glass Cleaner, Brooms..." class="w-full pl-10 pr-4 py-2.5 bg-slate-100 border border-slate-200 rounded-2xl text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500">
             </div>
         </div>
     </header>
@@ -119,73 +95,129 @@
     <!-- Main Container -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 space-y-6">
 
-        <!-- Category Horizontal Tabs -->
-        <div class="cyber-card rounded-3xl p-3 shadow-xl">
-            <div class="flex gap-3 overflow-x-auto no-scrollbar py-1" id="category-chips"></div>
+        <!-- Category Horizontal Chips -->
+        <div class="bg-white rounded-3xl p-3 border border-slate-200 shadow-sm">
+            <div class="flex gap-2.5 overflow-x-auto no-scrollbar py-1" id="category-chips"></div>
         </div>
 
-        <!-- Animated Hero Banner & Meme Carousel -->
-        <div class="relative w-full rounded-3xl overflow-hidden border border-amber-500/20 shadow-2xl bg-[#0f172a]">
+        <!-- Banner Slider -->
+        <div class="w-full rounded-3xl overflow-hidden border border-slate-200 bg-emerald-900 shadow-md relative">
             <div id="banner-slider" class="flex transition-transform duration-700 ease-in-out">
                 <div class="w-full flex-shrink-0 relative">
-                    <img src="./images/hero_banner.jpg" alt="Banner" class="w-full h-44 sm:h-72 md:h-80 object-cover block" onerror="this.onerror=null; this.src='./images/banner.jpg';">
+                    <img src="./images/hero_banner.jpg" alt="Banner" class="w-full h-44 sm:h-64 md:h-80 object-cover block" onerror="this.onerror=null; this.src='./images/banner.jpg';">
                 </div>
                 <div class="w-full flex-shrink-0 relative">
-                    <img src="./images/banner.jpg" alt="Banner 2" class="w-full h-44 sm:h-72 md:h-80 object-cover block" onerror="this.onerror=null; this.src='./images/hero_banner.jpg';">
+                    <img src="./images/banner.jpg" alt="Banner 2" class="w-full h-44 sm:h-64 md:h-80 object-cover block" onerror="this.onerror=null; this.src='./images/hero_banner.jpg';">
                 </div>
-                <div class="w-full flex-shrink-0 bg-gradient-to-r from-amber-950 via-slate-900 to-[#0f172a] text-white h-44 sm:h-72 md:h-80 p-8 flex flex-col justify-center items-start relative overflow-hidden">
-                    <span class="bg-amber-500 text-slate-950 text-[10px] font-black px-3 py-1 rounded-full uppercase shadow meme-badge">🔥 Meme Lord Special</span>
-                    <h2 class="text-xl sm:text-3xl md:text-4xl font-black mt-2 leading-tight">जब घर चमके, तो पड़ोसी भी जलें! 😎</h2>
-                    <p class="text-xs sm:text-sm text-amber-300 mt-1 font-semibold">100% Pure Phenyl & Cleaning Power at Factory Rate</p>
+                <div class="w-full flex-shrink-0 bg-emerald-950 text-white h-44 sm:h-64 md:h-80 p-6 flex flex-col justify-center items-start relative">
+                    <span class="bg-amber-500 text-slate-950 text-[10px] font-black px-3 py-1 rounded-full uppercase shadow">Wholesale Direct</span>
+                    <h2 class="text-xl sm:text-3xl font-black mt-2 leading-tight">दाग और गंदगी को कहो अलविदा! 🧹</h2>
+                    <p class="text-xs sm:text-sm text-emerald-200 mt-1 font-semibold">100% Quality Guaranteed Cleaning Products</p>
                 </div>
-            </div>
-            <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-20">
-                <span onclick="goToSlide(0)" class="banner-dot w-2.5 h-2.5 rounded-full bg-white/90 cursor-pointer shadow"></span>
-                <span onclick="goToSlide(1)" class="banner-dot w-2.5 h-2.5 rounded-full bg-white/40 cursor-pointer shadow"></span>
-                <span onclick="goToSlide(2)" class="banner-dot w-2.5 h-2.5 rounded-full bg-white/40 cursor-pointer shadow"></span>
             </div>
         </div>
 
-        <!-- Live Map Picker Card -->
-        <div class="cyber-card rounded-2xl p-4 shadow-xl flex items-center justify-between cursor-pointer hover:border-amber-500/50 transition group" onclick="openMapModal()">
+        <!-- Extra Feature: Flash Sale Timer Banner -->
+        <div class="bg-gradient-to-r from-amber-500 to-orange-500 rounded-3xl p-4 text-slate-950 shadow-md flex items-center justify-between">
+            <div class="space-y-0.5">
+                <span class="bg-slate-950 text-amber-400 text-[9px] font-black px-2 py-0.5 rounded-full uppercase">FACTORY FLASH SALE</span>
+                <h4 class="font-black text-sm tracking-tight">Bulk Wholesale Discounts Active</h4>
+                <p class="text-[11px] font-bold opacity-90">Get pure commercial cleaning products directly</p>
+            </div>
+            <div class="bg-slate-950 text-white p-2.5 rounded-2xl text-center shadow-inner">
+                <div class="text-[9px] font-extrabold text-amber-400 uppercase tracking-widest">Ends In</div>
+                <div class="text-sm font-black tracking-widest mt-0.5" id="flash-timer">05:45:12</div>
+            </div>
+        </div>
+
+        <!-- Extra Feature: Trending Quick Search Tags -->
+        <section>
+            <div class="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest mb-2 px-1">Trending Hot Searches</div>
+            <div class="flex gap-2 overflow-x-auto no-scrollbar py-0.5">
+                <button onclick="handleSearch('phenyl')" class="bg-white hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 px-3.5 py-1.5 rounded-full text-xs font-extrabold shadow-sm whitespace-nowrap transition">🔥 Phenyl</button>
+                <button onclick="handleSearch('glass cleaner')" class="bg-white hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 px-3.5 py-1.5 rounded-full text-xs font-extrabold shadow-sm whitespace-nowrap transition">✨ Glass Cleaner</button>
+                <button onclick="handleSearch('broom')" class="bg-white hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 px-3.5 py-1.5 rounded-full text-xs font-extrabold shadow-sm whitespace-nowrap transition">🧹 Brooms & Wipers</button>
+                <button onclick="handleSearch('dustbin')" class="bg-white hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 px-3.5 py-1.5 rounded-full text-xs font-extrabold shadow-sm whitespace-nowrap transition">🗑️ Dustbins</button>
+            </div>
+        </section>
+
+        <!-- Google Map Delivery Card -->
+        <div class="bg-white rounded-2xl p-4 border border-slate-200 shadow-sm flex items-center justify-between cursor-pointer hover:border-emerald-500 transition" onclick="openMapModal()">
             <div class="flex items-center gap-3">
-                <div class="w-11 h-11 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center font-bold text-xl group-hover:scale-110 transition">
+                <div class="w-11 h-11 rounded-xl bg-emerald-50 border border-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-xl">
                     <i class="fa-solid fa-map-location-dot"></i>
                 </div>
                 <div>
-                    <div class="text-xs sm:text-sm font-extrabold text-slate-100">Pin Delivery Location on Live Map</div>
-                    <div class="text-[11px] sm:text-xs text-slate-400 truncate max-w-[220px] sm:max-w-xl" id="map-card-address">Tap to choose exact delivery address</div>
+                    <div class="text-xs sm:text-sm font-extrabold text-slate-900">Pin Location on Live Map</div>
+                    <div class="text-[11px] sm:text-xs text-slate-500 truncate max-w-[200px] sm:max-w-xl" id="map-card-address">Tap to choose exact delivery address</div>
                 </div>
             </div>
-            <i class="fa-solid fa-chevron-right text-xs text-amber-500"></i>
+            <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
         </div>
 
-        <!-- Products Section -->
+        <!-- Product Grid -->
         <div>
             <div class="flex justify-between items-center mb-4">
-                <h3 class="font-black text-slate-100 text-base sm:text-xl" id="category-title">All Products</h3>
-                <span class="text-xs font-black text-amber-400 bg-amber-500/10 border border-amber-500/30 px-3 py-1 rounded-full" id="product-count">0 Items</span>
+                <h3 class="font-extrabold text-slate-900 text-base sm:text-lg" id="category-title">All Products</h3>
+                <span class="text-xs font-extrabold text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full" id="product-count">0 Items</span>
             </div>
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-5" id="product-grid"></div>
         </div>
 
-        <!-- Meme Fun Section -->
-        <section class="cyber-card rounded-3xl p-5 text-center space-y-2">
-            <div class="text-2xl">🤖🧹</div>
-            <h4 class="font-black text-amber-400 text-sm">"सफाई इतनी जबरदस्त कि धूल भी परमिशन मांग कर आए!"</h4>
-            <p class="text-[11px] text-slate-400 font-medium">Harshit Chemical Industry - Direct Factory Wholesale Hub</p>
+        <!-- Extra Feature: Customer Reviews Section -->
+        <section class="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm space-y-4">
+            <div class="flex items-center justify-between border-b pb-3">
+                <div>
+                    <h4 class="font-black text-slate-900 text-sm">Verified Buyer Reviews</h4>
+                    <p class="text-[11px] text-slate-500 font-semibold">Trusted by 500+ Businesses & Homes</p>
+                </div>
+                <div class="bg-emerald-100 text-emerald-800 text-xs font-black px-2.5 py-1 rounded-xl flex items-center gap-1">
+                    <i class="fa-solid fa-star text-amber-500"></i> 4.9 / 5
+                </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-100 space-y-1">
+                    <div class="flex justify-between items-center">
+                        <span class="font-black text-xs text-slate-900">Ramesh Sharma (Hotel Owner)</span>
+                        <div class="text-[10px] text-amber-500 flex gap-0.5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    </div>
+                    <p class="text-[11px] text-slate-600 font-medium">"Phenyl और Glass Cleaner की क्वालिटी एकदम शानदार है। सीधे फ़ैक्टरी रेट पर मिला।"</p>
+                </div>
+                <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-100 space-y-1">
+                    <div class="flex justify-between items-center">
+                        <span class="font-black text-xs text-slate-900">Gupta Housekeeping</span>
+                        <div class="text-[10px] text-amber-500 flex gap-0.5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    </div>
+                    <p class="text-[11px] text-slate-600 font-medium">"बल्क ऑर्डर की डिलीवरी बहुत तेज़ मिली। वाइपर और झाड़ू बहुत मजबूत हैं।"</p>
+                </div>
+            </div>
         </section>
 
-        <!-- Business Footer -->
-        <footer class="mt-12 bg-[#0f172a] border border-amber-500/20 rounded-3xl p-6 shadow-xl">
-            <div class="max-w-7xl mx-auto text-center sm:text-left sm:flex sm:justify-between sm:items-center space-y-3 sm:space-y-0">
+        <!-- Extra Feature: FAQ Accordion -->
+        <section class="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm space-y-3">
+            <h4 class="font-black text-slate-900 text-sm border-b pb-2"><i class="fa-solid fa-circle-question text-emerald-600 mr-2"></i> Frequently Asked Questions</h4>
+            <div class="space-y-2 text-xs">
+                <details class="bg-slate-50 p-3 rounded-2xl border border-slate-100 cursor-pointer">
+                    <summary class="font-bold text-slate-800">ऑर्डर भेजने में कितना समय लगता है?</summary>
+                    <p class="text-[11px] text-slate-500 mt-1.5 font-medium">ऑर्डर कन्फर्म होते ही तुरंत फ़ैक्टरी से डिस्पैच कर दिया जाता है।</p>
+                </details>
+                <details class="bg-slate-50 p-3 rounded-2xl border border-slate-100 cursor-pointer">
+                    <summary class="font-bold text-slate-800">क्या डायरेक्ट होलसेल रेट मिलेगा?</summary>
+                    <p class="text-[11px] text-slate-500 mt-1.5 font-medium">हाँ, हम डायरेक्ट मैन्युफैक्चरर हैं इसलिए आपको सबसे किफायती दाम मिलेंगे।</p>
+                </details>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mt-12 bg-white border-t border-slate-200 rounded-3xl p-6 shadow-sm">
+            <div class="max-w-7xl mx-auto space-y-4 text-center sm:text-left sm:flex sm:justify-between sm:items-center">
                 <div>
-                    <h3 class="font-black text-white text-base">Harshit Chemical Industry</h3>
-                    <p class="text-xs text-slate-400 font-semibold mt-0.5">Direct Factory Wholesale & Retail Cleaning Supplies</p>
+                    <h3 class="font-black text-slate-900 text-base">Harshit Chemical Industry</h3>
+                    <p class="text-xs text-slate-500 font-semibold mt-1">Direct Factory Wholesale & Retail Cleaning Supplies</p>
                 </div>
-                <div class="flex justify-center gap-5 text-xs font-extrabold text-slate-300">
-                    <span><i class="fa-solid fa-truck text-amber-400"></i> Fast Dispatch</span>
-                    <span><i class="fa-solid fa-shield-halved text-amber-400"></i> Quality Assured</span>
+                <div class="pt-3 sm:pt-0 border-t sm:border-t-0 border-slate-100 flex justify-center gap-4 text-xs font-bold text-slate-600">
+                    <span><i class="fa-solid fa-truck text-emerald-600"></i> Fast Delivery</span>
+                    <span><i class="fa-solid fa-shield-halved text-emerald-600"></i> Quality Assured</span>
                 </div>
             </div>
         </footer>
@@ -193,117 +225,128 @@
     </main>
 
     <!-- Floating Cart Bar -->
-    <div id="cart-bar" class="fixed bottom-4 left-0 right-0 max-w-md mx-auto px-4 hidden z-30">
-        <div class="bg-gradient-to-r from-amber-600 to-yellow-600 border border-amber-400/40 text-slate-950 p-3.5 rounded-2xl shadow-2xl flex items-center justify-between cursor-pointer font-bold" onclick="openCartModal()">
+    <div id="cart-bar" class="fixed bottom-4 left-0 right-0 max-w-lg mx-auto px-4 hidden z-30">
+        <div class="bg-emerald-900 border border-emerald-700 text-white p-3.5 rounded-2xl shadow-2xl flex items-center justify-between cursor-pointer" onclick="openCartModal()">
             <div class="flex items-center gap-3">
-                <div class="bg-slate-950 text-amber-400 w-9 h-9 rounded-xl flex items-center justify-center font-black text-sm shadow">
+                <div class="bg-amber-500 text-slate-950 w-9 h-9 rounded-xl flex items-center justify-center font-black text-sm shadow">
                     <span id="cart-qty-badge">0</span>
                 </div>
                 <div>
-                    <div class="text-[9px] text-slate-950 font-black uppercase tracking-widest">TOTAL ORDER</div>
-                    <div class="font-black text-base text-slate-950">₹<span id="cart-total-price">0</span></div>
+                    <div class="text-[9px] text-emerald-200 font-extrabold uppercase tracking-widest">TOTAL ORDER</div>
+                    <div class="font-black text-base text-white">₹<span id="cart-total-price">0</span></div>
                 </div>
             </div>
-            <div class="flex items-center gap-2 font-black text-xs bg-slate-950 text-amber-400 px-4 py-2.5 rounded-xl uppercase tracking-wider shadow hover:bg-slate-900 transition">
+            <div class="flex items-center gap-2 font-extrabold text-xs bg-white text-emerald-900 px-4 py-2.5 rounded-xl uppercase tracking-wider shadow hover:bg-emerald-50 transition">
                 <span>VIEW CART</span>
                 <i class="fa-solid fa-arrow-right text-xs"></i>
             </div>
         </div>
     </div>
 
+    <!-- Extra Feature: Live Sales Popup Toast -->
+    <div id="live-sales-toast" class="fixed bottom-24 left-4 z-40 bg-white/95 backdrop-blur-md border border-slate-200 p-3 rounded-2xl shadow-2xl flex items-center gap-3 max-w-xs transition-all duration-500 transform translate-y-20 opacity-0 pointer-events-none">
+        <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg font-bold shrink-0">
+            <i class="fa-solid fa-bag-shopping"></i>
+        </div>
+        <div>
+            <div class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Just now</div>
+            <div class="text-xs font-extrabold text-slate-900 leading-tight" id="toast-text">Someone ordered Premium Phenyl!</div>
+        </div>
+    </div>
+
     <!-- Map Modal -->
-    <div id="map-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
-        <div class="cyber-card w-full max-w-lg rounded-t-3xl sm:rounded-3xl p-5 space-y-4 shadow-2xl">
-            <div class="flex justify-between items-center border-b border-amber-500/20 pb-3">
-                <h3 class="font-extrabold text-base text-white"><i class="fa-solid fa-map-pin text-amber-400 mr-2"></i> Live Delivery Tracking</h3>
-                <button onclick="closeMapModal()" class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+    <div id="map-modal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+        <div class="bg-white border border-slate-200 w-full max-w-lg rounded-t-3xl sm:rounded-3xl p-5 space-y-4 shadow-2xl">
+            <div class="flex justify-between items-center border-b pb-3">
+                <h3 class="font-extrabold text-base text-slate-900"><i class="fa-solid fa-map-pin text-emerald-600 mr-2"></i> Live Delivery Tracking</h3>
+                <button onclick="closeMapModal()" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-slate-200"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div id="map" class="border border-amber-500/20"></div>
-            <div class="bg-slate-950 p-3 rounded-2xl border border-amber-500/20">
-                <div class="text-[10px] font-black text-amber-400 uppercase tracking-widest">SELECTED LOCATION</div>
-                <div class="text-xs font-bold text-slate-200 mt-0.5" id="modal-address-text">Fetching location...</div>
+            <div id="map" class="border border-slate-200"></div>
+            <div class="bg-emerald-50 p-3 rounded-2xl border border-emerald-100">
+                <div class="text-[10px] font-black text-emerald-800 uppercase tracking-widest">SELECTED LOCATION</div>
+                <div class="text-xs font-bold text-slate-800 mt-0.5" id="modal-address-text">Fetching location...</div>
             </div>
-            <button onclick="confirmLocation()" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-3.5 rounded-xl text-xs uppercase tracking-wider shadow transition">Confirm Address</button>
+            <button onclick="confirmLocation()" class="w-full bg-emerald-600 text-white font-extrabold py-3.5 rounded-xl text-xs uppercase tracking-wider shadow hover:bg-emerald-700 transition">Confirm Address</button>
         </div>
     </div>
 
     <!-- Cart Modal -->
-    <div id="cart-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
-        <div class="cyber-card w-full max-w-lg rounded-t-3xl sm:rounded-3xl max-h-[85vh] flex flex-col overflow-hidden shadow-2xl">
-            <div class="p-4 border-b border-amber-500/20 flex justify-between items-center bg-slate-950">
-                <h3 class="font-extrabold text-base text-white"><i class="fa-solid fa-basket-shopping text-amber-400 mr-2"></i> Shopping Basket</h3>
-                <button onclick="closeCartModal()" class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+    <div id="cart-modal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+        <div class="bg-white border border-slate-200 w-full max-w-lg rounded-t-3xl sm:rounded-3xl max-h-[85vh] flex flex-col overflow-hidden shadow-2xl">
+            <div class="p-4 border-b flex justify-between items-center bg-slate-50">
+                <h3 class="font-extrabold text-base text-slate-900"><i class="fa-solid fa-basket-shopping text-emerald-600 mr-2"></i> Shopping Basket</h3>
+                <button onclick="closeCartModal()" class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-slate-600"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="p-4 overflow-y-auto space-y-3 flex-1 no-scrollbar" id="cart-items-container"></div>
-            <div class="p-4 border-t border-amber-500/20 bg-slate-950 space-y-3">
-                <div class="flex justify-between text-white font-black text-sm">
+            <div class="p-4 border-t bg-slate-50 space-y-3">
+                <div class="flex justify-between text-slate-900 font-black text-sm">
                     <span>Total Amount</span>
-                    <span class="text-amber-400 text-base">₹<span id="cart-final-total">0</span></span>
+                    <span class="text-emerald-700 text-base">₹<span id="cart-final-total">0</span></span>
                 </div>
-                <button onclick="openCheckoutModal()" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-3.5 rounded-xl text-xs uppercase tracking-wider shadow transition">Proceed to Checkout</button>
+                <button onclick="openCheckoutModal()" class="w-full bg-emerald-600 text-white font-extrabold py-3.5 rounded-xl text-xs uppercase tracking-wider shadow hover:bg-emerald-700 transition">Proceed to Checkout</button>
             </div>
         </div>
     </div>
 
     <!-- Checkout Modal -->
-    <div id="checkout-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
-        <div class="cyber-card w-full max-w-lg rounded-t-3xl sm:rounded-3xl max-h-[90vh] overflow-y-auto p-5 space-y-4 no-scrollbar shadow-2xl">
-            <div class="flex justify-between items-center border-b border-amber-500/20 pb-3">
-                <h3 class="font-extrabold text-base text-white">Delivery Details</h3>
-                <button onclick="closeCheckoutModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+    <div id="checkout-modal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+        <div class="bg-white border border-slate-200 w-full max-w-lg rounded-t-3xl sm:rounded-3xl max-h-[90vh] overflow-y-auto p-5 space-y-4 no-scrollbar shadow-2xl">
+            <div class="flex justify-between items-center border-b pb-3">
+                <h3 class="font-extrabold text-base text-slate-900">Delivery Details</h3>
+                <button onclick="closeCheckoutModal()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
             <form onsubmit="handleCheckoutSubmit(event)" class="space-y-3">
                 <div>
-                    <label class="block text-[11px] font-extrabold text-slate-300 mb-1 uppercase tracking-wider">Full Name</label>
-                    <input type="text" id="cust-name" required placeholder="Enter full name" class="w-full p-2.5 bg-slate-950 border border-amber-500/20 rounded-xl text-xs font-semibold text-slate-100 outline-none focus:border-amber-500">
+                    <label class="block text-[11px] font-extrabold text-slate-700 mb-1 uppercase tracking-wider">Full Name</label>
+                    <input type="text" id="cust-name" required placeholder="Enter full name" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs font-semibold text-slate-900 outline-none focus:border-emerald-600">
                 </div>
                 <div>
-                    <label class="block text-[11px] font-extrabold text-slate-300 mb-1 uppercase tracking-wider">Mobile Number</label>
-                    <input type="tel" id="cust-phone" required placeholder="10 Digit Phone Number" class="w-full p-2.5 bg-slate-950 border border-amber-500/20 rounded-xl text-xs font-semibold text-slate-100 outline-none focus:border-amber-500">
+                    <label class="block text-[11px] font-extrabold text-slate-700 mb-1 uppercase tracking-wider">Mobile Number</label>
+                    <input type="tel" id="cust-phone" required placeholder="10 Digit Phone Number" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs font-semibold text-slate-900 outline-none focus:border-emerald-600">
                 </div>
                 <div>
-                    <label class="block text-[11px] font-extrabold text-slate-300 mb-1 uppercase tracking-wider">Delivery Address</label>
-                    <textarea id="cust-address" required rows="2" class="w-full p-2.5 bg-slate-950 border border-amber-500/20 rounded-xl text-xs font-semibold text-slate-100 outline-none focus:border-amber-500"></textarea>
+                    <label class="block text-[11px] font-extrabold text-slate-700 mb-1 uppercase tracking-wider">Delivery Address</label>
+                    <textarea id="cust-address" required rows="2" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs font-semibold text-slate-900 outline-none focus:border-emerald-600"></textarea>
                 </div>
                 <div>
-                    <label class="block text-[11px] font-extrabold text-slate-300 mb-1 uppercase tracking-wider">Payment Method</label>
+                    <label class="block text-[11px] font-extrabold text-slate-700 mb-1 uppercase tracking-wider">Payment Method</label>
                     <div class="grid grid-cols-2 gap-2.5">
-                        <label class="border-2 p-3 rounded-2xl flex items-center gap-2 cursor-pointer border-amber-500 bg-amber-500/10">
-                            <input type="radio" name="payment_mode" value="ONLINE" checked class="accent-amber-500">
-                            <span class="text-xs font-extrabold text-white">Online UPI / QR</span>
+                        <label class="border-2 p-3 rounded-2xl flex items-center gap-2 cursor-pointer border-emerald-600 bg-emerald-50">
+                            <input type="radio" name="payment_mode" value="ONLINE" checked class="accent-emerald-600">
+                            <span class="text-xs font-extrabold text-slate-900">Online UPI</span>
                         </label>
-                        <label class="border-2 p-3 rounded-2xl flex items-center gap-2 cursor-pointer border-slate-800 bg-slate-950">
-                            <input type="radio" name="payment_mode" value="COD" class="accent-amber-500">
-                            <span class="text-xs font-extrabold text-white">Cash on Delivery</span>
+                        <label class="border-2 p-3 rounded-2xl flex items-center gap-2 cursor-pointer border-slate-200">
+                            <input type="radio" name="payment_mode" value="COD" class="accent-emerald-600">
+                            <span class="text-xs font-extrabold text-slate-900">Cash on Delivery</span>
                         </label>
                     </div>
                 </div>
-                <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-3.5 rounded-xl text-xs uppercase shadow mt-2 transition">Place Order on WhatsApp</button>
+                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-3.5 rounded-xl text-xs uppercase shadow mt-2 transition">Place Order on WhatsApp</button>
             </form>
         </div>
     </div>
 
     <!-- Admin Modal -->
-    <div id="admin-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-        <div class="cyber-card w-full max-w-lg rounded-3xl p-5 space-y-4 max-h-[85vh] overflow-y-auto no-scrollbar shadow-2xl">
-            <div class="flex justify-between items-center border-b border-amber-500/20 pb-3">
-                <h3 class="font-extrabold text-base text-white"><i class="fa-solid fa-gears text-amber-400 mr-2"></i> Store Admin</h3>
-                <button onclick="closeAdminModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+    <div id="admin-modal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white border border-slate-200 w-full max-w-lg rounded-3xl p-5 space-y-4 max-h-[85vh] overflow-y-auto no-scrollbar shadow-2xl">
+            <div class="flex justify-between items-center border-b pb-3">
+                <h3 class="font-extrabold text-base text-slate-900"><i class="fa-solid fa-gears text-emerald-600 mr-2"></i> Store Admin</h3>
+                <button onclick="closeAdminModal()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
-            <div class="bg-slate-950 p-4 rounded-2xl space-y-2.5 border border-amber-500/20">
-                <h4 class="font-extrabold text-xs text-amber-400 uppercase tracking-wider">Add Custom Product</h4>
-                <input type="text" id="add-prod-name" placeholder="Product Name" class="w-full p-2.5 bg-[#0f172a] border border-slate-800 rounded-xl text-xs text-slate-100">
+            <div class="bg-slate-50 p-4 rounded-2xl space-y-2.5 border border-slate-200">
+                <h4 class="font-extrabold text-xs text-emerald-700 uppercase tracking-wider">Add Custom Product</h4>
+                <input type="text" id="add-prod-name" placeholder="Product Name" class="w-full p-2.5 bg-white border border-slate-300 rounded-xl text-xs text-slate-900">
                 <div class="grid grid-cols-2 gap-2">
-                    <input type="number" id="add-prod-price" placeholder="Price ₹" class="p-2.5 bg-[#0f172a] border border-slate-800 rounded-xl text-xs text-slate-100">
-                    <input type="number" id="add-prod-mrp" placeholder="MRP ₹" class="p-2.5 bg-[#0f172a] border border-slate-800 rounded-xl text-xs text-slate-100">
+                    <input type="number" id="add-prod-price" placeholder="Price ₹" class="p-2.5 bg-white border border-slate-300 rounded-xl text-xs text-slate-900">
+                    <input type="number" id="add-prod-mrp" placeholder="MRP ₹" class="p-2.5 bg-white border border-slate-300 rounded-xl text-xs text-slate-900">
                 </div>
-                <select id="add-prod-cat" class="w-full p-2.5 bg-[#0f172a] border border-slate-800 rounded-xl text-xs text-slate-100">
+                <select id="add-prod-cat" class="w-full p-2.5 bg-white border border-slate-300 rounded-xl text-xs text-slate-900">
                     <option value="Chemicals">Chemicals</option>
                     <option value="Cleaning Tools">Cleaning Tools</option>
                     <option value="Dustbins & Bags">Dustbins & Bags</option>
                 </select>
-                <input type="file" id="add-prod-img-file" accept="image/*" class="text-xs w-full bg-[#0f172a] p-2 border border-slate-800 rounded-xl text-slate-300">
-                <button onclick="saveNewProduct()" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-2.5 rounded-xl text-xs uppercase shadow transition">Save Product</button>
+                <input type="file" id="add-prod-img-file" accept="image/*" class="text-xs w-full bg-white p-2 border border-slate-300 rounded-xl text-slate-700">
+                <button onclick="saveNewProduct()" class="w-full bg-emerald-600 text-white font-extrabold py-2.5 rounded-xl text-xs uppercase shadow hover:bg-emerald-700 transition">Save Product</button>
             </div>
             <div id="admin-products-list" class="space-y-2 max-h-40 overflow-y-auto no-scrollbar"></div>
         </div>
@@ -376,20 +419,10 @@
             if(slider) {
                 slider.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
             }
-            var dots = document.querySelectorAll('.banner-dot');
-            for(var i=0; i<dots.length; i++) {
-                if(i === currentSlide) {
-                    dots[i].classList.remove('bg-white/40');
-                    dots[i].classList.add('bg-white/90');
-                } else {
-                    dots[i].classList.remove('bg-white/90');
-                    dots[i].classList.add('bg-white/40');
-                }
-            }
         }
 
         setInterval(function() {
-            currentSlide = (currentSlide + 1) % 3;
+            currentSlide = (currentSlide + 1) % 2;
             goToSlide(currentSlide);
         }, 3500);
 
@@ -415,8 +448,8 @@
             for(var i=0; i<categories.length; i++) {
                 var cat = categories[i];
                 var icon = icons[cat] || "fa-basket-shopping";
-                var active = (currentCat === cat) ? 'active-tab' : 'bg-[#0f172a] text-slate-300 hover:bg-slate-800 border border-amber-500/10';
-                html += '<button onclick="selectCategory(\'' + cat + '\')" class="flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-extrabold whitespace-nowrap transition-all ' + active + '"><i class="fa-solid ' + icon + ' text-amber-500"></i> ' + cat + '</button>';
+                var active = (currentCat === cat) ? 'active-tab' : 'bg-slate-100 text-slate-700 hover:bg-slate-200';
+                html += '<button onclick="selectCategory(\'' + cat + '\')" class="flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-extrabold whitespace-nowrap transition-all ' + active + '"><i class="fa-solid ' + icon + '"></i> ' + cat + '</button>';
             }
             el.innerHTML = html;
         }
@@ -445,7 +478,7 @@
             document.getElementById('product-count').innerText = filtered.length + ' Items';
 
             if(filtered.length === 0) {
-                container.innerHTML = '<div class="col-span-full text-center py-12 text-slate-500 font-bold text-sm">No products found</div>';
+                container.innerHTML = '<div class="col-span-full text-center py-12 text-slate-400 font-bold text-sm">No products found</div>';
                 return;
             }
 
@@ -455,27 +488,27 @@
                 var qty = cart[item.id] || 0;
                 var discount = Math.round(((item.mrp - item.price) / item.mrp) * 100);
                 
-                html += '<div class="cyber-card rounded-3xl p-3 sm:p-4 shadow-xl flex flex-col justify-between relative group transition">';
+                html += '<div class="bg-white rounded-3xl p-3 sm:p-4 border border-slate-200 shadow-sm hover:shadow-md flex flex-col justify-between relative transition">';
                 if(discount > 0) {
                     html += '<span class="absolute top-3 left-3 bg-amber-500 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full z-10 shadow">' + discount + '% OFF</span>';
                 }
-                html += '<div class="h-32 sm:h-44 w-full flex items-center justify-center my-1 overflow-hidden rounded-2xl bg-[#05070b] border border-amber-500/10 relative">';
+                html += '<div class="h-32 sm:h-44 w-full flex items-center justify-center my-1 overflow-hidden rounded-2xl bg-slate-50 border border-slate-100 relative">';
                 html += '<img src="' + item.img + '" alt="' + item.name + '" class="object-contain h-full w-full p-2" onerror="this.onerror=null; this.src=\'' + fallbackImg + '\';">';
                 html += '</div>';
                 html += '<div class="mt-2">';
-                html += '<span class="text-[9px] font-black text-amber-400 uppercase tracking-widest">' + item.cat + '</span>';
-                html += '<h4 class="font-extrabold text-xs sm:text-sm text-slate-100 leading-tight line-clamp-2 mt-0.5">' + item.name + '</h4>';
+                html += '<span class="text-[9px] font-black text-slate-400 uppercase tracking-widest">' + item.cat + '</span>';
+                html += '<h4 class="font-extrabold text-xs sm:text-sm text-slate-900 leading-tight line-clamp-2 mt-0.5">' + item.name + '</h4>';
                 html += '<div class="flex items-baseline gap-1.5 mt-1.5">';
-                html += '<span class="font-black text-sm sm:text-base text-amber-300">₹' + item.price + '</span>';
+                html += '<span class="font-black text-sm sm:text-base text-slate-900">₹' + item.price + '</span>';
                 if(item.mrp > item.price) {
-                    html += '<span class="text-[10px] sm:text-xs text-slate-500 font-bold line-through">₹' + item.mrp + '</span>';
+                    html += '<span class="text-[10px] sm:text-xs text-slate-400 font-bold line-through">₹' + item.mrp + '</span>';
                 }
                 html += '</div></div>';
                 html += '<div class="mt-3">';
                 if(qty === 0) {
-                    html += '<button onclick="addToCart(' + item.id + ')" class="w-full border-2 border-amber-500 text-amber-400 font-extrabold text-xs py-2 rounded-xl hover:bg-amber-500 hover:text-slate-950 transition-all uppercase tracking-wider">ADD</button>';
+                    html += '<button onclick="addToCart(' + item.id + ')" class="w-full border-2 border-emerald-600 text-emerald-700 font-extrabold text-xs py-2 rounded-xl hover:bg-emerald-600 hover:text-white transition-all uppercase tracking-wider">ADD</button>';
                 } else {
-                    html += '<div class="flex items-center justify-between bg-amber-500 text-slate-950 rounded-xl py-1 px-2 font-black text-xs sm:text-sm shadow-inner">';
+                    html += '<div class="flex items-center justify-between bg-emerald-600 text-white rounded-xl py-1 px-2 font-black text-xs sm:text-sm shadow-inner">';
                     html += '<button onclick="changeQty(' + item.id + ', -1)" class="w-7 h-7 flex items-center justify-center font-black">-</button>';
                     html += '<span>' + qty + '</span>';
                     html += '<button onclick="changeQty(' + item.id + ', 1)" class="w-7 h-7 flex items-center justify-center font-black">+</button>';
@@ -518,12 +551,12 @@
                     if(products[i].id == id) { p = products[i]; break; }
                 }
                 if(p) {
-                    html += '<div class="flex items-center justify-between bg-[#0f172a] p-2.5 rounded-2xl border border-amber-500/20">';
+                    html += '<div class="flex items-center justify-between bg-slate-50 p-2.5 rounded-2xl border border-slate-200">';
                     html += '<div class="flex items-center gap-3">';
-                    html += '<img src="' + p.img + '" class="w-12 h-12 rounded-xl object-contain border border-amber-500/20 bg-[#05070b]" onerror="this.src=\'' + fallbackImg + '\'">';
-                    html += '<div><h5 class="font-extrabold text-xs text-slate-100">' + p.name + '</h5><div class="text-xs font-black text-amber-400">₹' + (p.price * cart[id]) + '</div></div>';
+                    html += '<img src="' + p.img + '" class="w-12 h-12 rounded-xl object-contain border border-slate-200 bg-white" onerror="this.src=\'' + fallbackImg + '\'">';
+                    html += '<div><h5 class="font-extrabold text-xs text-slate-900">' + p.name + '</h5><div class="text-xs font-black text-emerald-700">₹' + (p.price * cart[id]) + '</div></div>';
                     html += '</div>';
-                    html += '<div class="flex items-center gap-2 bg-amber-500 text-slate-950 px-2.5 py-1 rounded-xl text-xs font-black">';
+                    html += '<div class="flex items-center gap-2 bg-emerald-600 text-white px-2.5 py-1 rounded-xl text-xs font-black">';
                     html += '<button onclick="changeQty(' + p.id + ', -1)">-</button>';
                     html += '<span>' + cart[id] + '</span>';
                     html += '<button onclick="changeQty(' + p.id + ', 1)">+</button>';
@@ -558,7 +591,7 @@
             ];
 
             routePolyline = L.polyline(routeCoordinates, {
-                color: '#f59e0b',
+                color: '#059669',
                 weight: 4,
                 opacity: 0.8,
                 dashArray: '8, 8'
@@ -566,7 +599,7 @@
 
             var bikeIcon = L.divIcon({
                 className: 'custom-bike-icon',
-                html: '<div class="w-9 h-9 bg-slate-950 rounded-full border-2 border-amber-500 shadow-xl flex items-center justify-center text-amber-400 text-base font-bold"><i class="fa-solid fa-motorcycle"></i></div>',
+                html: '<div class="w-9 h-9 bg-white rounded-full border-2 border-emerald-600 shadow-xl flex items-center justify-center text-emerald-600 text-base font-bold"><i class="fa-solid fa-motorcycle"></i></div>',
                 iconSize: [36, 36],
                 iconAnchor: [18, 18]
             });
@@ -672,9 +705,9 @@
             var html = '';
             for(var i=0; i<products.length; i++) {
                 var p = products[i];
-                html += '<div class="flex items-center justify-between bg-[#05070b] p-2.5 rounded-xl border border-amber-500/20 text-xs font-bold text-slate-200">';
+                html += '<div class="flex items-center justify-between bg-slate-100 p-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-800">';
                 html += '<span>' + p.name + ' (₹' + p.price + ')</span>';
-                html += '<button onclick="removeProduct(' + p.id + ')" class="text-red-400"><i class="fa-solid fa-trash"></i></button>';
+                html += '<button onclick="removeProduct(' + p.id + ')" class="text-red-600"><i class="fa-solid fa-trash"></i></button>';
                 html += '</div>';
             }
             container.innerHTML = html;
@@ -689,9 +722,36 @@
             renderProducts(); renderAdminList(); updateCartUI();
         }
 
+        // Live Sales Popup Toast Trigger
+        var buyersData = [
+            { name: "Rahul S.", city: "Delhi", item: "Premium Phenyl" },
+            { name: "Amit K.", city: "Noida", item: "Glass Cleaner" },
+            { name: "Pooja M.", city: "Gurugram", item: "Microfiber Cloth" },
+            { name: "Vikas G.", city: "Jaipur", item: "Plastic Bucket" }
+        ];
+
+        function showLiveSalesToast() {
+            var toast = document.getElementById('live-sales-toast');
+            if(!toast) return;
+
+            var buyer = buyersData[Math.floor(Math.random() * buyersData.length)];
+            document.getElementById('toast-text').innerText = buyer.name + ' from ' + buyer.city + ' ordered ' + buyer.item + '!';
+            
+            toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(function() {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+            }, 4000);
+        }
+
+        setInterval(showLiveSalesToast, 12000);
+
         window.addEventListener('DOMContentLoaded', function() {
             renderCategories();
             renderProducts();
+            setTimeout(showLiveSalesToast, 3000);
         });
     </script>
 </body>
