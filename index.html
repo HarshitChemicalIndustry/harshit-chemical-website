@@ -1,1 +1,301 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harshit Chemical Industry - Instant Commerce</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet CSS for Interactive Google-like Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Razorpay Checkout SDK -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        #map { height: 220px; width: 100%; border-radius: 1rem; }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900 min-h-screen pb-28">
 
+    <!-- Top Navigation Header (Blinkit / Instamart Style) -->
+    <header class="sticky top-0 z-40 bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-md mx-auto px-4 py-3">
+            <div class="flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                    <div id="app-logo-display" class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white font-black text-xl shadow-md border-2 border-white">
+                        H
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-1.5 text-xs font-black tracking-wider text-emerald-700 uppercase">
+                            <span class="bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full flex items-center gap-1">
+                                <i class="fa-solid fa-bolt text-amber-500 animate-pulse"></i> 10 MINS
+                            </span>
+                            <span>DELIVERY</span>
+                        </div>
+                        <h1 class="text-base font-extrabold text-gray-900 leading-tight">Harshit Chemical Industry</h1>
+                        <button onclick="openMapModal()" class="text-xs text-gray-500 flex items-center gap-1 hover:text-emerald-600 font-semibold truncate max-w-[200px]">
+                            <i class="fa-solid fa-location-dot text-emerald-600"></i>
+                            <span id="selected-address-text">Select Delivery Location</span>
+                            <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+                <button onclick="openAdminModal()" class="w-10 h-10 rounded-2xl bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition">
+                    <i class="fa-solid fa-gear text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="mt-3 relative">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                <input type="text" id="search-input" onkeyup="renderProducts()" placeholder="Search Phenyl, Floor Cleaner, Toilet Cleaner..." class="w-full pl-10 pr-4 py-2.5 bg-gray-100 border border-gray-200 rounded-2xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:bg-white transition shadow-inner">
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-md mx-auto px-4 pt-4 space-y-5">
+
+        <!-- Hero Offer Banner -->
+        <div class="bg-gradient-to-r from-emerald-700 via-teal-700 to-emerald-900 rounded-3xl p-5 text-white shadow-xl relative overflow-hidden">
+            <div class="relative z-10 space-y-1">
+                <span class="bg-white/20 backdrop-blur-md text-emerald-100 text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-widest border border-white/20">
+                    FACTORY DIRECT SUPPLIES
+                </span>
+                <h2 class="text-2xl font-black tracking-tight leading-tight pt-1">Chemicals & Cleaning Essentials</h2>
+                <p class="text-xs text-emerald-100 font-medium">Guaranteed Best Quality • Wholesale Rates</p>
+            </div>
+            <i class="fa-solid fa-flask-vial absolute -right-3 -bottom-4 text-8xl text-white/10 rotate-12"></i>
+        </div>
+
+        <!-- Interactive Map Quick Picker Card -->
+        <div class="bg-white rounded-2xl p-3 border border-gray-200 shadow-sm flex items-center justify-between cursor-pointer hover:border-emerald-500 transition" onclick="openMapModal()">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg font-bold">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                </div>
+                <div>
+                    <div class="text-xs font-bold text-gray-900">Pin Location on Google Map</div>
+                    <div class="text-[11px] text-gray-500 truncate max-w-[200px]" id="map-card-address">Tap to choose exact delivery point</div>
+                </div>
+            </div>
+            <i class="fa-solid fa-chevron-right text-xs text-gray-400"></i>
+        </div>
+
+        <!-- Categories horizontal bar -->
+        <div>
+            <div class="flex justify-between items-center mb-2.5">
+                <h3 class="font-extrabold text-gray-900 text-sm">Explore Categories</h3>
+            </div>
+            <div class="flex gap-2.5 overflow-x-auto no-scrollbar py-1" id="category-chips"></div>
+        </div>
+
+        <!-- Product Grid -->
+        <div>
+            <div class="flex justify-between items-center mb-3">
+                <h3 class="font-extrabold text-gray-900 text-base" id="category-title">All Products</h3>
+                <span class="text-xs font-bold text-gray-400" id="product-count">0 Items</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3" id="product-grid"></div>
+        </div>
+
+    </main>
+
+    <!-- Bottom Floating Cart Bar -->
+    <div id="cart-bar" class="fixed bottom-4 left-0 right-0 max-w-md mx-auto px-4 hidden z-30">
+        <div class="bg-emerald-800 text-white p-3.5 rounded-2xl shadow-2xl flex items-center justify-between cursor-pointer border border-emerald-600" onclick="openCartModal()">
+            <div class="flex items-center gap-3">
+                <div class="bg-emerald-950/80 text-emerald-300 w-10 h-10 rounded-xl flex items-center justify-center font-black text-sm border border-emerald-700">
+                    <span id="cart-qty-badge">0</span>
+                </div>
+                <div>
+                    <div class="text-[10px] text-emerald-200 font-bold uppercase tracking-wider">TOTAL AMOUNT</div>
+                    <div class="font-black text-base">₹<span id="cart-total-price">0</span></div>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 font-extrabold text-xs bg-white text-emerald-800 px-4 py-2.5 rounded-xl shadow-md">
+                <span>VIEW CART</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map Modal -->
+    <div id="map-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+        <div class="bg-white w-full max-w-md rounded-t-3xl sm:rounded-3xl p-5 space-y-4">
+            <div class="flex justify-between items-center border-b pb-3">
+                <h3 class="font-extrabold text-base text-gray-900 flex items-center gap-2">
+                    <i class="fa-solid fa-map-pin text-emerald-600"></i> Pin Delivery Location
+                </h3>
+                <button onclick="closeMapModal()" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div id="map" class="shadow-inner border border-gray-300"></div>
+            <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-200">
+                <div class="text-[10px] font-extrabold text-emerald-800 uppercase">Selected Address:</div>
+                <div class="text-xs font-semibold text-gray-800 mt-0.5" id="modal-address-text">Fetching location...</div>
+            </div>
+            <button onclick="confirmLocation()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-3 rounded-xl shadow-lg text-xs tracking-wider uppercase">
+                Confirm This Location
+            </button>
+        </div>
+    </div>
+
+    <!-- Cart Drawer Modal -->
+    <div id="cart-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-end justify-center">
+        <div class="bg-white w-full max-w-md rounded-t-3xl max-h-[85vh] flex flex-col overflow-hidden">
+            <div class="p-4 border-b border-gray-100 flex justify-between items-center bg-gray-50">
+                <h3 class="font-extrabold text-base text-gray-900">Your Cart Items</h3>
+                <button onclick="closeCartModal()" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="p-4 overflow-y-auto space-y-3 flex-1" id="cart-items-container"></div>
+            <div class="p-4 border-t border-gray-100 bg-gray-50 space-y-3">
+                <div class="space-y-1.5 text-xs">
+                    <div class="flex justify-between text-gray-600">
+                        <span>Items Subtotal</span>
+                        <span class="font-bold">₹<span id="cart-subtotal">0</span></span>
+                    </div>
+                    <div class="flex justify-between text-gray-600">
+                        <span>Delivery Fee</span>
+                        <span class="text-emerald-600 font-extrabold">FREE</span>
+                    </div>
+                    <div class="flex justify-between text-gray-900 font-black text-sm pt-2 border-t">
+                        <span>Total Payable</span>
+                        <span>₹<span id="cart-final-total">0</span></span>
+                    </div>
+                </div>
+                <button onclick="openCheckoutModal()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-3.5 rounded-xl shadow-lg text-center text-xs tracking-wider uppercase">
+                    Proceed to Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal with Online Payment & COD -->
+    <div id="checkout-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-end justify-center">
+        <div class="bg-white w-full max-w-md rounded-t-3xl max-h-[90vh] overflow-y-auto p-5 space-y-4">
+            <div class="flex justify-between items-center border-b pb-3">
+                <h3 class="font-extrabold text-base text-gray-900">Delivery & Payment</h3>
+                <button onclick="closeCheckoutModal()" class="text-gray-500 text-lg"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form id="order-form" onsubmit="handleCheckoutSubmit(event)" class="space-y-3">
+                <div>
+                    <label class="block text-[11px] font-extrabold text-gray-700 mb-1">CUSTOMER NAME</label>
+                    <input type="text" id="cust-name" required placeholder="Enter full name" class="w-full p-2.5 border border-gray-300 rounded-xl text-xs font-semibold focus:ring-2 focus:ring-emerald-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-[11px] font-extrabold text-gray-700 mb-1">MOBILE NUMBER</label>
+                    <input type="tel" id="cust-phone" required placeholder="10-digit phone number" class="w-full p-2.5 border border-gray-300 rounded-xl text-xs font-semibold focus:ring-2 focus:ring-emerald-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-[11px] font-extrabold text-gray-700 mb-1">DELIVERY ADDRESS (PINNED ON MAP)</label>
+                    <textarea id="cust-address" required rows="2" class="w-full p-2.5 border border-gray-300 rounded-xl text-xs font-semibold focus:ring-2 focus:ring-emerald-500 outline-none"></textarea>
+                </div>
+                <div>
+                    <label class="block text-[11px] font-extrabold text-gray-700 mb-1.5">SELECT PAYMENT MODE</label>
+                    <div class="grid grid-cols-2 gap-2">
+                        <label class="border-2 p-3 rounded-2xl flex flex-col gap-1 cursor-pointer border-emerald-600 bg-emerald-50/50 relative">
+                            <input type="radio" name="payment_mode" value="ONLINE" checked class="absolute top-2.5 right-2.5 accent-emerald-600">
+                            <i class="fa-solid fa-credit-card text-emerald-600 text-base"></i>
+                            <span class="text-xs font-extrabold text-gray-900">Online Payment</span>
+                            <span class="text-[9px] text-gray-500 font-semibold">UPI / QR / Debit Card</span>
+                        </label>
+                        <label class="border-2 p-3 rounded-2xl flex flex-col gap-1 cursor-pointer border-gray-200 hover:border-emerald-600 relative">
+                            <input type="radio" name="payment_mode" value="COD" class="absolute top-2.5 right-2.5 accent-emerald-600">
+                            <i class="fa-solid fa-hand-holding-dollar text-gray-600 text-base"></i>
+                            <span class="text-xs font-extrabold text-gray-900">Cash on Delivery</span>
+                            <span class="text-[9px] text-gray-500 font-semibold">Pay cash at doorstep</span>
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-3.5 rounded-xl shadow-xl mt-2 text-center text-xs tracking-wider uppercase">
+                    Place Order Now
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Panel Modal -->
+    <div id="admin-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-md rounded-3xl p-5 space-y-4 max-h-[85vh] overflow-y-auto">
+            <div class="flex justify-between items-center border-b pb-2">
+                <h3 class="font-extrabold text-base text-gray-900 flex items-center gap-2">
+                    <i class="fa-solid fa-user-gear text-emerald-600"></i> Admin Panel
+                </h3>
+                <button onclick="closeAdminModal()" class="text-gray-500 text-lg"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <!-- Upload Custom Brand Logo -->
+            <div class="bg-gray-50 p-3.5 rounded-2xl border border-gray-200 space-y-2">
+                <h4 class="font-extrabold text-xs text-gray-800 uppercase tracking-wide">Upload Company Logo</h4>
+                <input type="file" id="admin-logo-file" accept="image/*" onchange="handleLogoUpload(event)" class="text-xs w-full bg-white p-2 rounded-xl border">
+            </div>
+
+            <!-- Add New Custom Product -->
+            <div class="bg-gray-50 p-3.5 rounded-2xl border border-gray-200 space-y-2">
+                <h4 class="font-extrabold text-xs text-gray-800 uppercase tracking-wide">Add Product (Your Own Photo)</h4>
+                <input type="text" id="add-prod-name" placeholder="Product Name (e.g. Harshit Phenyl 1L)" class="w-full p-2 border rounded-xl text-xs font-semibold">
+                <div class="grid grid-cols-2 gap-2">
+                    <input type="number" id="add-prod-price" placeholder="Selling Price (₹)" class="p-2 border rounded-xl text-xs font-semibold">
+                    <input type="number" id="add-prod-mrp" placeholder="MRP Price (₹)" class="p-2 border rounded-xl text-xs font-semibold">
+                </div>
+                <select id="add-prod-cat" class="w-full p-2 border rounded-xl text-xs font-semibold bg-white">
+                    <option value="Phenyls">Phenyls</option>
+                    <option value="Floor Cleaners">Floor Cleaners</option>
+                    <option value="Toilet Cleaners">Toilet Cleaners</option>
+                    <option value="Household Tools">Household Tools</option>
+                </select>
+                <div class="text-[10px] font-bold text-gray-500 uppercase">Select Product Photo from Phone:</div>
+                <input type="file" id="add-prod-img-file" accept="image/*" class="text-xs w-full bg-white p-2 rounded-xl border">
+                <button onclick="saveNewProduct()" class="w-full bg-emerald-600 text-white font-extrabold py-2.5 rounded-xl text-xs uppercase tracking-wider shadow">
+                    Save & Add Product
+                </button>
+            </div>
+
+            <div>
+                <h4 class="font-extrabold text-xs text-gray-800 mb-2 uppercase tracking-wide">Product Inventory</h4>
+                <div id="admin-products-list" class="space-y-2 max-h-36 overflow-y-auto"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Script -->
+    <script>
+        // Initial Mock Database
+        let defaultProducts = [
+            { id: 101, name: "Harshit White Phenyl (1 Liter)", cat: "Phenyls", price: 35, mrp: 50, img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&auto=format&fit=crop&q=80" },
+            { id: 102, name: "Harshit Herbal Green Phenyl (5 Liter)", cat: "Phenyls", price: 160, mrp: 220, img: "https://images.unsplash.com/photo-1585435557343-3b092031a831?w=400&auto=format&fit=crop&q=80" },
+            { id: 103, name: "Lemon Fragrance Floor Cleaner (1L)", cat: "Floor Cleaners", price: 85, mrp: 110, img: "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?w=400&auto=format&fit=crop&q=80" },
+            { id: 104, name: "Harshit Power Acid Toilet Cleaner", cat: "Toilet Cleaners", price: 75, mrp: 95, img: "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=400&auto=format&fit=crop&q=80" },
+            { id: 105, name: "Heavy Rubber Floor Wiper (Big)", cat: "Household Tools", price: 120, mrp: 180, img: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&auto=format&fit=crop&q=80" },
+            { id: 106, name: "Dishwash Concentrated Liquid (500ml)", cat: "Household Tools", price: 45, mrp: 60, img: "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=400&auto=format&fit=crop&q=80" }
+        ];
+
+        let products = JSON.parse(localStorage.getItem('harshit_products')) || defaultProducts;
+        let categories = ["All", "Phenyls", "Floor Cleaners", "Toilet Cleaners", "Household Tools"];
+        let currentCat = "All";
+        let cart = {};
+        let map, marker;
+        let selectedLat = 28.6139, selectedLng = 77.2090; // Default Delhi
+        let selectedAddress = "Main Factory Store Address";
+
+        function initApp() {
+            renderCategories();
+            renderProducts();
+            updateCartUI();
+            const storedAddress = localStorage.getItem('harshit_user_address');
+            if(storedAddress) {
+                selectedAddress = storedAddress;
+                document.getElementById('selected-address-text').innerText = selectedAddress;
+                document.getElementById('map-card-address').innerText = selectedAddress;
+ 
