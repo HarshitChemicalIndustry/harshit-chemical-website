@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Harshit Chemical Industry | Quick Commerce Store</title>
+    <title>Harshit Chemical Industry | Cyber Luxury & Meme Store</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,81 +13,130 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        neonGold: '#f59e0b',
+                        cyberDark: '#05070b',
+                        cardNeon: '#0f172a'
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
         * { font-family: 'Plus Jakarta Sans', sans-serif; -webkit-tap-highlight-color: transparent; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        #map { height: 260px; width: 100%; border-radius: 1.25rem; }
-        body { background-color: #f4f6fb; }
+        #map { height: 260px; width: 100%; border-radius: 1rem; }
+        body { background-color: #05070b; color: #f8fafc; }
+
+        /* Cyber Glassmorphism & Neon Glow */
+        .cyber-card {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(5, 7, 11, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.8), 0 0 15px rgba(245, 158, 11, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .cyber-card:hover {
+            border-color: rgba(245, 158, 11, 0.6);
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.25);
+            transform: translateY(-3px);
+        }
+
         .active-tab {
-            background-color: #0c831f !important;
-            color: #ffffff !important;
-            box-shadow: 0 4px 12px rgba(12, 131, 31, 0.25);
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+            color: #05070b !important;
+            font-weight: 900;
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+        }
+
+        /* Meme Floating Animation */
+        @keyframes memeFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-5px) rotate(1deg); }
+        }
+        .meme-badge {
+            animation: memeFloat 3s ease-in-out infinite;
         }
     </style>
 </head>
-<body class="text-slate-900 min-h-screen pb-32">
+<body class="min-h-screen pb-32">
+
+    <!-- Top Meme & Offer Ticker Bar -->
+    <div class="bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 text-slate-950 text-[10px] sm:text-xs font-black py-2 px-4 text-center tracking-wider uppercase shadow-lg flex items-center justify-center gap-3">
+        <span>🔥 "दाग इतने जिद्दी कि टाइड भी रोये, हरshit Phenyl जब फर्श पर धोए!" 😂</span>
+    </div>
 
     <!-- Top Navigation Bar -->
-    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm w-full">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+    <header class="sticky top-0 z-40 bg-[#05070b]/90 backdrop-blur-xl border-b border-amber-500/20 w-full shadow-2xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
             <div class="flex items-center justify-between gap-3">
                 <div class="flex items-center gap-3">
-                    <div class="w-11 h-11 rounded-2xl bg-[#0c831f] flex items-center justify-center text-white font-black text-2xl shadow-md border-2 border-white">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-400 flex items-center justify-center text-slate-950 font-black text-2xl shadow-[0_0_20px_rgba(245,158,11,0.5)] border border-amber-300/40 meme-badge">
                         H
                     </div>
                     <div>
-                        <div class="flex items-center gap-1">
-                            <span class="text-xs font-black text-slate-900 tracking-tight">HARSHIT DIRECT</span>
-                            <span class="bg-amber-100 text-amber-800 text-[9px] font-black px-1.5 py-0.2 rounded uppercase">Factory</span>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-[10px] font-black text-amber-400 tracking-wider">HARSHIT CYBER STORE</span>
+                            <span class="bg-amber-500/20 text-amber-300 text-[9px] font-black px-1.5 py-0.2 rounded-full uppercase border border-amber-500/30">Meme Edition</span>
                         </div>
-                        <button onclick="openMapModal()" class="text-xs text-slate-500 flex items-center gap-1 font-bold truncate max-w-[210px] sm:max-w-md hover:text-[#0c831f] mt-0.5">
-                            <i class="fa-solid fa-location-dot text-[#0c831f]"></i>
-                            <span id="selected-address-text">To Home: Select Delivery Location</span>
+                        <button onclick="openMapModal()" class="text-xs text-slate-400 flex items-center gap-1 font-bold truncate max-w-[210px] sm:max-w-md hover:text-amber-400 mt-0.5 transition-colors">
+                            <i class="fa-solid fa-location-dot text-amber-500"></i>
+                            <span id="selected-address-text">Select Delivery Location</span>
                             <i class="fa-solid fa-chevron-down text-[9px]"></i>
                         </button>
                     </div>
                 </div>
 
-                <div class="hidden md:flex flex-1 max-w-lg relative mx-6">
-                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-                    <input type="text" id="search-desktop" onkeyup="syncSearch(this.value)" placeholder="Search for Phenyl, Cleaners, Brooms..." class="w-full pl-11 pr-4 py-2.5 bg-slate-100 border border-slate-200 rounded-2xl text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#0c831f] focus:bg-white transition">
+                <!-- Desktop Search Bar -->
+                <div class="hidden md:flex flex-1 max-w-xl relative mx-6">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-amber-500/70 text-sm"></i>
+                    <input type="text" id="search-desktop" oninput="handleSearch(this.value)" placeholder="Search Phenyl, Glass Cleaner, Brooms..." class="w-full pl-11 pr-4 py-3 bg-[#0f172a] border border-amber-500/20 rounded-2xl text-xs font-bold text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-500 transition shadow-inner">
                 </div>
 
                 <div class="flex items-center gap-2">
-                    <button onclick="openAdminModal()" class="w-10 h-10 rounded-2xl bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-700 hover:bg-emerald-50 hover:text-[#0c831f] transition">
+                    <button onclick="openAdminModal()" class="w-10 h-10 rounded-2xl bg-[#0f172a] border border-amber-500/20 flex items-center justify-center text-slate-300 hover:bg-amber-500 hover:text-slate-950 transition shadow-lg">
                         <i class="fa-solid fa-sliders text-base"></i>
                     </button>
                 </div>
             </div>
 
-            <div class="mt-2.5 relative md:hidden">
-                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-                <input type="text" id="search-mobile" onkeyup="syncSearch(this.value)" placeholder="Search Phenyl, Cleaners, Brooms..." class="w-full pl-11 pr-4 py-2.5 bg-slate-100 border border-slate-200 rounded-2xl text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#0c831f] focus:bg-white transition">
+            <!-- Mobile Search Bar -->
+            <div class="mt-3 relative md:hidden">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-amber-500/70 text-sm"></i>
+                <input type="text" id="search-mobile" oninput="handleSearch(this.value)" placeholder="Search Phenyl, Glass Cleaner, Brooms..." class="w-full pl-11 pr-4 py-3 bg-[#0f172a] border border-amber-500/20 rounded-2xl text-xs font-bold text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-500 transition shadow-inner">
             </div>
         </div>
     </header>
 
     <!-- Main Container -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 space-y-5">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 space-y-6">
 
-        <div class="bg-white rounded-3xl p-3 border border-slate-200 shadow-sm">
+        <!-- Category Horizontal Tabs -->
+        <div class="cyber-card rounded-3xl p-3 shadow-xl">
             <div class="flex gap-3 overflow-x-auto no-scrollbar py-1" id="category-chips"></div>
         </div>
 
-        <div class="relative w-full rounded-3xl overflow-hidden border border-slate-200 shadow-md bg-white">
+        <!-- Animated Hero Banner & Meme Carousel -->
+        <div class="relative w-full rounded-3xl overflow-hidden border border-amber-500/20 shadow-2xl bg-[#0f172a]">
             <div id="banner-slider" class="flex transition-transform duration-700 ease-in-out">
                 <div class="w-full flex-shrink-0 relative">
-                    <img src="./images/hero_banner.jpg" alt="Company Banner" class="w-full h-40 sm:h-64 md:h-80 object-cover block" onerror="this.onerror=null; this.src='./images/banner.jpg';">
+                    <img src="./images/hero_banner.jpg" alt="Banner" class="w-full h-44 sm:h-72 md:h-80 object-cover block" onerror="this.onerror=null; this.src='./images/banner.jpg';">
                 </div>
                 <div class="w-full flex-shrink-0 relative">
-                    <img src="./images/banner.jpg" alt="Special Offer Banner" class="w-full h-40 sm:h-64 md:h-80 object-cover block" onerror="this.onerror=null; this.src='./images/hero_banner.jpg';">
+                    <img src="./images/banner.jpg" alt="Banner 2" class="w-full h-44 sm:h-72 md:h-80 object-cover block" onerror="this.onerror=null; this.src='./images/hero_banner.jpg';">
                 </div>
-                <div class="w-full flex-shrink-0 bg-gradient-to-r from-emerald-800 to-teal-900 text-white h-40 sm:h-64 md:h-80 p-6 flex flex-col justify-center items-start relative overflow-hidden">
-                    <span class="bg-amber-400 text-slate-950 text-[10px] sm:text-xs font-black px-3 py-1 rounded-full uppercase shadow">50% OFF Wholesale Deals</span>
-                    <h2 class="text-lg sm:text-2xl md:text-3xl font-black mt-2 leading-tight">दाग और गंदगी को कहो अलविदा! 🧹</h2>
-                    <p class="text-xs sm:text-sm text-emerald-100 mt-1 font-semibold">100% Direct Factory Prices Guaranteed</p>
+                <div class="w-full flex-shrink-0 bg-gradient-to-r from-amber-950 via-slate-900 to-[#0f172a] text-white h-44 sm:h-72 md:h-80 p-8 flex flex-col justify-center items-start relative overflow-hidden">
+                    <span class="bg-amber-500 text-slate-950 text-[10px] font-black px-3 py-1 rounded-full uppercase shadow meme-badge">🔥 Meme Lord Special</span>
+                    <h2 class="text-xl sm:text-3xl md:text-4xl font-black mt-2 leading-tight">जब घर चमके, तो पड़ोसी भी जलें! 😎</h2>
+                    <p class="text-xs sm:text-sm text-amber-300 mt-1 font-semibold">100% Pure Phenyl & Cleaning Power at Factory Rate</p>
                 </div>
             </div>
             <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-20">
@@ -97,197 +146,181 @@
             </div>
         </div>
 
-        <div class="bg-white rounded-2xl p-3.5 border border-slate-200 shadow-sm flex items-center justify-between cursor-pointer hover:border-[#0c831f] transition" onclick="openMapModal()">
+        <!-- Live Map Picker Card -->
+        <div class="cyber-card rounded-2xl p-4 shadow-xl flex items-center justify-between cursor-pointer hover:border-amber-500/50 transition group" onclick="openMapModal()">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100 text-[#0c831f] flex items-center justify-center font-bold text-lg">
+                <div class="w-11 h-11 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center font-bold text-xl group-hover:scale-110 transition">
                     <i class="fa-solid fa-map-location-dot"></i>
                 </div>
                 <div>
-                    <div class="text-xs sm:text-sm font-extrabold text-slate-900">Pin Location on Live Map</div>
-                    <div class="text-[11px] sm:text-xs text-slate-500 truncate max-w-[220px] sm:max-w-xl" id="map-card-address">Tap to choose delivery location</div>
+                    <div class="text-xs sm:text-sm font-extrabold text-slate-100">Pin Delivery Location on Live Map</div>
+                    <div class="text-[11px] sm:text-xs text-slate-400 truncate max-w-[220px] sm:max-w-xl" id="map-card-address">Tap to choose exact delivery address</div>
                 </div>
             </div>
-            <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
+            <i class="fa-solid fa-chevron-right text-xs text-amber-500"></i>
         </div>
 
-        <section class="mt-2">
-            <div class="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest mb-2 px-1">Trending Searches</div>
-            <div class="flex gap-2 overflow-x-auto no-scrollbar py-0.5">
-                <button onclick="syncSearch('phenyl')" class="bg-white hover:bg-emerald-50 text-slate-700 hover:text-[#0c831f] border border-slate-200 px-3 py-1.5 rounded-full text-xs font-extrabold shadow-sm whitespace-nowrap transition">🔥 Phenyl</button>
-                <button onclick="syncSearch('cleaner')" class="bg-white hover:bg-emerald-50 text-slate-700 hover:text-[#0c831f] border border-slate-200 px-3 py-1.5 rounded-full text-xs font-extrabold shadow-sm whitespace-nowrap transition">✨ Glass & Tiles</button>
-                <button onclick="syncSearch('broom')" class="bg-white hover:bg-emerald-50 text-slate-700 hover:text-[#0c831f] border border-slate-200 px-3 py-1.5 rounded-full text-xs font-extrabold shadow-sm whitespace-nowrap transition">🧹 Brooms & Wipers</button>
-                <button onclick="syncSearch('dustbin')" class="bg-white hover:bg-emerald-50 text-slate-700 hover:text-[#0c831f] border border-slate-200 px-3 py-1.5 rounded-full text-xs font-extrabold shadow-sm whitespace-nowrap transition">🗑️ Dustbins</button>
-            </div>
-        </section>
-
+        <!-- Products Section -->
         <div>
             <div class="flex justify-between items-center mb-4">
-                <h3 class="font-black text-slate-900 text-base sm:text-xl" id="category-title">All Products</h3>
-                <span class="text-xs font-black text-[#0c831f] bg-emerald-100 px-3 py-1 rounded-full" id="product-count">0 Items</span>
+                <h3 class="font-black text-slate-100 text-base sm:text-xl" id="category-title">All Products</h3>
+                <span class="text-xs font-black text-amber-400 bg-amber-500/10 border border-amber-500/30 px-3 py-1 rounded-full" id="product-count">0 Items</span>
             </div>
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-5" id="product-grid"></div>
         </div>
 
-        <section class="mt-6 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-5 text-white shadow-lg border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div class="space-y-1 text-center sm:text-left">
-                <span class="bg-emerald-500 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-widest">BULK ORDERS</span>
-                <h4 class="font-black text-base">Running a Hotel, Hospital or Agency?</h4>
-                <p class="text-xs text-slate-300 font-medium">Get customized commercial cleaning supplies at factory rates.</p>
-            </div>
-            <a href="https://wa.me/?text=Hello%20Harshit%20Chemical%20Industry,%20I%20want%20to%20place%20a%20Bulk%20Wholesale%20Order." target="_blank" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-5 py-3 rounded-2xl text-xs uppercase tracking-wider shadow-lg transition whitespace-nowrap">
-                <i class="fa-brands fa-whatsapp mr-1 text-sm"></i> Get Wholesale Quote
-            </a>
+        <!-- Meme Fun Section -->
+        <section class="cyber-card rounded-3xl p-5 text-center space-y-2">
+            <div class="text-2xl">🤖🧹</div>
+            <h4 class="font-black text-amber-400 text-sm">"सफाई इतनी जबरदस्त कि धूल भी परमिशन मांग कर आए!"</h4>
+            <p class="text-[11px] text-slate-400 font-medium">Harshit Chemical Industry - Direct Factory Wholesale Hub</p>
         </section>
 
-        <footer class="mt-8 bg-white border-t border-slate-200 rounded-3xl p-6 shadow-sm">
+        <!-- Business Footer -->
+        <footer class="mt-12 bg-[#0f172a] border border-amber-500/20 rounded-3xl p-6 shadow-xl">
             <div class="max-w-7xl mx-auto text-center sm:text-left sm:flex sm:justify-between sm:items-center space-y-3 sm:space-y-0">
                 <div>
-                    <h3 class="font-black text-slate-900 text-base">Harshit Chemical Industry</h3>
-                    <p class="text-xs text-slate-500 font-bold mt-0.5">Direct Factory Wholesale & Retail Commercial Supplies</p>
+                    <h3 class="font-black text-white text-base">Harshit Chemical Industry</h3>
+                    <p class="text-xs text-slate-400 font-semibold mt-0.5">Direct Factory Wholesale & Retail Cleaning Supplies</p>
                 </div>
-                <div class="flex justify-center gap-4 text-xs font-extrabold text-slate-600">
-                    <span><i class="fa-solid fa-truck text-[#0c831f]"></i> Fast Delivery</span>
-                    <span><i class="fa-solid fa-shield text-[#0c831f]"></i> 100% Guaranteed</span>
+                <div class="flex justify-center gap-5 text-xs font-extrabold text-slate-300">
+                    <span><i class="fa-solid fa-truck text-amber-400"></i> Fast Dispatch</span>
+                    <span><i class="fa-solid fa-shield-halved text-amber-400"></i> Quality Assured</span>
                 </div>
             </div>
         </footer>
 
     </main>
 
+    <!-- Floating Cart Bar -->
     <div id="cart-bar" class="fixed bottom-4 left-0 right-0 max-w-md mx-auto px-4 hidden z-30">
-        <div class="bg-[#0c831f] border border-emerald-600 text-white p-3.5 rounded-2xl shadow-2xl flex items-center justify-between cursor-pointer" onclick="openCartModal()">
+        <div class="bg-gradient-to-r from-amber-600 to-yellow-600 border border-amber-400/40 text-slate-950 p-3.5 rounded-2xl shadow-2xl flex items-center justify-between cursor-pointer font-bold" onclick="openCartModal()">
             <div class="flex items-center gap-3">
-                <div class="bg-amber-400 text-slate-950 w-9 h-9 rounded-xl flex items-center justify-center font-black text-sm shadow">
+                <div class="bg-slate-950 text-amber-400 w-9 h-9 rounded-xl flex items-center justify-center font-black text-sm shadow">
                     <span id="cart-qty-badge">0</span>
                 </div>
                 <div>
-                    <div class="text-[9px] text-emerald-100 font-extrabold uppercase tracking-widest">TOTAL ITEM COST</div>
-                    <div class="font-black text-base text-white">₹<span id="cart-total-price">0</span></div>
+                    <div class="text-[9px] text-slate-950 font-black uppercase tracking-widest">TOTAL ORDER</div>
+                    <div class="font-black text-base text-slate-950">₹<span id="cart-total-price">0</span></div>
                 </div>
             </div>
-            <div class="flex items-center gap-2 font-extrabold text-xs bg-white text-[#0c831f] px-4 py-2.5 rounded-xl uppercase tracking-wider shadow hover:bg-slate-100 transition">
+            <div class="flex items-center gap-2 font-black text-xs bg-slate-950 text-amber-400 px-4 py-2.5 rounded-xl uppercase tracking-wider shadow hover:bg-slate-900 transition">
                 <span>VIEW CART</span>
                 <i class="fa-solid fa-arrow-right text-xs"></i>
             </div>
         </div>
     </div>
 
-    <!-- Map Modal with Live Moving Bike Delivery Animation -->
-    <div id="map-modal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
-        <div class="bg-white border border-slate-200 w-full max-w-lg rounded-t-3xl sm:rounded-3xl p-5 space-y-4 shadow-2xl">
-            <div class="flex justify-between items-center border-b pb-3">
-                <h3 class="font-extrabold text-base text-slate-900"><i class="fa-solid fa-map-pin text-[#0c831f] mr-2"></i> Live Delivery Tracking</h3>
-                <button onclick="closeMapModal()" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-slate-200"><i class="fa-solid fa-xmark"></i></button>
+    <!-- Map Modal -->
+    <div id="map-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+        <div class="cyber-card w-full max-w-lg rounded-t-3xl sm:rounded-3xl p-5 space-y-4 shadow-2xl">
+            <div class="flex justify-between items-center border-b border-amber-500/20 pb-3">
+                <h3 class="font-extrabold text-base text-white"><i class="fa-solid fa-map-pin text-amber-400 mr-2"></i> Live Delivery Tracking</h3>
+                <button onclick="closeMapModal()" class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div id="map" class="border border-slate-200"></div>
-            <div class="bg-emerald-50 p-3 rounded-2xl border border-emerald-100">
-                <div class="text-[10px] font-black text-[#0c831f] uppercase tracking-widest">SELECTED LOCATION</div>
-                <div class="text-xs font-bold text-slate-800 mt-0.5" id="modal-address-text">Fetching location...</div>
+            <div id="map" class="border border-amber-500/20"></div>
+            <div class="bg-slate-950 p-3 rounded-2xl border border-amber-500/20">
+                <div class="text-[10px] font-black text-amber-400 uppercase tracking-widest">SELECTED LOCATION</div>
+                <div class="text-xs font-bold text-slate-200 mt-0.5" id="modal-address-text">Fetching location...</div>
             </div>
-            <button onclick="confirmLocation()" class="w-full bg-[#0c831f] text-white font-extrabold py-3.5 rounded-xl text-xs uppercase tracking-wider shadow hover:bg-emerald-800 transition">Confirm Address</button>
+            <button onclick="confirmLocation()" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-3.5 rounded-xl text-xs uppercase tracking-wider shadow transition">Confirm Address</button>
         </div>
     </div>
 
-    <div id="cart-modal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
-        <div class="bg-white border border-slate-200 w-full max-w-lg rounded-t-3xl sm:rounded-3xl max-h-[85vh] flex flex-col overflow-hidden shadow-2xl">
-            <div class="p-4 border-b flex justify-between items-center bg-slate-50">
-                <h3 class="font-extrabold text-base text-slate-900"><i class="fa-solid fa-basket-shopping text-[#0c831f] mr-2"></i> Your Shopping Bag</h3>
-                <button onclick="closeCartModal()" class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-slate-600"><i class="fa-solid fa-xmark"></i></button>
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+        <div class="cyber-card w-full max-w-lg rounded-t-3xl sm:rounded-3xl max-h-[85vh] flex flex-col overflow-hidden shadow-2xl">
+            <div class="p-4 border-b border-amber-500/20 flex justify-between items-center bg-slate-950">
+                <h3 class="font-extrabold text-base text-white"><i class="fa-solid fa-basket-shopping text-amber-400 mr-2"></i> Shopping Basket</h3>
+                <button onclick="closeCartModal()" class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="p-4 overflow-y-auto space-y-3 flex-1 no-scrollbar" id="cart-items-container"></div>
-            <div class="p-4 border-t bg-slate-50 space-y-3">
-                <div class="flex justify-between text-slate-900 font-black text-sm">
-                    <span>Total Order Amount</span>
-                    <span class="text-[#0c831f] text-base">₹<span id="cart-final-total">0</span></span>
+            <div class="p-4 border-t border-amber-500/20 bg-slate-950 space-y-3">
+                <div class="flex justify-between text-white font-black text-sm">
+                    <span>Total Amount</span>
+                    <span class="text-amber-400 text-base">₹<span id="cart-final-total">0</span></span>
                 </div>
-                <button onclick="openCheckoutModal()" class="w-full bg-[#0c831f] text-white font-extrabold py-3.5 rounded-xl text-xs uppercase tracking-wider shadow hover:bg-emerald-800 transition">Proceed to Checkout</button>
+                <button onclick="openCheckoutModal()" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-3.5 rounded-xl text-xs uppercase tracking-wider shadow transition">Proceed to Checkout</button>
             </div>
         </div>
     </div>
 
-    <div id="checkout-modal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
-        <div class="bg-white border border-slate-200 w-full max-w-lg rounded-t-3xl sm:rounded-3xl max-h-[90vh] overflow-y-auto p-5 space-y-4 no-scrollbar shadow-2xl">
-            <div class="flex justify-between items-center border-b pb-3">
-                <h3 class="font-extrabold text-base text-slate-900">Delivery Details</h3>
-                <button onclick="closeCheckoutModal()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+        <div class="cyber-card w-full max-w-lg rounded-t-3xl sm:rounded-3xl max-h-[90vh] overflow-y-auto p-5 space-y-4 no-scrollbar shadow-2xl">
+            <div class="flex justify-between items-center border-b border-amber-500/20 pb-3">
+                <h3 class="font-extrabold text-base text-white">Delivery Details</h3>
+                <button onclick="closeCheckoutModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
             <form onsubmit="handleCheckoutSubmit(event)" class="space-y-3">
                 <div>
-                    <label class="block text-[11px] font-extrabold text-slate-700 mb-1 uppercase tracking-wider">Full Name</label>
-                    <input type="text" id="cust-name" required placeholder="Enter full name" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs font-semibold text-slate-900 outline-none focus:border-[#0c831f]">
+                    <label class="block text-[11px] font-extrabold text-slate-300 mb-1 uppercase tracking-wider">Full Name</label>
+                    <input type="text" id="cust-name" required placeholder="Enter full name" class="w-full p-2.5 bg-slate-950 border border-amber-500/20 rounded-xl text-xs font-semibold text-slate-100 outline-none focus:border-amber-500">
                 </div>
                 <div>
-                    <label class="block text-[11px] font-extrabold text-slate-700 mb-1 uppercase tracking-wider">Mobile Number</label>
-                    <input type="tel" id="cust-phone" required placeholder="10 Digit Phone Number" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs font-semibold text-slate-900 outline-none focus:border-[#0c831f]">
+                    <label class="block text-[11px] font-extrabold text-slate-300 mb-1 uppercase tracking-wider">Mobile Number</label>
+                    <input type="tel" id="cust-phone" required placeholder="10 Digit Phone Number" class="w-full p-2.5 bg-slate-950 border border-amber-500/20 rounded-xl text-xs font-semibold text-slate-100 outline-none focus:border-amber-500">
                 </div>
                 <div>
-                    <label class="block text-[11px] font-extrabold text-slate-700 mb-1 uppercase tracking-wider">Delivery Address</label>
-                    <textarea id="cust-address" required rows="2" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs font-semibold text-slate-900 outline-none focus:border-[#0c831f]"></textarea>
+                    <label class="block text-[11px] font-extrabold text-slate-300 mb-1 uppercase tracking-wider">Delivery Address</label>
+                    <textarea id="cust-address" required rows="2" class="w-full p-2.5 bg-slate-950 border border-amber-500/20 rounded-xl text-xs font-semibold text-slate-100 outline-none focus:border-amber-500"></textarea>
                 </div>
                 <div>
-                    <label class="block text-[11px] font-extrabold text-slate-700 mb-1 uppercase tracking-wider">Payment Method</label>
+                    <label class="block text-[11px] font-extrabold text-slate-300 mb-1 uppercase tracking-wider">Payment Method</label>
                     <div class="grid grid-cols-2 gap-2.5">
-                        <label class="border-2 p-3 rounded-2xl flex items-center gap-2 cursor-pointer border-[#0c831f] bg-emerald-50">
-                            <input type="radio" name="payment_mode" value="ONLINE" checked class="accent-[#0c831f]">
-                            <span class="text-xs font-extrabold text-slate-900">Online UPI / QR</span>
+                        <label class="border-2 p-3 rounded-2xl flex items-center gap-2 cursor-pointer border-amber-500 bg-amber-500/10">
+                            <input type="radio" name="payment_mode" value="ONLINE" checked class="accent-amber-500">
+                            <span class="text-xs font-extrabold text-white">Online UPI / QR</span>
                         </label>
-                        <label class="border-2 p-3 rounded-2xl flex items-center gap-2 cursor-pointer border-slate-200">
-                            <input type="radio" name="payment_mode" value="COD" class="accent-[#0c831f]">
-                            <span class="text-xs font-extrabold text-slate-900">Cash on Delivery</span>
+                        <label class="border-2 p-3 rounded-2xl flex items-center gap-2 cursor-pointer border-slate-800 bg-slate-950">
+                            <input type="radio" name="payment_mode" value="COD" class="accent-amber-500">
+                            <span class="text-xs font-extrabold text-white">Cash on Delivery</span>
                         </label>
                     </div>
                 </div>
-                <button type="submit" class="w-full bg-[#0c831f] hover:bg-emerald-800 text-white font-extrabold py-3.5 rounded-xl text-xs uppercase shadow mt-2 transition">Place Order on WhatsApp</button>
+                <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-3.5 rounded-xl text-xs uppercase shadow mt-2 transition">Place Order on WhatsApp</button>
             </form>
         </div>
     </div>
 
-    <div id="admin-modal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white border border-slate-200 w-full max-w-lg rounded-3xl p-5 space-y-4 max-h-[85vh] overflow-y-auto no-scrollbar shadow-2xl">
-            <div class="flex justify-between items-center border-b pb-3">
-                <h3 class="font-extrabold text-base text-slate-900"><i class="fa-solid fa-gears text-[#0c831f] mr-2"></i> Store Admin</h3>
-                <button onclick="closeAdminModal()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
+    <!-- Admin Modal -->
+    <div id="admin-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="cyber-card w-full max-w-lg rounded-3xl p-5 space-y-4 max-h-[85vh] overflow-y-auto no-scrollbar shadow-2xl">
+            <div class="flex justify-between items-center border-b border-amber-500/20 pb-3">
+                <h3 class="font-extrabold text-base text-white"><i class="fa-solid fa-gears text-amber-400 mr-2"></i> Store Admin</h3>
+                <button onclick="closeAdminModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
-            <div class="bg-slate-50 p-4 rounded-2xl space-y-2.5 border border-slate-200">
-                <h4 class="font-extrabold text-xs text-[#0c831f] uppercase tracking-wider">Add Custom Product</h4>
-                <input type="text" id="add-prod-name" placeholder="Product Name" class="w-full p-2.5 bg-white border border-slate-300 rounded-xl text-xs text-slate-900">
+            <div class="bg-slate-950 p-4 rounded-2xl space-y-2.5 border border-amber-500/20">
+                <h4 class="font-extrabold text-xs text-amber-400 uppercase tracking-wider">Add Custom Product</h4>
+                <input type="text" id="add-prod-name" placeholder="Product Name" class="w-full p-2.5 bg-[#0f172a] border border-slate-800 rounded-xl text-xs text-slate-100">
                 <div class="grid grid-cols-2 gap-2">
-                    <input type="number" id="add-prod-price" placeholder="Price ₹" class="p-2.5 bg-white border border-slate-300 rounded-xl text-xs text-slate-900">
-                    <input type="number" id="add-prod-mrp" placeholder="MRP ₹" class="p-2.5 bg-white border border-slate-300 rounded-xl text-xs text-slate-900">
+                    <input type="number" id="add-prod-price" placeholder="Price ₹" class="p-2.5 bg-[#0f172a] border border-slate-800 rounded-xl text-xs text-slate-100">
+                    <input type="number" id="add-prod-mrp" placeholder="MRP ₹" class="p-2.5 bg-[#0f172a] border border-slate-800 rounded-xl text-xs text-slate-100">
                 </div>
-                <select id="add-prod-cat" class="w-full p-2.5 bg-white border border-slate-300 rounded-xl text-xs text-slate-900">
+                <select id="add-prod-cat" class="w-full p-2.5 bg-[#0f172a] border border-slate-800 rounded-xl text-xs text-slate-100">
                     <option value="Chemicals">Chemicals</option>
                     <option value="Cleaning Tools">Cleaning Tools</option>
                     <option value="Dustbins & Bags">Dustbins & Bags</option>
                 </select>
-                <input type="file" id="add-prod-img-file" accept="image/*" class="text-xs w-full bg-white p-2 border border-slate-300 rounded-xl text-slate-700">
-                <button onclick="saveNewProduct()" class="w-full bg-[#0c831f] text-white font-extrabold py-2.5 rounded-xl text-xs uppercase shadow hover:bg-emerald-800 transition">Save Product</button>
+                <input type="file" id="add-prod-img-file" accept="image/*" class="text-xs w-full bg-[#0f172a] p-2 border border-slate-800 rounded-xl text-slate-300">
+                <button onclick="saveNewProduct()" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-2.5 rounded-xl text-xs uppercase shadow transition">Save Product</button>
             </div>
             <div id="admin-products-list" class="space-y-2 max-h-40 overflow-y-auto no-scrollbar"></div>
         </div>
     </div>
 
-    <div id="live-sales-toast" class="fixed bottom-24 left-4 z-40 bg-white/95 backdrop-blur-md border border-slate-200 p-3 rounded-2xl shadow-2xl flex items-center gap-3 max-w-xs transition-all duration-500 transform translate-y-20 opacity-0 pointer-events-none">
-        <div class="w-10 h-10 rounded-xl bg-emerald-100 text-[#0c831f] flex items-center justify-center text-lg font-bold shrink-0">
-            <i class="fa-solid fa-bag-shopping"></i>
-        </div>
-        <div>
-            <div class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Just now</div>
-            <div class="text-xs font-extrabold text-slate-900 leading-tight" id="toast-text">Someone ordered Premium Phenyl!</div>
-        </div>
-    </div>
-
+    <!-- Floating WhatsApp Support -->
     <a href="https://wa.me/?text=Hello%20Harshit%20Chemical%20Industry,%20I%20want%20to%20inquire%20about%20products" target="_blank" class="fixed bottom-20 right-4 z-40 bg-[#25D366] text-white w-12 h-12 rounded-full flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition-transform border-2 border-white">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- Application Script Engine with Images Folder Path Integration -->
+    <!-- JavaScript Application Engine -->
     <script>
-        var fallbackImg = "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=80";
+        var fallbackImg = "./images/phenyl.jpg";
 
         var productsList = [
             { id: 1, name: "Premium Phenyl", cat: "Chemicals", price: 35, mrp: 50, img: "./images/phenyl.jpg" },
-            { id: 2, name: "Glass Cleaner", cat: "Chemicals", price: 65, mrp: 85, img: "./images/glas_cleaner.jpg" },
+            { id: 2, name: "Glass Cleaner", cat: "Chemicals", price: 65, mrp: 85, img: "./images/glass_cleaner.jpg" },
             { id: 3, name: "Tiles Cleaner", cat: "Chemicals", price: 85, mrp: 110, img: "./images/tiles_cleaner.jpg" },
             { id: 4, name: "Toilet Cleaner Liquid", cat: "Chemicals", price: 75, mrp: 95, img: "./images/toilet_cleaner.jpg" },
             { id: 5, name: "Hardspot Cleaner", cat: "Chemicals", price: 95, mrp: 130, img: "./images/hardspot_cleaner.jpg" },
@@ -360,12 +393,12 @@
             goToSlide(currentSlide);
         }, 3500);
 
-        function syncSearch(val) {
-            searchQuery = val.toLowerCase();
+        function handleSearch(val) {
+            searchQuery = val.toLowerCase().trim();
             var m = document.getElementById('search-mobile');
             var d = document.getElementById('search-desktop');
-            if(m) m.value = val;
-            if(d) d.value = val;
+            if(m && m.value !== val) m.value = val;
+            if(d && d.value !== val) d.value = val;
             renderProducts();
         }
 
@@ -382,8 +415,8 @@
             for(var i=0; i<categories.length; i++) {
                 var cat = categories[i];
                 var icon = icons[cat] || "fa-basket-shopping";
-                var active = (currentCat === cat) ? 'active-tab' : 'bg-slate-100 text-slate-700 hover:bg-slate-200';
-                html += '<button onclick="selectCategory(\'' + cat + '\')" class="flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-extrabold whitespace-nowrap transition-all ' + active + '"><i class="fa-solid ' + icon + '"></i> ' + cat + '</button>';
+                var active = (currentCat === cat) ? 'active-tab' : 'bg-[#0f172a] text-slate-300 hover:bg-slate-800 border border-amber-500/10';
+                html += '<button onclick="selectCategory(\'' + cat + '\')" class="flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-extrabold whitespace-nowrap transition-all ' + active + '"><i class="fa-solid ' + icon + ' text-amber-500"></i> ' + cat + '</button>';
             }
             el.innerHTML = html;
         }
@@ -412,7 +445,7 @@
             document.getElementById('product-count').innerText = filtered.length + ' Items';
 
             if(filtered.length === 0) {
-                container.innerHTML = '<div class="col-span-full text-center py-12 text-slate-400 font-bold text-sm">No products found</div>';
+                container.innerHTML = '<div class="col-span-full text-center py-12 text-slate-500 font-bold text-sm">No products found</div>';
                 return;
             }
 
@@ -422,27 +455,27 @@
                 var qty = cart[item.id] || 0;
                 var discount = Math.round(((item.mrp - item.price) / item.mrp) * 100);
                 
-                html += '<div class="bg-white rounded-3xl p-3 sm:p-4 border border-slate-200/80 shadow-sm hover:shadow-md flex flex-col justify-between relative transition">';
+                html += '<div class="cyber-card rounded-3xl p-3 sm:p-4 shadow-xl flex flex-col justify-between relative group transition">';
                 if(discount > 0) {
-                    html += '<span class="absolute top-3 left-3 bg-amber-400 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full z-10 shadow">' + discount + '% OFF</span>';
+                    html += '<span class="absolute top-3 left-3 bg-amber-500 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full z-10 shadow">' + discount + '% OFF</span>';
                 }
-                html += '<div class="h-32 sm:h-44 w-full flex items-center justify-center my-1 overflow-hidden rounded-2xl bg-slate-50 border border-slate-100 relative">';
+                html += '<div class="h-32 sm:h-44 w-full flex items-center justify-center my-1 overflow-hidden rounded-2xl bg-[#05070b] border border-amber-500/10 relative">';
                 html += '<img src="' + item.img + '" alt="' + item.name + '" class="object-contain h-full w-full p-2" onerror="this.onerror=null; this.src=\'' + fallbackImg + '\';">';
                 html += '</div>';
                 html += '<div class="mt-2">';
-                html += '<span class="text-[9px] font-black text-slate-400 uppercase tracking-widest">' + item.cat + '</span>';
-                html += '<h4 class="font-extrabold text-xs sm:text-sm text-slate-900 leading-tight line-clamp-2 mt-0.5">' + item.name + '</h4>';
+                html += '<span class="text-[9px] font-black text-amber-400 uppercase tracking-widest">' + item.cat + '</span>';
+                html += '<h4 class="font-extrabold text-xs sm:text-sm text-slate-100 leading-tight line-clamp-2 mt-0.5">' + item.name + '</h4>';
                 html += '<div class="flex items-baseline gap-1.5 mt-1.5">';
-                html += '<span class="font-black text-sm sm:text-base text-slate-900">₹' + item.price + '</span>';
+                html += '<span class="font-black text-sm sm:text-base text-amber-300">₹' + item.price + '</span>';
                 if(item.mrp > item.price) {
-                    html += '<span class="text-[10px] sm:text-xs text-slate-400 font-bold line-through">₹' + item.mrp + '</span>';
+                    html += '<span class="text-[10px] sm:text-xs text-slate-500 font-bold line-through">₹' + item.mrp + '</span>';
                 }
                 html += '</div></div>';
                 html += '<div class="mt-3">';
                 if(qty === 0) {
-                    html += '<button onclick="addToCart(' + item.id + ')" class="w-full border-2 border-[#0c831f] text-[#0c831f] font-extrabold text-xs py-2 rounded-xl hover:bg-[#0c831f] hover:text-white transition-all uppercase tracking-wider">ADD</button>';
+                    html += '<button onclick="addToCart(' + item.id + ')" class="w-full border-2 border-amber-500 text-amber-400 font-extrabold text-xs py-2 rounded-xl hover:bg-amber-500 hover:text-slate-950 transition-all uppercase tracking-wider">ADD</button>';
                 } else {
-                    html += '<div class="flex items-center justify-between bg-[#0c831f] text-white rounded-xl py-1 px-2 font-black text-xs sm:text-sm shadow-inner">';
+                    html += '<div class="flex items-center justify-between bg-amber-500 text-slate-950 rounded-xl py-1 px-2 font-black text-xs sm:text-sm shadow-inner">';
                     html += '<button onclick="changeQty(' + item.id + ', -1)" class="w-7 h-7 flex items-center justify-center font-black">-</button>';
                     html += '<span>' + qty + '</span>';
                     html += '<button onclick="changeQty(' + item.id + ', 1)" class="w-7 h-7 flex items-center justify-center font-black">+</button>';
@@ -485,12 +518,12 @@
                     if(products[i].id == id) { p = products[i]; break; }
                 }
                 if(p) {
-                    html += '<div class="flex items-center justify-between bg-slate-50 p-2.5 rounded-2xl border border-slate-200">';
+                    html += '<div class="flex items-center justify-between bg-[#0f172a] p-2.5 rounded-2xl border border-amber-500/20">';
                     html += '<div class="flex items-center gap-3">';
-                    html += '<img src="' + p.img + '" class="w-12 h-12 rounded-xl object-contain border border-slate-200 bg-white" onerror="this.src=\'' + fallbackImg + '\'">';
-                    html += '<div><h5 class="font-extrabold text-xs text-slate-900">' + p.name + '</h5><div class="text-xs font-black text-[#0c831f]">₹' + (p.price * cart[id]) + '</div></div>';
+                    html += '<img src="' + p.img + '" class="w-12 h-12 rounded-xl object-contain border border-amber-500/20 bg-[#05070b]" onerror="this.src=\'' + fallbackImg + '\'">';
+                    html += '<div><h5 class="font-extrabold text-xs text-slate-100">' + p.name + '</h5><div class="text-xs font-black text-amber-400">₹' + (p.price * cart[id]) + '</div></div>';
                     html += '</div>';
-                    html += '<div class="flex items-center gap-2 bg-[#0c831f] text-white px-2.5 py-1 rounded-xl text-xs font-black">';
+                    html += '<div class="flex items-center gap-2 bg-amber-500 text-slate-950 px-2.5 py-1 rounded-xl text-xs font-black">';
                     html += '<button onclick="changeQty(' + p.id + ', -1)">-</button>';
                     html += '<span>' + cart[id] + '</span>';
                     html += '<button onclick="changeQty(' + p.id + ', 1)">+</button>';
@@ -508,7 +541,6 @@
         // Live Moving Bike Delivery Animation on Map
         function startLiveBikeDeliveryAnimation() {
             if (!map) return;
-
             if (bikeMarker) map.removeLayer(bikeMarker);
             if (routePolyline) map.removeLayer(routePolyline);
             if (animationInterval) clearInterval(animationInterval);
@@ -526,7 +558,7 @@
             ];
 
             routePolyline = L.polyline(routeCoordinates, {
-                color: '#0c831f',
+                color: '#f59e0b',
                 weight: 4,
                 opacity: 0.8,
                 dashArray: '8, 8'
@@ -534,7 +566,7 @@
 
             var bikeIcon = L.divIcon({
                 className: 'custom-bike-icon',
-                html: '<div class="w-9 h-9 bg-white rounded-full border-2 border-[#0c831f] shadow-lg flex items-center justify-center text-[#0c831f] text-base font-bold"><i class="fa-solid fa-motorcycle"></i></div>',
+                html: '<div class="w-9 h-9 bg-slate-950 rounded-full border-2 border-amber-500 shadow-xl flex items-center justify-center text-amber-400 text-base font-bold"><i class="fa-solid fa-motorcycle"></i></div>',
                 iconSize: [36, 36],
                 iconAnchor: [18, 18]
             });
@@ -631,7 +663,7 @@
                 reader.onload = function(e) { save(e.target.result); };
                 reader.readAsDataURL(imgFile);
             } else {
-                save("./images/phenyl.jpg");
+                save(fallbackImg);
             }
         }
 
@@ -640,9 +672,9 @@
             var html = '';
             for(var i=0; i<products.length; i++) {
                 var p = products[i];
-                html += '<div class="flex items-center justify-between bg-slate-100 p-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-800">';
+                html += '<div class="flex items-center justify-between bg-[#05070b] p-2.5 rounded-xl border border-amber-500/20 text-xs font-bold text-slate-200">';
                 html += '<span>' + p.name + ' (₹' + p.price + ')</span>';
-                html += '<button onclick="removeProduct(' + p.id + ')" class="text-red-600"><i class="fa-solid fa-trash"></i></button>';
+                html += '<button onclick="removeProduct(' + p.id + ')" class="text-red-400"><i class="fa-solid fa-trash"></i></button>';
                 html += '</div>';
             }
             container.innerHTML = html;
@@ -657,35 +689,9 @@
             renderProducts(); renderAdminList(); updateCartUI();
         }
 
-        var buyersData = [
-            { name: "Rahul S.", city: "Delhi", item: "Premium Phenyl" },
-            { name: "Amit K.", city: "Noida", item: "Glass Cleaner" },
-            { name: "Pooja M.", city: "Gurugram", item: "Microfiber Cloth" },
-            { name: "Vikas G.", city: "Jaipur", item: "Plastic Bucket" }
-        ];
-
-        function showLiveSalesToast() {
-            var toast = document.getElementById('live-sales-toast');
-            if(!toast) return;
-
-            var buyer = buyersData[Math.floor(Math.random() * buyersData.length)];
-            document.getElementById('toast-text').innerText = buyer.name + ' from ' + buyer.city + ' ordered ' + buyer.item + '!';
-            
-            toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
-            toast.classList.add('translate-y-0', 'opacity-100');
-
-            setTimeout(function() {
-                toast.classList.remove('translate-y-0', 'opacity-100');
-                toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
-            }, 4000);
-        }
-
-        setInterval(showLiveSalesToast, 12000);
-
         window.addEventListener('DOMContentLoaded', function() {
             renderCategories();
             renderProducts();
-            setTimeout(showLiveSalesToast, 3000);
         });
     </script>
 </body>
