@@ -1,3967 +1,451 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5" />
-    <title>Harshit Chemical · प्रीमियम स्टोर</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>हर्षित केमिकल स्टोर</title>
     <style>
-        /* ============================================================
-               PART 1: RESET, ROOT, BASE, TYPOGRAPHY, LAYOUT
-               ============================================================ */
-        *,
-        *::before,
-        *::after {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
-        :root {
-            --bg-primary: #0b0d10;
-            --bg-secondary: #11151c;
-            --bg-card: #171e28;
-            --bg-input: #1f2631;
-            --bg-panel: #151c26;
-            --border-color: #2a303c;
-            --border-light: #3a414e;
-            --text-primary: #f0f2f5;
-            --text-secondary: #a8b2c2;
-            --text-muted: #7f8aa0;
-            --gold: #f5b342;
-            --gold-light: #ffc85a;
-            --red-accent: #ff4d4d;
-            --whatsapp: #25D366;
-            --shadow-heavy: 0 18px 48px rgba(0, 0, 0, 0.7);
-            --radius-card: 28px;
-            --radius-btn: 50px;
-            --radius-input: 60px;
-            --transition-smooth: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        html {
-            scroll-behavior: smooth;
-        }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        img {
-            max-width: 100%;
-            display: block;
-        }
-        .container {
-            max-width: 1440px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-        /* Scrollbar Styling */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-primary);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--gold);
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--gold-light);
-        }
-
-        /* ============================================================
-               PART 2: TOP MARQUEE / ANNOUNCEMENT BAR
-               ============================================================ */
-        .top-marquee {
-            background: #1a1e26;
-            padding: 14px 0;
-            border-bottom: 1px solid var(--border-color);
-            color: var(--gold);
-            font-weight: 600;
-            font-size: 0.95rem;
-            letter-spacing: 0.3px;
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-            z-index: 10;
-        }
-        .top-marquee .marquee-track {
-            display: inline-block;
-            animation: marqueeScroll 32s linear infinite;
-        }
-        .top-marquee span {
-            padding: 0 28px;
-        }
-        .top-marquee i {
-            margin: 0 8px;
-            color: var(--red-accent);
-        }
-        @keyframes marqueeScroll {
-            0% {
-                transform: translateX(0%);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        /* ============================================================
-               PART 3: HEADER / NAVIGATION (STICKY)
-               ============================================================ */
-        .header {
-            background: rgba(17, 21, 28, 0.94);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 14px 0;
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            transition: var(--transition-smooth);
-        }
-        .header .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-        .logo h1 {
-            font-size: 2.2rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--red-accent), var(--gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.5px;
-            line-height: 1.1;
-        }
-        .logo small {
-            font-size: 0.7rem;
-            -webkit-text-fill-color: #929bb0;
-            background: none;
-            font-weight: 500;
-            display: block;
-            margin-top: -4px;
-            letter-spacing: 1.8px;
-            color: #929bb0;
-        }
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-        .share-btn {
-            background: #262c36;
-            padding: 10px 18px;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            border: 1px solid var(--border-light);
-            color: #eef2f8;
-            transition: var(--transition-smooth);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .share-btn i {
-            color: var(--whatsapp);
-            font-size: 1.2rem;
-        }
-        .share-btn:hover {
-            background: #323a46;
-            border-color: var(--gold);
-            transform: translateY(-1px);
-        }
-        .cart-icon {
-            position: relative;
-            font-size: 1.9rem;
-            color: var(--gold);
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            padding: 4px;
-        }
-        .cart-icon:hover {
-            color: var(--gold-light);
-            transform: scale(1.05);
-        }
-        .cart-icon .badge {
-            position: absolute;
-            top: -6px;
-            right: -10px;
-            background: var(--red-accent);
-            color: #fff;
-            font-size: 0.7rem;
-            font-weight: 800;
-            border-radius: 50%;
-            padding: 3px 9px;
-            min-width: 22px;
-            text-align: center;
-            border: 2px solid var(--bg-secondary);
-            line-height: 1.3;
-        }
-
-        /* ============================================================
-               PART 4: HERO BANNER WITH SEARCH
-               ============================================================ */
-        .hero {
-            background: linear-gradient(160deg, #141a24 0%, #0b0f16 100%);
-            padding: 56px 0 60px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -40%;
-            right: -5%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(245, 179, 66, 0.05) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -5%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(255, 77, 77, 0.04) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-        .hero .container {
-            position: relative;
-            z-index: 2;
-        }
-        .hero-content {
-            max-width: 700px;
-        }
-        .hero-badge {
-            display: inline-block;
-            background: rgba(245, 179, 66, 0.15);
-            color: var(--gold);
-            padding: 6px 20px;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            margin-bottom: 16px;
-            border: 1px solid rgba(245, 179, 66, 0.2);
-        }
-        .hero h2 {
-            font-size: 3.2rem;
-            font-weight: 900;
-            line-height: 1.15;
-            letter-spacing: -0.02em;
-        }
-        .hero h2 span {
-            color: var(--gold);
-            position: relative;
-        }
-        .hero h2 span::after {
-            content: '';
-            position: absolute;
-            bottom: 4px;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: var(--gold);
-            opacity: 0.25;
-            border-radius: 4px;
-        }
-        .hero p {
-            color: var(--text-secondary);
-            margin: 20px 0 32px;
-            font-size: 1.2rem;
-            max-width: 520px;
-            font-weight: 400;
-            line-height: 1.7;
-        }
-        .search-box {
-            display: flex;
-            max-width: 620px;
-            background: var(--bg-input);
-            border-radius: var(--radius-input);
-            padding: 6px 6px 6px 24px;
-            border: 1px solid var(--border-light);
-            transition: var(--transition-smooth);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
-        }
-        .search-box:focus-within {
-            border-color: var(--gold);
-            box-shadow: 0 0 0 4px rgba(245, 179, 66, 0.15), 0 12px 40px rgba(0, 0, 0, 0.6);
-        }
-        .search-box input {
-            flex: 1;
-            background: transparent;
-            border: none;
-            padding: 16px 6px;
-            font-size: 1rem;
-            color: var(--text-primary);
-            outline: none;
-            font-weight: 500;
-        }
-        .search-box input::placeholder {
-            color: var(--text-muted);
-            font-weight: 400;
-        }
-        .search-box button {
-            background: var(--gold);
-            border: none;
-            border-radius: var(--radius-btn);
-            padding: 14px 34px;
-            font-weight: 700;
-            color: #0b0d10;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            white-space: nowrap;
-        }
-        .search-box button:hover {
-            background: var(--gold-light);
-            transform: scale(1.02);
-        }
-        .hero-stats {
-            display: flex;
-            gap: 40px;
-            margin-top: 36px;
-            flex-wrap: wrap;
-        }
-        .hero-stats .stat {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-        .hero-stats .stat i {
-            color: var(--gold);
-            font-size: 1.3rem;
-        }
-        .hero-stats .stat strong {
-            color: var(--text-primary);
-            font-size: 1.1rem;
-        }
-
-        /* ============================================================
-               PART 5: PRODUCT SECTION HEADER & GRID START
-               ============================================================ */
-        .product-section {
-            padding: 56px 0 30px;
-        }
-        .section-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-bottom: 32px;
-        }
-        .section-title {
-            font-size: 2.2rem;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-        .section-title i {
-            color: var(--gold);
-        }
-        .section-filter {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .filter-chip {
-            background: var(--bg-card);
-            padding: 8px 20px;
-            border-radius: 40px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            border: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            cursor: pointer;
-            transition: var(--transition-smooth);
-        }
-        .filter-chip:hover,
-        .filter-chip.active {
-            border-color: var(--gold);
-            color: var(--text-primary);
-            background: rgba(245, 179, 66, 0.08);
-        }
-        .filter-chip.active {
-            border-color: var(--gold);
-            color: var(--gold);
-        }
-
-        /* ============================================================
-               PRODUCT GRID — CARD STYLES
-               ============================================================ */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 28px;
-        }
-        .product-card {
-            background: var(--bg-card);
-            border-radius: var(--radius-card);
-            padding: 20px 18px 24px;
-            border: 1px solid var(--border-color);
-            transition: var(--transition-smooth);
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
-        }
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--gold), var(--red-accent));
-            opacity: 0;
-            transition: var(--transition-smooth);
-        }
-        .product-card:hover::before {
-            opacity: 1;
-        }
-        .product-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--gold);
-            box-shadow: var(--shadow-heavy);
-        }
-        .product-img {
-            width: 100%;
-            aspect-ratio: 1/1;
-            background: #1f2733;
-            border-radius: 20px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 14px;
-            position: relative;
-        }
-        .product-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition-smooth);
-        }
-        .product-card:hover .product-img img {
-            transform: scale(1.03);
-        }
-        .product-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(4px);
-            padding: 4px 12px;
-            border-radius: 30px;
-            font-size: 0.65rem;
-            font-weight: 600;
-            color: var(--gold);
-            border: 1px solid rgba(245, 179, 66, 0.2);
-            letter-spacing: 0.5px;
-        }
-        .product-name {
-            font-weight: 700;
-            font-size: 1.05rem;
-            margin: 4px 0 2px;
-            line-height: 1.3;
-            min-height: 2.6rem;
-        }
-        .product-price {
-            font-weight: 800;
-            color: var(--gold);
-            font-size: 1.35rem;
-            margin: 6px 0 14px;
-        }
-        .product-price small {
-            font-weight: 400;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-left: 4px;
-        }
-        .order-btn {
-            background: var(--gold);
-            border: none;
-            border-radius: var(--radius-btn);
-            padding: 14px 0;
-            font-weight: 700;
-            color: #0b0d10;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            margin-top: auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-        }
-        .order-btn:hover {
-            background: var(--gold-light);
-            transform: scale(1.02);
-        }
-        .order-btn i {
-            font-size: 1rem;
-        }
-
-        /* ============================================================
-               LOADING SHIMMER (optional)
-               ============================================================ */
-        .shimmer {
-            background: linear-gradient(90deg, var(--bg-card) 25%, #232b38 50%, var(--bg-card) 75%);
-            background-size: 200% 100%;
-            animation: shimmer 1.5s infinite;
-            border-radius: 20px;
-        }
-        @keyframes shimmer {
-            0% {
-                background-position: 200% 0;
-            }
-            100% {
-                background-position: -200% 0;
-            }
-        }
-
-        /* ============================================================
-               RESPONSIVE BREAKPOINTS (PARTIAL)
-               ============================================================ */
-        @media (max-width: 992px) {
-            .hero h2 {
-                font-size: 2.6rem;
-            }
-            .grid {
-                grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-                gap: 20px;
-            }
-        }
-        @media (max-width: 768px) {
-            .hero h2 {
-                font-size: 2.2rem;
-            }
-            .hero-stats {
-                gap: 20px;
-            }
-            .header .container {
-                flex-wrap: wrap;
-            }
-            .search-box {
-                flex-wrap: wrap;
-                background: transparent;
-                padding: 0;
-                box-shadow: none;
-                border: none;
-            }
-            .search-box input {
-                background: var(--bg-input);
-                border-radius: var(--radius-input);
-                padding: 16px 20px;
-                border: 1px solid var(--border-light);
-            }
-            .search-box button {
-                width: 100%;
-                justify-content: center;
-                margin-top: 12px;
-            }
-            .search-box:focus-within {
-                box-shadow: none;
-            }
-            .grid {
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-                gap: 16px;
-            }
-            .product-card {
-                padding: 14px 12px 18px;
-            }
-            .section-title {
-                font-size: 1.6rem;
-            }
-        }
-        @media (max-width: 480px) {
-            .grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 12px;
-            }
-            .product-name {
-                font-size: 0.85rem;
-                min-height: 2.2rem;
-            }
-            .product-price {
-                font-size: 1.1rem;
-            }
-            .order-btn {
-                font-size: 0.8rem;
-                padding: 12px 0;
-            }
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            .hero p {
-                font-size: 1rem;
-            }
-            .logo h1 {
-                font-size: 1.7rem;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- ============================================================
-    TOP MARQUEE
-    ============================================================ -->
-    <div class="top-marquee">
-        <div class="marquee-track">
-            <span><i class="fas fa-bolt"></i> सुपरफास्ट फैक्ट्री डिलीवरी</span>
-            <span><i class="fas fa-tag"></i> बल्क ऑर्डर पर 5% छूट</span>
-            <span><i class="fas fa-truck"></i> 100% असली केमिकल</span>
-            <span><i class="fas fa-shield-alt"></i> प्रीमियम क्वालिटी</span>
-            <span><i class="fas fa-star"></i> 2000+ खुश ग्राहक</span>
-            <span><i class="fas fa-recycle"></i> इको-फ्रेंडली</span>
-            <span><i class="fas fa-bolt"></i> सुपरफास्ट फैक्ट्री डिलीवरी</span>
-            <span><i class="fas fa-tag"></i> बल्क ऑर्डर पर 5% छूट</span>
-            <span><i class="fas fa-truck"></i> 100% असली केमिकल</span>
-            <span><i class="fas fa-shield-alt"></i> प्रीमियम क्वालिटी</span>
-            <span><i class="fas fa-star"></i> 2000+ खुश ग्राहक</span>
-            <span><i class="fas fa-recycle"></i> इको-फ्रेंडली</span>
-            <span><i class="fas fa-bolt"></i> सुपरफास्ट फैक्ट्री डिलीवरी</span>
-            <span><i class="fas fa-tag"></i> बल्क ऑर्डर पर 5% छूट</span>
-        </div>
-    </div>
-
-    <!-- ============================================================
-    HEADER
-    ============================================================ -->
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <h1>HARSHIT <span style="-webkit-text-fill-color: var(--gold);">CHEM</span></h1>
-                <small>🧹 हाउसकीपिंग · केमिकल स्टोर</small>
-            </div>
-            <div class="header-actions">
-                <button class="share-btn" id="shareWebsiteBtn">
-                    <i class="fab fa-whatsapp"></i> शेयर करें
-                </button>
-                <div class="cart-icon" id="cartIcon">
-                    <i class="fas fa-shopping-bag"></i>
-                    <span class="badge" id="cartCount">0</span>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- ============================================================
-    HERO BANNER
-    ============================================================ -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-trophy"></i> इंडस्ट्री लीडर
-                </div>
-                <h2>घरेलू &amp; इंडस्ट्रियल <span>क्लीनिंग</span> सॉल्यूशंस</h2>
-                <p>प्रीमियम क्वालिटी, फैक्ट्री कीमत। 50+ प्रोडक्ट्स, एक क्लिक में ऑर्डर करें।</p>
-                <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="खोजें ... फिनाइल, बाल्टी, मॉप, क्लीनर ..." />
-                    <button id="searchBtn"><i class="fas fa-search"></i> खोजें</button>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat"><i class="fas fa-box"></i> <strong>50+</strong> प्रोडक्ट्स</div>
-                    <div class="stat"><i class="fas fa-truck"></i> <strong>सुपरफास्ट</strong> डिलीवरी</div>
-                    <div class="stat"><i class="fas fa-star"></i> <strong>2000+</strong> खुश ग्राहक</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-    PRODUCT SECTION
-    ============================================================ -->
-    <section class="product-section">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-title">
-                    <i class="fas fa-cubes"></i> हमारे सभी प्रोडक्ट्स
-                </div>
-                <div class="section-filter">
-                    <span class="filter-chip active" data-filter="all">सभी</span>
-                    <span class="filter-chip" data-filter="housekeeping">हाउसकीपिंग</span>
-                    <span class="filter-chip" data-filter="chemical">केमिकल</span>
-                    <span class="filter-chip" data-filter="tools">उपकरण</span>
-                </div>
-            </div>
-            <div class="grid" id="productGrid"></div>
-        </div>
-    </section>
-
-```
-
----
-
-Harshit Chemical · प्रीमियम ई-कॉमर्स वेब-ऐप (भाग 2/5)
-
-```html
-    <!-- ============================================================
-    FOOTER WITH MAP
-    ============================================================ -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <!-- Left Column: Map & Contact -->
-                <div class="footer-col">
-                    <h3><i class="fas fa-map-pin"></i> फैक्ट्री लोकेशन</h3>
-                    <div class="map-container">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.072187853231!2d75.85747267547292!3d26.86251417670175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db3fa8d6e6b6b%3A0x3f3e8f2e3b7b3b3b!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1712345678901" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
-                    <div class="contact-info">
-                        <p><i class="fas fa-phone-alt"></i> +91 98765 43210</p>
-                        <p><i class="fas fa-envelope"></i> info@harshitchemical.com</p>
-                        <p><i class="fas fa-clock"></i> सोम-शनि: 9:00 AM – 7:00 PM</p>
-                    </div>
-                </div>
-                <!-- Right Column: Payment & Info -->
-                <div class="footer-col">
-                    <h3><i class="fas fa-credit-card"></i> पेमेंट मोड्स</h3>
-                    <div class="payment-methods">
-                        <span><i class="fas fa-qrcode"></i> UPI QR</span>
-                        <span><i class="fas fa-university"></i> नेट बैंकिंग</span>
-                        <span><i class="fas fa-money-bill-wave"></i> COD</span>
-                        <span><i class="fas fa-credit-card"></i> क्रेडिट/डेबिट</span>
-                    </div>
-                    <div class="footer-about">
-                        <h4>हमारे बारे में</h4>
-                        <p>Harshit Chemical Industry भारत का एक प्रीमियम हाउसकीपिंग और केमिकल सप्लायर है। हम 2010 से गुणवत्ता और विश्वसनीयता के लिए जाने जाते हैं।</p>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2026 Harshit Chemical Industry · प्रीमियम हाउसकीपिंग स्टोर</p>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- ============================================================
-    CART SIDEBAR (OVERLAY)
-    ============================================================ -->
-    <div class="cart-overlay" id="cartOverlay">
-        <div class="cart-panel">
-            <div class="cart-header">
-                <span><i class="fas fa-shopping-bag"></i> आपका कार्ट</span>
-                <button class="cart-close" id="cartClose">&times;</button>
-            </div>
-            <div class="cart-items" id="cartItems">
-                <div class="cart-empty">
-                    <i class="fas fa-cart-plus" style="font-size:2.5rem; color:var(--text-muted); margin-bottom:12px;"></i>
-                    <br>कार्ट खाली है ।<br> प्रोडक्ट्स जोड़ें ।
-                </div>
-            </div>
-            <div class="payment-options">
-                <span><i class="fas fa-qrcode"></i> UPI</span>
-                <span><i class="fas fa-university"></i> नेट</span>
-                <span><i class="fas fa-money-bill-wave"></i> COD</span>
-            </div>
-            <div class="cart-total">
-                <span>कुल राशि</span>
-                <span id="cartTotalPrice">₹0</span>
-            </div>
-            <button class="whatsapp-order-btn" id="whatsappOrderBtn">
-                <i class="fab fa-whatsapp"></i> व्हाट्सएप पर ऑर्डर भेजें
-            </button>
-            <p class="cart-note"><i class="fas fa-info-circle"></i> ऑर्डर भेजने के बाद हम आपसे संपर्क करेंगे।</p>
-        </div>
-    </div>
-
-    <!-- ============================================================
-    JAVASCRIPT — PART 1: DATA & UTILITY FUNCTIONS
-    ============================================================ -->
-    <script>
-        // ================================================================
-        // 🧪 PRODUCT DATA — सभी 50+ प्रोडक्ट्स की लिस्ट
-        // ================================================================
-        const PRODUCTS = [{
-            id: 1,
-            name: '21 इंच फ्लोर वाइपर',
-            price: 185,
-            unit: 'Pc',
-            category: 'tools',
-            img: '21-inch-floor-wiper.jpg'
-        }, {
-            id: 2,
-            name: 'मल्टीपर्पस बाल्टी ड्रम',
-            price: 320,
-            unit: 'Pc',
-            category: 'tools',
-            img: 'Multipurpose_plastic_storage_bucket_drum.jpg'
-        }, {
-            id: 3,
-            name: 'बाथरूम क्लीनर',
-            price: 70,
-            unit: 'Ltr',
-            category: 'chemical',
-            img: 'bathroom_cleaner.jpg'
-        }, {
-            id: 4,
-            name: 'ब्लैक हिट',
-            price: 55,
-            unit: 'Pc',
-            category: 'housekeeping',
-            img: 'black_hit.jpg'
-        }, {
-            id: 5,
-            name: 'ब्लैक फिनाइल 5L',
-            price: 210,
-            unit: 'Ltr',
-            category: 'chemical',
-            img: 'black_phenyl_5_litre.jpg'
-        }, {
-            id: 6,
-            name: 'ब्लू मॉप (बड़ा)',
-            price: 160,
-            unit: 'Pc',
-            category: 'housekeeping',
-            img: 'blue_mop_bigsize.jpg'
-        }, {
-            id: 7,
-            name: 'बोतल ब्रश',
-            price: 45,
-            unit: 'Pc',
-            category: 'tools',
-            img: 'botal_brush.jpg'
-        }, {
-            id: 8,
-            name: 'झाड़ू',
-            price: 55,
-            unit: 'Pc',
-            category: 'housekeeping',
-            img: 'broom.jpg'
-        }, {
-            id: 9,
-            name: 'प्लास्टिक बाल्टी',
-            price: 140,
-            unit: 'Pc',
-            category: 'tools',
-            img: 'bucket.jpg'
-        }, {
-            id: 10,
-            name: 'कार/बाइक शैम्पू',
-            price: 95,
-            unit: 'Ltr',
-            category: 'chemical',
-            img: 'car_bike_shampoo.jpg'
-        }, {
-            id: 11,
-            name: 'कार्पेट शैम्पू',
-            price: 120,
-            unit: 'Ltr',
-            category: 'chemical',
-            img: 'carpet_shampoo.jpg'
-        }, {
-            id: 12,
-            name: 'डिश वॉश',
-            price: 50,
-            unit: 'Ltr',
-            category: 'chemical',
-            img: 'dish_wash.jpg'
-        }, {
-            id: 13,
-            name: 'डिशवॉश 5L',
-            price: 220,
-            unit: 'Ltr',
-            category: 'chemical',
-            img: 'dishwash_Sliter.jpg'
-        }, {
-            id: 14,
-            name: 'डस्ट क्लॉथ',
-            price: 30,
-            unit: 'Pc',
-            category: 'housekeeping',
-            img: 'dust_cloth.jpg'
-        }, {
-            id: 15,
-            name: 'डस्ट पैन',
-            price: 65,
-            unit: 'Pc',
-            category: 'tools',
-            img: 'dust_pan.jpg'
-        }, {
-            id: 16,
-            name: 'डस्टबिन (बड़ा)',
-            price: 280,
-            unit: 'Pc',
-            category: 'tools',
-            img: 'dustbin_large.jpg'
-        }, {
-            id: 17,
-            name: 'डस्टबिन (छोटा)',
-            price: 140,
-            unit: 'Pc',
-            category: 'tools',
-            img: 'dustbin_small.jpg'
-        }, {
-            id:
-                <!DOCTYPE html>
-<html lang="hi">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5" />
-    <title>Harshit Chemical · प्रीमियम स्टोर</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <style>
-        /* ============================================================
-               PART 1: RESET, ROOT, BASE, TYPOGRAPHY, LAYOUT
-               ============================================================ */
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        :root {
-            --bg-primary: #0b0d10;
-            --bg-secondary: #11151c;
-            --bg-card: #171e28;
-            --bg-input: #1f2631;
-            --bg-panel: #151c26;
-            --border-color: #2a303c;
-            --border-light: #3a414e;
-            --text-primary: #f0f2f5;
-            --text-secondary: #a8b2c2;
-            --text-muted: #7f8aa0;
-            --gold: #f5b342;
-            --gold-light: #ffc85a;
-            --red-accent: #ff4d4d;
-            --whatsapp: #25D366;
-            --shadow-heavy: 0 18px 48px rgba(0, 0, 0, 0.7);
-            --radius-card: 28px;
-            --radius-btn: 50px;
-            --radius-input: 60px;
-            --transition-smooth: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        img {
-            max-width: 100%;
-            display: block;
-        }
-        .container {
-            max-width: 1440px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-        /* Scrollbar Styling */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-primary);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--gold);
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--gold-light);
-        }
-
-        /* ============================================================
-               PART 2: TOP MARQUEE / ANNOUNCEMENT BAR
-               ============================================================ */
-        .top-marquee {
-            background: #1a1e26;
-            padding: 14px 0;
-            border-bottom: 1px solid var(--border-color);
-            color: var(--gold);
-            font-weight: 600;
-            font-size: 0.95rem;
-            letter-spacing: 0.3px;
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-            z-index: 10;
-        }
-        .top-marquee .marquee-track {
-            display: inline-block;
-            animation: marqueeScroll 32s linear infinite;
-        }
-        .top-marquee span {
-            padding: 0 28px;
-        }
-        .top-marquee i {
-            margin: 0 8px;
-            color: var(--red-accent);
-        }
-        @keyframes marqueeScroll {
-            0% {
-                transform: translateX(0%);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        /* ============================================================
-               PART 3: HEADER / NAVIGATION (STICKY)
-               ============================================================ */
-        .header {
-            background: rgba(17, 21, 28, 0.94);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 14px 0;
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            transition: var(--transition-smooth);
-        }
-        .header .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-        .logo h1 {
-            font-size: 2.2rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--red-accent), var(--gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.5px;
-            line-height: 1.1;
-        }
-        .logo small {
-            font-size: 0.7rem;
-            -webkit-text-fill-color: #929bb0;
-            background: none;
-            font-weight: 500;
-            display: block;
-            margin-top: -4px;
-            letter-spacing: 1.8px;
-            color: #929bb0;
-        }
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-        .share-btn {
-            background: #262c36;
-            padding: 10px 18px;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            border: 1px solid var(--border-light);
-            color: #eef2f8;
-            transition: var(--transition-smooth);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .share-btn i {
-            color: var(--whatsapp);
-            font-size: 1.2rem;
-        }
-        .share-btn:hover {
-            background: #323a46;
-            border-color: var(--gold);
-            transform: translateY(-1px);
-        }
-        .cart-icon {
-            position: relative;
-            font-size: 1.9rem;
-            color: var(--gold);
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            padding: 4px;
-        }
-        .cart-icon:hover {
-            color: var(--gold-light);
-            transform: scale(1.05);
-        }
-        .cart-icon .badge {
-            position: absolute;
-            top: -6px;
-            right: -10px;
-            background: var(--red-accent);
-            color: #fff;
-            font-size: 0.7rem;
-            font-weight: 800;
-            border-radius: 50%;
-            padding: 3px 9px;
-            min-width: 22px;
-            text-align: center;
-            border: 2px solid var(--bg-secondary);
-            line-height: 1.3;
-        }
-
-        /* ============================================================
-               PART 4: HERO BANNER WITH SEARCH
-               ============================================================ */
-        .hero {
-            background: linear-gradient(160deg, #141a24 0%, #0b0f16 100%);
-            padding: 56px 0 60px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -40%;
-            right: -5%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(245, 179, 66, 0.05) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -5%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(255, 77, 77, 0.04) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-        .hero .container {
-            position: relative;
-            z-index: 2;
-        }
-        .hero-content {
-            max-width: 700px;
-        }
-        .hero-badge {
-            display: inline-block;
-            background: rgba(245, 179, 66, 0.15);
-            color: var(--gold);
-            padding: 6px 20px;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            margin-bottom: 16px;
-            border: 1px solid rgba(245, 179, 66, 0.2);
-        }
-        .hero h2 {
-            font-size: 3.2rem;
-            font-weight: 900;
-            line-height: 1.15;
-            letter-spacing: -0.02em;
-        }
-        .hero h2 span {
-            color: var(--gold);
-            position: relative;
-        }
-        .hero h2 span::after {
-            content: '';
-            position: absolute;
-            bottom: 4px;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: var(--gold);
-            opacity: 0.25;
-            border-radius: 4px;
-        }
-        .hero p {
-            color: var(--text-secondary);
-            margin: 20px 0 32px;
-            font-size: 1.2rem;
-            max-width: 520px;
-            font-weight: 400;
-            line-height: 1.7;
-        }
-        .search-box {
-            display: flex;
-            max-width: 620px;
-            background: var(--bg-input);
-            border-radius: var(--radius-input);
-            padding: 6px 6px 6px 24px;
-            border: 1px solid var(--border-light);
-            transition: var(--transition-smooth);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
-        }
-        .search-box:focus-within {
-            border-color: var(--gold);
-            box-shadow: 0 0 0 4px rgba(245, 179, 66, 0.15), 0 12px 40px rgba(0, 0, 0, 0.6);
-        }
-        .search-box input {
-            flex: 1;
-            background: transparent;
-            border: none;
-            padding: 16px 6px;
-            font-size: 1rem;
-            color: var(--text-primary);
-            outline: none;
-            font-weight: 500;
-        }
-        .search-box input::placeholder {
-            color: var(--text-muted);
-            font-weight: 400;
-        }
-        .search-box button {
-            background: var(--gold);
-            border: none;
-            border-radius: var(--radius-btn);
-            padding: 14px 34px;
-            font-weight: 700;
-            color: #0b0d10;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            white-space: nowrap;
-        }
-        .search-box button:hover {
-            background: var(--gold-light);
-            transform: scale(1.02);
-        }
-        .hero-stats {
-            display: flex;
-            gap: 40px;
-            margin-top: 36px;
-            flex-wrap: wrap;
-        }
-        .hero-stats .stat {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-        .hero-stats .stat i {
-            color: var(--gold);
-            font-size: 1.3rem;
-        }
-        .hero-stats .stat strong {
-            color: var(--text-primary);
-            font-size: 1.1rem;
-        }
-
-        /* ============================================================
-               PART 5: PRODUCT SECTION HEADER & GRID START
-               ============================================================ */
-        .product-section {
-            padding: 56px 0 30px;
-        }
-        .section-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-bottom: 32px;
-        }
-        .section-title {
-            font-size: 2.2rem;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-        .section-title i {
-            color: var(--gold);
-        }
-        .section-filter {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .filter-chip {
-            background: var(--bg-card);
-            padding: 8px 20px;
-            border-radius: 40px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            border: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            cursor: pointer;
-            transition: var(--transition-smooth);
-        }
-        .filter-chip:hover,
-        .filter-chip.active {
-            border-color: var(--gold);
-            color: var(--text-primary);
-            background: rgba(245, 179, 66, 0.08);
-        }
-        .filter-chip.active {
-            border-color: var(--gold);
-            color: var(--gold);
-        }
-
-        /* ============================================================
-               PRODUCT GRID — CARD STYLES
-               ============================================================ */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 28px;
-        }
-        .product-card {
-            background: var(--bg-card);
-            border-radius: var(--radius-card);
-            padding: 20px 18px 24px;
-            border: 1px solid var(--border-color);
-            transition: var(--transition-smooth);
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
-        }
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--gold), var(--red-accent));
-            opacity: 0;
-            transition: var(--transition-smooth);
-        }
-        .product-card:hover::before {
-            opacity: 1;
-        }
-        .product-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--gold);
-            box-shadow: var(--shadow-heavy);
-        }
-        .product-img {
-            width: 100%;
-            aspect-ratio: 1/1;
-            background: #1f2733;
-            border-radius: 20px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 14px;
-            position: relative;
-        }
-        .product-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition-smooth);
-        }
-        .product-card:hover .product-img img {
-            transform: scale(1.03);
-        }
-        .product-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(4px);
-            padding: 4px 12px;
-            border-radius: 30px;
-            font-size: 0.65rem;
-            font-weight: 600;
-            color: var(--gold);
-            border: 1px solid rgba(245, 179, 66, 0.2);
-            letter-spacing: 0.5px;
-        }
-        .product-name {
-            font-weight: 700;
-            font-size: 1.05rem;
-            margin: 4px 0 2px;
-            line-height: 1.3;
-            min-height: 2.6rem;
-        }
-        .product-price {
-            font-weight: 800;
-            color: var(--gold);
-            font-size: 1.35rem;
-            margin: 6px 0 14px;
-        }
-        .product-price small {
-            font-weight: 400;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-left: 4px;
-        }
-        .order-btn {
-            background: var(--gold);
-            border: none;
-            border-radius: var(--radius-btn);
-            padding: 14px 0;
-            font-weight: 700;
-            color: #0b0d10;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            margin-top: auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-        }
-        .order-btn:hover {
-            background: var(--gold-light);
-            transform: scale(1.02);
-        }
-        .order-btn i {
-            font-size: 1rem;
-        }
-
-        /* ============================================================
-               LOADING SHIMMER (optional)
-               ============================================================ */
-        .shimmer {
-            background: linear-gradient(90deg, var(--bg-card) 25%, #232b38 50%, var(--bg-card) 75%);
-            background-size: 200% 100%;
-            animation: shimmer 1.5s infinite;
-            border-radius: 20px;
-        }
-        @keyframes shimmer {
-            0% {
-                background-position: 200% 0;
-            }
-            100% {
-                background-position: -200% 0;
-            }
-        }
-
-        /* ============================================================
-               RESPONSIVE BREAKPOINTS (PARTIAL)
-               ============================================================ */
-        @media (max-width: 992px) {
-            .hero h2 {
-                font-size: 2.6rem;
-            }
-            .grid {
-                grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-                gap: 20px;
-            }
-        }
-        @media (max-width: 768px) {
-            .hero h2 {
-                font-size: 2.2rem;
-            }
-            .hero-stats {
-                gap: 20px;
-            }
-            .header .container {
-                flex-wrap: wrap;
-            }
-            .search-box {
-                flex-wrap: wrap;
-                background: transparent;
-                padding: 0;
-                box-shadow: none;
-                border: none;
-            }
-            .search-box input {
-                background: var(--bg-input);
-                border-radius: var(--radius-input);
-                padding: 16px 20px;
-                border: 1px solid var(--border-light);
-            }
-            .search-box button {
-                width: 100%;
-                justify-content: center;
-                margin-top: 12px;
-            }
-            .search-box:focus-within {
-                box-shadow: none;
-            }
-            .grid {
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-                gap: 16px;
-            }
-            .product-card {
-                padding: 14px 12px 18px;
-            }
-            .section-title {
-                font-size: 1.6rem;
-            }
-        }
-        @media (max-width: 480px) {
-            .grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 12px;
-            }
-            .product-name {
-                font-size: 0.85rem;
-                min-height: 2.2rem;
-            }
-            .product-price {
-                font-size: 1.1rem;
-            }
-            .order-btn {
-                font-size: 0.8rem;
-                padding: 12px 0;
-            }
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            .hero p {
-                font-size: 1rem;
-            }
-            .logo h1 {
-                font-size: 1.7rem;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- ============================================================
-    TOP MARQUEE
-    ============================================================ -->
-    <div class="top-marquee">
-        <div class="marquee-track">
-            <span><i class="fas fa-bolt"></i> सुपरफास्ट फैक्ट्री डिलीवर
-        Harshit Chemical · प्रीमियम ई-कॉमर्स वेब-ऐप (भाग 1/5)
-
-```html
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5" />
-    <title>Harshit Chemical · प्रीमियम स्टोर</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <style>
-        /* ============================================================
-               PART 1: RESET, ROOT, BASE, TYPOGRAPHY, LAYOUT
-               ============================================================ */
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        :root {
-            --bg-primary: #0b0d10;
-            --bg-secondary: #11151c;
-            --bg-card: #171e28;
-            --bg-input: #1f2631;
-            --bg-panel: #151c26;
-            --border-color: #2a303c;
-            --border-light: #3a414e;
-            --text-primary: #f0f2f5;
-            --text-secondary: #a8b2c2;
-            --text-muted: #7f8aa0;
-            --gold: #f5b342;
-            --gold-light: #ffc85a;
-            --red-accent: #ff4d4d;
-            --whatsapp: #25D366;
-            --shadow-heavy: 0 18px 48px rgba(0, 0, 0, 0.7);
-            --radius-card: 28px;
-            --radius-btn: 50px;
-            --radius-input: 60px;
-            --transition-smooth: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        img {
-            max-width: 100%;
-            display: block;
-        }
-        .container {
-            max-width: 1440px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-        /* Scrollbar Styling */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-primary);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--gold);
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--gold-light);
-        }
-
-        /* ============================================================
-               PART 2: TOP MARQUEE / ANNOUNCEMENT BAR
-               ============================================================ */
-        .top-marquee {
-            background: #1a1e26;
-            padding: 14px 0;
-            border-bottom: 1px solid var(--border-color);
-            color: var(--gold);
-            font-weight: 600;
-            font-size: 0.95rem;
-            letter-spacing: 0.3px;
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-            z-index: 10;
-        }
-        .top-marquee .marquee-track {
-            display: inline-block;
-            animation: marqueeScroll 32s linear infinite;
-        }
-        .top-marquee span {
-            padding: 0 28px;
-        }
-        .top-marquee i {
-            margin: 0 8px;
-            color: var(--red-accent);
-        }
-        @keyframes marqueeScroll {
-            0% {
-                transform: translateX(0%);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        /* ============================================================
-               PART 3: HEADER / NAVIGATION (STICKY)
-               ============================================================ */
-        .header {
-            background: rgba(17, 21, 28, 0.94);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 14px 0;
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            transition: var(--transition-smooth);
-        }
-        .header .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-        .logo h1 {
-            font-size: 2.2rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--red-accent), var(--gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.5px;
-            line-height: 1.1;
-        }
-        .logo small {
-            font-size: 0.7rem;
-            -webkit-text-fill-color: #929bb0;
-            background: none;
-            font-weight: 500;
-            display: block;
-            margin-top: -4px;
-            letter-spacing: 1.8px;
-            color: #929bb0;
-        }
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-        .share-btn {
-            background: #262c36;
-            padding: 10px 18px;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            border: 1px solid var(--border-light);
-            color: #eef2f8;
-            transition: var(--transition-smooth);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .share-btn i {
-            color: var(--whatsapp);
-            font-size: 1.2rem;
-        }
-        .share-btn:hover {
-            background: #323a46;
-            border-color: var(--gold);
-            transform: translateY(-1px);
-        }
-        .cart-icon {
-            position: relative;
-            font-size: 1.9rem;
-            color: var(--gold);
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            padding: 4px;
-        }
-        .cart-icon:hover {
-            color: var(--gold-light);
-            transform: scale(1.05);
-        }
-        .cart-icon .badge {
-            position: absolute;
-            top: -6px;
-            right: -10px;
-            background: var(--red-accent);
-            color: #fff;
-            font-size: 0.7rem;
-            font-weight: 800;
-            border-radius: 50%;
-            padding: 3px 9px;
-            min-width: 22px;
-            text-align: center;
-            border: 2px solid var(--bg-secondary);
-            line-height: 1.3;
-        }
-
-        /* ============================================================
-               PART 4: HERO BANNER WITH SEARCH
-               ============================================================ */
-        .hero {
-            background: linear-gradient(160deg, #141a24 0%, #0b0f16 100%);
-            padding: 56px 0 60px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -40%;
-            right: -5%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(245, 179, 66, 0.05) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -5%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(255, 77, 77, 0.04) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-        .hero .container {
-            position: relative;
-            z-index: 2;
-        }
-        .hero-content {
-            max-width: 700px;
-        }
-        .hero-badge {
-            display: inline-block;
-            background: rgba(245, 179, 66, 0.15);
-            color: var(--gold);
-            padding: 6px 20px;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            margin-bottom: 16px;
-            border: 1px solid rgba(245, 179, 66, 0.2);
-        }
-        .hero h2 {
-            font-size: 3.2rem;
-            font-weight: 900;
-            line-height: 1.15;
-            letter-spacing: -0.02em;
-        }
-        .hero h2 span {
-            color: var(--gold);
-            position: relative;
-        }
-        .hero h2 span::after {
-            content: '';
-            position: absolute;
-            bottom: 4px;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: var(--gold);
-            opacity: 0.25;
-            border-radius: 4px;
-        }
-        .hero p {
-            color: var(--text-secondary);
-            margin: 20px 0 32px;
-            font-size: 1.2rem;
-            max-width: 520px;
-            font-weight: 400;
-            line-height: 1.7;
-        }
-        .search-box {
-            display: flex;
-            max-width: 620px;
-            background: var(--bg-input);
-            border-radius: var(--radius-input);
-            padding: 6px 6px 6px 24px;
-            border: 1px solid var(--border-light);
-            transition: var(--transition-smooth);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
-        }
-        .search-box:focus-within {
-            border-color: var(--gold);
-            box-shadow: 0 0 0 4px rgba(245, 179, 66, 0.15), 0 12px 40px rgba(0, 0, 0, 0.6);
-        }
-        .search-box input {
-            flex: 1;
-            background: transparent;
-            border: none;
-            padding: 16px 6px;
-            font-size: 1rem;
-            color: var(--text-primary);
-            outline: none;
-            font-weight: 500;
-        }
-        .search-box input::placeholder {
-            color: var(--text-muted);
-            font-weight: 400;
-        }
-        .search-box button {
-            background: var(--gold);
-            border: none;
-            border-radius: var(--radius-btn);
-            padding: 14px 34px;
-            font-weight: 700;
-            color: #0b0d10;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            white-space: nowrap;
-        }
-        .search-box button:hover {
-            background: var(--gold-light);
-            transform: scale(1.02);
-        }
-        .hero-stats {
-            display: flex;
-            gap: 40px;
-            margin-top: 36px;
-            flex-wrap: wrap;
-        }
-        .hero-stats .stat {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-        .hero-stats .stat i {
-            color: var(--gold);
-            font-size: 1.3rem;
-        }
-        .hero-stats .stat strong {
-            color: var(--text-primary);
-            font-size: 1.1rem;
-        }
-
-        /* ============================================================
-               PART 5: PRODUCT SECTION HEADER & GRID START
-               ============================================================ */
-        .product-section {
-            padding: 56px 0 30px;
-        }
-        .section-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-bottom: 32px;
-        }
-        .section-title {
-            font-size: 2.2rem;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-        .section-title i {
-            color: var(--gold);
-        }
-        .section-filter {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .filter-chip {
-            background: var(--bg-card);
-            padding: 8px 20px;
-            border-radius: 40px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            border: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            cursor: pointer;
-            transition: var(--transition-smooth);
-        }
-        .filter-chip:hover,
-        .filter-chip.active {
-            border-color: var(--gold);
-            color: var(--text-primary);
-            background: rgba(245, 179, 66, 0.08);
-        }
-        .filter-chip.active {
-            border-color: var(--gold);
-            color: var(--gold);
-        }
-
-        /* ============================================================
-               PRODUCT GRID — CARD STYLES
-               ============================================================ */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 28px;
-        }
-        .product-card {
-            background: var(--bg-card);
-            border-radius: var(--radius-card);
-            padding: 20px 18px 24px;
-            border: 1px solid var(--border-color);
-            transition: var(--transition-smooth);
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
-        }
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--gold), var(--red-accent));
-            opacity: 0;
-            transition: var(--transition-smooth);
-        }
-        .product-card:hover::before {
-            opacity: 1;
-        }
-        .product-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--gold);
-            box-shadow: var(--shadow-heavy);
-        }
-        .product-img {
-            width: 100%;
-            aspect-ratio: 1/1;
-            background: #1f2733;
-            border-radius: 20px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 14px;
-            position: relative;
-        }
-        .product-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition-smooth);
-        }
-        .product-card:hover .product-img img {
-            transform: scale(1.03);
-        }
-        .product-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(4px);
-            padding: 4px 12px;
-            border-radius: 30px;
-            font-size: 0.65rem;
-            font-weight: 600;
-            color: var(--gold);
-            border: 1px solid rgba(245, 179, 66, 0.2);
-            letter-spacing: 0.5px;
-        }
-        .product-name {
-            font-weight: 700;
-            font-size: 1.05rem;
-            margin: 4px 0 2px;
-            line-height: 1.3;
-            min-height: 2.6rem;
-        }
-        .product-price {
-            font-weight: 800;
-            color: var(--gold);
-            font-size: 1.35rem;
-            margin: 6px 0 14px;
-        }
-        .product-price small {
-            font-weight: 400;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-left: 4px;
-        }
-        .order-btn {
-            background: var(--gold);
-            border: none;
-            border-radius: var(--radius-btn);
-            padding: 14px 0;
-            font-weight: 700;
-            color: #0b0d10;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            margin-top: auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-        }
-        .order-btn:hover {
-            background: var(--gold-light);
-            transform: scale(1.02);
-        }
-        .order-btn i {
-            font-size: 1rem;
-        }
-
-        /* ============================================================
-               LOADING SHIMMER (optional)
-               ============================================================ */
-        .shimmer {
-            background: linear-gradient(90deg, var(--bg-card) 25%, #232b38 50%, var(--bg-card) 75%);
-            background-size: 200% 100%;
-            animation: shimmer 1.5s infinite;
-            border-radius: 20px;
-        }
-        @keyframes shimmer {
-            0% {
-                background-position: 200% 0;
-            }
-            100% {
-                background-position: -200% 0;
-            }
-        }
-
-        /* ============================================================
-               RESPONSIVE BREAKPOINTS (PARTIAL)
-               ============================================================ */
-        @media (max-width: 992px) {
-            .hero h2 {
-                font-size: 2.6rem;
-            }
-            .grid {
-                grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-                gap: 20px;
-            }
-        }
-        @media (max-width: 768px) {
-            .hero h2 {
-                font-size: 2.2rem;
-            }
-            .hero-stats {
-                gap: 20px;
-            }
-            .header .container {
-                flex-wrap: wrap;
-            }
-            .search-box {
-                flex-wrap: wrap;
-                background: transparent;
-                padding: 0;
-                box-shadow: none;
-                border: none;
-            }
-            .search-box input {
-                background: var(--bg-input);
-                border-radius: var(--radius-input);
-                padding: 16px 20px;
-                border: 1px solid var(--border-light);
-            }
-            .search-box button {
-                width: 100%;
-                justify-content: center;
-                margin-top: 12px;
-            }
-            .search-box:focus-within {
-                box-shadow: none;
-            }
-            .grid {
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-                gap: 16px;
-            }
-            .product-card {
-                padding: 14px 12px 18px;
-            }
-            .section-title {
-                font-size: 1.6rem;
-            }
-        }
-        @media (max-width: 480px) {
-            .grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 12px;
-            }
-            .product-name {
-                font-size: 0.85rem;
-                min-height: 2.2rem;
-            }
-            .product-price {
-                font-size: 1.1rem;
-            }
-            .order-btn {
-                font-size: 0.8rem;
-                padding: 12px 0;
-            }
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            .hero p {
-                font-size: 1rem;
-            }
-            .logo h1 {
-                font-size: 1.7rem;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- ============================================================
-    TOP MARQUEE
-    ============================================================ -->
-    <div class="top-marquee">
-        <div class="marquee-track">
-            <span><i class="fas fa-bolt"></i> सुपरफास्ट फैक्ट्री डिलीवरी</span>
-            <span><i class="fas fa-tag"></i> बल्क ऑर्डर पर 5% छूट</span>
-            <span><i class="fas fa-truck"></i> 100% असली केमिकल</span>
-            <span><i class="fas fa-shield-alt"></i> प्रीमियम क्वालिटी</span>
-            <span><i class="fas fa-star"></i> 2000+ खुश ग्राहक</span>
-            <span><i class="fas fa-recycle"></i> इको-फ्रेंडली</span>
-            <span><i class="fas fa-bolt"></i> सुपरफास्ट फैक्ट्री डिलीवरी</span>
-            <span><i class="fas fa-tag"></i> बल्क ऑर्डर पर 5% छूट</span>
-            <span><i class="fas fa-truck"></i> 100% असली केमिकल</span>
-            <span><i class="fas fa-shield-alt"></i> प्रीमियम क्वालिटी</span>
-            <span><i class="fas fa-star"></i> 2000+ खुश ग्राहक</span>
-            <span><i class="fas fa-recycle"></i> इको-फ्रेंडली</span>
-            <span><i class="fas fa-bolt"></i> सुपरफास्ट फैक्ट्री डिलीवरी</span>
-            <span><i class="fas fa-tag"></i> बल्क ऑर्डर पर 5% छूट</span>
-        </div>
-    </div>
-
-    <!-- ============================================================
-    HEADER
-    ============================================================ -->
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <h1>HARSHIT <span style="-webkit-text-fill-color: var(--gold);">CHEM</span></h1>
-                <small>🧹 हाउसकीपिंग · केमिकल स्टोर</small>
-            </div>
-            <div class="header-actions">
-                <button class="share-btn" id="shareWebsiteBtn">
-                    <i class="fab fa-whatsapp"></i> शेयर करें
-                </button>
-                <div class="cart-icon" id="cartIcon">
-                    <i class="fas fa-shopping-bag"></i>
-                    <span class="badge" id="cartCount">0</span>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- ============================================================
-    HERO BANNER
-    ============================================================ -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-trophy"></i> इंडस्ट्री लीडर
-                </div>
-                <h2>घरेलू &amp; इंडस्ट्रियल <span>क्लीनिंग</span> सॉल्यूशंस</h2>
-                <p>प्रीमियम क्वालिटी, फैक्ट्री कीमत। 50+ प्रोडक्ट्स, एक क्लिक में ऑर्डर करें।</p>
-                <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="खोजें ... फिनाइल, बाल्टी, मॉप, क्लीनर ..." />
-                    <button id="searchBtn"><i class="fas fa-search"></i> खोजें</button>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat"><i class="fas fa-box"></i> <strong>50+</strong> प्रोडक्ट्स</div>
-                    <div class="stat"><i class="fas fa-truck"></i> <strong>सुपरफास्ट</strong> डिलीवरी</div>
-                    <div class="stat"><i class="fas fa-star"></i> <strong>2000+</strong> खुश ग्राहक</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-    PRODUCT SECTION
-    ============================================================ -->
-    <section class="product-section">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-title">
-                    <i class="fas fa-cubes"></i> हमारे सभी प्रोडक्ट्स
-                </div>
-                <div class="section-filter">
-                    <span class="filter-chip active" data-filter="all">सभी</span>
-                    <span class="filter-chip" data-filter="housekeeping">हाउसकीपिंग</span>
-                    <span class="filter-chip" data-filter="chemical">केमिकल</span>
-                    <span class="filter-chip" data-filter="tools">उपकरण</span>
-                </div>
-            </div>
-            <div class="grid" id="productGrid"></div>
-        </div>
-    </section>
-
-```
-
----
-
-Harshit Chemical · प्रीमियम ई-कॉमर्स वेब-ऐप (भाग 2/5)
-
-```html
-    <!-- ============================================================
-    FOOTER WITH MAP
-    ============================================================ -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <!-- Left Column: Map & Contact -->
-                <div class="footer-col">
-                    <h3><i class="fas fa-map-pin"></i> फैक्ट्री लोकेशन</h3>
-                    <div class="map-container">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.072187853231!2d75.85747267547292!3d26.86251417670175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db3fa8d6e6b6b%3A0x3f3e8f2e3b7b3b3b!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1712345678901" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
-                    <div class="contact-info">
-                        <p><i class="fas fa-phone-alt"></i> +91 98765 43210</p>
-                        <p><i class="fas fa-envelope"></i> info@harshitchemical.com</p>
-                        <p><i class="fas fa-clock"></i> सोम-शनि: 9:00 AM – 7:00 PM</p>
-                    </div>
-                </div>
-                <!-- Right Column: Payment & Info -->
-                <div class="footer-col">
-                    <h3><i class="fas fa-credit-card"></i> पेमेंट मोड्स</h3>
-                    <div class="payment-methods">
-                        <span><i class="fas fa-qrcode"></i> UPI QR</span>
-                        <span><i class="fas fa-university"></i> नेट बैंकिंग</span>
-                        <span><i class="fas fa-money-bill-wave"></i> COD</span>
-                        <span><i class="fas fa-credit-card"></i> क्रेडिट/डेबिट</span>
-                    </div>
-                    <div class="footer-about">
-                        <h4>हमारे बारे में</h4>
-                        <p>Harshit Chemical Industry भारत का एक प्रीमियम हाउसकीपिंग और केमिकल सप्लायर है। हम 2010 से गुणवत्ता और विश्वसनीयता के लिए जाने जाते हैं।</p>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2026 Harshit Chemical Industry · प्रीमियम हाउसकीपिंग स्टोर</p>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- ============================================================
-    CART SIDEBAR (OVERLAY)
-    ============================================================ -->
-    <div class="cart-overlay" id="cartOverlay">
-        <div class="cart-panel">
-            <div class="cart-header">
-                <span><i class="fas fa-shopping-bag"></i> आपका कार्ट</span>
-                <button class="cart-close" id="cartClose">&times;</button>
-            </div>
-            <div class="cart-items" id="cartItems">
-                <div class="cart-empty">
-                    <i class="fas fa-cart-plus" style="font-size:2.5rem; color:var(--text-muted); margin-bottom:12px;"></i>
-                    <br>कार्ट खाली है ।<br> प्रोडक्ट्स जोड़ें ।
-                </div>
-            </div>
-            <div class="payment-options">
-                <span><i class="fas fa-qrcode"></i> UPI</span>
-                <span><i class="fas fa-university"></i> नेट</span>
-                <span><i class="fas fa-money-bill-wave"></i> COD</span>
-            </div>
-            <div class="cart-total">
-                <span>कुल राशि</span>
-                <span id="cartTotalPrice">₹0</span>
-            </div>
-            <button class="whatsapp-order-btn" id="whatsappOrderBtn">
-                <i class="fab fa-whatsapp"></i> व्हाट्सएप पर ऑर्डर भेजें
-            </button>
-            <p class="cart-note"><i class="fas fa-info-circle"></i> ऑर्डर भेजने के बाद हम आपसे संपर्क करेंगे।</p>
-        </div>
-    </div>
-
-    <!-- ============================================================
-    JAVASCRIPT — PART 1: DATA & UTILITY FUNCTIONS
-    ============================================================ -->
-    <script>
-        // ================================================================
-        // 🧪 PRODUCT DATA — सभी 50+ प्रोडक्ट्स की लिस्ट
-        // ================================================================
-        const PRODUCTS = [{
-            id: 1,
-            name: '21 इंच फ्लोर वाइपर',
-            price: 185,
-            unit: 'Pc',
-            category: 'tools',
-            img: '21-inch-floor-wiper.jpg'
-        }, {
-            id: 2,
-            name: 'मल्टीपर्पस बाल्टी ड्रम',
-            price: 320,
-            unit: 'Pc',
-            category: 'tools',
-            img: 'Multipurpose_plastic_storage_bucket_drum.jpg'
-        }, {
-            id: 3,
-            name: 'बाथरूम क्लीनर',
-            price: 70,
-            unit: 'Ltr',
-            category: 'chemical',
-            img: 'bathroom_cleaner.jpg'
-        }, {
-            id: 4,
-            name: 'ब्लैक हिट',
-            price: 55,
-            unit: 'Pc',
-            category: 'housekeeping',
-            img: 'black_hit.jpg'
-        }, {
-            id: 5,
-            name: 'ब्लैक फिनाइल 5L',
-            price: 210,
-            unit: 'Ltr',
-            category: 'chemical',
-            img: 'black_phenyl_5_litre.jpg'
-        }, {
-            id: 6,
-            name: 'ब्लू मॉप (बड़ा)',
-            price: 160,
-            unit: 'Pc',
-            category: 'housekeeping',
-            img: 'blue_mop_bigsize.jpg'
-        }, {
-            id: 7,
-            name: 'बोतल ब्रश',
-            price: 45,
-            unit: 'Pc',
-            category: 'tools',
-            img: 'botal_brush.jpg'
-        }, {
-            id: 8,
-            name: 'झाड़ू',
-            price: 55,
-            unit: 'Pc',
-            category: 'housekeeping',
-            img: 'broom.jpg'
-        }, {
-            id: 9,
-            name: 'प्लास्टिक बाल्टी',
-            price: 140,
-            unit: 'Pc',
-            category: 'tools',
-            img: 'bucket.jpg'
-        }, {
-            id: 10,
-            name: 'कार/बाइक शैम्पू',
-            price: 95,
-            unit: 'Ltr',
-            category: 'chemical',
-            img: 'car_bike_shampoo.jpg'
-        }, {
-            id: 11,
-            name: 'कार्पेट शैम्पू',
-            price: 120,
-            unit: 'Ltr',
-            category: 'chemical',
-            img: 'carpet_shampoo.jpg'
-        }, {
-            id: 12,
-            name: 'डिश वॉश',
-            price: 50,
-            unit: 'Ltr',
-            category: 'chemical',
-            img: 'dish_wash.jpg'
-        }, {
-            id: 13,
-            name: 'डिशवॉश 5L',
-            price: 220,
-            unit: 'Ltr',
-            category: 'chemical',
-            img: 'dishwash_Sliter.jpg'
-        }, {
-            id: 14,
-            name: 'डस्ट क्लॉथ',
-            price: 30,
-            unit: 'Pc',
-            category: 'housekeeping',
-            img: 'dust_cloth.jpg'
-        }, {
-            id: 15,
-            name: 'डस्ट पैन',
-            price: 65,
-            unit: 'Pc',
-            category: 'tools',
-            img: 'dust_pan.jpg'
-        }, {
-            id: 16,
-            name: 'डस्टबिन (बड़ा)',
-            price: 280,
-            unit: 'Pc',
-            category: 'tools',
-            img: 'dustbin_large.jpg'
-        }, {
-            id: 17,
-            name: 'डस्टबिन (छोटा)',
-            price: 140,
-            unit: 'Pc',
-            category: 'tools',
-            img: 'dustbin_small.jpg'
-        }, {
-            id:
-        
-
-```html
-    /* ============================================================
-    PART 4: ADDITIONAL CSS STYLES
-    - Cart Panel refinements
-    - Footer enhancements
-    - Responsive fine-tuning
-    - Animations & micro-interactions
-    - Premium visual touches
-    ============================================================ */
-
-        /* ---------- CART PANEL ENHANCEMENTS ---------- */
-        .cart-panel {
-            background: var(--bg-panel);
-            width: 440px;
-            max-width: 94%;
-            height: 100%;
-            padding: 28px 24px 24px;
-            overflow-y: auto;
-            border-left: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            box-shadow: -8px 0 40px rgba(0, 0, 0, 0.6);
-            animation: slideInRight 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        @keyframes slideInRight {
-            0% { transform: translateX(100%); opacity: 0; }
-            100% { transform: translateX(0); opacity: 1; }
-        }
-        .cart-overlay.open .cart-panel {
-            animation: slideInRight 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 1.4rem;
-            font-weight: 700;
-            padding-bottom: 18px;
-            border-bottom: 1px solid #29303d;
-        }
-        .cart-header span i {
-            color: var(--gold);
-            margin-right: 10px;
-        }
-        .cart-close {
-            background: rgba(255,255,255,0.05);
-            border: none;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            font-size: 1.8rem;
-            color: #b0bacd;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .cart-close:hover {
-            background: rgba(255, 77, 77, 0.15);
-            color: #fff;
-            transform: rotate(90deg);
-        }
-        .cart-items {
-            flex: 1;
-            margin: 16px 0 12px;
-            overflow-y: auto;
-            padding-right: 4px;
-        }
-        .cart-items::-webkit-scrollbar {
-            width: 3px;
-        }
-        .cart-items::-webkit-scrollbar-thumb {
-            background: var(--gold);
-            border-radius: 10px;
-        }
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 14px 0;
-            border-bottom: 1px solid #242b38;
-            gap: 10px;
-            animation: fadeInUp 0.25s ease;
-        }
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(10px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        .cart-item-info {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            min-width: 0;
-        }
-        .cart-item-name {
-            font-weight: 600;
-            font-size: 0.95rem;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .cart-item-price {
-            color: var(--gold);
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        .cart-qty {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-shrink: 0;
-        }
-        .cart-qty button {
-            background: #2a3342;
-            border: none;
-            color: #fff;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .cart-qty button:hover {
-            background: var(--gold);
-            color: #0b0d10;
-        }
-        .cart-qty button[data-action="remove"] {
-            background: transparent;
-            color: #6b768a;
-            width: 28px;
-            font-size: 1rem;
-        }
-        .cart-qty button[data-action="remove"]:hover {
-            color: #ff4d4d;
-            background: rgba(255, 77, 77, 0.1);
-        }
-        .cart-qty span {
-            min-width: 28px;
-            text-align: center;
-            font-weight: 600;
-        }
-        .cart-total {
-            border-top: 2px solid #29303d;
-            padding: 18px 0 14px;
-            font-size: 1.5rem;
-            font-weight: 700;
-            display: flex;
-            justify-content: space-between;
-            color: var(--text-primary);
-        }
-        .cart-total span:last-child {
-            color: var(--gold);
-        }
-        .payment-options {
-            background: #1f2733;
-            padding: 14px 16px;
-            border-radius: 20px;
-            margin: 8px 0 12px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            align-items: center;
-            justify-content: center;
-        }
-        .payment-options span {
-            background: #2c3544;
-            padding: 6px 16px;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-secondary);
-            transition: var(--transition-smooth);
-        }
-        .payment-options span:hover {
-            background: #384252;
-            color: var(--text-primary);
-        }
-        .payment-options i {
-            color: var(--gold);
-        }
-        .whatsapp-order-btn {
-            background: var(--whatsapp);
-            border: none;
+            background: #f0f4f8;
             padding: 16px;
-            border-radius: var(--radius-btn);
+            padding-bottom: 80px;
+        }
+
+        /* ऐप हेडर */
+        .app-header {
+            background: linear-gradient(135deg, #1a3a5c, #2a5f7a);
+            color: white;
+            padding: 20px 16px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(26, 58, 92, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .app-header h1 {
+            font-size: 22px;
             font-weight: 700;
-            font-size: 1.1rem;
-            color: #0b0d10;
+            letter-spacing: 0.5px;
+        }
+
+        .app-header p {
+            font-size: 13px;
+            opacity: 0.85;
+            margin-top: 4px;
+        }
+
+        /* भाषा चयनकर्ता */
+        .lang-toggle {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 14px;
+            gap: 10px;
+            margin-top: 12px;
+            background: rgba(255,255,255,0.15);
+            padding: 6px;
+            border-radius: 30px;
+            width: fit-content;
+        }
+
+        .lang-btn {
+            padding: 6px 18px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 13px;
             cursor: pointer;
-            transition: var(--transition-smooth);
-            margin: 4px 0 8px;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.25);
+            transition: all 0.3s;
+            background: transparent;
+            color: white;
         }
-        .whatsapp-order-btn:hover {
-            background: #2ee07a;
-            transform: scale(1.02);
-            box-shadow: 0 6px 28px rgba(37, 211, 102, 0.35);
+
+        .lang-btn.active {
+            background: white;
+            color: #1a3a5c;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
-        .whatsapp-order-btn:active {
+
+        /* प्रोडक्ट कार्ड */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 18px;
+            padding: 16px 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            transition: all 0.2s;
+            border: 1px solid rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:active {
             transform: scale(0.97);
         }
-        .cart-note {
-            text-align: center;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-top: 6px;
-        }
-        .cart-note i {
-            color: var(--gold);
-            margin-right: 4px;
-        }
-        .cart-empty {
-            text-align: center;
-            color: var(--text-muted);
-            padding: 50px 0;
-            font-size: 1.1rem;
-            line-height: 2;
-        }
-        .cart-empty i {
-            color: var(--gold);
-            opacity: 0.4;
-        }
 
-        /* ---------- FOOTER ENHANCEMENTS ---------- */
-        .footer {
-            background: #0c1017;
-            padding: 48px 0 20px;
-            margin-top: 48px;
-            border-top: 1px solid #1f2632;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 48px;
-        }
-        .footer-col h3 {
-            margin-bottom: 16px;
-            font-weight: 700;
-            color: var(--gold);
-            font-size: 1.2rem;
-        }
-        .footer-col h3 i {
-            margin-right: 10px;
-        }
-        .map-container {
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1px solid #2a313f;
-            height: 200px;
-            transition: var(--transition-smooth);
-        }
-        .map-container:hover {
-            border-color: var(--gold);
-            box-shadow: 0 0 30px rgba(245, 179, 66, 0.05);
-        }
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            filter: invert(0.9) hue-rotate(180deg) brightness(0.9);
-        }
-        .contact-info {
-            color: #b0bacd;
-            margin-top: 14px;
-            line-height: 2;
-            font-size: 0.95rem;
-        }
-        .contact-info i {
-            width: 28px;
-            color: var(--gold);
-        }
-        .payment-methods {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin: 12px 0 24px;
-        }
-        .payment-methods span {
-            background: #1f2733;
-            padding: 10px 20px;
-            border-radius: 40px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            border: 1px solid #2a313f;
-            transition: var(--transition-smooth);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .payment-methods span:hover {
-            border-color: var(--gold);
-            color: var(--text-primary);
-        }
-        .payment-methods span i {
-            color: var(--gold);
-        }
-        .footer-about h4 {
-            color: var(--text-primary);
-            font-size: 1rem;
+        .product-icon {
+            font-size: 32px;
+            text-align: center;
             margin-bottom: 8px;
         }
-        .footer-about p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            line-height: 1.8;
-            max-width: 400px;
+
+        .product-name {
+            font-weight: 700;
+            font-size: 15px;
+            color: #1a2a3a;
+            line-height: 1.3;
+            min-height: 40px;
         }
-        .footer-bottom {
+
+        .product-desc {
+            font-size: 12px;
+            color: #5a6a7a;
+            margin: 6px 0 10px;
+            line-height: 1.4;
+            flex-grow: 1;
+        }
+
+        .product-price {
+            font-weight: 700;
+            color: #1a5c3a;
+            font-size: 16px;
+            margin-top: 4px;
+        }
+
+        .add-btn {
+            background: #1a3a5c;
+            color: white;
+            border: none;
+            padding: 8px 0;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 13px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: background 0.2s;
+            width: 100%;
+        }
+
+        .add-btn:active {
+            background: #0f2a44;
+        }
+
+        /* कार्ट बॉटम शीट - ऐप जैसा */
+        .cart-bottom {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 16px 20px;
+            box-shadow: 0 -6px 25px rgba(0,0,0,0.12);
+            border-radius: 24px 24px 0 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-            border-top: 1px solid #1b212c;
-            padding-top: 22px;
-            margin-top: 28px;
-            color: #677080;
-            font-size: 0.9rem;
+            z-index: 200;
+            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.92);
         }
-        .footer-social {
+
+        .cart-info {
             display: flex;
-            gap: 16px;
-        }
-        .footer-social a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #1a212a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            transition: var(--transition-smooth);
-            border: 1px solid #2a313f;
-        }
-        .footer-social a:hover {
-            background: var(--gold);
-            color: #0b0d10;
-            border-color: var(--gold);
-            transform: translateY(-2px);
+            flex-direction: column;
         }
 
-        /* ---------- RESPONSIVE FINE-TUNING ---------- */
-        @media (max-width: 992px) {
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-            .cart-panel {
-                width: 100%;
-                max-width: 100%;
-                border-left: none;
-                border-radius: 0;
-            }
-        }
-        @media (max-width: 768px) {
-            .footer {
-                padding: 32px 0 16px;
-            }
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-            .payment-methods {
-                justify-content: center;
-            }
-            .cart-panel {
-                padding: 20px 16px;
-            }
-            .cart-header {
-                font-size: 1.2rem;
-            }
-            .cart-item {
-                padding: 12px 0;
-            }
-            .cart-item-name {
-                font-size: 0.85rem;
-            }
-            .cart-total {
-                font-size: 1.2rem;
-            }
-            .whatsapp-order-btn {
-                font-size: 0.95rem;
-                padding: 14px;
-            }
-        }
-        @media (max-width: 480px) {
-            .cart-panel {
-                padding: 16px 12px;
-            }
-            .cart-qty button {
-                width: 28px;
-                height: 28px;
-                font-size: 0.9rem;
-            }
-            .payment-options {
-                padding: 10px 12px;
-                gap: 6px;
-            }
-            .payment-options span {
-                padding: 4px 12px;
-                font-size: 0.7rem;
-            }
-            .cart-total {
-                font-size: 1.1rem;
-                padding: 14px 0 10px;
-            }
+        .cart-count {
+            font-weight: 700;
+            color: #1a3a5c;
+            font-size: 16px;
         }
 
-        /* ---------- PREMIUM VISUAL TOUCHES ---------- */
-        /* Glow effect on gold elements */
-        .gold-glow {
-            box-shadow: 0 0 30px rgba(245, 179, 66, 0.08);
-        }
-        /* Smooth image loading transition */
-        .product-img img {
-            transition: opacity 0.4s ease, transform 0.4s ease;
-        }
-        .product-img img[loading] {
-            opacity: 0.6;
-        }
-        .product-img img:not([loading]) {
-            opacity: 1;
-        }
-        /* Scroll indicator on cart */
-        .cart-items::after {
-            content: '';
-            position: sticky;
-            bottom: 0;
-            display: block;
-            height: 20px;
-            background: linear-gradient(transparent, var(--bg-panel));
-            pointer-events: none;
-        }
-        /* Custom selection color */
-        ::selection {
-            background: var(--gold);
-            color: #0b0d10;
-        }
-        /* Focus outline for accessibility */
-        button:focus-visible,
-        input:focus-visible {
-            outline: 2px solid var(--gold);
-            outline-offset: 2px;
-        }
-        /* Toast notification style (optional) */
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--bg-card);
-            border: 1px solid var(--gold);
-            color: var(--text-primary);
-            padding: 14px 28px;
-            border-radius: 50px;
-            font-weight: 600;
-            box-shadow: var(--shadow-heavy);
-            z-index: 1000;
-            animation: slideUp 0.4s ease;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .toast i {
-            color: var(--gold);
-        }
-        @keyframes slideUp {
-            0% { opacity: 0; transform: translateX(-50%) translateY(30px); }
-            100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+        .cart-total {
+            font-size: 13px;
+            color: #5a6a7a;
         }
 
-        /* ---------- LOADING SHIMMER FOR PRODUCT CARDS ---------- */
-        .shimmer-card {
-            background: var(--bg-card);
-            border-radius: var(--radius-card);
-            padding: 20px 18px 24px;
-            border: 1px solid var(--border-color);
-        }
-        .shimmer-img {
-            width: 100%;
-            aspect-ratio: 1/1;
-            background: linear-gradient(90deg, #1f2733 25%, #2a3342 50%, #1f2733 75%);
-            background-size: 200% 100%;
-            border-radius: 20px;
-            animation: shimmer 1.8s infinite;
-            margin-bottom: 14px;
-        }
-        .shimmer-line {
-            height: 14px;
-            background: linear-gradient(90deg, #1f2733 25%, #2a3342 50%, #1f2733 75%);
-            background-size: 200% 100%;
-            border-radius: 8px;
-            animation: shimmer 1.8s infinite;
-            margin-bottom: 8px;
-        }
-        .shimmer-line.short {
-            width: 60%;
-        }
-        .shimmer-line.medium {
-            width: 80%;
-        }
-        @keyframes shimmer {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-
-        /* ---------- SCROLL TO TOP BUTTON (optional) ---------- */
-        .scroll-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--gold);
-            color: #0b0d10;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+        .view-cart-btn {
+            background: #1a3a5c;
+            color: white;
             border: none;
-            font-size: 1.4rem;
+            padding: 10px 28px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 14px;
             cursor: pointer;
-            box-shadow: 0 4px 20px rgba(245, 179, 66, 0.3);
-            transition: var(--transition-smooth);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-            z-index: 90;
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(26, 58, 92, 0.3);
         }
-        .scroll-top.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        .scroll-top:hover {
-            background: var(--gold-light);
-            transform: translateY(-3px) scale(1.05);
-        }
-        .scroll-top:active {
+
+        .view-cart-btn:active {
             transform: scale(0.95);
         }
 
-        /* ---------- BADGE PULSE ANIMATION ---------- */
-        .badge.pulse {
-            animation: pulse 0.5s ease;
+        /* पॉपअप कार्ट */
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            z-index: 300;
+            justify-content: center;
+            align-items: flex-end;
+            padding: 20px;
         }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.4); }
-            100% { transform: scale(1); }
-        }
-    </style>
-</head>
-<body>
-Harshit Chemical · प्रीमियम ई-कॉमर्स वेब-ऐप (भाग 4/5)
 
-```html
-    /* ============================================================
-    PART 4: ADDITIONAL CSS STYLES
-    - Cart Panel refinements
-    - Footer enhancements
-    - Responsive fine-tuning
-    - Animations & micro-interactions
-    - Premium visual touches
-    ============================================================ */
-
-        /* ---------- CART PANEL ENHANCEMENTS ---------- */
-        .cart-panel {
-            background: var(--bg-panel);
-            width: 440px;
-            max-width: 94%;
-            height: 100%;
-            padding: 28px 24px 24px;
-            overflow-y: auto;
-            border-left: 1px solid var(--border-color);
+        .cart-modal.open {
             display: flex;
-            flex-direction: column;
-            box-shadow: -8px 0 40px rgba(0, 0, 0, 0.6);
-            animation: slideInRight 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        @keyframes slideInRight {
-            0% { transform: translateX(100%); opacity: 0; }
-            100% { transform: translateX(0); opacity: 1; }
+
+        .cart-modal-content {
+            background: white;
+            width: 100%;
+            max-width: 400px;
+            max-height: 70vh;
+            border-radius: 28px 28px 0 0;
+            padding: 24px 20px 20px;
+            overflow-y: auto;
+            animation: slideUp 0.3s ease;
         }
-        .cart-overlay.open .cart-panel {
-            animation: slideInRight 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+        @keyframes slideUp {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
-        .cart-header {
+
+        .cart-modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 1.4rem;
-            font-weight: 700;
-            padding-bottom: 18px;
-            border-bottom: 1px solid #29303d;
+            margin-bottom: 16px;
         }
-        .cart-header span i {
-            color: var(--gold);
-            margin-right: 10px;
+
+        .cart-modal-header h3 {
+            font-size: 20px;
+            color: #1a2a3a;
         }
-        .cart-close {
-            background: rgba(255,255,255,0.05);
+
+        .close-cart {
+            background: #f0f2f5;
             border: none;
-            width: 44px;
-            height: 44px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
-            font-size: 1.8rem;
-            color: #b0bacd;
+            font-size: 20px;
             cursor: pointer;
-            transition: var(--transition-smooth);
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
-        .cart-close:hover {
-            background: rgba(255, 77, 77, 0.15);
-            color: #fff;
-            transform: rotate(90deg);
-        }
-        .cart-items {
-            flex: 1;
-            margin: 16px 0 12px;
-            overflow-y: auto;
-            padding-right: 4px;
-        }
-        .cart-items::-webkit-scrollbar {
-            width: 3px;
-        }
-        .cart-items::-webkit-scrollbar-thumb {
-            background: var(--gold);
-            border-radius: 10px;
-        }
+
         .cart-item {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 14px 0;
-            border-bottom: 1px solid #242b38;
-            gap: 10px;
-            animation: fadeInUp 0.25s ease;
-        }
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(10px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        .cart-item-info {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            min-width: 0;
-        }
-        .cart-item-name {
-            font-weight: 600;
-            font-size: 0.95rem;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .cart-item-price {
-            color: var(--gold);
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        .cart-qty {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-shrink: 0;
-        }
-        .cart-qty button {
-            background: #2a3342;
-            border: none;
-            color: #fff;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .cart-qty button:hover {
-            background: var(--gold);
-            color: #0b0d10;
-        }
-        .cart-qty button[data-action="remove"] {
-            background: transparent;
-            color: #6b768a;
-            width: 28px;
-            font-size: 1rem;
-        }
-        .cart-qty button[data-action="remove"]:hover {
-            color: #ff4d4d;
-            background: rgba(255, 77, 77, 0.1);
-        }
-        .cart-qty span {
-            min-width: 28px;
-            text-align: center;
-            font-weight: 600;
-        }
-        .cart-total {
-            border-top: 2px solid #29303d;
-            padding: 18px 0 14px;
-            font-size: 1.5rem;
-            font-weight: 700;
-            display: flex;
-            justify-content: space-between;
-            color: var(--text-primary);
-        }
-        .cart-total span:last-child {
-            color: var(--gold);
-        }
-        .payment-options {
-            background: #1f2733;
-            padding: 14px 16px;
-            border-radius: 20px;
-            margin: 8px 0 12px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            align-items: center;
-            justify-content: center;
-        }
-        .payment-options span {
-            background: #2c3544;
-            padding: 6px 16px;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-secondary);
-            transition: var(--transition-smooth);
-        }
-        .payment-options span:hover {
-            background: #384252;
-            color: var(--text-primary);
-        }
-        .payment-options i {
-            color: var(--gold);
-        }
-        .whatsapp-order-btn {
-            background: var(--whatsapp);
-            border: none;
-            padding: 16px;
-            border-radius: var(--radius-btn);
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: #0b0d10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 14px;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            margin: 4px 0 8px;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.25);
-        }
-        .whatsapp-order-btn:hover {
-            background: #2ee07a;
-            transform: scale(1.02);
-            box-shadow: 0 6px 28px rgba(37, 211, 102, 0.35);
-        }
-        .whatsapp-order-btn:active {
-            transform: scale(0.97);
-        }
-        .cart-note {
-            text-align: center;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-top: 6px;
-        }
-        .cart-note i {
-            color: var(--gold);
-            margin-right: 4px;
-        }
-        .cart-empty {
-            text-align: center;
-            color: var(--text-muted);
-            padding: 50px 0;
-            font-size: 1.1rem;
-            line-height: 2;
-        }
-        .cart-empty i {
-            color: var(--gold);
-            opacity: 0.4;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
         }
 
-        /* ---------- FOOTER ENHANCEMENTS ---------- */
-        .footer {
-            background: #0c1017;
-            padding: 48px 0 20px;
-            margin-top: 48px;
-            border-top: 1px solid #1f2632;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 48px;
-        }
-        .footer-col h3 {
-            margin-bottom: 16px;
-            font-weight: 700;
-            color: var(--gold);
-            font-size: 1.2rem;
-        }
-        .footer-col h3 i {
-            margin-right: 10px;
-        }
-        .map-container {
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1px solid #2a313f;
-            height: 200px;
-            transition: var(--transition-smooth);
-        }
-        .map-container:hover {
-            border-color: var(--gold);
-            box-shadow: 0 0 30px rgba(245, 179, 66, 0.05);
-        }
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            filter: invert(0.9) hue-rotate(180deg) brightness(0.9);
-        }
-        .contact-info {
-            color: #b0bacd;
-            margin-top: 14px;
-            line-height: 2;
-            font-size: 0.95rem;
-        }
-        .contact-info i {
-            width: 28px;
-            color: var(--gold);
-        }
-        .payment-methods {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin: 12px 0 24px;
-        }
-        .payment-methods span {
-            background: #1f2733;
-            padding: 10px 20px;
-            border-radius: 40px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            border: 1px solid #2a313f;
-            transition: var(--transition-smooth);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .payment-methods span:hover {
-            border-color: var(--gold);
-            color: var(--text-primary);
-        }
-        .payment-methods span i {
-            color: var(--gold);
-        }
-        .footer-about h4 {
-            color: var(--text-primary);
-            font-size: 1rem;
-            margin-bottom: 8px;
-        }
-        .footer-about p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            line-height: 1.8;
-            max-width: 400px;
-        }
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-            border-top: 1px solid #1b212c;
-            padding-top: 22px;
-            margin-top: 28px;
-            color: #677080;
-            font-size: 0.9rem;
-        }
-        .footer-social {
-            display: flex;
-            gap: 16px;
-        }
-        .footer-social a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #1a212a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            transition: var(--transition-smooth);
-            border: 1px solid #2a313f;
-        }
-        .footer-social a:hover {
-            background: var(--gold);
-            color: #0b0d10;
-            border-color: var(--gold);
-            transform: translateY(-2px);
+        .cart-item-name { font-weight: 500; }
+        .cart-item-price { font-weight: 600; color: #1a5c3a; }
+
+        .empty-cart { text-align: center; padding: 30px 0; color: #8a9aaa; }
+
+        /* ऐप स्टाइल */
+        .app-badge {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #8a9aaa;
+            letter-spacing: 0.3px;
         }
 
-        /* ---------- RESPONSIVE FINE-TUNING ---------- */
-        @media (max-width: 992px) {
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-            .cart-panel {
-                width: 100%;
-                max-width: 100%;
-                border-left: none;
-                border-radius: 0;
-            }
-        }
-        @media (max-width: 768px) {
-            .footer {
-                padding: 32px 0 16px;
-            }
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-            .payment-methods {
-                justify-content: center;
-            }
-            .cart-panel {
-                padding: 20px 16px;
-            }
-            .cart-header {
-                font-size: 1.2rem;
-            }
-            .cart-item {
-                padding: 12px 0;
-            }
-            .cart-item-name {
-                font-size: 0.85rem;
-            }
-            .cart-total {
-                font-size: 1.2rem;
-            }
-            .whatsapp-order-btn {
-                font-size: 0.95rem;
-                padding: 14px;
-            }
-        }
         @media (max-width: 480px) {
-            .cart-panel {
-                padding: 16px 12px;
-            }
-            .cart-qty button {
-                width: 28px;
-                height: 28px;
-                font-size: 0.9rem;
-            }
-            .payment-options {
-                padding: 10px 12px;
-                gap: 6px;
-            }
-            .payment-options span {
-                padding: 4px 12px;
-                font-size: 0.7rem;
-            }
-            .cart-total {
-                font-size: 1.1rem;
-                padding: 14px 0 10px;
-            }
-        }
-
-        /* ---------- PREMIUM VISUAL TOUCHES ---------- */
-        /* Glow effect on gold elements */
-        .gold-glow {
-            box-shadow: 0 0 30px rgba(245, 179, 66, 0.08);
-        }
-        /* Smooth image loading transition */
-        .product-img img {
-            transition: opacity 0.4s ease, transform 0.4s ease;
-        }
-        .product-img img[loading] {
-            opacity: 0.6;
-        }
-        .product-img img:not([loading]) {
-            opacity: 1;
-        }
-        /* Scroll indicator on cart */
-        .cart-items::after {
-            content: '';
-            position: sticky;
-            bottom: 0;
-            display: block;
-            height: 20px;
-            background: linear-gradient(transparent, var(--bg-panel));
-            pointer-events: none;
-        }
-        /* Custom selection color */
-        ::selection {
-            background: var(--gold);
-            color: #0b0d10;
-        }
-        /* Focus outline for accessibility */
-        button:focus-visible,
-        input:focus-visible {
-            outline: 2px solid var(--gold);
-            outline-offset: 2px;
-        }
-        /* Toast notification style (optional) */
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--bg-card);
-            border: 1px solid var(--gold);
-            color: var(--text-primary);
-            padding: 14px 28px;
-            border-radius: 50px;
-            font-weight: 600;
-            box-shadow: var(--shadow-heavy);
-            z-index: 1000;
-            animation: slideUp 0.4s ease;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .toast i {
-            color: var(--gold);
-        }
-        @keyframes slideUp {
-            0% { opacity: 0; transform: translateX(-50%) translateY(30px); }
-            100% { opacity: 1; transform: translateX(-50%) translateY(0); }
-        }
-
-        /* ---------- LOADING SHIMMER FOR PRODUCT CARDS ---------- */
-        .shimmer-card {
-            background: var(--bg-card);
-            border-radius: var(--radius-card);
-            padding: 20px 18px 24px;
-            border: 1px solid var(--border-color);
-        }
-        .shimmer-img {
-            width: 100%;
-            aspect-ratio: 1/1;
-            background: linear-gradient(90deg, #1f2733 25%, #2a3342 50%, #1f2733 75%);
-            background-size: 200% 100%;
-            border-radius: 20px;
-            animation: shimmer 1.8s infinite;
-            margin-bottom: 14px;
-        }
-        .shimmer-line {
-            height: 14px;
-            background: linear-gradient(90deg, #1f2733 25%, #2a3342 50%, #1f2733 75%);
-            background-size: 200% 100%;
-            border-radius: 8px;
-            animation: shimmer 1.8s infinite;
-            margin-bottom: 8px;
-        }
-        .shimmer-line.short {
-            width: 60%;
-        }
-        .shimmer-line.medium {
-            width: 80%;
-        }
-        @keyframes shimmer {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-
-        /* ---------- SCROLL TO TOP BUTTON (optional) ---------- */
-        .scroll-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--gold);
-            color: #0b0d10;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: none;
-            font-size: 1.4rem;
-            cursor: pointer;
-            box-shadow: 0 4px 20px rgba(245, 179, 66, 0.3);
-            transition: var(--transition-smooth);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-            z-index: 90;
-        }
-        .scroll-top.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        .scroll-top:hover {
-            background: var(--gold-light);
-            transform: translateY(-3px) scale(1.05);
-        }
-        .scroll-top:active {
-            transform: scale(0.95);
-        }
-
-        /* ---------- BADGE PULSE ANIMATION ---------- */
-        .badge.pulse {
-            animation: pulse 0.5s ease;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.4); }
-            100% { transform: scale(1); }
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+            .app-header h1 { font-size: 19px; }
         }
     </style>
 </head>
 <body>
-Harshit Chemical · प्रीमियम ई-कॉमर्स वेब-ऐप (भाग 5/5 - अंतिम)
 
-```html
-    <!-- ============================================================
-    PART 5: JAVASCRIPT ENHANCEMENTS
-    - Scroll to Top
-    - Toast notifications
-    - Badge pulse animation
-    - Auto-close cart on outside click
-    - Performance optimizations
-    - Cart persistence (localStorage)
-    - Keyboard shortcuts
-    ============================================================ -->
+    <!-- ऐप हेडर -->
+    <div class="app-header">
+        <h1>🧪 हर्षित केमिकल</h1>
+        <p>🏭 हाउसकीपिंग · इंडस्ट्रियल सॉल्यूशंस</p>
+        <div class="lang-toggle">
+            <button class="lang-btn active" data-lang="hi" onclick="setLanguage('hi')">🇮🇳 हिंदी</button>
+            <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">🇬🇧 English</button>
+        </div>
+    </div>
+
+    <!-- प्रोडक्ट ग्रिड -->
+    <div class="product-grid" id="productGrid"></div>
+
+    <!-- ऐप बैज -->
+    <div class="app-badge">📲 ऐप की तरह काम करता है · ऑफलाइन सपोर्ट</div>
+
+    <!-- कार्ट बॉटम बार -->
+    <div class="cart-bottom" id="cartBottom">
+        <div class="cart-info">
+            <span class="cart-count" id="cartCount">🛒 0 आइटम</span>
+            <span class="cart-total" id="cartTotal">कुल: ₹0</span>
+        </div>
+        <button class="view-cart-btn" onclick="openCart()">कार्ट देखें</button>
+    </div>
+
+    <!-- कार्ट मॉडल -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-modal-content">
+            <div class="cart-modal-header">
+                <h3>🛒 आपका कार्ट</h3>
+                <button class="close-cart" onclick="closeCart()">✕</button>
+            </div>
+            <div id="cartItemsList"></div>
+        </div>
+    </div>
+
     <script>
-        (function() {
-            'use strict';
+        // ---------- डेटा (हिंदी + अंग्रेजी) ----------
+        const productsData = [
+            { id: 1, icon: '🧹', name: { hi: 'फ्लोर क्लीनर', en: 'Floor Cleaner' }, desc: { hi: 'टाइल्स & संगमरमर के लिए', en: 'For tiles & marble' }, price: 199 },
+            { id: 2, icon: '🪟', name: { hi: 'ग्लास क्लीनर', en: 'Glass Cleaner' }, desc: { hi: 'खिड़कियाँ & शीशे', en: 'Windows & mirrors' }, price: 149 },
+            { id: 3, icon: '🚽', name: { hi: 'टॉयलेट क्लीनर', en: 'Toilet Cleaner' }, desc: { hi: 'जर्म्स & दुर्गंध हटाए', en: 'Removes germs & odor' }, price: 129 },
+            { id: 4, icon: '🧼', name: { hi: 'डिशवॉश लिक्विड', en: 'Dishwash Liquid' }, desc: { hi: 'तेल & चिकनाई हटाए', en: 'Cuts oil & grease' }, price: 99 },
+            { id: 5, icon: '🧴', name: { hi: 'हैंड वॉश', en: 'Hand Wash' }, desc: { hi: 'एंटी-बैक्टीरियल', en: 'Antibacterial' }, price: 79 },
+            { id: 6, icon: '🧽', name: { hi: 'स्क्रब पैड', en: 'Scrub Pad' }, desc: { hi: 'कड़े दागों के लिए', en: 'For tough stains' }, price: 49 },
+            { id: 7, icon: '🧺', name: { hi: 'लॉन्ड्री डिटर्जेंट', en: 'Laundry Detergent' }, desc: { hi: 'ताज़गी & सफ़ेदी', en: 'Freshness & whitening' }, price: 249 },
+            { id: 8, icon: '🪣', name: { hi: 'मॉप & बकेट', en: 'Mop & Bucket' }, desc: { hi: 'प्रीमियम क्वालिटी', en: 'Premium quality' }, price: 399 },
+            { id: 9, icon: '🧪', name: { hi: 'सैनिटाइज़र', en: 'Sanitizer' }, desc: { hi: '99.9% जर्म्स हटाए', en: 'Kills 99.9% germs' }, price: 89 },
+            { id: 10, icon: '🫧', name: { hi: 'बबल बाथ', en: 'Bubble Bath' }, desc: { hi: 'आराम & सुगंध', en: 'Relax & fragrance' }, price: 159 }
+        ];
 
-            // ================================================================
-            // 🔔 TOAST NOTIFICATION SYSTEM
-            // ================================================================
-            function showToast(message, icon = 'fa-check-circle') {
-                // Remove existing toast if any
-                const existing = document.querySelector('.toast');
-                if (existing) existing.remove();
+        let currentLang = 'hi';
+        let cart = [];
 
-                const toast = document.createElement('div');
-                toast.className = 'toast';
-                toast.innerHTML = `<i class="fas ${icon}"></i> ${message}`;
-                document.body.appendChild(toast);
+        // ---------- भाषा बदलना ----------
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+            renderProducts();
+            updateCartUI();
+        }
 
-                // Auto remove after 2.5 seconds
-                setTimeout(() => {
-                    toast.style.opacity = '0';
-                    toast.style.transform = 'translateX(-50%) translateY(20px)';
-                    toast.style.transition = '0.3s ease';
-                    setTimeout(() => toast.remove(), 300);
-                }, 2500);
+        // ---------- प्रोडक्ट रेंडर ----------
+        function renderProducts() {
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = '';
+            productsData.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <div class="product-icon">${p.icon}</div>
+                    <div class="product-name">${p.name[currentLang]}</div>
+                    <div class="product-desc">${p.desc[currentLang]}</div>
+                    <div class="product-price">₹${p.price}</div>
+                    <button class="add-btn" onclick="addToCart(${p.id})">+ कार्ट में डालें</button>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // ---------- कार्ट ----------
+        function addToCart(id) {
+            const product = productsData.find(p => p.id === id);
+            const existing = cart.find(item => item.id === id);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ ...product, qty: 1 });
             }
+            updateCartUI();
+            // छोटा हैप्टिक फीडबैक
+            const btn = event.target;
+            btn.style.background = '#2a7a5c';
+            setTimeout(() => btn.style.background = '#1a3a5c', 200);
+        }
 
-            // ================================================================
-            // 📦 CART PERSISTENCE (localStorage)
-            // ================================================================
-            function saveCart() {
-                try {
-                    localStorage.setItem('harshit_cart', JSON.stringify(cart));
-                } catch (e) {
-                    // ignore
-                }
-            }
-
-            function loadCart() {
-                try {
-                    const saved = localStorage.getItem('harshit_cart');
-                    if (saved) {
-                        const parsed = JSON.parse(saved);
-                        if (Array.isArray(parsed) && parsed.length > 0) {
-                            cart = parsed;
-                            updateCartUI();
-                            return true;
-                        }
-                    }
-                } catch (e) {
-                    // ignore
-                }
-                return false;
-            }
-
-            // Override cart update functions to save
-            const originalAddToCart = addToCart;
-            addToCart = function(id) {
-                originalAddToCart(id);
-                saveCart();
-                // Show toast
-                const product = PRODUCTS.find(p => p.id === id);
-                if (product) {
-                    showToast(`${product.name} कार्ट में जोड़ा गया!`, 'fa-plus-circle');
-                }
-                // Pulse badge
-                const badge = document.getElementById('cartCount');
-                badge.classList.remove('pulse');
-                void badge.offsetWidth; // trigger reflow
-                badge.classList.add('pulse');
-            };
-
-            const originalUpdateQty = updateQty;
-            updateQty = function(index, delta) {
-                originalUpdateQty(index, delta);
-                saveCart();
-            };
-
-            const originalRemoveFromCart = removeFromCart;
-            removeFromCart = function(index) {
-                const itemName = cart[index]?.name || 'प्रोडक्ट';
-                originalRemoveFromCart(index);
-                saveCart();
-                showToast(`${itemName} कार्ट से हटा दिया गया`, 'fa-trash-alt');
-            };
-
-            // ================================================================
-            // 🔼 SCROLL TO TOP BUTTON
-            // ================================================================
-            const scrollBtn = document.createElement('button');
-            scrollBtn.className = 'scroll-top';
-            scrollBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
-            scrollBtn.setAttribute('aria-label', 'Scroll to top');
-            document.body.appendChild(scrollBtn);
-
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 500) {
-                    scrollBtn.classList.add('visible');
+        function removeFromCart(id) {
+            const index = cart.findIndex(item => item.id === id);
+            if (index > -1) {
+                if (cart[index].qty > 1) {
+                    cart[index].qty -= 1;
                 } else {
-                    scrollBtn.classList.remove('visible');
+                    cart.splice(index, 1);
                 }
-            });
-
-            scrollBtn.addEventListener('click', function() {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-
-            // ================================================================
-            // ⌨️ KEYBOARD SHORTCUTS
-            // ================================================================
-            document.addEventListener('keydown', function(e) {
-                // Ctrl+Shift+C = Open Cart
-                if (e.ctrlKey && e.shiftKey && (e.key === 'c' || e.key === 'C')) {
-                    e.preventDefault();
-                    if (cartOverlay.classList.contains('open')) {
-                        closeCart();
-                    } else {
-                        openCart();
-                    }
-                }
-                // Ctrl+Shift+F = Focus Search
-                if (e.ctrlKey && e.shiftKey && (e.key === 'f' || e.key === 'F')) {
-                    e.preventDefault();
-                    searchInput.focus();
-                    searchInput.select();
-                }
-                // Escape = Close Cart (already handled)
-            });
-
-            // ================================================================
-            // 🖱️ AUTO-CLOSE CART ON OUTSIDE CLICK (already implemented)
-            // ================================================================
-
-            // ================================================================
-            // 🚀 LOAD CART FROM localStorage ON START
-            // ================================================================
-            const hasSavedCart = loadCart();
-
-            // If cart was loaded, update badge and total
-            if (hasSavedCart) {
-                const totalItems = getTotalItems();
-                document.getElementById('cartCount').textContent = totalItems;
-                if (totalItems > 0) {
-                    // Show a subtle notification
-                    setTimeout(() => {
-                        showToast(`🛒 ${totalItems} प्रोडक्ट्स कार्ट में हैं`, 'fa-shopping-bag');
-                    }, 1000);
-                }
+                updateCartUI();
+                renderCartItems();
             }
+        }
 
-            // ================================================================
-            // 📱 SHARE WITH CUSTOM MESSAGE (enhanced)
-            // ================================================================
-            const originalShare = shareWebsite;
-            shareWebsite = function() {
-                const url = encodeURIComponent(window.location.href);
-                const text = encodeURIComponent(
-                    '🧪 *Harshit Chemical Industry* — प्रीमियम हाउसकीपिंग केमिकल्स 🧹\n' +
-                    '🏭 50+ प्रोडक्ट्स | फैक्ट्री कीमत | सुपरफास्ट डिलीवरी\n' +
-                    '✨ अभी विजिट करें और ऑर्डर करें!\n\n' +
-                    '🔗 ' + window.location.href
-                );
-                window.open(`https://wa.me/?text=${text}`, '_blank');
-            };
-            // Re-attach event listener
-            document.getElementById('shareWebsiteBtn').addEventListener('click', shareWebsite);
+        function getTotalItems() {
+            return cart.reduce((sum, item) => sum + item.qty, 0);
+        }
 
-            // ================================================================
-            // 🧹 CLEAR CART (hidden feature: double-click on cart icon)
-            // ================================================================
-            let cartIconClickCount = 0;
-            let cartIconTimer = null;
+        function getTotalPrice() {
+            return cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+        }
 
-            document.getElementById('cartIcon').addEventListener('dblclick', function(e) {
-                if (cart.length === 0) return;
-                if (confirm('⚠️ क्या आप पूरा कार्ट खाली करना चाहते हैं?')) {
-                    cart = [];
-                    updateCartUI();
-                    saveCart();
-                    showToast('कार्ट खाली कर दिया गया', 'fa-trash-alt');
-                    closeCart();
-                }
-            });
+        function updateCartUI() {
+            document.getElementById('cartCount').textContent = `🛒 ${getTotalItems()} आइटम`;
+            document.getElementById('cartTotal').textContent = `कुल: ₹${getTotalPrice()}`;
+            renderCartItems();
+        }
 
-            // ================================================================
-            // 📊 ANALYTICS (simple page view tracking - optional)
-            // ================================================================
-            // Log page view with timestamp
-            console.log(`📊 Harshit Chemical · Page viewed at ${new Date().toLocaleString()}`);
-            console.log(`📦 ${PRODUCTS.length} प्रोडक्ट्स उपलब्ध`);
+        // ---------- कार्ट मॉडल ----------
+        function openCart() {
+            document.getElementById('cartModal').classList.add('open');
+            renderCartItems();
+        }
 
-            // Track product clicks (optional)
-            document.addEventListener('click', function(e) {
-                const orderBtn = e.target.closest('.order-btn');
-                if (orderBtn) {
-                    const id = parseInt(orderBtn.dataset.id);
-                    const product = PRODUCTS.find(p => p.id === id);
-                    if (product) {
-                        console.log(`🛒 Product clicked: ${product.name} (₹${product.price})`);
-                    }
-                }
-            });
+        function closeCart() {
+            document.getElementById('cartModal').classList.remove('open');
+        }
 
-            // ================================================================
-            // 🎯 PERFORMANCE: Lazy load images with Intersection Observer
-            // ================================================================
-            if ('IntersectionObserver' in window) {
-                const imageObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const img = entry.target;
-                            const src = img.dataset.src;
-                            if (src) {
-                                img.src = src;
-                                img.removeAttribute('data-src');
-                                img.loading = 'lazy';
-                            }
-                            imageObserver.unobserve(img);
-                        }
-                    });
-                }, {
-                    rootMargin: '100px',
-                    threshold: 0.01
-                });
-
-                // Observe all product images
-                document.querySelectorAll('.product-img img').forEach(img => {
-                    if (img.dataset.src) {
-                        imageObserver.observe(img);
-                    }
-                });
+        function renderCartItems() {
+            const container = document.getElementById('cartItemsList');
+            if (cart.length === 0) {
+                container.innerHTML = `<div class="empty-cart">🛒 कार्ट खाली है</div>`;
+                return;
             }
+            container.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <span class="cart-item-name">${item.icon} ${item.name[currentLang]} ×${item.qty}</span>
+                    <span class="cart-item-price">₹${item.price * item.qty} 
+                        <button onclick="removeFromCart(${item.id})" style="background:none;border:none;color:#c0392b;font-size:16px;margin-left:8px;">✕</button>
+                    </span>
+                </div>
+            `).join('');
+        }
 
-            // ================================================================
-            // 🧪 KEYBOARD SHORTCUT: "?" to show help
-            // ================================================================
-            document.addEventListener('keydown', function(e) {
-                if (e.key === '?' && !e.ctrlKey && !e.metaKey && !e.altKey) {
-                    const target = e.target;
-                    if (target.tagName !== 'INPUT' && target.tagName !== 'TEXTAREA') {
-                        e.preventDefault();
-                        showToast(
-                            '⌨️ शॉर्टकट: Ctrl+Shift+C = कार्ट | Ctrl+Shift+F = खोज | Esc = बंद करें',
-                            'fa-keyboard'
-                        );
-                    }
-                }
-            });
+        // ---------- मॉडल बंद करना (बाहर क्लिक) ----------
+        document.getElementById('cartModal').addEventListener('click', function(e) {
+            if (e.target === this) closeCart();
+        });
 
-            // ================================================================
-            // 🎨 PREVENT CART CLOSE ON INTERNAL CLICKS
-            // ================================================================
-            document.querySelector('.cart-panel').addEventListener('click', function(e) {
-                e.stopPropagation();
-            });
+        // ---------- ऐप इंस्टॉल जैसा अनुभव ----------
+        // पेज लोड होते ही रेंडर
+        renderProducts();
+        updateCartUI();
 
-            // ================================================================
-            // 🔄 REFRESH PRODUCTS ON FILTER CHANGE (already implemented)
-            // ================================================================
+        // सर्विस वर्कर (PWA) के लिए बेसिक - ऑफलाइन सपोर्ट
+        if ('serviceWorker' in navigator) {
+            // आप चाहें तो SW रजिस्टर कर सकते हैं
+            console.log('📲 ऐप मोड में चल रहा है');
+        }
 
-            // ================================================================
-            // 📱 RESPONSIVE: Close cart on resize to mobile
-            // ================================================================
-            let lastWidth = window.innerWidth;
-            window.addEventListener('resize', function() {
-                const newWidth = window.innerWidth;
-                if (newWidth > 768 && lastWidth <= 768) {
-                    // Switching from mobile to desktop - keep cart state
-                }
-                lastWidth = newWidth;
-            });
-
-            // ================================================================
-            // 🎯 FINAL INIT: Ensure all event listeners are attached
-            // ================================================================
-            console.log('✅ Harshit Chemical · प्रीमियम स्टोर पूरी तरह से लोड हो गया!');
-            console.log(`🛒 कार्ट में ${getTotalItems()} आइटम्स हैं।`);
-
-            // Show welcome toast after 1.5s
-            setTimeout(() => {
-                if (getTotalItems() === 0) {
-                    showToast('🧹 50+ प्रोडक्ट्स उपलब्ध! ऑर्डर करना शुरू करें।', 'fa-store');
-                }
-            }, 1800);
-
-            // ================================================================
-            // 🧪 EXPOSE CART TO CONSOLE FOR DEBUGGING (optional)
-            // ================================================================
-            window.__harshit = {
-                cart: cart,
-                products: PRODUCTS,
-                addToCart: addToCart,
-                clearCart: function() {
-                    cart = [];
-                    updateCartUI();
-                    saveCart();
-                    showToast('कार्ट खाली कर दिया गया', 'fa-trash-alt');
-                }
-            };
-
-        })();
+        // स्क्रीनशॉट / शेयर करने के लिए (मोबाइल)
+        console.log('✅ हर्षित केमिकल स्टोर + ऐप तैयार!');
     </script>
-
-    <!-- ============================================================
-    FINAL HTML CLOSING TAGS
-    ============================================================ -->
 </body>
