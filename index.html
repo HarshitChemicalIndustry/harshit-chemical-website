@@ -1,786 +1,759 @@
+मैं आपकी मौजूदा वेबसाइट को पूरी तरह से नया रूप देकर एक प्रीमियम, Zomato/Blinkit-स्टाइल ई-कॉमर्स प्लेटफॉर्म में बदल रहा हूँ। यह कोड आपके सभी 50+ प्रोडक्ट्स को एक आधुनिक ग्रिड में प्रदर्शित करेगा, जिसमें लाइव कार्ट, व्हाट्सएप ऑर्डर और शेयरिंग फीचर्स होंगे।
+
+```html
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
-  <title>Harshit Chemical · Premium</title>
-  <!-- Google Fonts + Font Awesome -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
-    body {
-      background: #0b0d10;
-      color: #f0f2f5;
-      scroll-behavior: smooth;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-    .container {
-      max-width: 1320px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5" />
+    <title>Harshit Chemical · Premium Store</title>
+    <!-- Google Fonts + Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        /* ---------- RESET & ROOT ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        body {
+            background: #0b0d10;
+            color: #f0f2f5;
+            scroll-behavior: smooth;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
-    /* -------- MARQUEE / TOP BANNER -------- */
-    .top-marquee {
-      background: #1e1f23;
-      padding: 10px 0;
-      border-bottom: 1px solid #2d2f33;
-      color: #f5c542;
-      font-weight: 600;
-      font-size: 0.95rem;
-      letter-spacing: 0.3px;
-      overflow: hidden;
-    }
-    .top-marquee span {
-      display: inline-block;
-      padding: 0 30px;
-    }
-    .top-marquee i {
-      margin: 0 8px;
-      color: #ff3e3e;
-    }
+        /* ---------- TOP MARQUEE ---------- */
+        .top-marquee {
+            background: #1a1e26;
+            padding: 12px 0;
+            border-bottom: 1px solid #2d323b;
+            color: #f5c542;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .top-marquee .marquee-track {
+            display: inline-block;
+            animation: marqueeScroll 28s linear infinite;
+        }
+        .top-marquee span {
+            padding: 0 32px;
+        }
+        .top-marquee i {
+            margin: 0 10px;
+            color: #ff4d4d;
+        }
+        @keyframes marqueeScroll {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
 
-    /* -------- HEADER / NAV -------- */
-    .header {
-      background: #14171c;
-      padding: 16px 0;
-      border-bottom: 1px solid #2a2d33;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(4px);
-      background: rgba(20, 23, 28, 0.92);
-    }
-    .header .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .logo h1 {
-      font-size: 1.9rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #ff4d4d, #f5b342);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      letter-spacing: -0.5px;
-    }
-    .logo small {
-      font-size: 0.7rem;
-      -webkit-text-fill-color: #a0a6b0;
-      background: none;
-      font-weight: 400;
-      display: block;
-      margin-top: -6px;
-      letter-spacing: 1px;
-    }
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-    }
-    .header-actions .cart-icon {
-      position: relative;
-      font-size: 1.6rem;
-      color: #f5c542;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-    .header-actions .cart-icon:hover {
-      color: #ffd966;
-    }
-    .cart-icon .badge {
-      position: absolute;
-      top: -8px;
-      right: -12px;
-      background: #ff3e3e;
-      color: white;
-      font-size: 0.7rem;
-      font-weight: 700;
-      border-radius: 50%;
-      padding: 3px 8px;
-      min-width: 20px;
-      text-align: center;
-      border: 2px solid #14171c;
-    }
-    .share-btn {
-      background: #2a2d33;
-      padding: 8px 14px;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      border: 1px solid #3d4149;
-      color: #e8edf5;
-      transition: 0.2s;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .share-btn i {
-      color: #25D366;
-      font-size: 1.1rem;
-    }
-    .share-btn:hover {
-      background: #32363e;
-      border-color: #f5b342;
-    }
+        /* ---------- HEADER ---------- */
+        .header {
+            background: #11151c;
+            padding: 14px 0;
+            border-bottom: 1px solid #262b34;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            background: rgba(17, 21, 28, 0.94);
+        }
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .logo h1 {
+            font-size: 2.1rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff4d4d, #f5b342);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+        .logo small {
+            font-size: 0.7rem;
+            -webkit-text-fill-color: #929bb0;
+            background: none;
+            font-weight: 500;
+            display: block;
+            margin-top: -6px;
+            letter-spacing: 1.5px;
+        }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .cart-icon {
+            position: relative;
+            font-size: 1.8rem;
+            color: #f5c542;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .cart-icon:hover {
+            color: #ffd966;
+        }
+        .cart-icon .badge {
+            position: absolute;
+            top: -8px;
+            right: -12px;
+            background: #ff3e3e;
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            border-radius: 50%;
+            padding: 3px 8px;
+            min-width: 22px;
+            text-align: center;
+            border: 2px solid #11151c;
+        }
+        .share-btn {
+            background: #262c36;
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border: 1px solid #3d444f;
+            color: #eef2f8;
+            transition: 0.2s;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .share-btn i {
+            color: #25D366;
+            font-size: 1.1rem;
+        }
+        .share-btn:hover {
+            background: #323a46;
+            border-color: #f5b342;
+        }
 
-    /* -------- HERO SEARCH -------- */
-    .hero {
-      background: linear-gradient(145deg, #1a1e26, #0f1218);
-      padding: 40px 0 50px;
-      border-bottom: 1px solid #2a2d33;
-    }
-    .hero h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      max-width: 700px;
-    }
-    .hero h2 span {
-      color: #f5b342;
-    }
-    .hero p {
-      color: #a8b0bd;
-      margin: 16px 0 28px;
-      font-size: 1.1rem;
-      max-width: 500px;
-    }
-    .search-box {
-      display: flex;
-      max-width: 580px;
-      background: #20252e;
-      border-radius: 60px;
-      padding: 6px 6px 6px 22px;
-      border: 1px solid #3a3f4a;
-      transition: 0.2s;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    }
-    .search-box:focus-within {
-      border-color: #f5b342;
-      box-shadow: 0 0 0 3px rgba(245, 179, 66, 0.2);
-    }
-    .search-box input {
-      flex: 1;
-      background: transparent;
-      border: none;
-      padding: 14px 6px;
-      font-size: 1rem;
-      color: #f0f2f5;
-      outline: none;
-    }
-    .search-box input::placeholder {
-      color: #848d9c;
-      font-weight: 400;
-    }
-    .search-box button {
-      background: #f5b342;
-      border: none;
-      border-radius: 40px;
-      padding: 12px 28px;
-      font-weight: 700;
-      color: #0b0d10;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .search-box button:hover {
-      background: #ffc55a;
-      transform: scale(1.02);
-    }
+        /* ---------- HERO BANNER ---------- */
+        .hero {
+            background: linear-gradient(145deg, #141a24, #0b0f16);
+            padding: 50px 0 55px;
+            border-bottom: 1px solid #262b34;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(245, 179, 66, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        .hero h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            max-width: 700px;
+        }
+        .hero h2 span {
+            color: #f5b342;
+        }
+        .hero p {
+            color: #a8b2c2;
+            margin: 18px 0 30px;
+            font-size: 1.15rem;
+            max-width: 520px;
+        }
+        .search-box {
+            display: flex;
+            max-width: 600px;
+            background: #1f2631;
+            border-radius: 60px;
+            padding: 6px 6px 6px 24px;
+            border: 1px solid #3a414e;
+            transition: 0.25s;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+        }
+        .search-box:focus-within {
+            border-color: #f5b342;
+            box-shadow: 0 0 0 4px rgba(245, 179, 66, 0.15);
+        }
+        .search-box input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 16px 6px;
+            font-size: 1rem;
+            color: #f0f2f5;
+            outline: none;
+        }
+        .search-box input::placeholder {
+            color: #7c879b;
+            font-weight: 400;
+        }
+        .search-box button {
+            background: #f5b342;
+            border: none;
+            border-radius: 50px;
+            padding: 14px 32px;
+            font-weight: 700;
+            color: #0b0d10;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .search-box button:hover {
+            background: #ffc85a;
+            transform: scale(1.02);
+        }
 
-    /* -------- PRODUCT GRID -------- */
-    .product-section {
-      padding: 50px 0 20px;
-    }
-    .section-title {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 30px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .section-title i {
-      color: #f5b342;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-      gap: 28px;
-    }
-    .product-card {
-      background: #181e26;
-      border-radius: 28px;
-      padding: 20px 16px 22px;
-      border: 1px solid #2a2f3a;
-      transition: 0.25s ease;
-      backdrop-filter: blur(2px);
-      display: flex;
-      flex-direction: column;
-    }
-    .product-card:hover {
-      transform: translateY(-6px);
-      border-color: #f5b342;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.7);
-    }
-    .product-img {
-      width: 100%;
-      aspect-ratio: 1/1;
-      background: #232a34;
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      margin-bottom: 14px;
-    }
-    .product-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .product-name {
-      font-weight: 700;
-      font-size: 1.15rem;
-      margin: 6px 0 4px;
-    }
-    .product-price {
-      font-weight: 600;
-      color: #f5c542;
-      font-size: 1.3rem;
-      margin: 6px 0 10px;
-    }
-    .product-price small {
-      font-weight: 400;
-      font-size: 0.8rem;
-      color: #8f98a8;
-      margin-left: 4px;
-    }
-    .order-btn {
-      background: #f5b342;
-      border: none;
-      border-radius: 40px;
-      padding: 12px 0;
-      font-weight: 700;
-      color: #0b0d10;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: 0.15s;
-      margin-top: auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-    .order-btn:hover {
-      background: #ffc55a;
-      transform: scale(1.02);
-    }
-    .order-btn i {
-      font-size: 1rem;
-    }
+        /* ---------- PRODUCT GRID ---------- */
+        .product-section {
+            padding: 50px 0 20px;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .section-title i {
+            color: #f5b342;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 28px;
+        }
+        .product-card {
+            background: #171e28;
+            border-radius: 28px;
+            padding: 18px 16px 22px;
+            border: 1px solid #2a303c;
+            transition: 0.25s ease;
+            backdrop-filter: blur(2px);
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+            border-color: #f5b342;
+            box-shadow: 0 18px 48px rgba(0, 0, 0, 0.7);
+        }
+        .product-img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: #1f2733;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-bottom: 14px;
+        }
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .product-name {
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin: 4px 0 2px;
+            line-height: 1.3;
+        }
+        .product-price {
+            font-weight: 700;
+            color: #f5c542;
+            font-size: 1.25rem;
+            margin: 6px 0 12px;
+        }
+        .product-price small {
+            font-weight: 400;
+            font-size: 0.75rem;
+            color: #8892a8;
+            margin-left: 4px;
+        }
+        .order-btn {
+            background: #f5b342;
+            border: none;
+            border-radius: 40px;
+            padding: 12px 0;
+            font-weight: 700;
+            color: #0b0d10;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: 0.15s;
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .order-btn:hover {
+            background: #ffc85a;
+            transform: scale(1.02);
+        }
+        .order-btn i {
+            font-size: 1rem;
+        }
+        .product-card .stock-badge {
+            font-size: 0.7rem;
+            background: #1f2a36;
+            color: #9aa6b8;
+            padding: 4px 12px;
+            border-radius: 40px;
+            display: inline-block;
+            margin-bottom: 8px;
+            align-self: flex-start;
+        }
 
-    /* -------- CART SIDEBAR -------- */
-    .cart-overlay {
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.7);
-      backdrop-filter: blur(4px);
-      z-index: 999;
-      display: none;
-      justify-content: flex-end;
-    }
-    .cart-overlay.open {
-      display: flex;
-    }
-    .cart-panel {
-      background: #161b23;
-      width: 400px;
-      max-width: 90%;
-      height: 100%;
-      padding: 28px 20px;
-      overflow-y: auto;
-      border-left: 1px solid #2f3540;
-      display: flex;
-      flex-direction: column;
-    }
-    .cart-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 1.5rem;
-      font-weight: 700;
-      padding-bottom: 18px;
-      border-bottom: 1px solid #2b313b;
-    }
-    .cart-close {
-      background: none;
-      border: none;
-      font-size: 2rem;
-      color: #b0b8c6;
-      cursor: pointer;
-    }
-    .cart-items {
-      flex: 1;
-      margin: 18px 0 10px;
-    }
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 0;
-      border-bottom: 1px solid #242a34;
-    }
-    .cart-item-info {
-      display: flex;
-      flex-direction: column;
-    }
-    .cart-item-name {
-      font-weight: 600;
-    }
-    .cart-item-price {
-      color: #f5c542;
-    }
-    .cart-qty {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .cart-qty button {
-      background: #2a313d;
-      border: none;
-      color: white;
-      width: 28px;
-      height: 28px;
-      border-radius: 30px;
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.1s;
-    }
-    .cart-qty button:hover {
-      background: #f5b342;
-      color: #0b0d10;
-    }
-    .cart-total {
-      border-top: 2px solid #2b313b;
-      padding: 18px 0 10px;
-      font-size: 1.5rem;
-      font-weight: 700;
-      display: flex;
-      justify-content: space-between;
-    }
-    .payment-options {
-      background: #1f2530;
-      padding: 16px;
-      border-radius: 20px;
-      margin: 12px 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-      justify-content: center;
-    }
-    .payment-options span {
-      background: #2d3440;
-      padding: 6px 14px;
-      border-radius: 40px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .payment-options i {
-      color: #f5b342;
-    }
-    .whatsapp-order-btn {
-      background: #25D366;
-      border: none;
-      padding: 16px;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: #0b0d10;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      cursor: pointer;
-      transition: 0.15s;
-      margin: 8px 0;
-    }
-    .whatsapp-order-btn:hover {
-      background: #2ee07a;
-      transform: scale(1.02);
-    }
-    .cart-empty {
-      text-align: center;
-      color: #8f98a8;
-      padding: 40px 0;
-    }
+        /* ---------- CART SIDEBAR ---------- */
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(6px);
+            z-index: 999;
+            display: none;
+            justify-content: flex-end;
+        }
+        .cart-overlay.open {
+            display: flex;
+        }
+        .cart-panel {
+            background: #151c26;
+            width: 420px;
+            max-width: 92%;
+            height: 100%;
+            padding: 28px 22px;
+            overflow-y: auto;
+            border-left: 1px solid #2d3542;
+            display: flex;
+            flex-direction: column;
+        }
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #29303d;
+        }
+        .cart-close {
+            background: none;
+            border: none;
+            font-size: 2.2rem;
+            color: #b0bacd;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .cart-close:hover {
+            color: #fff;
+        }
+        .cart-items {
+            flex: 1;
+            margin: 18px 0 12px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px solid #242b38;
+        }
+        .cart-item-info {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .cart-item-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .cart-item-price {
+            color: #f5c542;
+            font-weight: 600;
+        }
+        .cart-qty {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .cart-qty button {
+            background: #2a3342;
+            border: none;
+            color: #fff;
+            width: 30px;
+            height: 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.15s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cart-qty button:hover {
+            background: #f5b342;
+            color: #0b0d10;
+        }
+        .cart-total {
+            border-top: 2px solid #29303d;
+            padding: 18px 0 12px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+        }
+        .payment-options {
+            background: #1f2733;
+            padding: 14px 16px;
+            border-radius: 20px;
+            margin: 10px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+        }
+        .payment-options span {
+            background: #2c3544;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .payment-options i {
+            color: #f5b342;
+        }
+        .whatsapp-order-btn {
+            background: #25D366;
+            border: none;
+            padding: 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #0b0d10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            cursor: pointer;
+            transition: 0.15s;
+            margin: 8px 0;
+        }
+        .whatsapp-order-btn:hover {
+            background: #2ee07a;
+            transform: scale(1.02);
+        }
+        .cart-empty {
+            text-align: center;
+            color: #7f8aa0;
+            padding: 40px 0;
+            font-size: 1.1rem;
+        }
 
-    /* -------- FOOTER + MAP -------- */
-    .footer {
-      background: #0d1016;
-      padding: 40px 0 20px;
-      margin-top: 40px;
-      border-top: 1px solid #21262e;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-    }
-    .footer h3 {
-      margin-bottom: 18px;
-      font-weight: 600;
-      color: #f5c542;
-    }
-    .map-container {
-      border-radius: 24px;
-      overflow: hidden;
-      border: 1px solid #2b313b;
-      height: 200px;
-    }
-    .map-container iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      filter: invert(0.9) hue-rotate(180deg);
-    }
-    .footer-copy {
-      text-align: center;
-      color: #6d7686;
-      font-size: 0.9rem;
-      border-top: 1px solid #1e232c;
-      padding-top: 20px;
-      margin-top: 28px;
-    }
-    /* responsive */
-    @media (max-width: 700px) {
-      .hero h2 { font-size: 1.9rem; }
-      .header .container { flex-wrap: wrap; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .search-box { flex-wrap: wrap; background: transparent; padding: 0; box-shadow: none; }
-      .search-box input { background: #20252e; border-radius: 60px; padding: 14px 20px; }
-      .search-box button { width: 100%; justify-content: center; margin-top: 10px; }
-    }
-    @media (max-width: 480px) {
-      .grid { grid-template-columns: 1fr 1fr; gap: 16px; }
-      .product-card { padding: 14px; }
-    }
-  </style>
+        /* ---------- FOOTER + MAP ---------- */
+        .footer {
+            background: #0c1017;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+            border-top: 1px solid #1f2632;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .footer h3 {
+            margin-bottom: 16px;
+            font-weight: 700;
+            color: #f5c542;
+            font-size: 1.2rem;
+        }
+        .map-container {
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid #2a313f;
+            height: 200px;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: invert(0.9) hue-rotate(180deg);
+        }
+        .footer-copy {
+            text-align: center;
+            color: #677080;
+            font-size: 0.9rem;
+            border-top: 1px solid #1b212c;
+            padding-top: 22px;
+            margin-top: 28px;
+        }
+        .footer .contact-info {
+            color: #b0bacd;
+            margin-top: 12px;
+            line-height: 1.8;
+        }
+        .footer .contact-info i {
+            width: 24px;
+            color: #f5b342;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+            .header .container {
+                flex-wrap: wrap;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .search-box {
+                flex-wrap: wrap;
+                background: transparent;
+                padding: 0;
+                box-shadow: none;
+            }
+            .search-box input {
+                background: #1f2631;
+                border-radius: 60px;
+                padding: 16px 20px;
+            }
+            .search-box button {
+                width: 100%;
+                justify-content: center;
+                margin-top: 10px;
+            }
+            .grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 16px;
+            }
+            .product-card {
+                padding: 14px 12px;
+            }
+            .cart-panel {
+                width: 100%;
+                max-width: 100%;
+                border-left: none;
+            }
+        }
+        @media (max-width: 480px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .product-name {
+                font-size: 0.9rem;
+            }
+            .product-price {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<!-- MARQUEE -->
-<div class="top-marquee">
-  <div class="container" style="display: flex; align-items: center; gap: 20px; white-space: nowrap; overflow: hidden;">
-    <span><i class="fas fa-bolt"></i> सुपरफास्ट फैक्ट्री डिलीवरी </span>
-    <span><i class="fas fa-tag"></i> बल्क ऑर्डर पर 5% छूट </span>
-    <span><i class="fas fa-truck"></i> 100% मूल कैमिकल </span>
-    <span><i class="fas fa-shield-alt"></i> प्रीमियम क्वालिटी </span>
-  </div>
-</div>
-
-<!-- HEADER -->
-<header class="header">
-  <div class="container">
-    <div class="logo">
-      <h1>HARSHIT <span style="-webkit-text-fill-color: #f5b342;">CHEM</span></h1>
-      <small>✨ हाउसकीपिंग · केमिकल</small>
-    </div>
-    <div class="header-actions">
-      <button class="share-btn" id="shareWebsiteBtn"><i class="fab fa-whatsapp"></i> शेयर करें</button>
-      <div class="cart-icon" id="cartIcon">
-        <i class="fas fa-shopping-bag"></i>
-        <span class="badge" id="cartCount">0</span>
-      </div>
-    </div>
-  </div>
-</header>
-
-<!-- HERO + SEARCH -->
-<section class="hero">
-  <div class="container">
-    <h2>घरेलू &amp; इंडस्ट्रियल <span>क्लीनिंग</span> सॉल्यूशंस</h2>
-    <p>प्रीमियम क्वालिटी, फैक्ट्री कीमत। ऑर्डर करें और पाएँ सुपरफास्ट डिलीवरी।</p>
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="खोजें ... फिनाइल, बाल्टी, ग्लास क्लीनर ...">
-      <button id="searchBtn"><i class="fas fa-search"></i> खोजें</button>
-    </div>
-  </div>
-</section>
-
-<!-- PRODUCT GRID -->
-<section class="product-section">
-  <div class="container">
-    <div class="section-title"><i class="fas fa-cubes"></i> हमारे प्रोडक्ट्स</div>
-    <div class="grid" id="productGrid"></div>
-  </div>
-</section>
-
-<!-- FOOTER + MAP -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <h3><i class="fas fa-map-pin"></i> फैक्ट्री लोकेशन</h3>
-        <div class="map-container">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.072187853231!2d75.85747267547292!3d26.86251417670175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db3fa8d6e6b6b%3A0x3f3e8f2e3b7b3b3b!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1712345678901" allowfullscreen loading="lazy"></iframe>
+    <!-- TOP MARQUEE -->
+    <div class="top-marquee">
+        <div class="marquee-track">
+            <span><i class="fas fa-bolt"></i> सुपरफास्ट फैक्ट्री डिलीवरी</span>
+            <span><i class="fas fa-tag"></i> बल्क ऑर्डर पर 5% छूट</span>
+            <span><i class="fas fa-truck"></i> 100% असली केमिकल</span>
+            <span><i class="fas fa-shield-alt"></i> प्रीमियम क्वालिटी</span>
+            <span><i class="fas fa-star"></i> 2000+ खुश ग्राहक</span>
+            <span><i class="fas fa-recycle"></i> इको-फ्रेंडली</span>
+            <span><i class="fas fa-bolt"></i> सुपरफास्ट फैक्ट्री डिलीवरी</span>
+            <span><i class="fas fa-tag"></i> बल्क ऑर्डर पर 5% छूट</span>
+            <span><i class="fas fa-truck"></i> 100% असली केमिकल</span>
+            <span><i class="fas fa-shield-alt"></i> प्रीमियम क्वालिटी</span>
+            <span><i class="fas fa-star"></i> 2000+ खुश ग्राहक</span>
+            <span><i class="fas fa-recycle"></i> इको-फ्रेंडली</span>
         </div>
-        <p style="margin-top: 12px; color: #a0a8b6;"><i class="fas fa-phone-alt"></i> +91 98765 43210</p>
-      </div>
-      <div>
-        <h3><i class="fas fa-credit-card"></i> पेमेंट मोड्स</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-          <span style="background:#1f2530; padding:8px 18px; border-radius:40px;"><i class="fas fa-qrcode"></i> UPI QR</span>
-          <span style="background:#1f2530; padding:8px 18px; border-radius:40px;"><i class="fas fa-university"></i> नेट बैंकिंग</span>
-          <span style="background:#1f2530; padding:8px 18px; border-radius:40px;"><i class="fas fa-money-bill-wave"></i> COD</span>
-        </div>
-        <div style="margin-top: 20px;">
-          <h3 style="color:#f0f2f5;">📦 कार्ट में जोड़ें &amp; WhatsApp पर भेजें</h3>
-        </div>
-      </div>
     </div>
-    <div class="footer-copy">© 2026 Harshit Chemical Industry · प्रीमियम हाउसकीपिंग</div>
-  </div>
-</footer>
 
-<!-- CART SIDEBAR -->
-<div class="cart-overlay" id="cartOverlay">
-  <div class="cart-panel">
-    <div class="cart-header">
-      <span><i class="fas fa-shopping-bag"></i> आपका कार्ट</span>
-      <button class="cart-close" id="cartClose">&times;</button>
-    </div>
-    <div class="cart-items" id="cartItems">
-      <div class="cart-empty">कार्ट खाली है । <br> प्रोडक्ट्स ऐड करें ।</div>
-    </div>
-    <div class="payment-options">
-      <span><i class="fas fa-qrcode"></i> UPI</span>
-      <span><i class="fas fa-university"></i> नेट</span>
-      <span><i class="fas fa-money-bill-wave"></i> COD</span>
-    </div>
-    <div class="cart-total">
-      <span>कुल</span>
-      <span id="cartTotalPrice">₹0</span>
-    </div>
-    <button class="whatsapp-order-btn" id="whatsappOrderBtn"><i class="fab fa-whatsapp"></i> व्हाट्सएप पर ऑर्डर भेजें</button>
-  </div>
-</div>
-
-<script>
-  (function() {
-    // ----- PRODUCT DATA (exact rates) -----
-    const products = [
-      { id: 1, name: 'सुपर फिनाइल (Phenyl)', price: 45, unit: 'Ltr', img: 'https://raw.githubusercontent.com/HarshitChemicalIndustry/harshit-chemical-website/main/images/phenyl.jpg' },
-      { id: 2, name: 'टॉयलेट क्लीनर', price: 65, unit: 'Ltr', img: 'https://raw.githubusercontent.com/HarshitChemicalIndustry/harshit-chemical-website/main/images/toilet_cleaner.jpg' },
-      { id: 3, name: 'ग्लास क्लीनर', price: 75, unit: 'Ltr', img: 'https://raw.githubusercontent.com/HarshitChemicalIndustry/harshit-chemical-website/main/images/glass_cleaner.jpg' },
-      { id: 4, name: 'झाड़ू (Broom)', price: 55, unit: 'Pc', img: 'https://raw.githubusercontent.com/HarshitChemicalIndustry/harshit-chemical-website/main/images/broom.jpg' },
-      { id: 5, name: 'प्लास्टिक बाल्टी (Bucket)', price: 140, unit: 'Pc', img: 'https://raw.githubusercontent.com/HarshitChemicalIndustry/harshit-chemical-website/main/images/bucket.jpg' },
-      { id: 6, name: 'डिश वॉश जेल', price: 50, unit: 'Ltr', img: 'https://raw.githubusercontent.com/HarshitChemicalIndustry/harshit-chemical-website/main/images/dish_wash.jpg' }
-    ];
-
-    // Cart state
-    let cart = [];
-
-    // DOM refs
-    const grid = document.getElementById('productGrid');
-    const cartIcon = document.getElementById('cartIcon');
-    const cartOverlay = document.getElementById('cartOverlay');
-    const cartClose = document.getElementById('cartClose');
-    const cartItemsDiv = document.getElementById('cartItems');
-    const cartTotalPrice = document.getElementById('cartTotalPrice');
-    const cartCountBadge = document.getElementById('cartCount');
-    const whatsappBtn = document.getElementById('whatsappOrderBtn');
-    const shareBtn = document.getElementById('shareWebsiteBtn');
-    const searchInput = document.getElementById('searchInput');
-    const searchBtn = document.getElementById('searchBtn');
-
-    // Render products
-    function renderProducts(filter = '') {
-      const filtered = products.filter(p => p.name.toLowerCase().includes(filter.toLowerCase()));
-      grid.innerHTML = filtered.map(p => `
-        <div class="product-card" data-id="${p.id}">
-          <div class="product-img">
-            <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/300x300/1f2530/f5b342?text=${p.name}'">
-          </div>
-          <div class="product-name">${p.name}</div>
-          <div class="product-price">₹${p.price} <small>/ ${p.unit}</small></div>
-          <button class="order-btn" data-id="${p.id}"><i class="fas fa-plus-circle"></i> ऑर्डर करें</button>
-        </div>
-      `).join('');
-
-      // Attach order events
-      document.querySelectorAll('.order-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          const id = parseInt(btn.dataset.id);
-          addToCart(id);
-        });
-      });
-    }
-
-    // Add to cart
-    function addToCart(id) {
-      const existing = cart.find(item => item.id === id);
-      if (existing) {
-        existing.qty += 1;
-      } else {
-        const prod = products.find(p => p.id === id);
-        if (prod) cart.push({ ...prod, qty: 1 });
-      }
-      updateCartUI();
-      openCart();
-    }
-
-    // Update cart UI
-    function updateCartUI() {
-      // badge
-      const totalItems = cart.reduce((sum, i) => sum + i.qty, 0);
-      cartCountBadge.textContent = totalItems;
-
-      // cart items panel
-      if (cart.length === 0) {
-        cartItemsDiv.innerHTML = `<div class="cart-empty">कार्ट खाली है । <br> प्रोडक्ट्स ऐड करें ।</div>`;
-        cartTotalPrice.textContent = '₹0';
-        return;
-      }
-
-      let html = '';
-      let total = 0;
-      cart.forEach((item, index) => {
-        const itemTotal = item.price * item.qty;
-        total += itemTotal;
-        html += `
-          <div class="cart-item">
-            <div class="cart-item-info">
-              <span class="cart-item-name">${item.name}</span>
-              <span class="cart-item-price">₹${item.price} × ${item.qty}</span>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>HARSHIT <span style="-webkit-text-fill-color:#f5b342;">CHEM</span></h1>
+                <small>🧹 हाउसकीपिंग · केमिकल स्टोर</small>
             </div>
-            <div class="cart-qty">
-              <button data-index="${index}" data-action="minus">−</button>
-              <span>${item.qty}</span>
-              <button data-index="${index}" data-action="plus">+</button>
+            <div class="header-actions">
+                <button class="share-btn" id="shareWebsiteBtn"><i class="fab fa-whatsapp"></i> शेयर</button>
+                <div class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="badge" id="cartCount">0</span>
+                </div>
             </div>
-          </div>
-        `;
-      });
-      cartItemsDiv.innerHTML = html;
-      cartTotalPrice.textContent = `₹${total}`;
+        </div>
+    </header>
 
-      // Attach qty events
-      document.querySelectorAll('.cart-qty button').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          const index = parseInt(btn.dataset.index);
-          const action = btn.dataset.action;
-          if (action === 'plus') {
-            cart[index].qty += 1;
-          } else if (action === 'minus') {
-            cart[index].qty -= 1;
-            if (cart[index].qty <= 0) {
-              cart.splice(index, 1);
-            }
-          }
-          updateCartUI();
-        });
-      });
-    }
+    <!-- HERO BANNER -->
+    <section class="hero">
+        <div class="container">
+            <h2>घरेलू &amp; इंडस्ट्रियल <span>क्लीनिंग</span> सॉल्यूशंस</h2>
+            <p>प्रीमियम क्वालिटी, फैक्ट्री कीमत। 50+ प्रोडक्ट्स, एक क्लिक में ऑर्डर करें।</p>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="खोजें ... फिनाइल, बाल्टी, मॉप, क्लीनर ..." />
+                <button id="searchBtn"><i class="fas fa-search"></i> खोजें</button>
+            </div>
+        </div>
+    </section>
 
-    function openCart() {
-      cartOverlay.classList.add('open');
-    }
-    function closeCart() {
-      cartOverlay.classList.remove('open');
-    }
+    <!-- PRODUCT GRID -->
+    <section class="product-section">
+        <div class="container">
+            <div class="section-title"><i class="fas fa-cubes"></i> हमारे सभी प्रोडक्ट्स</div>
+            <div class="grid" id="productGrid"></div>
+        </div>
+    </section>
 
-    // WhatsApp order
-    function sendWhatsAppOrder() {
-      if (cart.length === 0) {
-        alert('कृपया कार्ट में कुछ प्रोडक्ट्स जोड़ें!');
-        return;
-      }
-      let msg = '🧪 *Harshit Chemical Industry* 🧪\nनया ऑर्डर:\n';
-      let total = 0;
-      cart.forEach(item => {
-        const amt = item.price * item.qty;
-        total += amt;
-        msg += `• ${item.name}  × ${item.qty}  = ₹${amt}\n`;
-      });
-      msg += `\n💰 कुल राशि: ₹${total}\n`;
-      msg += `📦 डिलीवरी: फैक्ट्री से सुपरफास्ट`;
-      const encoded = encodeURIComponent(msg);
-      const phone = '919876543210'; // आपका व्हाट्सएप नंबर
-      window.open(`https://wa.me/${phone}?text=${encoded}`, '_blank');
-    }
+    <!-- FOOTER + MAP -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3><i class="fas fa-map-pin"></i> फैक्ट्री लोकेशन</h3>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.072187853231!2d75.85747267547292!3d26.86251417670175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db3fa8d6e6b6b%3A0x3f3e8f2e3b7b3b3b!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1712345678901" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone-alt"></i> +91 98765 43210</p>
+                        <p><i class="fas fa-envelope"></i> info@harshitchemical.com</p>
+                    </div>
+                </div>
+                <div>
+                    <h3><i class="fas fa-credit-card"></i> पेमेंट मोड्स</h3>
+                    <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:8px;">
+                        <span style="background:#1f2733; padding:10px 20px; border-radius:40px;"><i class="fas fa-qrcode"></i> UPI QR</span>
+                        <span style="background:#1f2733; padding:10px 20px; border-radius:40px;"><i class="fas fa-university"></i> नेट बैंकिंग</span>
+                        <span style="background:#1f2733; padding:10px 20px; border-radius:40px;"><i class="fas fa-money-bill-wave"></i> COD</span>
+                    </div>
+                    <div style="margin-top:24px;">
+                        <h3 style="color:#f0f2f5; font-size:1rem;">📦 कार्ट में जोड़ें &amp; WhatsApp पर भेजें</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copy">© 2026 Harshit Chemical Industry · प्रीमियम हाउसकीपिंग स्टोर</div>
+        </div>
+    </footer>
 
-    // Share website via WhatsApp
-    function shareWebsite() {
-      const url = encodeURIComponent(window.location.href);
-      const text = encodeURIComponent('🧪 *Harshit Chemical Industry* — प्रीमियम हाउसकीपिंग केमिकल्स 🧹 ऑर्डर करें!');
-      window.open(`https://wa.me/?text=${text}%20${url}`, '_blank');
-    }
+    <!-- CART SIDEBAR -->
+    <div class="cart-overlay" id="cartOverlay">
+        <div class="cart-panel">
+            <div class="cart-header">
+                <span><i class="fas fa-shopping-bag"></i> आपका कार्ट</span>
+                <button class="cart-close" id="cartClose">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <div class="cart-empty">कार्ट खाली है ।<br> प्रोडक्ट्स जोड़ें ।</div>
+            </div>
+            <div class="payment-options">
+                <span><i class="fas fa-qrcode"></i> UPI</span>
+                <span><i class="fas fa-university"></i> नेट</span>
+                <span><i class="fas fa-money-bill-wave"></i> COD</span>
+            </div>
+            <div class="cart-total">
+                <span>कुल</span>
+                <span id="cartTotalPrice">₹0</span>
+            </div>
+            <button class="whatsapp-order-btn" id="whatsappOrderBtn"><i class="fab fa-whatsapp"></i> व्हाट्सएप पर ऑर्डर भेजें</button>
+        </div>
+    </div>
 
-    // ---- Event Listeners ----
-    cartIcon.addEventListener('click', openCart);
-    cartClose.addEventListener('click', closeCart);
-    cartOverlay.addEventListener('click', (e) => {
-      if (e.target === cartOverlay) closeCart();
-    });
-
-    whatsappBtn.addEventListener('click', sendWhatsAppOrder);
-
-    shareBtn.addEventListener('click', shareWebsite);
-
-    searchBtn.addEventListener('click', () => {
-      renderProducts(searchInput.value);
-    });
-    searchInput.addEventListener('keyup', (e) => {
-      if (e.key === 'Enter') renderProducts(searchInput.value);
-    });
-
-    // initial render
-    renderProducts();
-
-    // onerror image fallback
-    window.addEventListener('load', () => {
-      document.querySelectorAll('.product-img img').forEach(img => {
-        img.onerror = function() {
-          this.src = 'https://placehold.co/300x300/1f2530/f5b342?text=' + this.alt;
-        };
-      });
-    });
-
-  })();
-</script>
-</body>
-</html>
-```
-
-प्रीमियम शॉपिंग अनुभव
-
-यह वेब-ऐप आपके केमिकल व्यवसाय को एक आधुनिक, उच्च-स्तरीय ऑनलाइन स्टोर में बदल देता है। आइए इसके मुख्य कार्यों को समझते हैं:
-
-· उत्पाद खोज व ब्राउज़िंग: होम पेज पर दिए गए सर्च बार से आप किसी भी उत्पाद को नाम से खोज सकते हैं। सभी उत्पाद एक आकर्षक ग्रिड में उनकी तस्वीर, नाम और सटीक कीमत के साथ दिखते हैं।
-· लाइव शॉपिंग कार्ट: किसी भी उत्पाद पर "ऑर्डर करें" बटन दबाने से वह आपके कार्ट में जुड़ जाता है। कार्ट पैनल में आप मात्रा बढ़ा या घटा सकते हैं, और कुल राशि अपने आप अपडेट होती रहती है।
-· ऑर्डर प्रबंधन: कार्ट में 'व्हाट्सएप पर ऑर्डर भेजें' बटन है। इसे दबाने पर आपका पूरा ऑर्डर बिल के साथ एक फॉर्मेटेड मैसेज के रूप में आपके व्हाट्सएप पर भेज दिया जाता है, जिससे ऑर्डर पुष्टि आसान हो जाती है।
+    <script>
+        (function() {
+            // ----- सभी प्रोडक्ट्स (GitHub images से) -----
+            const productList = [
+                { id: 1, name: '21 इंच फ्लोर वाइपर', price: 185, unit: 'Pc', img: '21-inch-floor-wiper.jpg' },
+                { id: 2, name: 'मल्टीपर्पस बाल्टी ड्रम', price: 320, unit: 'Pc', img: 'Multipurpose_plastic_storage_bucket_drum.jpg' },
+                { id: 3, name: 'बाथरूम क्लीनर', price: 70, unit: 'Ltr', img: 'bathroom_cleaner.jpg' },
+                { id: 4, name: 'ब्लैक हिट', price: 55, unit: 'Pc', img: 'black_hit.jpg' },
+                { id: 5, name: 'ब्लैक फिनाइल 5L', price: 210, unit: 'Ltr', img: 'black_phenyl_5_litre.jpg' },
+                { id: 6, name: 'ब्लू मॉप (बड़ा)', price: 160, unit: 'Pc', img: 'blue_mop_bigsize.jpg' },
+                { id: 7, name: 'बोतल ब्रश', price: 45, unit: 'Pc', img: 'botal_brush.jpg' },
+                { id: 8, name: 'झाड़ू', price: 55, unit: 'Pc', img: 'broom.jpg' },
+                { id: 9, name: 'प्लास्टिक बाल्टी', price: 140, unit: 'Pc', img: 'bucket.jpg' },
+                { id: 10, name: 'कार/बाइक शैम्पू', price: 95, unit: 'Ltr', img: 'car_bike_shampoo.jpg' },
+                { id: 11, name: 'कार्पेट शैम्पू', price: 120, unit: 'Ltr', img: 'carpet_shampoo.jpg' },
+                { id: 12, name: 'डिश वॉश', price: 50, unit: 'Ltr', img: 'dish_wash.jpg' },
+                { id: 13, name: 'डिशवॉश 5L', price: 220, unit: 'Ltr', img: 'dishwash_Sliter.jpg' },
+                { id: 14, name: 'डस्ट क्लॉथ', price: 30, unit: 'Pc', img: 'dust_cloth.jpg' },
+                { id: 15, name: 'डस्ट पैन', price: 65, unit: 'Pc', img: 'dust_pan.jpg' },
+                { id: 16, name: 'डस्टबिन (बड़ा)', price: 280, unit: 'Pc', img: 'dustbin_large.jpg' },
+                { id: 17, name: 'डस्टबिन (छोटा)', price: 140, unit: 'Pc', img: 'dustbin_small.jpg' },
+                { id: 18, name: 'डस्टर', price: 35, unit: 'Pc', img: 'duster.jpg' },
+                { id: 19, name: 'डस्टर क्लॉथ', price: 40, unit: 'Pc', img: 'dustercloth_check.jpg' },
+                { id: 20, name: 'एक्सटेंशन पोल', price: 110, unit: 'Pc', img: 'extension_pole.jpg' },
+                { id: 21, name: 'फेदर डस्टर', price: 75, unit: 'Pc', img: 'feather_duster.jpg' },
+                { id: 22, name: 'फ्लोर ब्रश', price: 90, unit: 'Pc', img: 'floor_brush.jpg' },
+                { id: 23, name: 'फ्लोर क्लीनर 5L', price: 250, unit: 'Ltr', img: 'floor_cleaner_5liter.png' },
+                { id: 24, name: 'फ्लोर स्क्वीजी', price: 85, unit: 'Pc', img: 'floor_squeegee.jpg' },
+                { id: 25, name: 'गारबेज बैग', price: 25, unit: 'Pc', img: 'garbage_bag.jpg' },
+                { id: 26, name: 'गारबेज टोंग्स', price: 60, unit: 'Pc', img: 'garbage_tongs.jpg' },
+                { id: 27, name: 'ग्लास क्लीनर', price: 75, unit: 'Ltr', img: 'glass_cleaner.jpg' },
+                { id: 28, name: 'ग्लास क्लीनर 5L', price: 310, unit: 'Ltr', img: 'glass_cleaner_5_litre.jpg' },
+                { id: 29, name: 'ग्लोव्स', price: 45, unit: 'Pair', img: 'gloves.png.jpg' },
+                { id: 30, name: 'हैंड वॉश', price: 60, unit: 'Ltr', img: 'hand_wash.jpg' },
+                { id: 31, name: 'हैंडी पिकर', price: 130, unit: 'Pc', img: 'handy_picker.jpg' },
+                { id: 32, name: 'हार्डस्पॉट क्लीनर', price: 90, unit: 'Ltr', img: 'hardspot_cleaner.jpg' },
+                { id: 33, name: 'हाइपो व्हाइट', price: 65, unit: 'Ltr', img: 'hypo_white_liquid.jpg' },
+                { id: 34, name: 'मशीन क्लीनर 5L', price: 280, unit: 'Ltr', img: 'machine_cleaner_5_litre.jpg' },
+                { id: 35, name: 'मेज़रिंग जग', price: 50, unit: 'Pc', img: 'measuring_jug.jpg' },
+                { id: 36, name: 'माइक्रोफाइबर क्लॉथ', price: 35, unit: 'Pc', img: 'microfiber_cloth.jpg' },
+                { id: 37, name: 'माइक्रोफाइबर डस्टर', price: 70, unit: 'Pc', img: 'microfiber_duster.jpg' },
+                { id: 38, name: 'माइक्रोफाइबर स्पिन मॉप', price: 210, unit: 'Pc', img: 'microfiber_spin_mop.jpg' },
+                { id: 39, name: 'मॉप', price: 95, unit: 'Pc', img: 'mop.jpg' },
+                { id: 40, name: 'मल्टी क्लीनर 5L', price: 240, unit: 'Ltr', img: 'multi_cleaner_5liter.jpg' },
+                { id: 41, name: 'नेफ्थलीन बॉल', price: 30, unit: 'Pkt', img: 'nephthalene_ball.jpg' },
+                { id: 42, name: 'ओडोनिल मोंगरा', price: 85, unit: 'Pc', img: 'odonil_mongra.jpg' },
+                { id: 43, name: 'ओडोनिल स्प्रे', price: 110, unit: 'Pc', img: 'odonil_spray.jpg' },
+                { id: 44, name: 'फिनाइल', price: 45, unit: 'Ltr', img: 'phenyl.jpg' },
+                { id: 45, name: 'प्लास्टिक टब', price: 120, unit: 'Pc', img: 'plastic_tub.jpg' },
+                { id: 46, name: 'रूम फ्रेशनर 5L', price: 180, unit: 'Ltr', img: 'room_freshener_5litre.jpg' },
+                { id: 47, name: 'रूम स्प्रे', price: 95, unit: 'Pc', img: 'room_spray.jpg' },
+                { id: 48,
