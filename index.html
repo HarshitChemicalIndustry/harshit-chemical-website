@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harshit Chemical Industry - Premium Industrial Store</title>
-    <!-- FontAwesome for Icons -->
+    <title>Harshit Chemical Industry - Premium Store</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -31,7 +30,6 @@
             overflow-x: hidden;
         }
 
-        /* Top Announcement Marquee */
         .marquee-container {
             background: linear-gradient(90deg, #d97706, #f59e0b);
             color: #000;
@@ -42,11 +40,6 @@
             white-space: nowrap;
         }
 
-        .marquee-container marquee {
-            letter-spacing: 1px;
-        }
-
-        /* Header Style */
         header {
             background-color: var(--primary);
             border-bottom: 2px solid var(--accent);
@@ -72,14 +65,14 @@
         }
 
         .logo-text h1 {
-            font-size: 22px;
+            font-size: 20px;
             color: var(--text-main);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .logo-text p {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--accent);
         }
 
@@ -87,33 +80,25 @@
             background: var(--accent);
             color: #000;
             border: none;
-            padding: 10px 20px;
+            padding: 10px 18px;
             border-radius: 30px;
             font-weight: bold;
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 8px;
-            transition: 0.3s ease;
         }
 
-        .cart-badge-btn:hover {
-            background: var(--accent-hover);
-            transform: scale(1.05);
-        }
-
-        /* Hero Section */
         .hero {
-            padding: 40px 5%;
+            padding: 30px 5%;
             text-align: center;
             background: radial-gradient(circle, #1e293b 0%, #0f172a 100%);
             border-bottom: 1px solid #334155;
         }
 
         .hero h2 {
-            font-size: 32px;
-            margin-bottom: 15px;
-            color: var(--text-main);
+            font-size: 26px;
+            margin-bottom: 10px;
         }
 
         .hero h2 span {
@@ -122,17 +107,14 @@
 
         .hero p {
             color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
-            font-size: 16px;
+            font-size: 14px;
         }
 
-        /* Main Container Layout (Zomato Style Grid + Cart Sidebar) */
         .main-layout {
             display: grid;
             grid-template-columns: 2fr 1fr;
-            gap: 30px;
-            padding: 40px 5%;
+            gap: 25px;
+            padding: 30px 5%;
         }
 
         @media (max-width: 900px) {
@@ -141,86 +123,78 @@
             }
         }
 
-        /* Product Catalog Grid */
         .section-title {
-            font-size: 24px;
-            margin-bottom: 25px;
+            font-size: 22px;
+            margin-bottom: 20px;
             border-left: 4px solid var(--accent);
             padding-left: 10px;
         }
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
         }
 
         .product-card {
             background: var(--card-bg);
-            border-radius: 16px;
+            border-radius: 14px;
             overflow: hidden;
             border: 1px solid #334155;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            transition: 0.3s;
         }
 
         .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.2);
             border-color: var(--accent);
+            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.2);
         }
 
         .product-img-box {
             width: 100%;
-            height: 160px;
+            height: 150px;
             background: #0f172a;
             position: relative;
-            overflow: hidden;
         }
 
         .product-img-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: 0.3s;
-        }
-
-        .product-card:hover .product-img-box img {
-            transform: scale(1.1);
         }
 
         .tag-factory {
             position: absolute;
-            top: 10px;
-            left: 10px;
-            background: rgba(0,0,0,0.7);
+            top: 8px;
+            left: 8px;
+            background: rgba(0,0,0,0.8);
             color: var(--accent);
-            font-size: 10px;
-            padding: 4px 8px;
+            font-size: 9px;
+            padding: 3px 6px;
             border-radius: 4px;
             font-weight: bold;
         }
 
         .product-info {
-            padding: 15px;
-            flex-grow: 1;
+            padding: 12px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            flex-grow: 1;
         }
 
         .product-info h4 {
-            font-size: 16px;
-            margin-bottom: 8px;
+            font-size: 14px;
+            margin-bottom: 6px;
         }
 
         .product-price {
             color: var(--accent);
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .add-to-cart-btn {
@@ -228,8 +202,8 @@
             border: 2px solid var(--accent);
             color: var(--accent);
             width: 100%;
-            padding: 8px;
-            border-radius: 8px;
+            padding: 6px;
+            border-radius: 6px;
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
@@ -240,75 +214,61 @@
             color: #000;
         }
 
-        /* Zomato Style Cart Sidebar */
         .cart-sidebar {
             background: var(--card-bg);
-            border-radius: 16px;
+            border-radius: 14px;
             border: 1px solid #334155;
-            padding: 20px;
+            padding: 18px;
             height: fit-content;
             position: sticky;
-            top: 90px;
+            top: 80px;
         }
 
         .cart-sidebar h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
+            font-size: 18px;
+            margin-bottom: 12px;
             border-bottom: 1px solid #334155;
-            padding-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            padding-bottom: 8px;
         }
 
         .cart-items-list {
-            max-height: 250px;
+            max-height: 220px;
             overflow-y: auto;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .cart-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0;
+            padding: 8px 0;
             border-bottom: 1px dashed #334155;
-            font-size: 14px;
+            font-size: 13px;
         }
 
         .item-controls {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .item-controls button {
             background: #334155;
             color: #fff;
             border: none;
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
             border-radius: 4px;
             cursor: pointer;
             font-weight: bold;
         }
 
-        .item-controls button:hover {
-            background: var(--accent);
-            color: #000;
-        }
-
-        .cart-summary {
-            border-top: 1px solid #334155;
-            padding-top: 15px;
-        }
-
         .total-row {
             display: flex;
             justify-content: space-between;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .total-row span:last-child {
@@ -317,12 +277,12 @@
 
         .payment-select {
             width: 100%;
-            padding: 10px;
+            padding: 8px;
             background: #0f172a;
             color: #fff;
             border: 1px solid #334155;
-            border-radius: 8px;
-            margin-bottom: 15px;
+            border-radius: 6px;
+            margin-bottom: 12px;
             outline: none;
         }
 
@@ -331,57 +291,40 @@
             color: #fff;
             border: none;
             width: 100%;
-            padding: 12px;
-            border-radius: 8px;
+            padding: 10px;
+            border-radius: 6px;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 15px;
             cursor: pointer;
-            transition: 0.3s;
         }
 
-        .checkout-btn:hover {
-            background: #16a34a;
-        }
-
-        /* Floating WhatsApp Button */
         .whatsapp-float {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
+            bottom: 20px;
+            right: 20px;
             background: #25d366;
             color: #fff;
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            font-size: 28px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
             z-index: 1000;
-            transition: 0.3s;
         }
 
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-
-        /* Google Map Section */
         .map-section {
-            padding: 40px 5%;
+            padding: 30px 5%;
             background: #090d16;
             text-align: center;
         }
 
-        .map-section h3 {
-            font-size: 22px;
-            margin-bottom: 20px;
-        }
-
         .map-container {
             width: 100%;
-            height: 350px;
-            border-radius: 16px;
+            height: 300px;
+            border-radius: 12px;
             overflow: hidden;
             border: 1px solid #334155;
         }
@@ -392,31 +335,28 @@
             border: 0;
         }
 
-        /* Footer */
         footer {
             background: var(--primary);
             text-align: center;
-            padding: 20px;
+            padding: 15px;
             border-top: 1px solid #334155;
             color: var(--text-muted);
-            font-size: 14px;
+            font-size: 13px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Marquee Announcement -->
     <div class="marquee-container">
         <marquee scrollamount="5">⚡ सुपरफास्ट डायरेक्ट फैक्ट्री डिलीवरी जारी है! केमिकल ऐसा जो पसीना छुड़ा दे, क्वालिटी ऐसी जो दीवाना बना दे! 🚀 ऑनलाइन पेमेंट करें और माल सीधा घर पहुँचाएं! 💯</marquee>
     </div>
 
-    <!-- Header -->
     <header>
         <div class="logo-area">
             <i class="fa-solid fa-industry"></i>
             <div class="logo-text">
                 <h1>Harshit Chemical</h1>
-                <p>Premium Industrial Store</p>
+                <p>Premium Store</p>
             </div>
         </div>
         <button class="cart-badge-btn" onclick="scrollToCart()">
@@ -424,72 +364,113 @@
         </button>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <h2>सुपर प्रीमियम क्वालिटी <span>केमिकल प्रोडक्ट्स</span></h2>
-        <p>यहाँ आपको मिलेंगे बेहतरीन और उच्च गुणवत्ता वाले सभी प्रोडक्ट्स। डायरेक्ट फैक्ट्री प्राइस पर ऑनलाइन आर्डर करें!</p>
+        <p>डायरेक्ट फैक्ट्री प्राइस पर ऑनलाइन आर्डर करें!</p>
     </section>
 
-    <!-- Main Content Layout -->
     <div class="main-layout">
-        <!-- Products Grid (GitHub Images Connected) -->
         <div>
             <h3 class="section-title">सभी उपलब्ध प्रोडक्ट्स</h3>
-            <div class="product-grid" id="product-grid">
+            <div class="product-grid">
                 
-                <!-- Product 1 -->
+                <!-- Phenyl -->
                 <div class="product-card">
                     <div class="product-img-box">
                         <span class="tag-factory">फैक्ट्री प्राइस</span>
-                        <img src="https://raw.githubusercontent.com/HarshitChemicalIndustry/harshit-chemical-website/main/images/product1.jpg" alt="Chemical 1" onerror="this.src='https://via.placeholder.com/220x160?text=Harshit+Chemical'">
+                        <img src="images/phenyl.jpg" alt="Phenyl" onerror="this.src='https://via.placeholder.com/200x150?text=Phenyl'">
                     </div>
                     <div class="product-info">
                         <div>
-                            <h4>प्रीमियम इंडस्ट्रियल केमिकल A</h4>
-                            <div class="product-price">₹450 / KG</div>
+                            <h4>सुपर फिनाइल (Phenyl)</h4>
+                            <div class="product-price">₹120 / Ltr</div>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('प्रीमियम इंडस्ट्रियल केमिकल A', 450)">कार्ट में जोड़ें</button>
+                        <button class="add-to-cart-btn" onclick="addToCart('सुपर फिनाइल (Phenyl)', 120)">कार्ट में जोड़ें</button>
                     </div>
                 </div>
 
-                <!-- Product 2 -->
+                <!-- Toilet Cleaner -->
                 <div class="product-card">
                     <div class="product-img-box">
                         <span class="tag-factory">फैक्ट्री प्राइस</span>
-                        <img src="https://raw.githubusercontent.com/HarshitChemicalIndustry/harshit-chemical-website/main/images/product2.jpg" alt="Chemical 2" onerror="this.src='https://via.placeholder.com/220x160?text=Harshit+Chemical'">
+                        <img src="images/toilet_cleaner.jpg" alt="Toilet Cleaner" onerror="this.src='https://via.placeholder.com/200x150?text=Toilet+Cleaner'">
                     </div>
                     <div class="product-info">
                         <div>
-                            <h4>सुपर ब्लीचिंग केमिकल B</h4>
-                            <div class="product-price">₹680 / KG</div>
+                            <h4>टॉयलेट क्लीनर (Toilet Cleaner)</h4>
+                            <div class="product-price">₹150 / Ltr</div>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('सुपर ब्लीचिंग केमिकल B', 680)">कार्ट में जोड़ें</button>
+                        <button class="add-to-cart-btn" onclick="addToCart('टॉयलेट क्लीनर', 150)">कार्ट में जोड़ें</button>
                     </div>
                 </div>
 
-                <!-- Product 3 -->
+                <!-- Glass Cleaner -->
                 <div class="product-card">
                     <div class="product-img-box">
                         <span class="tag-factory">फैक्ट्री प्राइस</span>
-                        <img src="https://raw.githubusercontent.com/HarshitChemicalIndustry/harshit-chemical-website/main/images/product3.jpg" alt="Chemical 3" onerror="this.src='https://via.placeholder.com/220x160?text=Harshit+Chemical'">
+                        <img src="images/glass_cleaner.jpg" alt="Glass Cleaner" onerror="this.src='https://via.placeholder.com/200x150?text=Glass+Cleaner'">
                     </div>
                     <div class="product-info">
                         <div>
-                            <h4>हेवी ड्यूटी सॉल्वेंट C</h4>
-                            <div class="product-price">₹1200 / Ltr</div>
+                            <h4>ग्लास क्लीनर (Glass Cleaner)</h4>
+                            <div class="product-price">₹180 / Ltr</div>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('हेवी ड्यूटी सॉल्वेंट C', 1200)">कार्ट में जोड़ें</button>
+                        <button class="add-to-cart-btn" onclick="addToCart('ग्लास क्लीनर', 180)">कार्ट में जोड़ें</button>
+                    </div>
+                </div>
+
+                <!-- Broom -->
+                <div class="product-card">
+                    <div class="product-img-box">
+                        <span class="tag-factory">फैक्ट्री प्राइस</span>
+                        <img src="images/broom.jpg" alt="Broom" onerror="this.src='https://via.placeholder.com/200x150?text=Broom'">
+                    </div>
+                    <div class="product-info">
+                        <div>
+                            <h4>झाड़ू (Broom)</h4>
+                            <div class="product-price">₹90 / Pc</div>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('झाड़ू (Broom)', 90)">कार्ट में जोड़ें</button>
+                    </div>
+                </div>
+
+                <!-- Bucket -->
+                <div class="product-card">
+                    <div class="product-img-box">
+                        <span class="tag-factory">फैक्ट्री प्राइस</span>
+                        <img src="images/bucket.jpg" alt="Bucket" onerror="this.src='https://via.placeholder.com/200x150?text=Bucket'">
+                    </div>
+                    <div class="product-info">
+                        <div>
+                            <h4>प्लास्टिक बाल्टी (Bucket)</h4>
+                            <div class="product-price">₹250 / Pc</div>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('प्लास्टिक बाल्टी', 250)">कार्ट में जोड़ें</button>
+                    </div>
+                </div>
+
+                <!-- Dish Wash -->
+                <div class="product-card">
+                    <div class="product-img-box">
+                        <span class="tag-factory">फैक्ट्री प्राइस</span>
+                        <img src="images/dish_wash.jpg" alt="Dish Wash" onerror="this.src='https://via.placeholder.com/200x150?text=Dish+Wash'">
+                    </div>
+                    <div class="product-info">
+                        <div>
+                            <h4>डिश वॉश जेल (Dish Wash)</h4>
+                            <div class="product-price">₹140 / Ltr</div>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('डिश वॉश जेल', 140)">कार्ट में जोड़ें</button>
                     </div>
                 </div>
 
             </div>
         </div>
 
-        <!-- Zomato Style Cart Sidebar -->
         <div class="cart-sidebar" id="cart-section">
             <h3><i class="fa-solid fa-basket-shopping" style="color:var(--accent);"></i> आपका शॉपिंग कार्ट</h3>
             <div class="cart-items-list" id="cart-items">
-                <p style="color:var(--text-muted); text-align:center; margin-top:20px;">आपका कार्ट खाली है!</p>
+                <p style="color:var(--text-muted); text-align:center; margin-top:15px;">आपका कार्ट खाली है!</p>
             </div>
             <div class="cart-summary">
                 <div class="total-row">
@@ -506,25 +487,21 @@
         </div>
     </div>
 
-    <!-- Google Map Section -->
     <section class="map-section">
-        <h3>हमारी फैक्ट्री लोकेशन (Google Map)</h3>
+        <h3>हमारी फैक्ट्री लोकेशन</h3>
         <div class="map-container">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.157833593026!2d77.0889!3d28.5029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjguMzAnMTAuNCJOIDc3wrAwNScwMi4wIkU!5e0!3m2!1sen!2sin!4f1650000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
 
-    <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/919876543210?text=Hello%20Harshit%20Chemical%20Industry,%20I%20want%20to%20order%20products." class="whatsapp-float" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- Footer -->
     <footer>
-        <p>© 2026 Harshit Chemical Industry. सर्वाधिकार सुरक्षित। | Powered by Ultimate Modern Tech 🚀</p>
+        <p>© 2026 Harshit Chemical Industry. सर्वाधिकार सुरक्षित।</p>
     </footer>
 
-    <!-- JavaScript for Cart & Checkout -->
     <script>
         let cart = [];
 
@@ -559,7 +536,7 @@
             let totalCount = 0;
 
             if (cart.length === 0) {
-                cartItemsContainer.innerHTML = '<p style="color:var(--text-muted); text-align:center; margin-top:20px;">आपका कार्ट खाली है!</p>';
+                cartItemsContainer.innerHTML = '<p style="color:var(--text-muted); text-align:center; margin-top:15px;">आपका कार्ट खाली है!</p>';
                 cartTotal.innerText = '₹0';
                 cartCount.innerText = '0';
                 return;
@@ -596,10 +573,11 @@
                 return;
             }
             let paymentMode = document.getElementById('payment-mode').value;
-            alert('आपका ऑर्डर सफलतापर्वक ले लिया गया है! पेमेंट माध्यम: ' + paymentMode + '\nहम जल्द ही आपसे संपर्क करेंगे।');
+            alert('आपका ऑर्डर सफलतापर्वक ले लिया गया है! पेमेंट माध्यम: ' + paymentMode);
             cart = [];
             updateCartUI();
         }
     </script>
 </body>
 </html>
+
