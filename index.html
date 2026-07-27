@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harshit Chemical Industry - Premium Store</title>
+    <title>Harshit Chemical & Housekeeping Store - Premium Delivery App</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -15,6 +15,7 @@
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --success: #22c55e;
+            --zomato-red: #e23744;
         }
 
         * {
@@ -31,8 +32,8 @@
         }
 
         .marquee-container {
-            background: linear-gradient(90deg, #d97706, #f59e0b);
-            color: #000;
+            background: linear-gradient(90deg, #e23744, #f59e0b);
+            color: #fff;
             font-weight: bold;
             padding: 8px 0;
             font-size: 14px;
@@ -42,7 +43,7 @@
 
         header {
             background-color: var(--primary);
-            border-bottom: 2px solid var(--accent);
+            border-bottom: 2px solid var(--zomato-red);
             padding: 15px 5%;
             display: flex;
             justify-content: space-between;
@@ -60,8 +61,8 @@
         }
 
         .logo-area i {
-            font-size: 30px;
-            color: var(--accent);
+            font-size: 32px;
+            color: var(--zomato-red);
         }
 
         .logo-text h1 {
@@ -76,9 +77,29 @@
             color: var(--accent);
         }
 
+        .header-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .share-btn {
+            background: #25d366;
+            color: #fff;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+        }
+
         .cart-badge-btn {
-            background: var(--accent);
-            color: #000;
+            background: var(--zomato-red);
+            color: #fff;
             border: none;
             padding: 10px 18px;
             border-radius: 30px;
@@ -89,25 +110,61 @@
             gap: 8px;
         }
 
-        .hero {
-            padding: 30px 5%;
+        /* Zomato/Blinkit Style Hero Banner / Hoarding */
+        .hero-banner {
+            padding: 40px 5%;
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(9, 13, 22, 0.9)), url('images/hero_banner.jpg');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 2px solid #334155;
             text-align: center;
-            background: radial-gradient(circle, #1e293b 0%, #0f172a 100%);
-            border-bottom: 1px solid #334155;
+            position: relative;
         }
 
-        .hero h2 {
-            font-size: 26px;
-            margin-bottom: 10px;
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
         }
 
-        .hero h2 span {
+        .hero-content h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .hero-content h2 span {
             color: var(--accent);
         }
 
-        .hero p {
+        .hero-content p {
             color: var(--text-muted);
-            font-size: 14px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .search-bar-container {
+            display: flex;
+            background: #fff;
+            border-radius: 30px;
+            padding: 8px 15px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .search-bar-container input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 15px;
+            padding: 5px;
+            color: #333;
+        }
+
+        .search-bar-container i {
+            color: #666;
+            font-size: 18px;
+            align-self: center;
         }
 
         .main-layout {
@@ -126,19 +183,22 @@
         .section-title {
             font-size: 22px;
             margin-bottom: 20px;
-            border-left: 4px solid var(--accent);
+            border-left: 4px solid var(--zomato-red);
             padding-left: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 18px;
         }
 
         .product-card {
             background: var(--card-bg);
-            border-radius: 14px;
+            border-radius: 16px;
             overflow: hidden;
             border: 1px solid #334155;
             display: flex;
@@ -148,13 +208,14 @@
         }
 
         .product-card:hover {
+            transform: translateY(-4px);
             border-color: var(--accent);
-            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.2);
+            box-shadow: 0 8px 20px rgba(225, 55, 68, 0.2);
         }
 
         .product-img-box {
             width: 100%;
-            height: 150px;
+            height: 160px;
             background: #0f172a;
             position: relative;
         }
@@ -167,18 +228,18 @@
 
         .tag-factory {
             position: absolute;
-            top: 8px;
-            left: 8px;
-            background: rgba(0,0,0,0.8);
-            color: var(--accent);
-            font-size: 9px;
-            padding: 3px 6px;
+            top: 10px;
+            left: 10px;
+            background: rgba(226, 55, 68, 0.9);
+            color: #fff;
+            font-size: 10px;
+            padding: 4px 8px;
             border-radius: 4px;
             font-weight: bold;
         }
 
         .product-info {
-            padding: 12px;
+            padding: 15px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -186,62 +247,68 @@
         }
 
         .product-info h4 {
-            font-size: 14px;
+            font-size: 15px;
             margin-bottom: 6px;
+        }
+
+        .product-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
         }
 
         .product-price {
             color: var(--accent);
-            font-size: 16px;
+            font-size: 17px;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .add-to-cart-btn {
-            background: transparent;
-            border: 2px solid var(--accent);
-            color: var(--accent);
+            background: var(--zomato-red);
+            border: none;
+            color: #fff;
             width: 100%;
-            padding: 6px;
-            border-radius: 6px;
+            padding: 8px;
+            border-radius: 8px;
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
         }
 
         .add-to-cart-btn:hover {
-            background: var(--accent);
-            color: #000;
+            background: #c52a36;
         }
 
         .cart-sidebar {
             background: var(--card-bg);
-            border-radius: 14px;
+            border-radius: 16px;
             border: 1px solid #334155;
-            padding: 18px;
+            padding: 20px;
             height: fit-content;
             position: sticky;
-            top: 80px;
+            top: 90px;
         }
 
         .cart-sidebar h3 {
             font-size: 18px;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             border-bottom: 1px solid #334155;
-            padding-bottom: 8px;
+            padding-bottom: 10px;
+            color: #fff;
         }
 
         .cart-items-list {
-            max-height: 220px;
+            max-height: 250px;
             overflow-y: auto;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .cart-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 8px 0;
+            padding: 10px 0;
             border-bottom: 1px dashed #334155;
             font-size: 13px;
         }
@@ -249,15 +316,15 @@
         .item-controls {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
 
         .item-controls button {
             background: #334155;
             color: #fff;
             border: none;
-            width: 22px;
-            height: 22px;
+            width: 24px;
+            height: 24px;
             border-radius: 4px;
             cursor: pointer;
             font-weight: bold;
@@ -266,9 +333,9 @@
         .total-row {
             display: flex;
             justify-content: space-between;
-            font-size: 16px;
+            font-size: 17px;
             font-weight: bold;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .total-row span:last-child {
@@ -277,12 +344,12 @@
 
         .payment-select {
             width: 100%;
-            padding: 8px;
+            padding: 10px;
             background: #0f172a;
             color: #fff;
             border: 1px solid #334155;
-            border-radius: 6px;
-            margin-bottom: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
             outline: none;
         }
 
@@ -291,42 +358,43 @@
             color: #fff;
             border: none;
             width: 100%;
-            padding: 10px;
-            border-radius: 6px;
+            padding: 12px;
+            border-radius: 8px;
             font-weight: bold;
-            font-size: 15px;
+            font-size: 16px;
             cursor: pointer;
         }
 
         .whatsapp-float {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 25px;
+            right: 25px;
             background: #25d366;
             color: #fff;
-            width: 55px;
-            height: 55px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
             z-index: 1000;
         }
 
         .map-section {
-            padding: 30px 5%;
+            padding: 40px 5%;
             background: #090d16;
             text-align: center;
         }
 
         .map-container {
             width: 100%;
-            height: 300px;
-            border-radius: 12px;
+            height: 320px;
+            border-radius: 16px;
             overflow: hidden;
             border: 1px solid #334155;
+            margin-top: 15px;
         }
 
         .map-container iframe {
@@ -338,7 +406,7 @@
         footer {
             background: var(--primary);
             text-align: center;
-            padding: 15px;
+            padding: 20px;
             border-top: 1px solid #334155;
             color: var(--text-muted);
             font-size: 13px;
@@ -348,119 +416,139 @@
 <body>
 
     <div class="marquee-container">
-        <marquee scrollamount="5">⚡ सुपरफास्ट डायरेक्ट फैक्ट्री डिलीवरी जारी है! केमिकल ऐसा जो पसीना छुड़ा दे, क्वालिटी ऐसी जो दीवाना बना दे! 🚀 ऑनलाइन पेमेंट करें और माल सीधा घर पहुँचाएं! 💯</marquee>
+        <marquee scrollamount="6">🚀 सुपरफास्ट हाउसकीपिंग और क्लीनिंग प्रोडक्ट्स डायरेक्ट फैक्ट्री प्राइस पर उपलब्ध! ⚡ ऑनलाइन ऑर्डर करें और मिनटों में घर मंगवाएं! 🔥</marquee>
     </div>
 
     <header>
         <div class="logo-area">
-            <i class="fa-solid fa-industry"></i>
+            <i class="fa-solid fa-store"></i>
             <div class="logo-text">
                 <h1>Harshit Chemical</h1>
-                <p>Premium Store</p>
+                <p>Housekeeping & Cleaning Store</p>
             </div>
         </div>
-        <button class="cart-badge-btn" onclick="scrollToCart()">
-            <i class="fa-solid fa-cart-shopping"></i> कार्ट (<span id="cart-count">0</span>)
-        </button>
+        <div class="header-actions">
+            <button class="share-btn" onclick="shareWebsite()">
+                <i class="fa-brands fa-whatsapp"></i> शेयर करें
+            </button>
+            <button class="cart-badge-btn" onclick="scrollToCart()">
+                <i class="fa-solid fa-cart-shopping"></i> कार्ट (<span id="cart-count">0</span>)
+            </button>
+        </div>
     </header>
 
-    <section class="hero">
-        <h2>सुपर प्रीमियम क्वालिटी <span>केमिकल प्रोडक्ट्स</span></h2>
-        <p>डायरेक्ट फैक्ट्री प्राइस पर ऑनलाइन आर्डर करें!</p>
+    <!-- Zomato / Blinkit Style Hero Hoarding Banner -->
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h2>प्रीमियम हाउसकीपिंग और <span>क्लीनिंग मेटेरियल</span></h2>
+            <p>घर, ऑफिस और होटल्स के लिए बेस्ट क्वालिटी फिनाइल, क्लीनर और प्लास्टिक आइटम्स सीधे फैक्ट्री भाव पर!</p>
+            <div class="search-bar-container">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="सर्च करें (जैसे: Phenyl, Toilet Cleaner, Bucket...)" onkeyup="filterProducts()">
+            </div>
+        </div>
     </section>
 
     <div class="main-layout">
         <div>
-            <h3 class="section-title">सभी उपलब्ध प्रोडक्ट्स</h3>
-            <div class="product-grid">
+            <h3 class="section-title">
+                <span>उपलब्ध प्रोडक्ट्स (Housekeeping & Cleaning)</span>
+            </h3>
+            <div class="product-grid" id="product-grid">
                 
                 <!-- Phenyl -->
-                <div class="product-card">
+                <div class="product-card" data-name="सुपर फिनाइल phenyl">
                     <div class="product-img-box">
-                        <span class="tag-factory">फैक्ट्री प्राइस</span>
+                        <span class="tag-factory">फैक्ट्री भाव</span>
                         <img src="images/phenyl.jpg" alt="Phenyl" onerror="this.src='https://via.placeholder.com/200x150?text=Phenyl'">
                     </div>
                     <div class="product-info">
                         <div>
                             <h4>सुपर फिनाइल (Phenyl)</h4>
-                            <div class="product-price">₹120 / Ltr</div>
+                            <div class="product-desc">हाई फ्रेग्रेंस फ्लोर क्लीनर</div>
+                            <div class="product-price">₹45 / Ltr</div>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('सुपर फिनाइल (Phenyl)', 120)">कार्ट में जोड़ें</button>
+                        <button class="add-to-cart-btn" onclick="addToCart('सुपर फिनाइल (Phenyl)', 45)">ऑर्डर करें</button>
                     </div>
                 </div>
 
                 <!-- Toilet Cleaner -->
-                <div class="product-card">
+                <div class="product-card" data-name="टॉयलेट क्लीनर toilet cleaner">
                     <div class="product-img-box">
-                        <span class="tag-factory">फैक्ट्री प्राइस</span>
+                        <span class="tag-factory">फैक्ट्री भाव</span>
                         <img src="images/toilet_cleaner.jpg" alt="Toilet Cleaner" onerror="this.src='https://via.placeholder.com/200x150?text=Toilet+Cleaner'">
                     </div>
                     <div class="product-info">
                         <div>
                             <h4>टॉयलेट क्लीनर (Toilet Cleaner)</h4>
-                            <div class="product-price">₹150 / Ltr</div>
+                            <div class="product-desc">हेवी ड्यूटी एसिड फॉर्मूला</div>
+                            <div class="product-price">₹65 / Ltr</div>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('टॉयलेट क्लीनर', 150)">कार्ट में जोड़ें</button>
+                        <button class="add-to-cart-btn" onclick="addToCart('टॉयलेट क्लीनर', 65)">ऑर्डर करें</button>
                     </div>
                 </div>
 
                 <!-- Glass Cleaner -->
-                <div class="product-card">
+                <div class="product-card" data-name="ग्लास क्लीनर glass cleaner">
                     <div class="product-img-box">
-                        <span class="tag-factory">फैक्ट्री प्राइस</span>
+                        <span class="tag-factory">फैक्ट्री भाव</span>
                         <img src="images/glass_cleaner.jpg" alt="Glass Cleaner" onerror="this.src='https://via.placeholder.com/200x150?text=Glass+Cleaner'">
                     </div>
                     <div class="product-info">
                         <div>
                             <h4>ग्लास क्लीनर (Glass Cleaner)</h4>
-                            <div class="product-price">₹180 / Ltr</div>
+                            <div class="product-desc">क्रिस्टल क्लियर शाइन</div>
+                            <div class="product-price">₹75 / Ltr</div>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('ग्लास क्लीनर', 180)">कार्ट में जोड़ें</button>
+                        <button class="add-to-cart-btn" onclick="addToCart('ग्लास क्लीनर', 75)">ऑर्डर करें</button>
                     </div>
                 </div>
 
                 <!-- Broom -->
-                <div class="product-card">
+                <div class="product-card" data-name="झाड़ू broom">
                     <div class="product-img-box">
-                        <span class="tag-factory">फैक्ट्री प्राइस</span>
+                        <span class="tag-factory">फैक्ट्री भाव</span>
                         <img src="images/broom.jpg" alt="Broom" onerror="this.src='https://via.placeholder.com/200x150?text=Broom'">
                     </div>
                     <div class="product-info">
                         <div>
-                            <h4>झाड़ू (Broom)</h4>
-                            <div class="product-price">₹90 / Pc</div>
+                            <h4>झाड़ू (Housekeeping Broom)</h4>
+                            <div class="product-desc">मजबूत और टिकाऊ सींक</div>
+                            <div class="product-price">₹55 / Pc</div>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('झाड़ू (Broom)', 90)">कार्ट में जोड़ें</button>
+                        <button class="add-to-cart-btn" onclick="addToCart('झाड़ू (Broom)', 55)">ऑर्डर करें</button>
                     </div>
                 </div>
 
                 <!-- Bucket -->
-                <div class="product-card">
+                <div class="product-card" data-name="प्लास्टिक बाल्टी bucket">
                     <div class="product-img-box">
-                        <span class="tag-factory">फैक्ट्री प्राइस</span>
+                        <span class="tag-factory">फैक्ट्री भाव</span>
                         <img src="images/bucket.jpg" alt="Bucket" onerror="this.src='https://via.placeholder.com/200x150?text=Bucket'">
                     </div>
                     <div class="product-info">
                         <div>
                             <h4>प्लास्टिक बाल्टी (Bucket)</h4>
-                            <div class="product-price">₹250 / Pc</div>
+                            <div class="product-desc">अनब्रेकबल प्लास्टिक</div>
+                            <div class="product-price">₹140 / Pc</div>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('प्लास्टिक बाल्टी', 250)">कार्ट में जोड़ें</button>
+                        <button class="add-to-cart-btn" onclick="addToCart('प्लास्टिक बाल्टी', 140)">ऑर्डर करें</button>
                     </div>
                 </div>
 
                 <!-- Dish Wash -->
-                <div class="product-card">
+                <div class="product-card" data-name="डिश वॉश जेल dish wash">
                     <div class="product-img-box">
-                        <span class="tag-factory">फैक्ट्री प्राइस</span>
+                        <span class="tag-factory">फैक्ट्री भाव</span>
                         <img src="images/dish_wash.jpg" alt="Dish Wash" onerror="this.src='https://via.placeholder.com/200x150?text=Dish+Wash'">
                     </div>
                     <div class="product-info">
                         <div>
                             <h4>डिश वॉश जेल (Dish Wash)</h4>
-                            <div class="product-price">₹140 / Ltr</div>
+                            <div class="product-desc">नींबू जैसी ताकत</div>
+                            <div class="product-price">₹50 / Ltr</div>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('डिश वॉश जेल', 140)">कार्ट में जोड़ें</button>
+                        <button class="add-to-cart-btn" onclick="addToCart('डिश वॉश जेल', 50)">ऑर्डर करें</button>
                     </div>
                 </div>
 
@@ -468,9 +556,9 @@
         </div>
 
         <div class="cart-sidebar" id="cart-section">
-            <h3><i class="fa-solid fa-basket-shopping" style="color:var(--accent);"></i> आपका शॉपिंग कार्ट</h3>
+            <h3><i class="fa-solid fa-bag-shopping" style="color:var(--accent);"></i> आपका शॉपिंग कार्ट</h3>
             <div class="cart-items-list" id="cart-items">
-                <p style="color:var(--text-muted); text-align:center; margin-top:15px;">आपका कार्ट खाली है!</p>
+                <p style="color:var(--text-muted); text-align:center; margin-top:20px;">आपका कार्ट खाली है!</p>
             </div>
             <div class="cart-summary">
                 <div class="total-row">
@@ -480,26 +568,27 @@
                 <select class="payment-select" id="payment-mode">
                     <option value="UPI / QR Code">ऑनलाइन यूपीआई (UPI / QR Code)</option>
                     <option value="Net Banking / Card">नेट बैंकिंग / डेबिट कार्ड</option>
-                    <option value="Direct Bank Transfer">डायरेक्ट बैंक ट्रांसफर</option>
+                    <option value="Cash on Delivery">कैश ऑन डिलीवरी (COD)</option>
                 </select>
-                <button class="checkout-btn" onclick="checkoutOrder()">ऑर्डर प्लेस करें</button>
+                <button class="checkout-btn" onclick="checkoutOrderWhatsApp()">व्हाट्सएप पर आर्डर भेजें 🚀</button>
             </div>
         </div>
     </div>
 
     <section class="map-section">
-        <h3>हमारी फैक्ट्री लोकेशन</h3>
+        <h3 style="font-size:20px; margin-bottom:5px;">हमारी फैक्ट्री लोकेशन (Google Map)</h3>
+        <p style="color:var(--text-muted); font-size:13px;">यहाँ आकर सीधे डायरेक्ट खरीदारी भी कर सकते हैं</p>
         <div class="map-container">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.157833593026!2d77.0889!3d28.5029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjguMzAnMTAuNCJOIDc3wrAwNScwMi4wIkU!5e0!3m2!1sen!2sin!4f1650000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
 
-    <a href="https://wa.me/919876543210?text=Hello%20Harshit%20Chemical%20Industry,%20I%20want%20to%20order%20products." class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/919876543210?text=Hello%20Harshit%20Chemical,%20I%20want%20to%20know%20more%20about%20housekeeping%20products." class="whatsapp-float" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
     <footer>
-        <p>© 2026 Harshit Chemical Industry. सर्वाधिकार सुरक्षित।</p>
+        <p>© 2026 Harshit Chemical Industry. सर्वाधिकार सुरक्षित। | Powered by Zomato Style Web App</p>
     </footer>
 
     <script>
@@ -536,7 +625,7 @@
             let totalCount = 0;
 
             if (cart.length === 0) {
-                cartItemsContainer.innerHTML = '<p style="color:var(--text-muted); text-align:center; margin-top:15px;">आपका कार्ट खाली है!</p>';
+                cartItemsContainer.innerHTML = '<p style="color:var(--text-muted); text-align:center; margin-top:20px;">आपका कार्ट खाली है!</p>';
                 cartTotal.innerText = '₹0';
                 cartCount.innerText = '0';
                 return;
@@ -567,17 +656,50 @@
             document.getElementById('cart-section').scrollIntoView({ behavior: 'smooth' });
         }
 
-        function checkoutOrder() {
+        // WhatsApp Share Banner & Order Feature
+        function shareWebsite() {
+            let shareText = "🌟 *Harshit Chemical & Housekeeping Store* 🌟\n\n⚡ सुपरफास्ट फैक्ट्री प्राइस पर प्रीमियम फिनाइल, टॉयलेट क्लीनर, झाड़ू और प्लास्टिक बाल्टी आर्डर करें!\n\n👇 अभी विज़िट करें और आर्डर दें:\n" + window.location.href;
+            let whatsappUrl = "https://wa.me/?text=" + encodeURIComponent(shareText);
+            window.open(whatsappUrl, '_blank');
+        }
+
+        function checkoutOrderWhatsApp() {
             if (cart.length === 0) {
                 alert('कृपया पहले कार्ट में कोई प्रोडक्ट जोड़ें!');
                 return;
             }
             let paymentMode = document.getElementById('payment-mode').value;
-            alert('आपका ऑर्डर सफलतापर्वक ले लिया गया है! पेमेंट माध्यम: ' + paymentMode);
-            cart = [];
-            updateCartUI();
+            let orderText = "🛍️ *NEW ORDER - Harshit Chemical* 🛍️\n\n";
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                let cost = item.price * item.qty;
+                total += cost;
+                orderText += `${index + 1}. ${item.name} x ${item.qty} = ₹${cost}\n`;
+            });
+
+            orderText += `\n💰 *Total Amount:* ₹${total}`;
+            orderText += `\n💳 *Payment Mode:* ${paymentMode}`;
+            orderText += `\n\n🚀 कृपया मेरा आर्डर जल्द डिलीवर करें!`;
+
+            let ownerWhatsAppUrl = "https://wa.me/919876543210?text=" + encodeURIComponent(orderText);
+            window.open(ownerWhatsAppUrl, '_blank');
+        }
+
+        // Real-time Search Filter
+        function filterProducts() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('product-card');
+
+            for (let i = 0; i < cards.length; i++) {
+                let name = cards[i].getAttribute('data-name');
+                if (name.includes(input)) {
+                    cards[i].style.display = "flex";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
         }
     </script>
 </body>
 </html>
-
