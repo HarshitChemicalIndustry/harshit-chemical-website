@@ -1,325 +1,224 @@
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>हर्बिस केमिकल इंडस्ट्री - ऑनलाइन स्टोर</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            background-color: #f4f7f6;
-            color: #333;
-            padding-bottom: 90px;
-        }
-        header {
-            background-color: #0b2545;
-            color: #fff;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        header h1 {
-            font-size: 18px;
-            color: #63b3ed;
-        }
-        .container {
-            max-width: 1100px;
-            margin: 15px auto;
-            padding: 0 10px;
-        }
-        .section-title {
-            font-size: 16px;
-            margin: 15px 0 10px 5px;
-            color: #0b2545;
-            font-weight: bold;
-        }
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 12px;
-        }
-        .product-card {
-            background: #fff;
-            border-radius: 8px;
-            padding: 12px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .product-card h3 {
-            font-size: 14px;
-            margin: 8px 0 4px 0;
-            color: #1a202c;
-        }
-        .product-card p {
-            color: #718096;
-            font-size: 11px;
-            margin-bottom: 8px;
-        }
-        .price {
-            font-size: 14px;
-            font-weight: bold;
-            color: #2b6cb0;
-            margin-bottom: 8px;
-            text-align: left;
-        }
-        .add-btn {
-            background-color: #0b2545;
-            color: white;
-            border: none;
-            padding: 7px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 12px;
-            font-weight: bold;
-            width: 100%;
-        }
-        .add-btn:active {
-            background-color: #1d4ed8;
-        }
-        .block {
-            background: #fff;
-            margin-top: 20px;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-        }
-        .block input {
-            padding: 8px;
-            width: 70%;
-            margin: 5px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .bottom-cart-bar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: #0b2545;
-            color: white;
-            padding: 12px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
-        }
-        .checkout-btn {
-            background-color: #25D366;
-            color: white;
-            border: none;
-            padding: 10px 18px;
-            border-radius: 6px;
-            font-weight: bold;
-            font-size: 13px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>🧼 हर्बिस केमिकल इंडस्ट्री</h1>
-        <div style="font-size: 12px; color: #cbd5e0;">हाउसकीपिंग प्रोडक्ट्स</div>
-    </header>
-
-    <div class="container">
-        <div class="section-title">उपलब्ध प्रोडक्ट्स (Products List)</div>
-        <div class="products-grid">
-            
-            <div class="product-card">
-                <div>
-                    <div style="font-size: 28px;">🧹</div>
-                    <h3>फ्लोर क्लीनर</h3>
-                    <p>टाइल्स & मार्बल के लिए</p>
-                </div>
-                <div>
-                    <div class="price">₹199</div>
-                    <button class="add-btn" onclick="addToCart('फ्लोर क्लीनर', 199)">+ कार्ट में डालें</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div>
-                    <div style="font-size: 28px;">🪟</div>
-                    <h3>ग्लास क्लीनर</h3>
-                    <p>खिड़कियों के शीशे</p>
-                </div>
-                <div>
-                    <div class="price">₹149</div>
-                    <button class="add-btn" onclick="addToCart('ग्लास क्लीनर', 149)">+ कार्ट में डालें</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div>
-                    <div style="font-size: 28px;">🚽</div>
-                    <h3>टॉयलेट क्लीनर</h3>
-                    <p>जर्म्स & दुर्गंध हटाए</p>
-                </div>
-                <div>
-                    <div class="price">₹129</div>
-                    <button class="add-btn" onclick="addToCart('टॉयलेट क्लीनर', 129)">+ कार्ट में डालें</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div>
-                    <div style="font-size: 28px;">🍽️</div>
-                    <h3>डिशवॉश लिक्विड</h3>
-                    <p>तेल & चिकनाहट हटाए</p>
-                </div>
-                <div>
-                    <div class="price">₹99</div>
-                    <button class="add-btn" onclick="addToCart('डिशवॉश लिक्विड', 99)">+ कार्ट में डालें</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div>
-                    <div style="font-size: 28px;">🧴</div>
-                    <h3>हैंड वॉश</h3>
-                    <p>एंटी-बैक्टीरियल</p>
-                </div>
-                <div>
-                    <div class="price">₹79</div>
-                    <button class="add-btn" onclick="addToCart('हैंड वॉश', 79)">+ कार्ट में डालें</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div>
-                    <div style="font-size: 28px;">🧽</div>
-                    <h3>स्क्रब पैड</h3>
-                    <p>कड़े दागों के लिए</p>
-                </div>
-                <div>
-                    <div class="price">₹49</div>
-                    <button class="add-btn" onclick="addToCart('स्क्रब पैड', 49)">+ कार्ट में डालें</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div>
-                    <div style="font-size: 28px;">🧺</div>
-                    <h3>लॉन्ड्री डिटर्जेंट</h3>
-                    <p>कपड़ों की सफेदी</p>
-                </div>
-                <div>
-                    <div class="price">₹249</div>
-                    <button class="add-btn" onclick="addToCart('लॉन्ड्री डिटर्जेंट', 249)">+ कार्ट में डालें</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div>
-                    <div style="font-size: 28px;">🪣</div>
-                    <h3>मॉप & बकेट</h3>
-                    <p>प्रीमियम क्वालिटी</p>
-                </div>
-                <div>
-                    <div class="price">₹399</div>
-                    <button class="add-btn" onclick="addToCart('मॉप & बकेट', 399)">+ कार्ट में डालें</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div>
-                    <div style="font-size: 28px;">🧪</div>
-                    <h3>सैनिटाइज़र</h3>
-                    <p>99.9% जर्म्स हटाए</p>
-                </div>
-                <div>
-                    <div class="price">₹89</div>
-                    <button class="add-btn" onclick="addToCart('सैनिटाइज़र', 89)">+ कार्ट में डालें</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div>
-                    <div style="font-size: 28px;">🫧</div>
-                    <h3>बबल बाथ</h3>
-                    <p>आराम & सुगंध</p>
-                </div>
-                <div>
-                    <div class="price">₹159</div>
-                    <button class="add-btn" onclick="addToCart('बबल बाथ', 159)">+ कार्ट में डालें</button>
-                </div>
-            </div>
-
-        </div>
-    <!---------------------------App Download Section---------------------->
-    <section class="block">
-        <h2>हर्बिस केमिकल ऐप डाउनलोड करें</h2>
-        <p>आसानी से आर्डर देखने और बुकमार्क करने के लिए ऐप डाउनलोड करें</p>
-        <div style="margin-top: 15px;">
-            <input type="number" placeholder="अपना मोबाइल नंबर दर्ज करें">
-            <br>
-            <button style="background: #0b2545; color: white; border: none; padding: 8px 15px; border-radius: 4px; margin-top: 5px; cursor: pointer;">लिंक भेजें</button>
-        </div>
-    </section>
-
-    <!-------------------------------Footer area---------------------------------------------------->
-    <footer>
-        <div class="footer-wrapper" style="background: #0b2545; padding: 20px; color: white; margin-top: 20px;">
-            <select name="" class="footer-nav" style="padding: 5px; border-radius: 4px;">
-                <option value="">Mumbai</option>
-                <option value="">Pune</option>
-                <option value="">Delhi</option>
-                <option value="">Bangalore</option>
-            </select>
-        </div>
+<li><b>Colaba</b>(200 places)</li>
+         <li><b>Bandra west</b>(196  places)</li>
+         <li><b>Veera Desai Area</b>(95 Places)</li>
+         <li><b>Panch Pakhadi,Thane West</b>(153 places)</li>
+         <li><b>Mulund West</b></li>
+         <li><b>Oshiwara, Andheri West</b></li>
+         <li><b>Kandivali West</b></li>
         
-        <div style="background: #07162c; color: #a0aec0; padding: 20px; font-size: 13px;">
-            <p><b>About Harshit Chemical:</b> Housekeeping and Industrial Chemicals manufacturer and suppliers.</p>
-            <p style="margin-top: 10px;">By committing past this page you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies. All trademarks are properties of their respective owners. © Harshit Chemical Industry. All rights reserved.</p>
-        </div>
-    </footer>
+    </ul>
     
-    <!-- Bottom Cart Bar -->
-    <div class="bottom-cart-bar">
-        <div>
-            <span id="cart-count" style="font-weight: bold; font-size: 15px;">0 आइटम</span><br>
-            <span style="font-size: 12px; color: #cbd5e0;">कुल: ₹<span id="cart-total">0</span></span>
-        </div>
-        <button class="checkout-btn" onclick="sendToWhatsApp()">कार्ट देखें & WhatsApp करें</button>
+   <ul class="locality-list1">
+         
+    <li><b>Powai</b>(592 Places)</li>
+    <li><b>Bandra Kurla Complex</b>(593 places)</li>
+    <li><b>Juhu</b>(344 Places)</li>
+    <li><b>Linking Road,Bandra West</b>(120 places)</li>
+    <li><b>Chembur</b>(683 Places)</li>
+    <li><b>Goregaon East</b>(415 Places)</li>
+    <li><b>Worli</b>(415 Places)</li>
+    <li><b>Chakala</b>(319 Places)</li>
+    <li><b>Mahakali</b>(289 Places)</li>
+    <li><b>ChuchGate</b>(61 Places)</li>
+   
+</ul>
+<ul class="locality-list2">
+         
+    <li><b>Malad West</b>(911 Places)</li>
+    <li><b>Vashi</b>(567 places)</li>
+    <li><b>Andheri Lokhandwala,Andheri..</b>(417 Places)</li>
+    <li><b>Khar</b>(120 places)</li>
+    <li><b>Marol</b>(683 Places)</li>
+    <li><b>Mira Road</b>(415 Places)</li>
+    <li><b>Saki Naka</b>(415 Places)</li>
+    <li><b>Hill Road (Bandra West) </b>(143 Places)</li>
+    <li><b>Kaharghar</b>(649 Places)</li>
+    <li><b>Kandivali East</b>(422 Places)</li>
+   
+</ul>
+ </section>
+  
+
+    <!---------------------------Get the Zomato App---------------------->
+    <section class="block">
+    <img class="get-app" src="images\iphone.png" alt=""/>
+    <h2>Get the Zomato App</h2>
+    <p>See menus and photos for nearby restaurants and bookmark your favorite places on the go</p>
+    <h5>We'll send you a link, open it on your phone to download the app</h5>
+    <div class="input-group mb-3" id="id6">
+      <div class="input-group-prepend">
+        <span class="input-group-text">+91</span>
+      </div>
+      <input type="number" class="form-control" placeholder="Enter phone number">
+    <div class="input-group-append">
+      <span class="input-group-text" id="id7">Text App Link</span>
+    </div>
+    </div>
+    
+
+
+    <div class="input-group mb-3" id="id6">
+      <input type="text" class="form-control" placeholder=" Enter your Email id" id="demo" name="email">
+      <div class="input-group-append">
+        <span class="input-group-text" id="id7">Email App Link</span>
+      </div>
     </div>
 
-    <script>
-        let cartCount = 0;
-        let cartTotal = 0;
-        let cartItems = [];
+    <img id="id9" src="images\applestore.png" alt=""/>
+    <img id="id9"   src="images\googleplay.png" alt=""/>
+  </section>
+   
 
-        function addToCart(name, price) {
-            cartCount++;
-            cartTotal += price;
-            cartItems.push(`${name} (₹${price})`);
-            
-            document.getElementById('cart-count').innerText = cartCount + ' आइटम';
-            document.getElementById('cart-total').innerText = cartTotal;
-        }
+ <section class="block1">
+    <div class="milion">
+        <div >
+            <div class="value">24</div>
+            <div class="label">COUNTRIES</div>
+        </div>
+        <div >
+            <div class="value">1.5M</div>
+            <div class="label">RESTAURANTS</div>
+        </div>
+        <div >
+            <div class="value">120M</div>
+            <div class="label">FOODIES EVERY MONTH</div>
+        </div>
+        <div >
+            <div class="value">30M</div>
+            <div class="label">PHOTOS</div>
+        </div>
+        <div >
+            <div class="value">10M</div>
+            <div class="label">REVIEWS</div>
+        </div>
+        <div >
+            <div class="value">18M</div>
+            <div class="label">BOOKMARKS</div>
+        </div>
+    </div>
+</section>
 
-        function sendToWhatsApp() {
-            if(cartCount === 0) {
-                alert('कृपया पहले कम से कम एक प्रोडक्ट चुनें!');
-                return;
-            }
-            let phone = "919876543210"; // यहाँ अपना WhatsApp नंबर दर्ज करें
-            let text = `नमस्ते, मैं हर्बिस केमिकल से यह ऑर्डर देना चाहता हूँ:\n\n*आइटम:* ${cartItems.join(', ')}\n*कुल राशि:* ₹${cartTotal}`;
-            let url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
-            window.open(url, '_blank');
-        }
-    </script>
 
+
+
+
+
+    
+
+
+  <!-------------------------------Footer area---------------------------------------------------->
+  <footer>
+    <div class="footer-wrapper">
+      <img src="images/zomato_flat_bg_logo.svg" style="height: 60px; width: 60px; margin-left: 90px; margin-top:30px ;">     
+        
+<select name="" class="footer-nav">
+      <option value=""><a class="item" href="#">Mumbai</a></option>
+  <option value=""><a class="item" href="#" >Pune</a></option>
+      <option value=""><a class="item" href="#" >Sangali</a></option>
+      <option value=""><a class="item" href="#" >Satara</a></option>
+      <option value=""><a class="item" href="#" >Kolhapur</a></option>
+      <option value=""><a class="item" href="#" >Panjab</a></option>
+     <option value=""><a class="item" href="#" >Delhi</a></option>
+      <option value=""><a class="item" href="#" >Bangalore</a></option>
+      <option value=""><a class="item" href="#" >Chennai</a></option>
+      <option value=""><a class="item" href="#" >Hydrabad</a></option>
+    </select>
+   
+    </div>
+     
+    <div class="row">
+      <ul class="column">
+      <h4>About Zomato</h4>
+      <li>About Us</li>
+      <li>Culture</li>
+      <li>Careers</li>
+      <li>Contacts</li>
+    </ul>
+    <ul class="column">
+      <h4>For Foodies</h4>
+      <li>Code of conduct</li>
+      <li>Community</li>
+      <li>Varified Users</li>
+      <li>Blogger help</li>
+      <li>Developers</li>
+      <li>Mobile Apps</li>
+      </ul>
+
+      <ul class="column">
+      <h4>For Restaurant</h4>
+      <li>Add Restaurants</li>
+      <li>Claim your listing</li>
+      <li>Business App</li>
+      <li>Business owner Guidlines/<li>
+      <li>Business Blog</li>
+      <li>Restaurant widgets</li>
+      <li>Product of Business</li>
+      </ul>
+      
+      <ul class="column">
+      <h4>Advertise</h4>
+      <li>Order</li>
+      <li>Book</li>
+      <li>Trace</li>
+      <li>Hyperpure</li>
+    </ul>
+    
+  </div>
+   
+    <div class="row">
+    <ul class="column1">
+          <h4>Countries</h4> 
+          <li>Austrelia</li>
+          <li>Brasil</li>
+          <li>Canada</li>
+          <li>Chile</li>
+          <li>Czech Republic</li>
+    
+        </ul>
+        
+        <ul class="column1">
+          <li>India</li>
+          <li>Indonesia</li>
+          <li>Ireland</li>
+          <li>Italy</li>
+          <li>Lebonan</li>
+          </ul>
+        <ul class="column1">
+          <li>Malysia</li>
+          <li>New Zealand</li>
+          <li>Phillipines</li>
+          <li>Poland</li>
+          <li>Portugal</li>
+          </ul>
+        <ul class="column1">
+        
+          <li>Qatar</li>
+          <li>Singapore</li>
+          <li>Slovakia</li>
+          <li>South Africa</li>
+          <li>Sri Lanka</li>
+   
+        </ul>
+        <ul class="column1">
+          
+          <li>Turkey</li>
+          <li>UAE</li>
+          <li>United Kingdom</li>
+          <li>United States</li>
+        </ul>
+      
+        
+       <div class="span">
+          <p>Privacy</p>
+          <p>Terms</p>
+          <p>API Policy</p>
+          <p>CSR</p>
+          <p>Security</p>
+          <p>Site Map</p>
+       </div>
+        <p style="margin-top: -80px; font-size: 13px; color: white;">By Commiting Past this Page You agree to your Terms of services.Cookie Privacy Policy an contact Policy.All Trademarks are Properties of their respective Owners 2008-2019-Zomato Media Pvt Ltd.All rights Reserved</p>
+        </div>
+        
+      </footer>                               
 </body>
 </html>
