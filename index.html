@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harshit Chemical Industry | Premium E-Commerce</title>
-    <!-- Premium Fonts & Icons -->
+    <title>Harshit Chemical Industry</title>
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="https://cloudflare.com">
-    
     <style>
         :root {
             --neon-blue: #0071e3;
@@ -18,315 +16,123 @@
             --text-light: #f5f5f7;
             --whatsapp-color: #25D366;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        body {
-            background-color: var(--premium-bg);
-            color: var(--text-light);
-            overflow-x: hidden;
-        }
-
-        /* Glassmorphism Header */
-        header {
-            background: rgba(22, 27, 38, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 18px 20px;
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #fff, var(--neon-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .cart-icon-btn {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1);
-            font-size: 20px;
-            color: var(--text-light);
-            cursor: pointer;
-            padding: 10px;
-            border-radius: 50%;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .cart-icon-btn:hover {
-            box-shadow: 0 0 15px var(--neon-blue);
-            border-color: var(--neon-blue);
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -4px;
-            right: -4px;
-            background: linear-gradient(135deg, #ff416c, #ff4b2b);
-            color: white;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 2px 7px;
-            border-radius: 20px;
-        }
-
-        /* Sci-Fi Industrial Hero Section */
-        .hero {
-            background: linear-gradient(180deg, rgba(11,15,25,0.2) 0%, var(--premium-bg) 100%), 
-                        url('https://unsplash.com') no-repeat center center/cover;
-            padding: 120px 20px 80px;
-            text-align: center;
-            position: relative;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle, rgba(0,113,227,0.15) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .hero h1 {
-            font-size: 46px;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 16px;
-            color: #94a3b8;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        /* Premium Modern Product Grid */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto 60px;
-            padding: 0 20px;
-        }
-
-        .section-title {
-            font-size: 28px;
-            font-weight: 800;
-            margin-bottom: 40px;
-            text-align: center;
-            background: linear-gradient(90deg, var(--neon-blue), var(--neon-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .product-card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.03);
-            display: flex;
-            flex-direction: column;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(0, 113, 227, 0.4);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(0,113,227,0.1);
-        }
-
-        .product-img-container {
-            width: 100%;
-            height: 240px;
-            background: #0f131c;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .product-img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            transition: transform 0.5s ease;
-        }
-
-        .product-card:hover .product-img {
-            transform: scale(1.08);
-        }
-
-        .product-info {
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .product-tag {
-            background: rgba(0, 113, 227, 0.1);
-            color: var(--neon-cyan);
-            font-size: 11px;
-            font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 20px;
-            width: fit-content;
-            margin-bottom: 12px;
-            letter-spacing: 0.5px;
-            border: 1px solid rgba(0, 242, 254, 0.15);
-        }
-
-        .product-title {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--text-light);
-        }
-
-        .product-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: auto;
-        }
-
-        .product-price {
-            font-size: 22px;
-            font-weight: 800;
-            color: #ffffff;
-        }
-
-        .btn-add {
-            background: linear-gradient(135deg, var(--neon-blue), #0056b3);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 113, 227, 0.3);
-        }
-
-        .btn-add:hover {
-            box-shadow: 0 0 20px var(--neon-cyan);
-            transform: scale(1.03);
-        }
-
-        /* Ultra Dark Glass Drawer Cart */
-        .cart-sidebar {
-            position: fixed;
-            top: 0;
-            right: -380px;
-            width: 380px;
-            height: 100%;
-            background: var(--dark-glass);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            box-shadow: -10px 0 40px rgba(0,0,0,0.5);
-            z-index: 2000;
-            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            padding: 30px 24px;
-            display: flex;
-            flex-direction: column;
-            border-left: 1px solid rgba(255,255,255,0.05);
-        }
-
-        @media (max-width: 400px) {
-            .cart-sidebar { width: 100%; right: -100%; }
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: var(--premium-bg); color: var(--text-light); }
+        header { background: rgba(22, 27, 38, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 18px 20px; }
+        .logo { font-size: 22px; font-weight: 800; color: white; display: flex; align-items: center; gap: 10px; }
+        .cart-icon-btn { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); font-size: 20px; color: var(--text-light); cursor: pointer; padding: 10px; border-radius: 50%; position: relative; }
+        .cart-count { position: absolute; top: -4px; right: -4px; background: red; color: white; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 20px; }
+        .hero { padding: 80px 20px 50px; text-align: center; }
+        .hero h1 { font-size: 40px; font-weight: 800; margin-bottom: 15px; }
+        .hero p { font-size: 16px; color: #94a3b8; max-width: 600px; margin: 0 auto; }
+        .container { max-width: 1200px; margin: 0 auto 60px; padding: 0 20px; }
+        .section-title { font-size: 28px; font-weight: 800; margin-bottom: 40px; text-align: center; color: var(--neon-cyan); }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .product-card { background: var(--card-bg); border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.03); display: flex; flex-direction: column; }
+        .product-img-container { width: 100%; height: 240px; background: #0f131c; display: flex; align-items: center; justify-content: center; padding: 20px; }
+        .product-img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .product-info { padding: 24px; display: flex; flex-direction: column; flex-grow: 1; }
+        .product-tag { background: rgba(0, 113, 227, 0.1); color: var(--neon-cyan); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; width: fit-content; margin-bottom: 12px; }
+        .product-title { font-size: 18px; font-weight: 700; margin-bottom: 15px; }
+        .product-meta { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
+        .product-price { font-size: 22px; font-weight: 800; }
+        .btn-add { background: var(--neon-blue); color: white; border: none; padding: 10px 20px; border-radius: 12px; cursor: pointer; font-weight: 700; }
+        .cart-sidebar { position: fixed; top: 0; right: -380px; width: 380px; height: 100%; background: var(--dark-glass); backdrop-filter: blur(20px); box-shadow: -10px 0 40px rgba(0,0,0,0.5); z-index: 2000; transition: right 0.3s ease; padding: 30px 24px; display: flex; flex-direction: column; }
         .cart-sidebar.active { right: 0; }
+        .cart-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 20px; }
+        .close-cart { background: none; border: none; font-size: 26px; color: #94a3b8; cursor: pointer; }
+        .cart-items { flex-grow: 1; overflow-y: auto; margin-top: 20px; }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.03); }
+        .checkout-form-container input, .checkout-form-container textarea { width: 100%; padding: 12px; margin-bottom: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; color: white; }
+        .btn-whatsapp { background: var(--whatsapp-color); color: white; border: none; padding: 15px; border-radius: 14px; text-align: center; text-decoration: none; display: block; font-weight: 700; }
+        footer { background: #090d14; text-align: center; padding: 30px; font-size: 13px; color: #64748b; }
+    </style>
+</head>
+<body>
 
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            padding-bottom: 20px;
+    <header>
+        <div class="nav-container">
+            <div class="logo"><i class="fas fa-atom"></i> Harshit Chemicals</div>
+            <button class="cart-icon-btn" onclick="toggleCart()">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="cart-count" id="global-cart-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Advanced Chemical Solutions</h1>
+        <p>Industrial grade formulations and ultra-performance housekeeping solutions.</p>
+    </section>
+
+    <main class="container">
+        <h2 class="section-title">Premium Product Ecosystem</h2>
+        <div class="product-grid" id="products-container"></div>
+    </main>
+
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Order</h3>
+            <button class="close-cart" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items-wrapper"></div>
+
+        <div class="checkout-form-container" style="margin-top:20px;">
+            <input type="text" id="cust-name" placeholder="Full Name">
+            <input type="number" id="cust-phone" placeholder="Active Mobile Number">
+            <textarea id="cust-address" placeholder="Complete Delivery Address" rows="2"></textarea>
+        </div>
+
+        <div style="margin-top:auto; padding-top:20px; border-top:1px solid rgba(255,255,255,0.05)">
+            <div style="display:flex; justify-content:space-between; font-weight:800; font-size:18px; margin-bottom:20px;">
+                <span>Subtotal:</span>
+                <span id="total-checkout-amount">₹0</span>
+            </div>
+            <a href="#" class="btn-whatsapp" onclick="triggerWhatsAppOrder(event)">Dispatch via WhatsApp</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Harshit Chemical Industry. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Global Array Definition at the top to prevent loading crashes
+        const chemicalProducts = [
+            { id: 1, name: "Premium Car & Bike Shampoo", price: 180, size: "5 Litre", img: "images/car_bike_shampoo.jpg", backup: "https://unsplash.com" },
+            { id: 2, name: "Heavy Duty Floor Cleaner", price: 350, size: "5 Litre", img: "images/floor_cleaner_5liter.png", backup: "https://unsplash.com" },
+            { id: 3, name: "Premium Dishwash Gel", price: 320, size: "5 Litre", img: "images/dishwash_5liter.jpg", backup: "https://unsplash.com" },
+            { id: 4, name: "Streak-Free Glass Cleaner", price: 280, size: "5 Litre", img: "images/glass_cleaner_5_litre.jpg", backup: "https://unsplash.com" },
+            { id: 5, name: "Advanced Toilet Bowl Cleaner", price: 390, size: "5 Litre", img: "images/toilet_cleaner_5_litre.jpg", backup: "https://unsplash.com" },
+            { id: 6, name: "Deodorizing White Phenyl", price: 220, size: "5 Litre", img: "images/white_phenyl_5_litre.jpg", backup: "https://unsplash.com" },
+            { id: 7, name: "Industrial Black Phenyl", price: 240, size: "5 Litre", img: "images/black_phenyl_5_litre.jpg", backup: "https://unsplash.com" },
+            { id: 8, name: "Pro Microfiber Spin Mop", price: 750, size: "Pro System", img: "images/microfiber_spin_mop.jpg", backup: "https://unsplash.com" }
+        ];
+
+        let mainCart = [];
+        const BUSINESS_PHONE = "919691865574"; // <-- Apna original phone number yahan daalein
+
+        function initStore() {
+            const listContainer = document.getElementById('products-container');
+            if(!listContainer) return;
+            
+            listContainer.innerHTML = chemicalProducts.map(prod => `
+                <div class="product-card">
+                    <div class="product-img-container">
+                        <img src="${prod.img}" class="product-img" onerror="this.src='${prod.backup}'">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-tag">${prod.size}</span>
+                        <div class="product-title">${prod.name}</div>
+                        <div class="product-meta">
+                            <div class="product-price">₹${prod.price}</div>
+                            <button class="btn-add" onclick="addItemToCart(${prod.id})">Add</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
         }
 
-        .cart-header h3 { font-size: 20px; font-weight: 800; }
-
-        .close-cart {
-            background: none;
-            border: none;
-            font-size: 26px;
-            color: #94a3b8;
-            cursor: pointer;
-        }
-
-        .cart-items {
-            flex-grow: 1;
-            overflow-y: auto;
-            margin-top: 20px;
-        }
-
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(255,255,255,0.03);
-        }
-
-        .cart-item h4 { font-size: 15px; font-weight: 600; color: #fff; }
-
-        /* Premium Form Fields */
-        .checkout-form-container input, .checkout-form-container textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 12px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 10px;
-            color: white;
-            font-size: 14px;
-            transition: all 0.3s;
-        }
-
-        .checkout-form-container input:focus, .checkout-form-container textarea:focus {
-            outline: none;
-            border-color: var(--neon-blue);
-            box-shadow: 0 0 10px rgba(0, 113, 227, 0.2);
-            background: rgba(255,255,255,0.05);
-        }
-
-        .btn-whatsapp {
+        function addItemToCart(id) {
+            const target = chemicalProducts.find(p => p.id === id);
