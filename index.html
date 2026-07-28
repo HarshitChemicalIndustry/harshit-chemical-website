@@ -2,450 +2,187 @@
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>हर्षित केमिकल स्टोर</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Grocery & Store</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
         body {
-            background: #f0f4f8;
-            padding: 16px;
-            padding-bottom: 80px;
+            background-color: #f5f5f5;
+            color: #333;
         }
-
-        /* ऐप हेडर */
-        .app-header {
-            background: linear-gradient(135deg, #1a3a5c, #2a5f7a);
-            color: white;
-            padding: 20px 16px;
-            border-radius: 20px;
+        header {
+            background-color: #121212;
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            font-size: 20px;
+            color: #00ff66;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+        .banner {
+            background: linear-gradient(135deg, #fbc531, #e1b12c);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
             margin-bottom: 20px;
-            box-shadow: 0 8px 20px rgba(26, 58, 92, 0.3);
-            position: sticky;
-            top: 0;
-            z-index: 100;
         }
-
-        .app-header h1 {
-            font-size: 22px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
+        .banner h2 {
+            font-size: 28px;
+            color: #fff;
+            margin-bottom: 10px;
         }
-
-        .app-header p {
-            font-size: 13px;
-            opacity: 0.85;
-            margin-top: 4px;
+        .banner p {
+            font-size: 16px;
+            color: #333;
+            font-weight: bold;
         }
-
-        /* भाषा चयनकर्ता */
-        .lang-toggle {
-            display: flex;
-            gap: 10px;
-            margin-top: 12px;
-            background: rgba(255,255,255,0.15);
-            padding: 6px;
-            border-radius: 30px;
-            width: fit-content;
-        }
-
-        .lang-btn {
-            padding: 6px 18px;
-            border: none;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 13px;
-            cursor: pointer;
-            transition: all 0.3s;
-            background: transparent;
-            color: white;
-        }
-
-        .lang-btn.active {
-            background: white;
-            color: #1a3a5c;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-
-        /* प्रोडक्ट कार्ड */
-        .product-grid {
+        .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 16px;
-            margin-top: 8px;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
         }
-
         .product-card {
-            background: white;
-            border-radius: 18px;
-            padding: 16px 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-            transition: all 0.2s;
-            border: 1px solid rgba(0,0,0,0.03);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .product-card:active {
-            transform: scale(0.97);
-        }
-
-        .product-icon {
-            font-size: 32px;
+            background: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             text-align: center;
-            margin-bottom: 8px;
         }
-
-        .product-name {
-            font-weight: 700;
-            font-size: 15px;
-            color: #1a2a3a;
-            line-height: 1.3;
-            min-height: 40px;
+        .product-card h3 {
+            font-size: 18px;
+            margin: 10px 0;
         }
-
-        .product-desc {
-            font-size: 12px;
-            color: #5a6a7a;
-            margin: 6px 0 10px;
-            line-height: 1.4;
-            flex-grow: 1;
+        .product-card p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
         }
-
-        .product-price {
-            font-weight: 700;
-            color: #1a5c3a;
+        .price {
             font-size: 16px;
-            margin-top: 4px;
+            font-weight: bold;
+            color: #009432;
+            margin-bottom: 15px;
         }
-
         .add-btn {
-            background: #1a3a5c;
+            background-color: #009432;
             color: white;
             border: none;
-            padding: 8px 0;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 13px;
-            margin-top: 10px;
+            padding: 8px 15px;
+            border-radius: 5px;
             cursor: pointer;
-            transition: background 0.2s;
+            font-size: 14px;
             width: 100%;
         }
-
-        .add-btn:active {
-            background: #0f2a44;
+        .add-btn:hover {
+            background-color: #007b28;
         }
-
-        /* कार्ट बॉटम शीट - ऐप जैसा */
-        .cart-bottom {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            padding: 16px 20px;
-            box-shadow: 0 -6px 25px rgba(0,0,0,0.12);
-            border-radius: 24px 24px 0 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 200;
-            backdrop-filter: blur(10px);
-            background: rgba(255,255,255,0.92);
-        }
-
-        .cart-info {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .cart-count {
-            font-weight: 700;
-            color: #1a3a5c;
-            font-size: 16px;
-        }
-
-        .cart-total {
-            font-size: 13px;
-            color: #5a6a7a;
-        }
-
-        .view-cart-btn {
-            background: #1a3a5c;
-            color: white;
-            border: none;
-            padding: 10px 28px;
-            border-radius: 40px;
-            font-weight: 700;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 4px 12px rgba(26, 58, 92, 0.3);
-        }
-
-        .view-cart-btn:active {
-            transform: scale(0.95);
-        }
-
-        /* पॉपअप कार्ट */
-        .cart-modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(4px);
-            z-index: 300;
-            justify-content: center;
-            align-items: flex-end;
+        .cart-section {
+            margin-top: 30px;
+            background: #fff;
             padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-
-        .cart-modal.open {
-            display: flex;
-        }
-
-        .cart-modal-content {
-            background: white;
-            width: 100%;
-            max-width: 400px;
-            max-height: 70vh;
-            border-radius: 28px 28px 0 0;
-            padding: 24px 20px 20px;
-            overflow-y: auto;
-            animation: slideUp 0.3s ease;
-        }
-
-        @keyframes slideUp {
-            from { transform: translateY(40px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .cart-modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 16px;
-        }
-
-        .cart-modal-header h3 {
-            font-size: 20px;
-            color: #1a2a3a;
-        }
-
-        .close-cart {
-            background: #f0f2f5;
-            border: none;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            font-size: 20px;
-            cursor: pointer;
-        }
-
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
-            font-size: 14px;
-        }
-
-        .cart-item-name { font-weight: 500; }
-        .cart-item-price { font-weight: 600; color: #1a5c3a; }
-
-        .empty-cart { text-align: center; padding: 30px 0; color: #8a9aaa; }
-
-        /* ऐप स्टाइल */
-        .app-badge {
+        .whatsapp-order-btn {
+            display: block;
+            background-color: #25D366;
+            color: white;
             text-align: center;
-            margin-top: 20px;
-            font-size: 12px;
-            color: #8a9aaa;
-            letter-spacing: 0.3px;
-        }
-
-        @media (max-width: 480px) {
-            .product-grid { grid-template-columns: repeat(2, 1fr); }
-            .app-header h1 { font-size: 19px; }
+            padding: 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
         }
     </style>
 </head>
 <body>
 
-    <!-- ऐप हेडर -->
-    <div class="app-header">
-        <h1>🧪 हर्षित केमिकल</h1>
-        <p>🏭 हाउसकीपिंग · इंडस्ट्रियल सॉल्यूशंस</p>
-        <div class="lang-toggle">
-            <button class="lang-btn active" data-lang="hi" onclick="setLanguage('hi')">🇮🇳 हिंदी</button>
-            <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">🇬🇧 English</button>
+    <header>
+        <h1>My Online Store</h1>
+        <div>🛒 कार्ट (<span id="cart-count">0</span>)</div>
+    </header>
+
+    <div class="container">
+        <div class="banner">
+            <h2>अपनी ऑनलाइन दुकान - WhatsApp पर ऑर्डर लें!</h2>
+            <p>ज़ीरो कमीशन • आसान सेटअप</p>
         </div>
-    </div>
 
-    <!-- प्रोडक्ट ग्रिड -->
-    <div class="product-grid" id="productGrid"></div>
-
-    <!-- ऐप बैज -->
-    <div class="app-badge">📲 ऐप की तरह काम करता है · ऑफलाइन सपोर्ट</div>
-
-    <!-- कार्ट बॉटम बार -->
-    <div class="cart-bottom" id="cartBottom">
-        <div class="cart-info">
-            <span class="cart-count" id="cartCount">🛒 0 आइटम</span>
-            <span class="cart-total" id="cartTotal">कुल: ₹0</span>
-        </div>
-        <button class="view-cart-btn" onclick="openCart()">कार्ट देखें</button>
-    </div>
-
-    <!-- कार्ट मॉडल -->
-    <div class="cart-modal" id="cartModal">
-        <div class="cart-modal-content">
-            <div class="cart-modal-header">
-                <h3>🛒 आपका कार्ट</h3>
-                <button class="close-cart" onclick="closeCart()">✕</button>
+        <h2>प्रोडक्ट्स लिस्ट</h2>
+        <div class="products-grid" id="product-list">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <h3>ताज़ा स्ट्रॉबेरी (Strawberry)</h3>
+                <p>250g box</p>
+                <div class="price">₹180</div>
+                <button class="add-btn" onclick="addToCart('स्ट्रॉबेरी', 180)">जोड़ें (Add)</button>
             </div>
-            <div id="cartItemsList"></div>
+            <!-- Product 2 -->
+            <div class="product-card">
+                <h3>मुजफ्फरपुर लीची (Litchi)</h3>
+                <p>500g pack</p>
+                <div class="price">₹150</div>
+                <button class="add-btn" onclick="addToCart('लीची', 150)">जोड़ें (Add)</button>
+            </div>
+            <!-- Product 3 -->
+            <div class="product-card">
+                <h3>अल्फांसो आम (Alphonso Mango)</h3>
+                <p>1kg pack</p>
+                <div class="price">₹450</div>
+                <button class="add-btn" onclick="addToCart('अल्फांसो आम', 450)">जोड़ें (Add)</button>
+            </div>
+        </div>
+
+        <div class="cart-section">
+            <h3>ऑर्डर सारांश (Cart Summary)</h3>
+            <p>कुल आइटम्स: <span id="cart-summary-text">कोई सामान नहीं चुना गया</span></p>
+            <p style="margin-top: 10px; font-weight: bold;">कुल राशि: ₹<span id="total-price">0</span></p>
+            
+            <a href="#" id="whatsapp-link" class="whatsapp-order-btn" target="_blank" onclick="sendWhatsAppOrder()">WhatsApp पर ऑर्डर भेजें</a>
         </div>
     </div>
 
     <script>
-        // ---------- डेटा (हिंदी + अंग्रेजी) ----------
-        const productsData = [
-            { id: 1, icon: '🧹', name: { hi: 'फ्लोर क्लीनर', en: 'Floor Cleaner' }, desc: { hi: 'टाइल्स & संगमरमर के लिए', en: 'For tiles & marble' }, price: 199 },
-            { id: 2, icon: '🪟', name: { hi: 'ग्लास क्लीनर', en: 'Glass Cleaner' }, desc: { hi: 'खिड़कियाँ & शीशे', en: 'Windows & mirrors' }, price: 149 },
-            { id: 3, icon: '🚽', name: { hi: 'टॉयलेट क्लीनर', en: 'Toilet Cleaner' }, desc: { hi: 'जर्म्स & दुर्गंध हटाए', en: 'Removes germs & odor' }, price: 129 },
-            { id: 4, icon: '🧼', name: { hi: 'डिशवॉश लिक्विड', en: 'Dishwash Liquid' }, desc: { hi: 'तेल & चिकनाई हटाए', en: 'Cuts oil & grease' }, price: 99 },
-            { id: 5, icon: '🧴', name: { hi: 'हैंड वॉश', en: 'Hand Wash' }, desc: { hi: 'एंटी-बैक्टीरियल', en: 'Antibacterial' }, price: 79 },
-            { id: 6, icon: '🧽', name: { hi: 'स्क्रब पैड', en: 'Scrub Pad' }, desc: { hi: 'कड़े दागों के लिए', en: 'For tough stains' }, price: 49 },
-            { id: 7, icon: '🧺', name: { hi: 'लॉन्ड्री डिटर्जेंट', en: 'Laundry Detergent' }, desc: { hi: 'ताज़गी & सफ़ेदी', en: 'Freshness & whitening' }, price: 249 },
-            { id: 8, icon: '🪣', name: { hi: 'मॉप & बकेट', en: 'Mop & Bucket' }, desc: { hi: 'प्रीमियम क्वालिटी', en: 'Premium quality' }, price: 399 },
-            { id: 9, icon: '🧪', name: { hi: 'सैनिटाइज़र', en: 'Sanitizer' }, desc: { hi: '99.9% जर्म्स हटाए', en: 'Kills 99.9% germs' }, price: 89 },
-            { id: 10, icon: '🫧', name: { hi: 'बबल बाथ', en: 'Bubble Bath' }, desc: { hi: 'आराम & सुगंध', en: 'Relax & fragrance' }, price: 159 }
-        ];
+        let cartCount = 0;
+        let totalPrice = 0;
+        let cartItems = [];
 
-        let currentLang = 'hi';
-        let cart = [];
-
-        // ---------- भाषा बदलना ----------
-        function setLanguage(lang) {
-            currentLang = lang;
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.lang === lang);
-            });
-            renderProducts();
-            updateCartUI();
+        function addToCart(productName, price) {
+            cartCount++;
+            totalPrice += price;
+            cartItems.push(`${productName} (₹${price})`);
+            
+            document.getElementById('cart-count').innerText = cartCount;
+            document.getElementById('total-price').innerText = totalPrice;
+            document.getElementById('cart-summary-text').innerText = cartItems.join(', ');
         }
 
-        // ---------- प्रोडक्ट रेंडर ----------
-        function renderProducts() {
-            const grid = document.getElementById('productGrid');
-            grid.innerHTML = '';
-            productsData.forEach(p => {
-                const card = document.createElement('div');
-                card.className = 'product-card';
-                card.innerHTML = `
-                    <div class="product-icon">${p.icon}</div>
-                    <div class="product-name">${p.name[currentLang]}</div>
-                    <div class="product-desc">${p.desc[currentLang]}</div>
-                    <div class="product-price">₹${p.price}</div>
-                    <button class="add-btn" onclick="addToCart(${p.id})">+ कार्ट में डालें</button>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        // ---------- कार्ट ----------
-        function addToCart(id) {
-            const product = productsData.find(p => p.id === id);
-            const existing = cart.find(item => item.id === id);
-            if (existing) {
-                existing.qty += 1;
-            } else {
-                cart.push({ ...product, qty: 1 });
-            }
-            updateCartUI();
-            // छोटा हैप्टिक फीडबैक
-            const btn = event.target;
-            btn.style.background = '#2a7a5c';
-            setTimeout(() => btn.style.background = '#1a3a5c', 200);
-        }
-
-        function removeFromCart(id) {
-            const index = cart.findIndex(item => item.id === id);
-            if (index > -1) {
-                if (cart[index].qty > 1) {
-                    cart[index].qty -= 1;
-                } else {
-                    cart.splice(index, 1);
-                }
-                updateCartUI();
-                renderCartItems();
-            }
-        }
-
-        function getTotalItems() {
-            return cart.reduce((sum, item) => sum + item.qty, 0);
-        }
-
-        function getTotalPrice() {
-            return cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-        }
-
-        function updateCartUI() {
-            document.getElementById('cartCount').textContent = `🛒 ${getTotalItems()} आइटम`;
-            document.getElementById('cartTotal').textContent = `कुल: ₹${getTotalPrice()}`;
-            renderCartItems();
-        }
-
-        // ---------- कार्ट मॉडल ----------
-        function openCart() {
-            document.getElementById('cartModal').classList.add('open');
-            renderCartItems();
-        }
-
-        function closeCart() {
-            document.getElementById('cartModal').classList.remove('open');
-        }
-
-        function renderCartItems() {
-            const container = document.getElementById('cartItemsList');
-            if (cart.length === 0) {
-                container.innerHTML = `<div class="empty-cart">🛒 कार्ट खाली है</div>`;
+        function sendWhatsAppOrder() {
+            if(cartItems.length === 0) {
+                alert('कृपया पहले कार्ट में कुछ सामान जोड़ें!');
+                event.preventDefault();
                 return;
             }
-            container.innerHTML = cart.map(item => `
-                <div class="cart-item">
-                    <span class="cart-item-name">${item.icon} ${item.name[currentLang]} ×${item.qty}</span>
-                    <span class="cart-item-price">₹${item.price * item.qty} 
-                        <button onclick="removeFromCart(${item.id})" style="background:none;border:none;color:#c0392b;font-size:16px;margin-left:8px;">✕</button>
-                    </span>
-                </div>
-            `).join('');
+            let phoneNumber = "919876543210"; // यहाँ अपना WhatsApp नंबर लिखें (Country code के साथ)
+            let message = `नमस्ते, मैं यह ऑर्डर देना चाहता हूँ:\n* सामान: ${cartItems.join(', ')}\n* कुल योग: ₹${totalPrice}`;
+            let encodedMessage = encodeURIComponent(message);
+            this.href = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
         }
-
-        // ---------- मॉडल बंद करना (बाहर क्लिक) ----------
-        document.getElementById('cartModal').addEventListener('click', function(e) {
-            if (e.target === this) closeCart();
-        });
-
-        // ---------- ऐप इंस्टॉल जैसा अनुभव ----------
-        // पेज लोड होते ही रेंडर
-        renderProducts();
-        updateCartUI();
-
-        // सर्विस वर्कर (PWA) के लिए बेसिक - ऑफलाइन सपोर्ट
-        if ('serviceWorker' in navigator) {
-            // आप चाहें तो SW रजिस्टर कर सकते हैं
-            console.log('📲 ऐप मोड में चल रहा है');
-        }
-
-        // स्क्रीनशॉट / शेयर करने के लिए (मोबाइल)
-        console.log('✅ हर्षित केमिकल स्टोर + ऐप तैयार!');
     </script>
+
 </body>
+</html>
