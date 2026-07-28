@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>हर्बिस केमिकल - ऑनलाइन स्टोर</title>
+    <title>हर्बिस केमिकल इंडस्ट्री - ऑनलाइन स्टोर</title>
     <style>
         * {
             margin: 0;
@@ -26,7 +26,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         header h1 {
-            font-size: 20px;
+            font-size: 18px;
             color: #63b3ed;
         }
         .container {
@@ -34,23 +34,29 @@
             margin: 15px auto;
             padding: 0 10px;
         }
+        .section-title {
+            font-size: 16px;
+            margin: 15px 0 10px 5px;
+            color: #0b2545;
+            font-weight: bold;
+        }
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 12px;
         }
         .product-card {
             background: #fff;
-            border-radius: 10px;
-            padding: 15px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
         .product-card h3 {
-            font-size: 15px;
+            font-size: 14px;
             margin: 8px 0 4px 0;
             color: #1a202c;
         }
@@ -60,25 +66,39 @@
             margin-bottom: 8px;
         }
         .price {
-            font-size: 15px;
+            font-size: 14px;
             font-weight: bold;
             color: #2b6cb0;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             text-align: left;
         }
         .add-btn {
             background-color: #0b2545;
             color: white;
             border: none;
-            padding: 8px;
-            border-radius: 6px;
+            padding: 7px;
+            border-radius: 5px;
             cursor: pointer;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: bold;
             width: 100%;
         }
         .add-btn:active {
             background-color: #1d4ed8;
+        }
+        .block {
+            background: #fff;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .block input {
+            padding: 8px;
+            width: 70%;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
         .bottom-cart-bar {
             position: fixed;
@@ -109,17 +129,17 @@
 <body>
 
     <header>
-        <h1>🧼 हर्बिस केमिकल</h1>
-        <div style="font-size: 13px; color: #cbd5e0;">हाउसकीपिंग प्रोडक्ट्स</div>
+        <h1>🧼 हर्बिस केमिकल इंडस्ट्री</h1>
+        <div style="font-size: 12px; color: #cbd5e0;">हाउसकीपिंग प्रोडक्ट्स</div>
     </header>
 
     <div class="container">
+        <div class="section-title">उपलब्ध प्रोडक्ट्स (Products List)</div>
         <div class="products-grid">
             
-            <!-- 1 -->
             <div class="product-card">
                 <div>
-                    <div style="font-size: 32px;">🧹</div>
+                    <div style="font-size: 28px;">🧹</div>
                     <h3>फ्लोर क्लीनर</h3>
                     <p>टाइल्स & मार्बल के लिए</p>
                 </div>
@@ -129,10 +149,9 @@
                 </div>
             </div>
 
-            <!-- 2 -->
             <div class="product-card">
                 <div>
-                    <div style="font-size: 32px;">🪟</div>
+                    <div style="font-size: 28px;">🪟</div>
                     <h3>ग्लास क्लीनर</h3>
                     <p>खिड़कियों के शीशे</p>
                 </div>
@@ -142,10 +161,9 @@
                 </div>
             </div>
 
-            <!-- 3 -->
             <div class="product-card">
                 <div>
-                    <div style="font-size: 32px;">🚽</div>
+                    <div style="font-size: 28px;">🚽</div>
                     <h3>टॉयलेट क्लीनर</h3>
                     <p>जर्म्स & दुर्गंध हटाए</p>
                 </div>
@@ -155,10 +173,9 @@
                 </div>
             </div>
 
-            <!-- 4 -->
             <div class="product-card">
                 <div>
-                    <div style="font-size: 32px;">🍽️</div>
+                    <div style="font-size: 28px;">🍽️</div>
                     <h3>डिशवॉश लिक्विड</h3>
                     <p>तेल & चिकनाहट हटाए</p>
                 </div>
@@ -168,10 +185,9 @@
                 </div>
             </div>
 
-            <!-- 5 -->
             <div class="product-card">
                 <div>
-                    <div style="font-size: 32px;">🧴</div>
+                    <div style="font-size: 28px;">🧴</div>
                     <h3>हैंड वॉश</h3>
                     <p>एंटी-बैक्टीरियल</p>
                 </div>
@@ -181,10 +197,9 @@
                 </div>
             </div>
 
-            <!-- 6 -->
             <div class="product-card">
                 <div>
-                    <div style="font-size: 32px;">🧽</div>
+                    <div style="font-size: 28px;">🧽</div>
                     <h3>स्क्रब पैड</h3>
                     <p>कड़े दागों के लिए</p>
                 </div>
@@ -194,10 +209,9 @@
                 </div>
             </div>
 
-            <!-- 7 -->
             <div class="product-card">
                 <div>
-                    <div style="font-size: 32px;">🧺</div>
+                    <div style="font-size: 28px;">🧺</div>
                     <h3>लॉन्ड्री डिटर्जेंट</h3>
                     <p>कपड़ों की सफेदी</p>
                 </div>
@@ -207,10 +221,9 @@
                 </div>
             </div>
 
-            <!-- 8 -->
             <div class="product-card">
                 <div>
-                    <div style="font-size: 32px;">🪣</div>
+                    <div style="font-size: 28px;">🪣</div>
                     <h3>मॉप & बकेट</h3>
                     <p>प्रीमियम क्वालिटी</p>
                 </div>
@@ -220,10 +233,9 @@
                 </div>
             </div>
 
-            <!-- 9 -->
             <div class="product-card">
                 <div>
-                    <div style="font-size: 32px;">🧪</div>
+                    <div style="font-size: 28px;">🧪</div>
                     <h3>सैनिटाइज़र</h3>
                     <p>99.9% जर्म्स हटाए</p>
                 </div>
@@ -233,10 +245,9 @@
                 </div>
             </div>
 
-            <!-- 10 -->
             <div class="product-card">
                 <div>
-                    <div style="font-size: 32px;">🫧</div>
+                    <div style="font-size: 28px;">🫧</div>
                     <h3>बबल बाथ</h3>
                     <p>आराम & सुगंध</p>
                 </div>
@@ -247,8 +258,34 @@
             </div>
 
         </div>
-    </div>
+    <!---------------------------App Download Section---------------------->
+    <section class="block">
+        <h2>हर्बिस केमिकल ऐप डाउनलोड करें</h2>
+        <p>आसानी से आर्डर देखने और बुकमार्क करने के लिए ऐप डाउनलोड करें</p>
+        <div style="margin-top: 15px;">
+            <input type="number" placeholder="अपना मोबाइल नंबर दर्ज करें">
+            <br>
+            <button style="background: #0b2545; color: white; border: none; padding: 8px 15px; border-radius: 4px; margin-top: 5px; cursor: pointer;">लिंक भेजें</button>
+        </div>
+    </section>
 
+    <!-------------------------------Footer area---------------------------------------------------->
+    <footer>
+        <div class="footer-wrapper" style="background: #0b2545; padding: 20px; color: white; margin-top: 20px;">
+            <select name="" class="footer-nav" style="padding: 5px; border-radius: 4px;">
+                <option value="">Mumbai</option>
+                <option value="">Pune</option>
+                <option value="">Delhi</option>
+                <option value="">Bangalore</option>
+            </select>
+        </div>
+        
+        <div style="background: #07162c; color: #a0aec0; padding: 20px; font-size: 13px;">
+            <p><b>About Harshit Chemical:</b> Housekeeping and Industrial Chemicals manufacturer and suppliers.</p>
+            <p style="margin-top: 10px;">By committing past this page you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies. All trademarks are properties of their respective owners. © Harshit Chemical Industry. All rights reserved.</p>
+        </div>
+    </footer>
+    
     <!-- Bottom Cart Bar -->
     <div class="bottom-cart-bar">
         <div>
@@ -278,7 +315,7 @@
                 return;
             }
             let phone = "919876543210"; // यहाँ अपना WhatsApp नंबर दर्ज करें
-            let text = `नमस्ते, मैं यह ऑर्डर देना चाहता हूँ:\n\n*आइटम:* ${cartItems.join(', ')}\n*कुल राशि:* ₹${cartTotal}`;
+            let text = `नमस्ते, मैं हर्बिस केमिकल से यह ऑर्डर देना चाहता हूँ:\n\n*आइटम:* ${cartItems.join(', ')}\n*कुल राशि:* ₹${cartTotal}`;
             let url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
             window.open(url, '_blank');
         }
