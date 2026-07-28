@@ -3,118 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harshit Chemical Industry</title>
+    <title>Harshit Chemical Industry | Free E-Commerce</title>
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="https://cloudflare.com">
-    <style>
-        :root { --primary: #0056b3; --secondary: #00b4d8; --dark: #1a1a1a; --light: #f8f9fa; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background: var(--light); color: var(--dark); padding-bottom: 60px; }
-        header { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
-        .nav { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 22px; font-weight: 700; color: var(--primary); }
-        .cart-btn { background: none; border: none; font-size: 22px; cursor: pointer; position: relative; }
-        .cart-count { position: absolute; top: -8px; right: -10px; background: red; color: white; font-size: 11px; padding: 2px 6px; border-radius: 50%; }
-        .hero { background: linear-gradient(135deg, #0056b3, #00b4d8); color: white; text-align: center; padding: 60px 20px; }
-        .hero h1 { font-size: 36px; margin-bottom: 10px; }
-        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
-        .img-box { width: 100%; height: 200px; background: #fafafa; display: flex; align-items: center; justify-content: center; padding: 10px; border-bottom: 1px solid #eee; }
-        .img-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
-        .info { padding: 15px; display: flex; flex-direction: column; flex-grow: 1; }
-        .title { font-size: 16px; font-weight: 600; margin-bottom: 5px; }
-        .desc { font-size: 13px; color: #6c757d; margin-bottom: 15px; flex-grow: 1; }
-        .price { font-size: 18px; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
-        .add-btn { background: var(--primary); color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: 600; }
-        .sidebar { position: fixed; top: 0; right: -350px; width: 350px; height: 100%; background: white; box-shadow: -5px 0 15px rgba(0,0,0,0.1); z-index: 200; transition: 0.3s; padding: 20px; display: flex; flex-direction: column; }
-        .sidebar.active { right: 0; }
-        .side-head { display: flex; justify-content: space-between; font-size: 18px; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        .close-btn { background: none; border: none; font-size: 24px; cursor: pointer; }
-        .items { flex-grow: 1; overflow-y: auto; }
-        .item { display: flex; justify-content: space-between; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #f5f5f5; }
-        .wa-btn { background: #25D366; color: white; text-align: center; padding: 12px; border-radius: 5px; font-weight: 600; text-decoration: none; display: block; margin-top: 15px; }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <div class="nav">
+        <div class="nav-container">
             <div class="logo"><i class="fas fa-flask"></i> Harshit Chemicals</div>
-            <button class="cart-btn" onclick="toggleCart()"><i class="fas fa-shopping-cart"></i><span class="cart-count" id="count">0</span></button>
+            <button class="cart-icon-btn" onclick="toggleCart()">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="global-cart-count">0</span>
+            </button>
         </div>
     </header>
+
     <section class="hero">
         <h1>Harshit Chemical Industry</h1>
-        <p>Premium Quality Housekeeping Products</p>
+        <p>Premium Quality Housekeeping Products & Industrial Chemicals</p>
     </section>
-    <div class="container">
-        <div class="grid" id="products"></div>
-    </div>
-    <div class="sidebar" id="sidebar">
-        <div class="side-head"><h3>Your Cart</h3><button class="close-btn" onclick="toggleCart()">&times;</button></div>
-        <div class="items" id="cart-items"></div>
-        <div style="border-top:1px solid #eee; padding-top:15px;">
-            <div style="display:flex; justify-content:space-between; font-weight:700; font-size:18px;"><span>Total:</span><span id="total">₹0</span></div>
-            <a href="#" class="wa-btn" onclick="sendOrder(event)"><i class="fab fa-whatsapp"></i> WhatsApp Order</a>
+
+    <main class="container">
+        <h2 class="section-title">Our Premium Menu</h2>
+        <div class="product-grid" id="products-container">
+            <!-- Products mobile script se load honge -->
+        </div>
+    </main>
+
+    <!-- Side Cart & Zomato Style Checkout Form -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-basket"></i> Your Cart</h3>
+            <button class="close-cart" onclick="toggleCart()">&times;</button>
+        </div>
+        
+        <div class="cart-items" id="cart-items-wrapper">
+            <!-- Items yahan dikhenge -->
+        </div>
+
+        <!-- Customer Details Form (Zomato Style) -->
+        <div class="checkout-form-container" style="border-top:1px solid #ddd; padding-top:15px; margin-top:15px;">
+            <h4 style="margin-bottom:10px; color:#0056b3;">Delivery Details (Free Setup)</h4>
+            <input type="text" id="cust-name" placeholder="Apna Naam Likhein" style="width:100%; padding:8px; margin-bottom:8px; border:1px solid #ccc; border-radius:4px;">
+            <input type="text" id="cust-phone" placeholder="Mobile Number" style="width:100%; padding:8px; margin-bottom:8px; border:1px solid #ccc; border-radius:4px;">
+            <textarea id="cust-address" placeholder="Pura Delivery Address bharein" rows="2" style="width:100%; padding:8px; margin-bottom:10px; border:1px solid #ccc; border-radius:4px; font-family:inherit;"></textarea>
+        </div>
+
+        <div class="cart-footer" style="border-top: 1px solid #ddd; padding-top: 15px;">
+            <div style="display:flex; justify-content:space-between; font-weight:700; font-size:18px; margin-bottom:15px;">
+                <span>Grand Total:</span>
+                <span id="total-checkout-amount">₹0</span>
+            </div>
+            <a href="#" class="btn-whatsapp" onclick="triggerWhatsAppOrder(event)">
+                <i class="fab fa-whatsapp"></i> Confirm & Order via WhatsApp
+            </a>
         </div>
     </div>
-    <script>
-        const products = [
-            { id: 1, name: "Premium Car & Bike Shampoo", price: 180, desc: "High-foam shine formula.", img: "images/car_bike_shampoo.jpg" },
-            { id: 2, name: "Floor Cleaner (5 Litre)", price: 350, desc: "Heavy duty disinfecting formula.", img: "images/floor_cleaner_5liter.png" },
-            { id: 3, name: "Premium Dishwash (5 Litre)", price: 320, desc: "Advanced grease-cutting gel.", img: "images/dishwash_5liter.jpg" },
-            { id: 4, name: "Glass Cleaner (5 Litre)", price: 280, desc: "Streak-free crystal clear finish.", img: "images/glass_cleaner_5_litre.jpg" },
-            { id: 5, name: "Toilet Cleaner (5 Litre)", price: 390, desc: "Deep action scaling protectant.", img: "images/toilet_cleaner_5_litre.jpg" },
-            { id: 6, name: "White Phenyl (5 Litre)", price: 220, desc: "Antibacterial floor sanitiser.", img: "images/white_phenyl_5_litre.jpg" },
-            { id: 7, name: "Black Phenyl (5 Litre)", price: 240, desc: "Powerful grade disinfectant.", img: "images/black_phenyl_5_litre.jpg" },
-            { id: 8, name: "Microfiber Spin Mop", price: 750, desc: "360 rotating cleaning mop setup.", img: "images/microfiber_spin_mop.jpg" }
-        ];
-        let cart = [];
-        const PHONE = "919999999999"; // <-- Apna number idhar badlein
 
-        function render() {
-            document.getElementById('products').innerHTML = products.map(p => `
-                <div class="card">
-                    <div class="img-box"><img src="${p.img}" onerror="this.src='https://placehold.co'"></div>
-                    <div class="info">
-                        <div class="title">${p.name}</div>
-                        <div class="desc">${p.desc}</div>
-                        <div class="price">₹${p.price}</div>
-                        <button class="add-btn" onclick="add(${p.id})">Add To Cart</button>
-                    </div>
-                </div>
-            `).join('');
-        }
-        function add(id) {
-            const item = products.find(p => p.id === id);
-            const exist = cart.find(c => c.id === id);
-            if(exist) exist.qty++; else cart.push({...item, qty: 1});
-            update();
-            document.getElementById('sidebar').classList.add('active');
-        }
-        function update() {
-            let total = 0, count = 0;
-            const box = document.getElementById('cart-items');
-            if(cart.length === 0) { box.innerHTML = '<p style="text-align:center;color:#888;margin-top:20px;">Cart is empty</p>'; }
-            else {
-                box.innerHTML = cart.map(c => {
-                    total += c.price * c.qty; count += c.qty;
-                    return `<div class="item"><div><h4>${c.name}</h4><small>₹${c.price} x ${c.qty}</small></div><button onclick="rem(${c.id})" style="background:none;border:none;color:red;cursor:pointer;"><i class="fas fa-trash"></i></button></div>`;
-                }).join('');
-            }
-            document.getElementById('count').innerText = count;
-            document.getElementById('total').innerText = '₹' + total;
-        }
-        function rem(id) { cart = cart.filter(c => c.id !== id); update(); }
-        function toggleCart() { document.getElementById('sidebar').classList.toggle('active'); }
-        function sendOrder(e) {
-            e.preventDefault(); if(cart.length===0) return alert("Cart is empty!");
-            let txt = "✨ *New Order* ✨\n\n"; let tot = 0;
-            cart.forEach((c, i) => { txt += `${i+1}. *${c.name}* (Qty: ${c.qty}) - ₹${c.price*c.qty}\n`; tot += c.price*c.qty; });
-            txt += `\n💰 *Total: ₹${tot}*`;
-            window.open(`https://wa.me{PHONE}?text=${encodeURIComponent(txt)}`, '_blank');
-        }
-        render(); update();
-    </script>
+    <footer>
+        <p>&copy; 2026 Harshit Chemical Industry. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Scripts Project files se link hain -->
+    <script src="js/products-data.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
