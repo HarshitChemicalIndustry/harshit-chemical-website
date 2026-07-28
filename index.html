@@ -1,144 +1,120 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harshit Chemical Industry | Quick Order</title>
-    <!-- Google Fonts for Premium Look -->
+    <title>Harshit Chemical Industry</title>
     <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="https://cloudflare.com">
     <style>
-        /* CSS For Perfect Layout Across Mobile and Desktop */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: #f8fafc; padding-bottom: 120px; color: #0f172a; }
-        
-        /* Header */
-        .header { position: sticky; top: 0; z-index: 100; background: white; border-bottom: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.02); padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-        .logo { font-size: 18px; font-weight: 800; letter-spacing: -0.5px; }
-        .logo-green { color: #16a34a; }
-        .logo-amber { color: #d97706; }
-        .search-container { flex: 1; max-width: 600px; position: relative; }
-        .search-input { width: 100%; background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 12px; padding: 10px 16px 10px 38px; font-size: 14px; outline: none; }
-        .search-input:focus { background: white; border-color: #16a34a; box-shadow: 0 0 0 3px rgba(22,163,74,0.1); }
-        .search-icon { position: absolute; left: 14px; top: 11px; color: #94a3b8; }
-        .cart-btn { background: #16a34a; color: white; border: none; padding: 10px 16px; font-weight: 700; border-radius: 12px; cursor: pointer; display: flex; align-items: center; gap: 6px; font-size: 14px; }
-
-        /* Banner */
-        .container { max-width: 1200px; margin: 0 auto; padding: 16px; }
-        .banner { background: linear-gradient(135deg, #16a34a, #15803d); color: white; padding: 24px; border-radius: 20px; margin-bottom: 24px; box-shadow: 0 4px 15px rgba(22,163,74,0.15); }
-        .banner h1 { font-size: 24px; font-weight: 800; margin-bottom: 6px; }
-        .banner p { font-size: 13px; opacity: 0.9; }
-
-        /* Product Grid */
-        .section-title { font-size: 18px; font-weight: 800; margin-bottom: 16px; color: #1e293b; }
-        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-        @media(min-width: 640px) { .grid { grid-template-columns: repeat(3, 1fr); } }
-        @media(min-width: 768px) { .grid { grid-template-columns: repeat(4, 1fr); } }
-        @media(min-width: 1024px) { .grid { grid-template-columns: repeat(5, 1fr); } }
-
-        /* Card Design */
-        .card { background: white; border: 1px solid #e2e8f0; border-radius: 16px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 1px 3px rgba(0,0,0,0.01); transition: transform 0.2s; }
-        .card:hover { transform: translateY(-3px); }
-        .img-container { width: 100%; height: 120px; background: #f8fafc; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; padding: 6px; overflow: hidden; }
-        .img-container img { max-height: 100%; max-width: 100%; object-fit: contain; }
-        .category-tag { font-size: 9px; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 2px 6px; border-radius: 20px; text-transform: uppercase; }
-        .p-name { font-size: 13px; font-weight: 600; color: #1e293b; margin-top: 6px; height: 36px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-height: 1.4; }
-        
-        /* Card Action Elements */
-        .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; padding-top: 8px; border-top: 1px solid #f1f5f9; }
-        .price { font-size: 15px; font-weight: 700; color: #0f172a; }
-        .add-btn { border: 1px solid #16a34a; background: white; color: #16a34a; font-weight: 700; font-size: 12px; padding: 6px 16px; border-radius: 8px; cursor: pointer; text-transform: uppercase; }
-        .add-btn:hover { background: #f0fdf4; }
-        .qty-container { display: flex; align-items: center; background: #16a34a; color: white; font-weight: 700; border-radius: 8px; overflow: hidden; font-size: 13px; }
-        .qty-container button { background: none; border: none; color: white; padding: 6px 10px; cursor: pointer; font-weight: bold; }
-        .qty-container span { padding: 0 4px; min-width: 14px; text-align: center; }
-
-        /* Floating Bottom Cart Bar */
-        .floating-cart { position: fixed; bottom: 16px; left: 16px; right: 16px; max-width: 450px; margin: 0 auto; background: #16a34a; color: white; padding: 12px; border-radius: 16px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 10px 25px rgba(22,163,74,0.3); z-index: 90; }
-        .floating-cart.hidden { display: none; }
-        .floating-text p { font-size: 11px; opacity: 0.9; }
-        .floating-text p.bold { font-size: 13px; font-weight: bold; opacity: 1; }
-        .view-cart-btn { background: white; color: #15803d; border: none; font-weight: 700; font-size: 12px; padding: 8px 16px; border-radius: 10px; cursor: pointer; }
-
-        /* Cart Drawer */
-        .overlay { position: fixed; inset: 0; background: rgba(15,23,42,0.3); z-index: 200; display: none; }
-        .overlay.active { display: block; }
-        .drawer { position: fixed; bottom: 0; left: 0; right: 0; max-width: 500px; margin: 0 auto; background: white; border-top-left-radius: 20px; border-top-right-radius: 20px; box-shadow: 0 -5px 25px rgba(0,0,0,0.1); z-index: 201; padding: 16px; display: flex; flex-direction: column; max-height: 85vh; transform: translateY(100%); transition: transform 0.3s ease-in-out; }
-        .drawer.active { transform: translateY(0); }
-        .drawer-header { display: flex; align-items: center; justify-content: space-between; padding-bottom: 12px; border-bottom: 1px solid #f1f5f9; }
-        .close-btn { background: none; border: none; font-size: 20px; color: #94a3b8; cursor: pointer; }
-        .cart-list { overflow-y: auto; flex: 1; padding: 12px 0; }
-        .cart-item { display: flex; align-items: center; justify-content: space-between; background: #f8fafc; padding: 10px; border-radius: 12px; margin-bottom: 10px; border: 1px solid #f1f5f9; }
-        .item-info h4 { font-size: 13px; font-weight: 600; }
-        .item-info p { font-size: 12px; font-weight: 700; color: #64748b; margin-top: 2px; }
-        .checkout-box { border-top: 1px solid #f1f5f9; padding-top: 12px; }
-        .total-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-        .total-row span.bold { font-size: 18px; font-weight: 800; }
-        .whatsapp-btn { width: 100%; background: #16a34a; color: white; border: none; font-weight: 700; padding: 12px; border-radius: 12px; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; }
+        :root { --primary: #0056b3; --secondary: #00b4d8; --dark: #1a1a1a; --light: #f8f9fa; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background: var(--light); color: var(--dark); padding-bottom: 60px; }
+        header { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .nav { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 22px; font-weight: 700; color: var(--primary); }
+        .cart-btn { background: none; border: none; font-size: 22px; cursor: pointer; position: relative; }
+        .cart-count { position: absolute; top: -8px; right: -10px; background: red; color: white; font-size: 11px; padding: 2px 6px; border-radius: 50%; }
+        .hero { background: linear-gradient(135deg, #0056b3, #00b4d8); color: white; text-align: center; padding: 60px 20px; }
+        .hero h1 { font-size: 36px; margin-bottom: 10px; }
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
+        .img-box { width: 100%; height: 200px; background: #fafafa; display: flex; align-items: center; justify-content: center; padding: 10px; border-bottom: 1px solid #eee; }
+        .img-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .info { padding: 15px; display: flex; flex-direction: column; flex-grow: 1; }
+        .title { font-size: 16px; font-weight: 600; margin-bottom: 5px; }
+        .desc { font-size: 13px; color: #6c757d; margin-bottom: 15px; flex-grow: 1; }
+        .price { font-size: 18px; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
+        .add-btn { background: var(--primary); color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: 600; }
+        .sidebar { position: fixed; top: 0; right: -350px; width: 350px; height: 100%; background: white; box-shadow: -5px 0 15px rgba(0,0,0,0.1); z-index: 200; transition: 0.3s; padding: 20px; display: flex; flex-direction: column; }
+        .sidebar.active { right: 0; }
+        .side-head { display: flex; justify-content: space-between; font-size: 18px; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .close-btn { background: none; border: none; font-size: 24px; cursor: pointer; }
+        .items { flex-grow: 1; overflow-y: auto; }
+        .item { display: flex; justify-content: space-between; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #f5f5f5; }
+        .wa-btn { background: #25D366; color: white; text-align: center; padding: 12px; border-radius: 5px; font-weight: 600; text-decoration: none; display: block; margin-top: 15px; }
     </style>
 </head>
 <body>
-
-    <!-- HEADER -->
-    <header class="header">
-        <div class="logo">
-            <span class="logo-green">Harshit</span><span class="logo-amber"> Chemicals</span>
+    <header>
+        <div class="nav">
+            <div class="logo"><i class="fas fa-flask"></i> Harshit Chemicals</div>
+            <button class="cart-btn" onclick="toggleCart()"><i class="fas fa-shopping-cart"></i><span class="cart-count" id="count">0</span></button>
         </div>
-        <div class="search-container">
-            <input type="text" id="searchBar" oninput="filterProducts()" placeholder='Search "Phenyl", "Mop", "Brush", "Dustbin"...' class="search-input" />
-            <span class="search-icon">🔍</span>
-        </div>
-        <button onclick="toggleCart()" class="cart-btn">
-            <span>🛒</span> <span id="cartBtnCount">Cart (0)</span>
-        </button>
     </header>
-
+    <section class="hero">
+        <h1>Harshit Chemical Industry</h1>
+        <p>Premium Quality Housekeeping Products</p>
+    </section>
     <div class="container">
-        <!-- BANNER -->
-        <div class="banner">
-            <h1>Harshit Chemical Industry</h1>
-            <p>Premium quality housekeeping items and chemicals delivered via WhatsApp.</p>
-        </div>
-
-        <!-- PRODUCTS -->
-        <h2 class="section-title">⚡ Our Products</h2>
-        <div id="productGrid" class="grid"></div>
+        <div class="grid" id="products"></div>
     </div>
-
-    <!-- FLOATING CART -->
-    <div id="floatingCart" class="floating-cart hidden">
-        <div class="floating-text">
-            <p id="floatingCount" class="bold">0 Items Added</p>
-            <p id="floatingTotal">Total: ₹0</p>
-        </div>
-        <button onclick="toggleCart()" class="view-cart-btn">View Cart 🛍️</button>
-    </div>
-
-    <!-- CART DRAWER -->
-    <div id="cartOverlay" onclick="toggleCart()" class="overlay"></div>
-    <div id="cartDrawer" class="drawer">
-        <div class="drawer-header">
-            <h2>🛍️ Your Cart</h2>
-            <button onclick="toggleCart()" class="close-btn">✕</button>
-        </div>
-        <div id="cartItemsList" class="cart-list"></div>
-        <div class="checkout-box">
-            <div class="total-row">
-                <span>Grand Total</span>
-                <span id="cartGrandTotal" class="bold">₹0</span>
-            </div>
-            <button onclick="sendWhatsAppOrder()" class="whatsapp-btn">💬 Order via WhatsApp</button>
+    <div class="sidebar" id="sidebar">
+        <div class="side-head"><h3>Your Cart</h3><button class="close-btn" onclick="toggleCart()">&times;</button></div>
+        <div class="items" id="cart-items"></div>
+        <div style="border-top:1px solid #eee; padding-top:15px;">
+            <div style="display:flex; justify-content:space-between; font-weight:700; font-size:18px;"><span>Total:</span><span id="total">₹0</span></div>
+            <a href="#" class="wa-btn" onclick="sendOrder(event)"><i class="fab fa-whatsapp"></i> WhatsApp Order</a>
         </div>
     </div>
-
     <script>
-        // 📞 YAHAN APNA PHONE NUMBER DALEIN (Bina '+' sign ke)
-        const WHATSAPP_NUMBER = "919691865574"; 
-
-        const BASE_IMAGE_URL = "https://github.com/HarshitChemicalIndustry/harshit-chemical-website/tree/main/images
-
-        // 🌟 GITHUB REPO SE DIRECT UTAYE GAYE SABHI 68 REAL PRODUCTS KA COMPLETE DATA ARRAYS
         const products = [
-            { id: 1, name: "21 Inch Floor Wiper", price: 240, category: "Wipers", image: "21-inch-floor-wiper.jpg" },
-            { id: 2, name: "Multipurpose Plastic Bucket Drum", price: 450, category: "Buckets & Tubs", image: "Multipurpose_plastic_storage_bucket_drum.jpg" },
-            { id: 3, name: "Bathroom Cleaner", price: 125, category: "Chemicals", image: "bathroom_cleaner.jpg" },
-            { id: 4, name: "Black Hit Spray", price: 180, category: "Cleaners", image: "black_hit.jpg" },
+            { id: 1, name: "Premium Car & Bike Shampoo", price: 180, desc: "High-foam shine formula.", img: "images/car_bike_shampoo.jpg" },
+            { id: 2, name: "Floor Cleaner (5 Litre)", price: 350, desc: "Heavy duty disinfecting formula.", img: "images/floor_cleaner_5liter.png" },
+            { id: 3, name: "Premium Dishwash (5 Litre)", price: 320, desc: "Advanced grease-cutting gel.", img: "images/dishwash_5liter.jpg" },
+            { id: 4, name: "Glass Cleaner (5 Litre)", price: 280, desc: "Streak-free crystal clear finish.", img: "images/glass_cleaner_5_litre.jpg" },
+            { id: 5, name: "Toilet Cleaner (5 Litre)", price: 390, desc: "Deep action scaling protectant.", img: "images/toilet_cleaner_5_litre.jpg" },
+            { id: 6, name: "White Phenyl (5 Litre)", price: 220, desc: "Antibacterial floor sanitiser.", img: "images/white_phenyl_5_litre.jpg" },
+            { id: 7, name: "Black Phenyl (5 Litre)", price: 240, desc: "Powerful grade disinfectant.", img: "images/black_phenyl_5_litre.jpg" },
+            { id: 8, name: "Microfiber Spin Mop", price: 750, desc: "360 rotating cleaning mop setup.", img: "images/microfiber_spin_mop.jpg" }
+        ];
+        let cart = [];
+        const PHONE = "919999999999"; // <-- Apna number idhar badlein
+
+        function render() {
+            document.getElementById('products').innerHTML = products.map(p => `
+                <div class="card">
+                    <div class="img-box"><img src="${p.img}" onerror="this.src='https://placehold.co'"></div>
+                    <div class="info">
+                        <div class="title">${p.name}</div>
+                        <div class="desc">${p.desc}</div>
+                        <div class="price">₹${p.price}</div>
+                        <button class="add-btn" onclick="add(${p.id})">Add To Cart</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+        function add(id) {
+            const item = products.find(p => p.id === id);
+            const exist = cart.find(c => c.id === id);
+            if(exist) exist.qty++; else cart.push({...item, qty: 1});
+            update();
+            document.getElementById('sidebar').classList.add('active');
+        }
+        function update() {
+            let total = 0, count = 0;
+            const box = document.getElementById('cart-items');
+            if(cart.length === 0) { box.innerHTML = '<p style="text-align:center;color:#888;margin-top:20px;">Cart is empty</p>'; }
+            else {
+                box.innerHTML = cart.map(c => {
+                    total += c.price * c.qty; count += c.qty;
+                    return `<div class="item"><div><h4>${c.name}</h4><small>₹${c.price} x ${c.qty}</small></div><button onclick="rem(${c.id})" style="background:none;border:none;color:red;cursor:pointer;"><i class="fas fa-trash"></i></button></div>`;
+                }).join('');
+            }
+            document.getElementById('count').innerText = count;
+            document.getElementById('total').innerText = '₹' + total;
+        }
+        function rem(id) { cart = cart.filter(c => c.id !== id); update(); }
+        function toggleCart() { document.getElementById('sidebar').classList.toggle('active'); }
+        function sendOrder(e) {
+            e.preventDefault(); if(cart.length===0) return alert("Cart is empty!");
+            let txt = "✨ *New Order* ✨\n\n"; let tot = 0;
+            cart.forEach((c, i) => { txt += `${i+1}. *${c.name}* (Qty: ${c.qty}) - ₹${c.price*c.qty}\n`; tot += c.price*c.qty; });
+            txt += `\n💰 *Total: ₹${tot}*`;
+            window.open(`https://wa.me{PHONE}?text=${encodeURIComponent(txt)}`, '_blank');
+        }
+        render(); update();
+    </script>
+</body>
+</html>
