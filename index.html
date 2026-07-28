@@ -1,21 +1,194 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>मेट्रो स्टाइल वेबसाइट</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Hard Set Chemical - Product Catalog</title>
+    <!-- Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
-    <header>
-        <h1>मेट्रो स्टाइल वेबसाइट</h1>
+<body class="bg-slate-50 font-sans">
+
+    <!-- Header / Navbar (Zomato Style) -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <h1 class="text-2xl font-black text-blue-900 tracking-tight">HARD SET <span class="text-orange-600">CHEMICAL</span></h1>
+            </div>
+            <!-- Search Bar -->
+            <div class="hidden md:flex items-center bg-slate-100 rounded-full px-4 py-2 w-96 border border-slate-200">
+                <i class="fa-solid fa-magnifying-glass text-slate-400 mr-2"></i>
+                <input type="text" id="searchInput" placeholder="Search chemical products..." class="bg-transparent border-none outline-none w-full text-sm text-slate-700" onkeyup="filterProducts()">
+            </div>
+            <!-- Cart Button -->
+            <button onclick="toggleCart()" class="relative bg-orange-600 text-white px-4 py-2 rounded-full font-medium text-sm flex items-center space-x-2 hover:bg-orange-700 transition">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Cart</span>
+                <span id="cartCount" class="bg-white text-orange-600 rounded-full h-5 w-5 flex items-center justify-center text-xs font-bold">0</span>
+            </button>
+        </div>
     </header>
-    <div class="container">
-        <div class="tile">स्टाइल 1</div>
-        <div class="tile">स्टाइल 2</div>
-        <div class="tile">स्टाइल 3</div>
-        <div class="tile">स्टाइल 4</div>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-4 py-6">
+        <!-- Banner -->
+        <div class="bg-gradient-to-r from-blue-900 to-indigo-900 rounded-2xl p-6 md:p-10 text-white mb-8 shadow-md">
+            <h2 class="text-3xl font-extrabold mb-2">Industrial Grade Chemical Solutions</h2>
+            <p class="text-blue-200 text-sm md:text-base max-w-xl">Explore our premium range of hard-setting chemicals and adhesives designed for maximum durability.</p>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="flex space-x-3 overflow-x-auto pb-4 mb-6 scrollbar-none">
+            <button onclick="filterCategory('All')" class="category-btn bg-blue-900 text-white px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap shadow-sm">All Products</button>
+            <button onclick="filterCategory('Adhesives')" class="category-btn bg-white text-slate-700 border border-slate-200 px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap hover:bg-slate-100">Adhesives</button>
+            <button onclick="filterCategory('Hardeners')" class="category-btn bg-white text-slate-700 border border-slate-200 px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap hover:bg-slate-100">Hardeners</button>
+            <button onclick="filterCategory('Sealants')" class="category-btn bg-white text-slate-700 border border-slate-200 px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap hover:bg-slate-100">Sealants</button>
+        </div>
+
+        <!-- Product Grid (Zomato Style Cards) -->
+        <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Products will be injected via JavaScript -->
+        </div>
+    </main>
+
+    <!-- Slide-over Cart Drawer -->
+    <div id="cartDrawer" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex justify-end">
+        <div class="bg-white w-full max-w-md h-full p-6 flex flex-col justify-between shadow-2xl">
+            <div>
+                <div class="flex justify-between items-center pb-4 border-b">
+                    <h3 class="text-xl font-bold text-slate-800">Your Inquiry Cart</h3>
+                    <button onclick="toggleCart()" class="text-slate-400 hover:text-slate-600 text-xl"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div id="cartItems" class="py-4 space-y-4 overflow-y-auto max-h-[60vh]">
+                    <!-- Cart items go here -->
+                </div>
+            </div>
+            <div class="border-t pt-4">
+                <div class="flex justify-between font-bold text-lg mb-4">
+                    <span>Total Items:</span>
+                    <span id="cartTotalItems">0</span>
+                </div>
+                <button onclick="checkoutWhatsApp()" class="w-full bg-green-600 text-white py-3 rounded-xl font-bold flex items-center justify-center space-x-2 hover:bg-green-700 transition">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>Send Inquiry on WhatsApp</span>
+                </button>
+            </div>
+        </div>
     </div>
-    <script src="script.js"></script>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // यहाँ आप अपने असली प्रोडक्ट की फोटो के लिंक (URL) डाल सकते हैं
+        const products = [
+            { id: 1, name: "Hard Set Epoxy Resin", category: "Adhesives", price: "₹450 / kg", image: "https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?w=500&auto=format&fit=crop&q=60" },
+            { id: 2, name: "Industrial Hardener X-10", category: "Hardeners", price: "₹600 / Ltr", image: "https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?w=500&auto=format&fit=crop&q=60" },
+            { id: 3, name: "Heavy Duty Sealant", category: "Sealants", price: "₹350 / pc", image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=500&auto=format&fit=crop&q=60" },
+            { id: 4, name: "Fast Cure Chemical Compound", category: "Adhesives", price: "₹850 / kg", image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=500&auto=format&fit=crop&q=60" }
+        ];
+
+        let cart = [];
+
+        function displayProducts(items) {
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = '';
+            items.forEach(product => {
+                grid.innerHTML += `
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-md transition flex flex-col justify-between">
+                        <div>
+                            <div class="h-48 overflow-hidden bg-slate-100 relative">
+                                <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover">
+                                <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-slate-800 text-xs font-bold px-2.5 py-1 rounded-full">${product.category}</span>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-bold text-slate-800 text-lg mb-1">${product.name}</h3>
+                                <p class="text-orange-600 font-extrabold">${product.price}</p>
+                            </div>
+                        </div>
+                        <div class="p-4 pt-0">
+                            <button onclick="addToCart(${product.id})" class="w-full bg-orange-50 text-orange-600 border border-orange-200 font-bold py-2 rounded-xl text-sm hover:bg-orange-600 hover:text-white transition">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function filterCategory(category) {
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-900', 'text-white', 'shadow-sm');
+                btn.classList.add('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+            });
+            event.target.classList.remove('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+            event.target.classList.add('bg-blue-900', 'text-white', 'shadow-sm');
+
+            if(category === 'All') {
+                displayProducts(products);
+            } else {
+                const filtered = products.filter(p => p.category === category);
+                displayProducts(filtered);
+            }
+        }
+
+        function filterProducts() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = products.filter(p => p.name.toLowerCase().includes(query));
+            displayProducts(filtered);
+        }
+
+        function addToCart(id) {
+            const product = products.find(p => p.id === id);
+            cart.push(product);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            document.getElementById('cartCount').innerText = cart.length;
+            document.getElementById('cartTotalItems').innerText = cart.length;
+            
+            const container = document.getElementById('cartItems');
+            container.innerHTML = '';
+            cart.forEach((item, index) => {
+                container.innerHTML += `
+                    <div class="flex items-center justify-between bg-slate-50 p-3 rounded-xl border border-slate-100">
+                        <div class="flex items-center space-x-3">
+                            <img src="${item.image}" class="w-12 h-12 object-cover rounded-lg">
+                            <div>
+                                <h4 class="font-bold text-sm text-slate-800">${item.name}</h4>
+                                <p class="text-xs text-orange-600 font-bold">${item.price}</p>
+                            </div>
+                        </div>
+                        <button onclick="removeFromCart(${index})" class="text-red-500 hover:text-red-700 text-sm"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                `;
+            });
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function toggleCart() {
+            const drawer = document.getElementById('cartDrawer');
+            drawer.classList.toggle('hidden');
+        }
+
+        function checkoutWhatsApp() {
+            if(cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+            let msg = "Hello, I want to inquire about these Hard Set Chemical products:%0A";
+            cart.forEach((item, i) => {
+                msg += `${i+1}. ${item.name} (${item.price})%0A`;
+            });
+            window.open(`https://wa.me/?text=${msg}`, '_blank');
+        }
+
+        // Initial load
+        displayProducts(products);
+    </script>
 </body>
 </html>
