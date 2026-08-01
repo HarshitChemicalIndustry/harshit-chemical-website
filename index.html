@@ -3,489 +3,380 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harshit Chemical Industry - Direct Order Website</title>
+    <title>Harshit Chemical Industry - Official Store</title>
     <style>
-        :root { --primary-color: #004080; --secondary-color: #28a745; --bg-color: #f4f7f6; --text-color: #333; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-color); }
+        :root { --primary: #004080; --accent: #ff4757; --success: #2ed573; --bg: #f8f9fa; --text: #333; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: var(--bg); color: var(--text); }
         header { background: linear-gradient(135deg, #004080, #0066cc); color: white; padding: 15px 20px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         header img { max-height: 70px; vertical-align: middle; border-radius: 50%; border: 2px solid white; }
         header h1 { display: inline-block; margin-left: 15px; font-size: 24px; vertical-align: middle; }
-        
-        .container { max-width: 1200px; margin: 30px auto; padding: 0 15px; }
-        h2 { text-align: center; color: var(--primary-color); margin-bottom: 30px; font-size: 26px; text-transform: uppercase; }
-        
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; margin-bottom: 30px; }
-        .product-card { background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); padding: 20px; text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
-        .product-card img { width: 100%; height: 190px; object-fit: contain; margin-bottom: 15px; }
-        .product-card h3 { font-size: 18px; margin: 10px 0; color: #222; }
-        .product-card p { font-size: 14px; color: #666; flex-grow: 1; margin-bottom: 15px; }
-        
-        .order-btn { background-color: var(--primary-color); color: white; border: none; padding: 10px 15px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; }
-        .order-btn:hover { background-color: #003366; }
-
-        .order-section { background: white; max-width: 600px; margin: 50px auto; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-        .order-section h3 { color: var(--primary-color); text-align: center; margin-top: 0; }
+        .banner-container { width: 100%; max-height: 400px; overflow: hidden; background: #000; text-align: center; }
+        .banner-container img { width: 100%; max-height: 400px; object-fit: cover; }
+        .container { max-width: 1200px; margin: 20px auto; padding: 0 15px; }
+        h2 { text-align: center; color: var(--primary); margin-bottom: 25px; text-transform: uppercase; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .product-card { background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); padding: 15px; text-align: center; cursor: pointer; transition: transform 0.2s, border 0.2s; border: 2px solid transparent; display: flex; flex-direction: column; justify-content: space-between; }
+        .product-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .product-card.selected { border-color: var(--accent); background-color: #fff5f5; }
+        .product-card img { width: 100%; height: 180px; object-fit: contain; margin-bottom: 10px; }
+        .product-card h3 { font-size: 17px; margin: 8px 0; color: #222; }
+        .product-card p { font-size: 13px; color: #666; margin-bottom: 10px; }
+        .touch-badge { display: inline-block; background: #eef2f7; color: var(--primary); padding: 6px 12px; font-size: 12px; font-weight: bold; border-radius: 20px; }
+        .product-card.selected .touch-badge { background: var(--accent); color: white; }
+        .order-section { background: white; max-width: 600px; margin: 40px auto; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); border-top: 5px solid var(--primary); }
         .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 14px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
         .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
-        
-        .submit-order-btn { background-color: var(--secondary-color); color: white; border: none; width: 100%; padding: 12px; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; }
-        .submit-order-btn:hover { background-color: #218838; }
-        
-        footer { text-align: center; padding: 25px; background-color: #1a1a1a; color: white; margin-top: 50px; font-size: 14px; }
+        .submit-btn { background-color: var(--success); color: white; border: none; width: 100%; padding: 12px; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; }
+        footer { text-align: center; padding: 20px; background: #1a1a1a; color: white; margin-top: 40px; }
     </style>
 </head>
 <body>
-
     <header>
         <img src="images/hero_banner.jpg" alt="Logo" onerror="this.src='images/banner.jpg'">
         <h1>Harshit Chemical Industry</h1>
     </header>
-
+    <div class="banner-container">
+        <img src="images/banner.jpg" alt="Harshit Chemical Banner">
+    </div>
     <div class="container">
-        <h2>हमारे हाउसकीपिंग प्रोडक्ट्स</h2>
+        <h2>👉 किसी भी फोटो या प्रोडक्ट पर टच करके आर्डर चुनें (Smart Touch)</h2>
         <div class="product-grid">
-
-            <!-- 1 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, '21 Inch Floor Wiper')">
                 <img src="images/21-inch-floor-wiper.jpg" alt="Wiper" onerror="this.src='images/banner.jpg'">
                 <h3>21 Inch Floor Wiper</h3>
                 <p>मजबूत और टिकाऊ फर्श वाइपर।</p>
-                <button class="order-btn" onclick="selectProduct('21 Inch Floor Wiper')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 2 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Plastic Storage Bucket/Drum')">
                 <img src="images/multipurpose_plastic_storage_bucket_dram.jpg" alt="Bucket" onerror="this.src='images/banner.jpg'">
                 <h3>Plastic Storage Bucket/Drum</h3>
                 <p>बड़ा और मजबूत स्टोरेज ड्रम।</p>
-                <button class="order-btn" onclick="selectProduct('Plastic Storage Bucket/Drum')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 3 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Bathroom Cleaner')">
                 <img src="images/bathroom_cleaner.jpg" alt="Bathroom" onerror="this.src='images/banner.jpg'">
                 <h3>Bathroom Cleaner</h3>
                 <p>बाथरूम की चमक के लिए बेस्ट।</p>
-                <button class="order-btn" onclick="selectProduct('Bathroom Cleaner')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 4 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Black Hit')">
                 <img src="images/black_hit.jpg" alt="Hit" onerror="this.src='images/banner.jpg'">
                 <h3>Black Hit</h3>
                 <p>कीड़े-मकोड़ों से तुरंत सुरक्षा।</p>
-                <button class="order-btn" onclick="selectProduct('Black Hit')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 5 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Black Phenyl (5 Litre)')">
                 <img src="images/black_phenyl_5_litre.jpg" alt="Phenyl" onerror="this.src='images/banner.jpg'">
                 <h3>Black Phenyl (5 Litre)</h3>
                 <p>कीटाणुनाशक ब्लैक फिनाइल।</p>
-                <button class="order-btn" onclick="selectProduct('Black Phenyl (5 Litre)')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 6 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Blue Mop (Big Size)')">
                 <img src="images/blue_mop_bigsize.jpg" alt="Mop" onerror="this.src='images/banner.jpg'">
                 <h3>Blue Mop (Big Size)</h3>
                 <p>बड़े साइज़ का बेहतरीन पोछा।</p>
-                <button class="order-btn" onclick="selectProduct('Blue Mop (Big Size)')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 7 -->
-            <div class="product-card">
+                        <div class="product-card" onclick="selectThisProduct(this, 'Bottle Brush')">
                 <img src="images/botal_brush.jpg" alt="Brush" onerror="this.src='images/banner.jpg'">
                 <h3>Bottle Brush</h3>
                 <p>बोतलों की अंदरूनी सफाई के लिए।</p>
-                <button class="order-btn" onclick="selectProduct('Bottle Brush')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 8 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Broom (झाड़ू)')">
                 <img src="images/broom.jpg" alt="Broom" onerror="this.src='images/banner.jpg'">
                 <h3>Broom (झाड़ू)</h3>
                 <p>मजबूत और टिकाऊ झाड़ू।</p>
-                <button class="order-btn" onclick="selectProduct('Broom')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 9 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Bucket (बाल्टी)')">
                 <img src="images/bucket.jpg" alt="Bucket" onerror="this.src='images/banner.jpg'">
                 <h3>Bucket (बाल्टी)</h3>
                 <p>मजबूत प्लास्टिक बाल्टी।</p>
-                <button class="order-btn" onclick="selectProduct('Bucket')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 10 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Car & Bike Shampoo')">
                 <img src="images/car_bike_shampoo.jpg" alt="Shampoo" onerror="this.src='images/banner.jpg'">
                 <h3>Car & Bike Shampoo</h3>
                 <p>गाड़ियों की चमक के लिए शैम्पू।</p>
-                <button class="order-btn" onclick="selectProduct('Car & Bike Shampoo')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 11 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Carpet Shampoo')">
                 <img src="images/carpet_shampoo.jpg" alt="Carpet" onerror="this.src='images/banner.jpg'">
                 <h3>Carpet Shampoo</h3>
                 <p>कारपेट और गद्दों की गहरी सफाई।</p>
-                <button class="order-btn" onclick="selectProduct('Carpet Shampoo')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 12 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Cotton Mop')">
                 <img src="images/cotton_mop.jpg" alt="Cotton" onerror="this.src='images/banner.jpg'">
                 <h3>Cotton Mop</h3>
                 <p>पानी सोखने में बेहतरीन सूती पोछा।</p>
-                <button class="order-btn" onclick="selectProduct('Cotton Mop')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 13 -->
-            <div class="product-card">
+                        <div class="product-card" onclick="selectThisProduct(this, 'Dish Wash')">
                 <img src="images/dish_wash.jpg" alt="Dishwash" onerror="this.src='images/banner.jpg'">
                 <h3>Dish Wash</h3>
                 <p>बर्तनों को आसानी से चमकाए।</p>
-                <button class="order-btn" onclick="selectProduct('Dish Wash')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 14 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Dish Wash (5 Litre)')">
                 <img src="images/dishwash_5litre.jpg" alt="Dishwash 5L" onerror="this.src='images/banner.jpg'">
                 <h3>Dish Wash (5 Litre)</h3>
                 <p>बड़े पैक में बर्तन धोने का लिक्विड।</p>
-                <button class="order-btn" onclick="selectProduct('Dish Wash (5 Litre)')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 15 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Dust Cloth')">
                 <img src="images/dust_cloth.jpg" alt="Cloth" onerror="this.src='images/banner.jpg'">
                 <h3>Dust Cloth</h3>
                 <p>धूल साफ करने के लिए बढ़िया कपड़ा।</p>
-                <button class="order-btn" onclick="selectProduct('Dust Cloth')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 16 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Dust Pan')">
                 <img src="images/dust_pan.jpg" alt="Pan" onerror="this.src='images/banner.jpg'">
                 <h3>Dust Pan</h3>
                 <p>कचरा उठाने के लिए उपयोगी पैन।</p>
-                <button class="order-btn" onclick="selectProduct('Dust Pan')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 17 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Dustbin (Large)')">
                 <img src="images/dustbin_large.jpg" alt="Large Dustbin" onerror="this.src='images/banner.jpg'">
                 <h3>Dustbin (Large)</h3>
                 <p>कचरा प्रबंधन के लिए बड़ा डस्टबिन।</p>
-                <button class="order-btn" onclick="selectProduct('Dustbin (Large)')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 18 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Dustbin (Small)')">
                 <img src="images/dustbin_small.jpg" alt="Small Dustbin" onerror="this.src='images/banner.jpg'">
                 <h3>Dustbin (Small)</h3>
                 <p>कमरे या ऑफिस के लिए छोटा डस्टबिन।</p>
-                <button class="order-btn" onclick="selectProduct('Dustbin (Small)')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 19 -->
-            <div class="product-card">
+                        <div class="product-card" onclick="selectThisProduct(this, 'Duster')">
                 <img src="images/duster.jpg" alt="Duster" onerror="this.src='images/banner.jpg'">
                 <h3>Duster</h3>
                 <p>फर्नीचर की धूल साफ करने के लिए।</p>
-                <button class="order-btn" onclick="selectProduct('Duster')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 20 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Check Duster Cloth')">
                 <img src="images/dustercloth_check.jpg" alt="Check Cloth" onerror="this.src='images/banner.jpg'">
                 <h3>Check Duster Cloth</h3>
                 <p>चेक डिज़ाइन वाला सफाई कपड़ा।</p>
-                <button class="order-btn" onclick="selectProduct('Check Duster Cloth')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 21 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Extension Pole')">
                 <img src="images/extension_pole.jpg" alt="Pole" onerror="this.src='images/banner.jpg'">
                 <h3>Extension Pole</h3>
                 <p>ऊंचाई पर सफाई के लिए लंबी रॉड।</p>
-                <button class="order-btn" onclick="selectProduct('Extension Pole')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 22 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Feather Duster')">
                 <img src="images/feather_duster.jpg" alt="Feather" onerror="this.src='images/banner.jpg'">
                 <h3>Feather Duster</h3>
                 <p>जालियां और धूल साफ करने का ब्रश।</p>
-                <button class="order-btn" onclick="selectProduct('Feather Duster')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 23 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Floor Brush')">
                 <img src="images/floor_brush.jpg" alt="Floor Brush" onerror="this.src='images/banner.jpg'">
                 <h3>Floor Brush</h3>
                 <p>फर्श रगड़कर साफ करने वाला ब्रश।</p>
-                <button class="order-btn" onclick="selectProduct('Floor Brush')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 24 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Floor Cleaner (5 Litre)')">
                 <img src="images/floor_cleaner_5litre.jpg" alt="Cleaner 5L" onerror="this.src='images/banner.jpg'">
                 <h3>Floor Cleaner (5 Litre)</h3>
                 <p>बड़े पैक में फ्लोर क्लीनर लिक्विड।</p>
-                <button class="order-btn" onclick="selectProduct('Floor Cleaner (5 Litre)')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 25 -->
-            <div class="product-card">
+                        <div class="product-card" onclick="selectThisProduct(this, 'Floor Squeegee')">
                 <img src="images/floor_squeegee.jpg" alt="Squeegee" onerror="this.src='images/banner.jpg'">
                 <h3>Floor Squeegee</h3>
                 <p>फर्श से पानी खींचने वाला वाइपर।</p>
-                <button class="order-btn" onclick="selectProduct('Floor Squeegee')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 26 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Garbage Bags')">
                 <img src="images/garbage_bag.jpg" alt="Garbage Bag" onerror="this.src='images/banner.jpg'">
                 <h3>Garbage Bags</h3>
                 <p>कचरा डालने के लिए मजबूत थैलियां।</p>
-                <button class="order-btn" onclick="selectProduct('Garbage Bags')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 27 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Garbage Tongs')">
                 <img src="images/garbage_tongs.jpg" alt="Tongs" onerror="this.src='images/banner.jpg'">
                 <h3>Garbage Tongs</h3>
                 <p>बिना हाथ लगाए कचरा उठाने का टूल।</p>
-                <button class="order-btn" onclick="selectProduct('Garbage Tongs')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 28 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Broom & Dustpan Set')">
                 <img src="images/generic_broom_dustpan_set.jpg" alt="Set" onerror="this.src='images/banner.jpg'">
                 <h3>Broom & Dustpan Set</h3>
                 <p>झाड़ू और डस्टपैन का पूरा सेट।</p>
-                <button class="order-btn" onclick="selectProduct('Broom & Dustpan Set')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 29 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Glass Cleaner')">
                 <img src="images/glass_cleaner.jpg" alt="Glass" onerror="this.src='images/banner.jpg'">
                 <h3>Glass Cleaner</h3>
                 <p>कांच और शीशा चमकाने के लिए।</p>
-                <button class="order-btn" onclick="selectProduct('Glass Cleaner')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 30 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Glass Cleaner (5 Litre)')">
                 <img src="images/glass_cleaner_5litre.jpg" alt="Glass 5L" onerror="this.src='images/banner.jpg'">
                 <h3>Glass Cleaner (5 Litre)</h3>
                 <p>बड़े पैक में ग्लास क्लीनर।</p>
-                <button class="order-btn" onclick="selectProduct('Glass Cleaner (5 Litre)')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 31 -->
-            <div class="product-card">
+                        <div class="product-card" onclick="selectThisProduct(this, 'Plastic Tub')">
                 <img src="images/plastic_tub.jpg" alt="Tub" onerror="this.src='images/banner.jpg'">
                 <h3>Plastic Tub</h3>
                 <p>रोजमर्रा के उपयोग के लिए टब।</p>
-                <button class="order-btn" onclick="selectProduct('Plastic Tub')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 32 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Room Freshener (5 Litre)')">
                 <img src="images/room_freshener_5litre.jpg" alt="Freshener" onerror="this.src='images/banner.jpg'">
                 <h3>Room Freshener (5 Litre)</h3>
                 <p>खुशबूदार रूम फ्रेशनर लिक्विड।</p>
-                <button class="order-btn" onclick="selectProduct('Room Freshener (5 Litre)')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 33 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Room Spray')">
                 <img src="images/room_spray.jpg" alt="Spray" onerror="this.src='images/banner.jpg'">
                 <h3>Room Spray</h3>
                 <p>घर में भीनी-भीनी खुशबू के लिए स्प्रे।</p>
-                <button class="order-btn" onclick="selectProduct('Room Spray')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 34 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Scoop')">
                 <img src="images/scoop.jpg" alt="Scoop" onerror="this.src='images/banner.jpg'">
                 <h3>Scoop</h3>
                 <p>पाउडर या सामान उठाने का स्कूप।</p>
-                <button class="order-btn" onclick="selectProduct('Scoop')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 35 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Scrubber Pad')">
                 <img src="images/scrubber_pad.jpg" alt="Scrubber" onerror="this.src='images/banner.jpg'">
                 <h3>Scrubber Pad</h3>
                 <p>बर्तन साफ करने का स्क्रब पैड।</p>
-                <button class="order-btn" onclick="selectProduct('Scrubber Pad')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 36 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Spider Duster')">
                 <img src="images/spider_duster.jpg" alt="Spider" onerror="this.src='images/banner.jpg'">
                 <h3>Spider Duster</h3>
                 <p>छतों से मकड़ी के जाले हटाने के लिए।</p>
-                <button class="order-btn" onclick="selectProduct('Spider Duster')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 37 -->
-            <div class="product-card">
+                        <div class="product-card" onclick="selectThisProduct(this, 'Sponge Mop')">
                 <img src="images/sponge_mop.jpg" alt="Sponge" onerror="this.src='images/banner.jpg'">
                 <h3>Sponge Mop</h3>
                 <p>आसानी से पानी सोखने वाला स्पंज पोछा।</p>
-                <button class="order-btn" onclick="selectProduct('Sponge Mop')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 38 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Squeegee')">
                 <img src="images/squeegee.jpg" alt="Squeegee" onerror="this.src='images/banner.jpg'">
                 <h3>Squeegee</h3>
                 <p>कांच और फर्श साफ करने का वाइपर।</p>
-                <button class="order-btn" onclick="selectProduct('Squeegee')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 39 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Steel Cleaner (5 Litre)')">
                 <img src="images/stainless_steel_cleaner_liquid_5litre.jpg" alt="Steel" onerror="this.src='images/banner.jpg'">
                 <h3>Steel Cleaner (5 Litre)</h3>
                 <p>स्टील की चमक के लिए लिक्विड।</p>
-                <button class="order-btn" onclick="selectProduct('Steel Cleaner (5 Litre)')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 40 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Stick Broom')">
                 <img src="images/stick_broom.jpg" alt="Stick Broom" onerror="this.src='images/banner.jpg'">
                 <h3>Stick Broom</h3>
                 <p>डंडे वाली लंबी झाड़ू।</p>
-                <button class="order-btn" onclick="selectProduct('Stick Broom')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 41 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Tiles Cleaner')">
                 <img src="images/tiles_cleaner.jpg" alt="Tiles" onerror="this.src='images/banner.jpg'">
                 <h3>Tiles Cleaner</h3>
                 <p>टाइल्स को चमकाने वाला क्लीनर।</p>
-                <button class="order-btn" onclick="selectProduct('Tiles Cleaner')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 42 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Tiles Cleaner (5 Litre)')">
                 <img src="images/tiles_cleaner_5litre.jpg" alt="Tiles 5L" onerror="this.src='images/banner.jpg'">
                 <h3>Tiles Cleaner (5 Litre)</h3>
                 <p>बड़े पैक में टाइल्स क्लीनर।</p>
-                <button class="order-btn" onclick="selectProduct('Tiles Cleaner (5 Litre)')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 43 -->
-            <div class="product-card">
+                        <div class="product-card" onclick="selectThisProduct(this, 'Toilet Brush')">
                 <img src="images/toilet_brush.jpg" alt="Toilet Brush" onerror="this.src='images/banner.jpg'">
                 <h3>Toilet Brush</h3>
                 <p>टॉयलेट साफ करने का मजबूत ब्रश।</p>
-                <button class="order-btn" onclick="selectProduct('Toilet Brush')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 44 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Toilet Cleaner')">
                 <img src="images/toilet_cleaner.jpg" alt="Toilet Cleaner" onerror="this.src='images/banner.jpg'">
                 <h3>Toilet Cleaner</h3>
                 <p>टॉयलेट को साफ और रोगाणुमुक्त रखे।</p>
-                <button class="order-btn" onclick="selectProduct('Toilet Cleaner')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 45 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Toilet Cleaner (5 Litre)')">
                 <img src="images/toilet_cleaner_5litre.jpg" alt="Toilet 5L" onerror="this.src='images/banner.jpg'">
                 <h3>Toilet Cleaner (5 Litre)</h3>
                 <p>बड़े पैक में टॉयलेट क्लीनर।</p>
-                <button class="order-btn" onclick="selectProduct('Toilet Cleaner (5 Litre)')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 46 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Toilet Cleaner Applicator')">
                 <img src="images/toilet_cleaner_applicator.jpg" alt="Applicator" onerror="this.src='images/banner.jpg'">
                 <h3>Toilet Cleaner Applicator</h3>
                 <p>क्लीनर लगाने का एप्लीकेटर।</p>
-                <button class="order-btn" onclick="selectProperty('Toilet Cleaner Applicator')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 47 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Cleaning Trolley')">
                 <img src="images/trolley.jpg" alt="Trolley" onerror="this.src='images/banner.jpg'">
                 <h3>Cleaning Trolley</h3>
                 <p>सफाई का सामान ले जाने की ट्रॉली।</p>
-                <button class="order-btn" onclick="selectProduct('Cleaning Trolley')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 48 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Urinal Brush')">
                 <img src="images/urinal_brush.jpg" alt="Urinal Brush" onerror="this.src='images/banner.jpg'">
                 <h3>Urinal Brush</h3>
                 <p>यूरिनल पॉट साफ करने का ब्रश।</p>
-                <button class="order-btn" onclick="selectProduct('Urinal Brush')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 49 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Urinal Cubes')">
                 <img src="images/urinalcube.jpg" alt="Cubes" onerror="this.src='images/banner.jpg'">
                 <h3>Urinal Cubes</h3>
                 <p>सुगंधित और फ्रेश रखने वाली क्यूब्स।</p>
-                <button class="order-btn" onclick="selectProduct('Urinal Cubes')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 50 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Wet Floor Sign Board')">
                 <img src="images/wet_floor_sign.jpg" alt="Sign" onerror="this.src='images/banner.jpg'">
                 <h3>Wet Floor Sign Board</h3>
                 <p>गीले फर्श की चेतावनी का साइन बोर्ड।</p>
-                <button class="order-btn" onclick="selectProduct('Wet Floor Sign Board')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 51 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'White Phenyl (5 Litre)')">
                 <img src="images/white_phenyl_5_litre.jpg" alt="White Phenyl" onerror="this.src='images/banner.jpg'">
                 <h3>White Phenyl (5 Litre)</h3>
                 <p>खुशबूदार और प्रभावी व्हाइट फिनाइल।</p>
-                <button class="order-btn" onclick="selectProduct('White Phenyl (5 Litre)')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
-            <!-- 52 -->
-            <div class="product-card">
+            <div class="product-card" onclick="selectThisProduct(this, 'Window Wiper')">
                 <img src="images/window_wiper.jpg" alt="Window Wiper" onerror="this.src='images/banner.jpg'">
                 <h3>Window Wiper</h3>
                 <p>खिड़कियों और कांच साफ करने का वाइपर।</p>
-                <button class="order-btn" onclick="selectProduct('Window Wiper')">यह आर्डर करना है</button>
+                <span class="touch-badge">छूकर आर्डर चुनें</span>
             </div>
-
         </div>
-    </div>
-
-    <!-- Direct Order Form (Linked with your Formspree Account) -->
+                </div>
+                    <!-- ऑर्डर फॉर्म सेक्शन (Formspree से कनेक्टेड) -->
     <div class="order-section">
-        <h3>वेबसाइट से सीधा ऑर्डर बुक करें</h3>
-        <form id="directOrderForm" action="https://formspree.io/f/xlgkqevp" method="POST">
+        <h3 style="color: #004080; text-align: center; margin-top: 0;">🛒 आपका चुना हुआ आर्डर</h3>
+        <form action="https://formspree.io/f/xlgkqevp" method="POST">
+            <div class="form-group">
+                <label>चुना हुआ प्रोडक्ट (Selected Product):</label>
+                <input type="text" name="Ordered_Product" id="selectedProduct" readonly required placeholder="ऊपर किसी भी फोटो/प्रोडक्ट को टच करें..." style="background: #e9ecef; font-weight: bold; color: #ff4757; font-size: 16px;">
+            </div>
             <div class="form-group">
                 <label>आपका नाम (Your Name):</label>
-                <input type="text" name="Customer_Name" id="custName" required placeholder="अपना पूरा नाम लिखें">
+                <input type="text" name="Customer_Name" required placeholder="अपना पूरा नाम लिखें">
             </div>
             <div class="form-group">
                 <label>मोबाइल नंबर (Phone Number):</label>
-                <input type="tel" name="Customer_Phone" id="custPhone" required placeholder="अपना फोन नंबर लिखें">
+                <input type="tel" name="Customer_Phone" required placeholder="अपना फोन नंबर लिखें">
             </div>
             <div class="form-group">
-                <label>पत्ता / डिलीवरी एड्रेस (Delivery Address):</label>
-                <textarea name="Customer_Address" id="custAddress" rows="3" required placeholder="पूरा पता यहाँ लिखें"></textarea>
+                <label>डिलीवरी एड्रेस (Delivery Address):</label>
+                <textarea name="Customer_Address" rows="3" required placeholder="पूरा पता यहाँ लिखें"></textarea>
             </div>
-            <div class="form-group">
-                <label>चुना हुआ प्रोडक्ट (Selected Product):</label>
-                <input type="text" name="Ordered_Product" id="selectedProduct" readonly placeholder="ऊपर सूची से 'यह आर्डर करना है' दबाएं">
-            </div>
-            <button type="submit" class="submit-order-btn">ऑर्डर सबमिट करें (Submit Order)</button>
+            <button type="submit" class="submit-btn">ऑर्डर पक्का करें (Submit Order)</button>
         </form>
     </div>
 
@@ -494,10 +385,25 @@
     </footer>
 
     <script>
-        function selectProduct(productName) {
+        // स्मार्ट टच फंक्शन: किसी भी प्रोडक्ट पर क्लिक/टच करते ही यह आर्डर बॉक्स में आ जाएगा
+        function selectThisProduct(element, productName) {
+            // सभी कार्ड्स से 'selected' क्लास हटाएँ
+            document.querySelectorAll('.product-card').forEach(card => {
+                card.classList.remove('selected');
+                let badge = card.querySelector('.touch-badge');
+                if(badge) badge.innerText = "छूकर आर्डर चुनें";
+            });
+
+            // वर्तमान चुने गए कार्ड को हाइलाइट करें
+            element.classList.add('selected');
+            let currentBadge = element.querySelector('.touch-badge');
+            if(currentBadge) currentBadge.innerText = "✓ आर्डर के लिए चुना गया";
+
+            // इनपुट बॉक्स में प्रोडक्ट का नाम भरें
             document.getElementById('selectedProduct').value = productName;
-            alert(productName + ' चुन लिया गया है! अब नीचे फॉर्म में अपना नाम, फोन और पता भरकर "ऑर्डर सबमिट करें" बटन दबाएं।');
-            document.getElementById('directOrderForm').scrollIntoView({ behavior: 'smooth' });
+
+            // फॉर्म की तरफ स्मूथ स्क्रॉल करें ताकि ग्राहक को दिखे
+            document.querySelector('.order-section').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
