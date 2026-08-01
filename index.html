@@ -9,89 +9,71 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f6f9;
+            background-color: #f4f4f4;
             color: #333;
         }
         header {
-            background-color: #ffffff;
-            padding: 15px 25px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .logo-area img {
-            height: 55px;
-            width: auto;
-            object-fit: contain;
-        }
-        .logo-area h1 {
-            font-size: 22px;
-            color: #0056b3;
-            margin: 0;
-        }
-        .banner {
-            width: 100%;
-            max-height: 400px;
-            overflow: hidden;
-            background: #e2e8f0;
+            background-color: #004080;
+            color: white;
+            padding: 20px;
             text-align: center;
+        }
+        header img {
+            max-height: 80px;
+            vertical-align: middle;
+            border-radius: 50%;
+        }
+        header h1 {
+            display: inline-block;
+            margin-left: 15px;
+            font-size: 24px;
+            vertical-align: middle;
         }
         .banner img {
             width: 100%;
-            height: auto;
             max-height: 400px;
             object-fit: cover;
         }
         .container {
             max-width: 1200px;
-            margin: 30px auto;
+            margin: 20px auto;
             padding: 0 15px;
         }
-        .container h2 {
+        h2 {
             text-align: center;
+            color: #004080;
             margin-bottom: 30px;
-            color: #222;
-            font-size: 28px;
         }
-        .products-grid {
+        .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
         .product-card {
             background: white;
-            border-radius: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             padding: 15px;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-            transition: transform 0.2s ease;
-        }
-        .product-card:hover {
-            transform: translateY(-5px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .product-card img {
             width: 100%;
-            height: 180px;
+            height: 200px;
             object-fit: contain;
-            border-radius: 6px;
-            background: #fff;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
         .product-card h3 {
-            margin: 10px 0 5px 0;
             font-size: 18px;
-            color: #333;
+            margin: 10px 0;
+            color: #222;
         }
         .product-card p {
-            color: #666;
             font-size: 14px;
-            margin-bottom: 15px;
+            color: #666;
+            flex-grow: 1;
         }
         .whatsapp-btn {
             display: inline-block;
@@ -101,47 +83,57 @@
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
-            font-size: 14px;
-            width: 80%;
+            margin-top: 15px;
         }
         .whatsapp-btn:hover {
-            background-color: #20ba5a;
+            background-color: #1ebe5d;
         }
         footer {
             text-align: center;
-            padding: 25px;
-            background: #1e293b;
+            padding: 20px;
+            background-color: #222;
             color: white;
-            margin-top: 50px;
+            margin-top: 40px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Header & Logo -->
     <header>
-        <div class="logo-area">
-            <img src="images/hero_banner.jpg" alt="Harshit Chemical Logo">
-            <h1>Harshit Chemical Industry</h1>
-        </div>
+        <img src="images/hero_banner.jpg" alt="Harshit Chemical Logo">
+        <h1>Harshit Chemical Industry</h1>
     </header>
 
-    <!-- Main Banner -->
     <div class="banner">
         <img src="images/banner.jpg" alt="Harshit Chemical Banner">
     </div>
 
-    <!-- Products Section -->
     <div class="container">
         <h2>हमारे प्रोडक्ट्स (Products)</h2>
-        <div class="products-grid">
-            
+        <div class="product-grid">
+
             <!-- Phenyl -->
             <div class="product-card">
                 <img src="images/phenyl.jpg" alt="Phenyl">
                 <h3>Phenyl (फिनाइल)</h3>
                 <p>उच्च गुणवत्ता वाला फ्लोर क्लीनर।</p>
-                <a href="https://wa.me/919691865574?text=मुझे%20Phenyl%20का%20ऑर्डर%20देना%20है" class="whatsapp-btn" target="_blank">WhatsApp पर ऑर्डर करें</a>
+                <a class="whatsapp-btn" href="https://wa.me/919691865574?text=मुझे%20Phenyl%20का%20ऑर्डर%20देना%20है" target="_blank">WhatsApp पर ऑर्डर करें</a>
+            </div>
+
+            <!-- Black Phenyl 5 Litre -->
+            <div class="product-card">
+                <img src="images/black_phenyl_5_litre.jpg" alt="Black Phenyl 5 Litre">
+                <h3>Black Phenyl (5 Litre)</h3>
+                <p>कीटाणुनाशक ब्लैक फिनाइल।</p>
+                <a class="whatsapp-btn" href="https://wa.me/919691865574?text=मुझे%20Black%20Phenyl%205%20Litre%20का%20ऑर्डर%20देना%20है" target="_blank">WhatsApp पर ऑर्डर करें</a>
+            </div>
+
+            <!-- White Phenyl 5 Litre -->
+            <div class="product-card">
+                <img src="images/white_phenyl_5_litre.jpg" alt="White Phenyl 5 Litre">
+                <h3>White Phenyl (5 Litre)</h3>
+                <p>खुशबूदार और प्रभावी व्हाइट फिनाइल।</p>
+                <a class="whatsapp-btn" href="https://wa.me/919691865574?text=मुझे%20White%20Phenyl%205%20Litre%20का%20ऑर्डर%20देना%20है" target="_blank">WhatsApp पर ऑर्डर करें</a>
             </div>
 
             <!-- Acid -->
@@ -149,7 +141,7 @@
                 <img src="images/acid.jpg" alt="Acid">
                 <h3>Acid (एसिड)</h3>
                 <p>मजबूत सफाई के लिए।</p>
-                <a href="https://wa.me/919691865574?text=मुझे%20Acid%20का%20ऑर्डर%20देना%20है" class="whatsapp-btn" target="_blank">WhatsApp पर ऑर्डर करें</a>
+                <a class="whatsapp-btn" href="https://wa.me/919691865574?text=मुझे%20Acid%20का%20ऑर्डर%20देना%20है" target="_blank">WhatsApp पर ऑर्डर करें</a>
             </div>
 
             <!-- Bathroom Cleaner -->
@@ -157,7 +149,15 @@
                 <img src="images/bathroom_cleaner.jpg" alt="Bathroom Cleaner">
                 <h3>Bathroom Cleaner</h3>
                 <p>बाथरूम की चमक के लिए बेस्ट।</p>
-                <a href="https://wa.me/919691865574?text=मुझे%20Bathroom%20Cleaner%20का%20ऑर्डर%20देना%20है" class="whatsapp-btn" target="_blank">WhatsApp पर ऑर्डर करें</a>
+                <a class="whatsapp-btn" href="https://wa.me/919691865574?text=मुझे%20Bathroom%20Cleaner%20का%20ऑर्डर%20देना%20है" target="_blank">WhatsApp पर ऑर्डर करें</a>
+            </div>
+
+            <!-- Toilet Cleaner -->
+            <div class="product-card">
+                <img src="images/toilet_cleaner.jpg" alt="Toilet Cleaner">
+                <h3>Toilet Cleaner</h3>
+                <p>टॉयलेट को साफ और रोगाणुमुक्त रखे।</p>
+                <a class="whatsapp-btn" href="https://wa.me/919691865574?text=मुझे%20Toilet%20Cleaner%20का%20ऑर्डर%20देना%20है" target="_blank">WhatsApp पर ऑर्डर करें</a>
             </div>
 
             <!-- Hand Wash -->
@@ -165,7 +165,7 @@
                 <img src="images/hand_wash.jpg" alt="Hand Wash">
                 <h3>Hand Wash</h3>
                 <p>सुरक्षित और खुशबूदार हैंडवॉश।</p>
-                <a href="https://wa.me/919691865574?text=मुझे%20Hand%20Wash%20का%20ऑर्डर%20देना%20है" class="whatsapp-btn" target="_blank">WhatsApp पर ऑर्डर करें</a>
+                <a class="whatsapp-btn" href="https://wa.me/919691865574?text=मुझे%20Hand%20Wash%20का%20ऑर्डर%20देना%20है" target="_blank">WhatsApp पर ऑर्डर करें</a>
             </div>
 
             <!-- Dish Wash -->
@@ -173,7 +173,31 @@
                 <img src="images/dish_wash.jpg" alt="Dish Wash">
                 <h3>Dish Wash</h3>
                 <p>बर्तनों को आसानी से चमकाए।</p>
-                <a href="https://wa.me/919691865574?text=मुझे%20Dish%20Wash%20का%20ऑर्डर%20देना%20है" class="whatsapp-btn" target="_blank">WhatsApp पर ऑर्डर करें</a>
+                <a class="whatsapp-btn" href="https://wa.me/919691865574?text=मुझे%20Dish%20Wash%20का%20ऑर्डर%20देना%20है" target="_blank">WhatsApp पर ऑर्डर करें</a>
+            </div>
+
+            <!-- Glass Cleaner -->
+            <div class="product-card">
+                <img src="images/glass_cleaner.jpg" alt="Glass Cleaner">
+                <h3>Glass Cleaner</h3>
+                <p>शीशा और कांच चमकाने के लिए।</p>
+                <a class="whatsapp-btn" href="https://wa.me/919691865574?text=मुझे%20Glass%20Cleaner%20का%20ऑर्डर%20देना%20है" target="_blank">WhatsApp पर ऑर्डर करें</a>
+            </div>
+
+            <!-- Car Bike Shampoo -->
+            <div class="product-card">
+                <img src="images/car_bike_shampoo.jpg" alt="Car Bike Shampoo">
+                <h3>Car & Bike Shampoo</h3>
+                <p>गाड़ियों की चमक के लिए विशेष शैम्पू।</p>
+                <a class="whatsapp-btn" href="https://wa.me/919691865574?text=मुझे%20Car%20Bike%20Shampoo%20का%20ऑर्डर%20देना%20है" target="_blank">WhatsApp पर ऑर्डर करें</a>
+            </div>
+
+            <!-- Carpet Shampoo -->
+            <div class="product-card">
+                <img src="images/carpet_shampoo.jpg" alt="Carpet Shampoo">
+                <h3>Carpet Shampoo</h3>
+                <p>कारपेट और गद्दों की गहरी सफाई।</p>
+                <a class="whatsapp-btn" href="https://wa.me/919691865574?text=मुझे%20Carpet%20Shampoo%20का%20ऑर्डर%20देना%20है" target="_blank">WhatsApp पर ऑर्डर करें</a>
             </div>
 
             <!-- Broom -->
@@ -181,7 +205,7 @@
                 <img src="images/broom.jpg" alt="Broom">
                 <h3>Broom (झाड़ू)</h3>
                 <p>मजबूत और टिकाऊ झाड़ू।</p>
-                <a href="https://wa.me/919691865574?text=मुझे%20Broom%20का%20ऑर्डर%20देना%20है" class="whatsapp-btn" target="_blank">WhatsApp पर ऑर्डर करें</a>
+                <a class="whatsapp-btn" href="https://wa.me/919691865574?text=मुझे%20Broom%20का%20ऑर्डर%20देना%20है" target="_blank">WhatsApp पर ऑर्डर करें</a>
             </div>
 
             <!-- Mop -->
@@ -189,23 +213,38 @@
                 <img src="images/mop.jpg" alt="Mop">
                 <h3>Mop (पोछा)</h3>
                 <p>घर की बेहतरीन सफाई के लिए।</p>
-                <a href="https://wa.me/919691865574?text=मुझे%20Mop%20का%20ऑर्डर%20देना%20है" class="whatsapp-btn" target="_blank">WhatsApp पर ऑर्डर करें</a>
+                <a class="whatsapp-btn" href="https://wa.me/919691865574?text=मुझे%20Mop%20का%20ऑर्डर%20देना%20है" target="_blank">WhatsApp पर ऑर्डर करें</a>
             </div>
 
-            <!-- Glass Cleaner -->
+            <!-- Floor Squeegee -->
             <div class="product-card">
-                <img src="images/glass_cleaner.jpg" alt="Glass Cleaner">
-                <h3>Glass Cleaner</h3>
-                <p>शीशा चमकाने के लिए।</p>
-                <a href="https://wa.me/919691865574?text=मुझे%20Glass%20Cleaner%20का%20ऑर्डर%20देना%20है" class="whatsapp-btn" target="_blank">WhatsApp पर ऑर्डर करें</a>
+                <img src="images/floor_squeegee.jpg" alt="Floor Squeegee">
+                <h3>Floor Squeegee (फर्श वाइपर)</h3>
+                <p>पानी खींचने के लिए मजबूत वाइपर।</p>
+                <a class="whatsapp-btn" href="https://wa.me/919691865574?text=मुझे%20Floor%20Squeegee%20का%20ऑर्डर%20देना%20है" target="_blank">WhatsApp पर ऑर्डर करें</a>
+            </div>
+
+            <!-- Dustbin Large -->
+            <div class="product-card">
+                <img src="images/dustbin_large.jpg" alt="Dustbin Large">
+                <h3>Dustbin (बड़ा)</h3>
+                <p>कचरा प्रबंधन के लिए बड़ा डस्टबिन।</p>
+                <a class="whatsapp-btn" href="https://wa.me/919691865574?text=मुझे%20Dustbin%20Large%20का%20ऑर्डर%20देना%20है" target="_blank">WhatsApp पर ऑर्डर करें</a>
+            </div>
+
+            <!-- Bucket -->
+            <div class="product-card">
+                <img src="images/bucket.jpg" alt="Bucket">
+                <h3>Bucket (बाल्टी)</h3>
+                <p>मजबूत प्लास्टिक बाल्टी।</p>
+                <a class="whatsapp-btn" href="https://wa.me/919691865574?text=मुझे%20Bucket%20का%20ऑर्डर%20देना%20है" target="_blank">WhatsApp पर ऑर्डर करें</a>
             </div>
 
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Harshit Chemical Industry. All Rights Reserved.</p>
+        <p>© 2026 Harshit Chemical Industry. All Rights Reserved.</p>
     </footer>
 
 </body>
