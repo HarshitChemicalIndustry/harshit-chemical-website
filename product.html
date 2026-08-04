@@ -1,1 +1,41 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harshit Chemical Industry Products</title>
+<link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+<header>
+<h2>Harshit Chemical Industry</h2>
+</header>
+
+<section class="products">
+<h1>Housekeeping Products</h1>
+
+<div id="product-list"></div>
+
+</section>
+
+<script src="products.js"></script>
+
+<script>
+let list = document.getElementById("product-list");
+
+products.forEach(product => {
+    list.innerHTML += `
+    <div class="card">
+        <img src="${product.image}" alt="${product.name}">
+        <h3>${product.name}</h3>
+        <p>${product.price}</p>
+        <button>Buy Now</button>
+    </div>
+    `;
+});
+</script>
+
+</body>
+</html>
