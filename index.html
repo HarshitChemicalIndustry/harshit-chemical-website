@@ -1,512 +1,246 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <link rel="stylesheet" href="css/style.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harshit Chemical Industry - Instant Mart</title>
-    <style>
-        :root { --primary: #0c831f; --primary-dark: #065e13; --accent: #f8cb46; --bg: #f8f8f8; --text: #1f1f1f; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: var(--bg); color: var(--text); padding-bottom: 80px; }
-        header { background: #ffffff; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-        .logo-area { display: flex; align-items: center; gap: 12px; }
-        .logo-area img { height: 45px; width: 45px; border-radius: 50%; object-fit: cover; }
-        .logo-area h1 { font-size: 20px; color: var(--primary); margin: 0; font-weight: 800; }
-        .cart-badge-btn { background: var(--primary); color: white; border: none; padding: 10px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 15px; display: flex; align-items: center; gap: 8px; }
-        
-        /* Instamart Style Slider */
-        .slider-wrapper { max-width: 1200px; margin: 15px auto; padding: 0 15px; }
-        .slider-container { position: relative; width: 100%; height: 320px; border-radius: 16px; overflow: hidden; background: #000; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .slide { display: none; width: 100%; height: 100%; object-fit: cover; animation: fadeEffect 1.5s; }
-        .slide.active { display: block; }
-        @keyframes fadeEffect { from { opacity: 0.4; } to { opacity: 1; } }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .main-container { max-width: 1200px; margin: 20px auto; padding: 0 15px; }
-        .section-title { font-size: 22px; font-weight: 800; color: #111; margin-bottom: 20px; }
-        
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
-        .product-card { background: white; border-radius: 12px; border: 1px solid #eee; padding: 14px; text-align: center; display: flex; flex-direction: column; justify-content: space-between; transition: box-shadow 0.2s; }
-        .product-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
-        .product-card img { width: 100%; height: 150px; object-fit: contain; margin-bottom: 10px; }
-        .product-card h3 { font-size: 15px; font-weight: 700; margin: 8px 0; color: #333; height: 40px; overflow: hidden; }
-        .product-card p { font-size: 12px; color: #777; margin: 0 0 12px 0; }
-        
-        .add-btn { background: #fff; color: var(--primary); border: 1px solid var(--primary); padding: 8px 16px; border-radius: 6px; font-weight: 700; cursor: pointer; transition: all 0.2s; }
-        .add-btn:hover { background: var(--primary); color: white; }
+<title>Harshit Chemical Industry - Harshit Mart</title>
 
-        /* Bottom Floating Cart Bar */
-        .cart-footer-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: white; border-top: 1px solid #ddd; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 -4px 15px rgba(0,0,0,0.1); z-index: 1000; box-sizing: border-box; }
-        .checkout-btn { background: var(--primary); color: white; border: none; padding: 12px 25px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; }
-        <div class="shop-button">
-    <a href="product.html">🛒 सभी Products देखें</a>
-</div>
-    </style>
+<style>
+:root{
+--green:#0c831f;
+--yellow:#f8cb46;
+--bg:#f8f8f8;
+}
+
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:var(--bg);
+padding-bottom:80px;
+}
+
+header{
+background:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px;
+position:sticky;
+top:0;
+z-index:10;
+box-shadow:0 2px 10px #ddd;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo img{
+width:45px;
+height:45px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.logo h1{
+font-size:20px;
+color:var(--green);
+margin:0;
+}
+
+.cart{
+background:var(--green);
+color:white;
+border:0;
+padding:10px 15px;
+border-radius:8px;
+}
+
+.slider{
+margin:15px;
+height:250px;
+overflow:hidden;
+border-radius:15px;
+}
+
+.slider img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+
+.title{
+font-size:22px;
+font-weight:bold;
+padding:15px;
+}
+
+
+.products{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+padding:15px;
+}
+
+
+.card{
+background:white;
+border-radius:12px;
+padding:10px;
+text-align:center;
+box-shadow:0 2px 8px #ddd;
+}
+
+
+.card img{
+width:100%;
+height:140px;
+object-fit:contain;
+}
+
+
+.card h3{
+font-size:15px;
+}
+
+
+.card button{
+background:var(--green);
+color:white;
+border:0;
+padding:8px 15px;
+border-radius:6px;
+}
+
+.bottom{
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+background:white;
+padding:12px;
+box-shadow:0 -2px 10px #ddd;
+text-align:center;
+}
+
+.bottom a{
+background:var(--green);
+color:white;
+padding:12px 30px;
+border-radius:8px;
+text-decoration:none;
+}
+
+</style>
+
 </head>
+
 <body>
-    <header>
-        <div class="search-section">
 
-<input type="text" id="searchBox" placeholder="🔍 Search Product...">
+
+<header>
+
+<div class="logo">
+<img src="images/banner.jpg">
+<h1>Harshit Mart</h1>
+</div>
+
+<button class="cart">
+🛒 Cart
+</button>
+
+</header>
+
+
+<div class="slider">
+<img src="images/banner.jpg">
+</div>
+
+
+<div class="title">
+Cleaning & Housekeeping Products
+</div>
+
+
+<div class="products">
+    <div class="card">
+<img src="images/squeegee.jpg">
+<h3>Floor Wiper</h3>
+<p>मजबूत फर्श वाइपर</p>
+<button>ADD</button>
+</div>
+
+
+<div class="card">
+<img src="images/bucket.jpg">
+<h3>Plastic Bucket</h3>
+<p>मजबूत बाल्टी</p>
+<button>ADD</button>
+</div>
+
+
+<div class="card">
+<img src="images/phenyl.jpg">
+<h3>Floor Cleaner / Phenyl</h3>
+<p>घर और ऑफिस सफाई</p>
+<button>ADD</button>
+</div>
+
+
+<div class="card">
+<img src="images/room_spray.jpg">
+<h3>Room Spray</h3>
+<p>250ml और 500ml</p>
+<button>ADD</button>
+</div>
+
+
+<div class="card">
+<img src="images/toilet_cleaner.jpg">
+<h3>Toilet Cleaner</h3>
+<p>Bathroom Cleaning</p>
+<button>ADD</button>
+</div>
+
+
+<div class="card">
+<img src="images/car_bike_shampoo.jpg">
+<h3>Car Wash Shampoo</h3>
+<p>Car & Bike Cleaning</p>
+<button>ADD</button>
+</div>
+
+
+<div class="card">
+<img src="images/carpet_shampoo.jpg">
+<h3>Carpet Shampoo</h3>
+<p>Deep Cleaning</p>
+<button>ADD</button>
+</div>
+
+
+<div class="card">
+<img src="images/dish_wash.jpg">
+<h3>Dish Wash</h3>
+<p>Kitchen Cleaning</p>
+<button>ADD</button>
+</div>
+
 
 </div>
 
-<div class="category-bar">
 
-<button>All</button>
-
-<button>Cleaning</button>
-
-<button>Phenyl</button>
-
-<button>Room Spray</button>
-
-<button>Glass Cleaner</button>
-
-<button>Bathroom</button>
-
-<button>Kitchen</button>
-
-<button>Mops</button>
-
-<button>Dustbins</button>
-
+<div class="bottom">
+<a href="product.html">
+🛒 सभी Products देखें
+</a>
 </div>
-        <div class="logo-area">
-            <img src="images/hero_banner.jpg" alt="Logo" onerror="this.src='images/banner.jpg'">
-            <h1>Harshit Mart</h1>
-        </div>
-        <button class="cart-badge-btn" onclick="openCartModal()">🛒 कार्ट (<span id="cartCount">0</span>)</button>
-    </header>
 
-    <!-- नेट से ली गई हाउसकीपिंग टाइप सुंदर स्लाइडर तस्वीरें -->
-    <div class="slider-wrapper">
-        <div class="slider-container">
-            <img src="images/banner.jpg" class="slide active" alt="Banner 1" onerror="this.src='images/hero_banner.jpg'">
-            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&auto=format&fit=crop&q=80" class="slide" alt="Cleaning 1">
-            <img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?w=1200&auto=format&fit=crop&q=80" class="slide" alt="Cleaning 2">
-            <img src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?w=1200&auto=format&fit=crop&q=80" class="slide" alt="Cleaning 3">
-        </div>
-    </div>
 
-    <div class="main-container">
-        <div class="section-title">सफाई और हाउसकीपिंग के सभी सामान (Instant Delivery)</div>
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="images/21-inch-floor-wiper.jpg" alt="Wiper" onerror="this.src='images/banner.jpg'">
-                <h3>21 Inch Floor Wiper</h3>
-                <p>मजबूत और टिकाऊ फर्श वाइपर</p>
-                <button class="add-btn" onclick="addToCart('21 Inch Floor Wiper')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/multipurpose_plastic_storage_bucket_dram.jpg" alt="Bucket" onerror="this.src='images/banner.jpg'">
-                <h3>Plastic Storage Bucket/Drum</h3>
-                <p>बड़ा और मजबूत स्टोरेज ड्रम</p>
-                <button class="add-btn" onclick="addToCart('Plastic Storage Bucket/Drum')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/bathroom_cleaner.jpg" alt="Bathroom" onerror="this.src='images/banner.jpg'">
-                <h3>Bathroom Cleaner</h3>
-                <p>बाथरूम की चमक के लिए बेस्ट</p>
-                <button class="add-btn" onclick="addToCart('Bathroom Cleaner')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/black_hit.jpg" alt="Hit" onerror="this.src='images/banner.jpg'">
-                <h3>Black Hit</h3>
-                <p>कीड़े-मकोड़ों से तुरंत सुरक्षा</p>
-                <button class="add-btn" onclick="addToCart('Black Hit')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/black_phenyl_5_litre.jpg" alt="Phenyl" onerror="this.src='images/banner.jpg'">
-                <h3>Black Phenyl (5 Litre)</h3>
-                <p>कीटाणुनाशक ब्लैक फिनाइल</p>
-                <button class="add-btn" onclick="addToCart('Black Phenyl (5 Litre)')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/blue_mop_bigsize.jpg" alt="Mop" onerror="this.src='images/banner.jpg'">
-                <h3>Blue Mop (Big Size)</h3>
-                <p>बड़े साइज़ का बेहतरीन पोछा</p>
-                <button class="add-btn" onclick="addToCart('Blue Mop (Big Size)')">जोड़ें (ADD)</button>
-            </div>
-                        <div class="product-card">
-                <img src="images/botal_brush.jpg" alt="Brush" onerror="this.src='images/banner.jpg'">
-                <h3>Bottle Brush</h3>
-                <p>बोतलों की अंदरूनी सफाई</p>
-                <button class="add-btn" onclick="addToCart('Bottle Brush')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/broom.jpg" alt="Broom" onerror="this.src='images/banner.jpg'">
-                <h3>Broom (झाड़ू)</h3>
-                <p>मजबूत और टिकाऊ झाड़ू</p>
-                <button class="add-btn" onclick="addToCart('Broom')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/bucket.jpg" alt="Bucket" onerror="this.src='images/banner.jpg'">
-                <h3>Bucket (बाल्टी)</h3>
-                <p>मजबूत प्लास्टिक बाल्टी</p>
-                <button class="add-btn" onclick="addToCart('Bucket')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/car_bike_shampoo.jpg" alt="Shampoo" onerror="this.src='images/banner.jpg'">
-                <h3>Car & Bike Shampoo</h3>
-                <p>गाड़ियों की चमक के लिए शैम्पू</p>
-                <button class="add-btn" onclick="addToCart('Car & Bike Shampoo')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/carpet_shampoo.jpg" alt="Carpet" onerror="this.src='images/banner.jpg'">
-                <h3>Carpet Shampoo</h3>
-                <p>कारपेट और गद्दों की गहरी सफाई</p>
-                <button class="add-btn" onclick="addToCart('Carpet Shampoo')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/cotton_mop.jpg" alt="Cotton" onerror="this.src='images/banner.jpg'">
-                <h3>Cotton Mop</h3>
-                <p>पानी सोखने में बेहतरीन सूती पोछा</p>
-                <button class="add-btn" onclick="addToCart('Cotton Mop')">जोड़ें (ADD)</button>
-            </div>
-                        <div class="product-card">
-                <img src="images/dish_wash.jpg" alt="Dishwash" onerror="this.src='images/banner.jpg'">
-                <h3>Dish Wash</h3>
-                <p>बर्तनों को आसानी से चमकाए</p>
-                <button class="add-btn" onclick="addToCart('Dish Wash')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/dishwash_5litre.jpg" alt="Dishwash 5L" onerror="this.src='images/banner.jpg'">
-                <h3>Dish Wash (5 Litre)</h3>
-                <p>बड़े पैक में बर्तन धोने का लिक्विड</p>
-                <button class="add-btn" onclick="addToCart('Dish Wash (5 Litre)')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/dust_cloth.jpg" alt="Cloth" onerror="this.src='images/banner.jpg'">
-                <h3>Dust Cloth</h3>
-                <p>धूल साफ करने के लिए कपड़ा</p>
-                <button class="add-btn" onclick="addToCart('Dust Cloth')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/dust_pan.jpg" alt="Pan" onerror="this.src='images/banner.jpg'">
-                <h3>Dust Pan</h3>
-                <p>कचरा उठाने के लिए उपयोगी पैन</p>
-                <button class="add-btn" onclick="addToCart('Dust Pan')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/dustbin_large.jpg" alt="Large Dustbin" onerror="this.src='images/banner.jpg'">
-                <h3>Dustbin (Large)</h3>
-                <p>कचरा प्रबंधन के लिए बड़ा डस्टबिन</p>
-                <button class="add-btn" onclick="addToCart('Dustbin (Large)')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/dustbin_small.jpg" alt="Small Dustbin" onerror="this.src='images/banner.jpg'">
-                <h3>Dustbin (Small)</h3>
-                <p>कमरे या ऑफिस के लिए डस्टबिन</p>
-                <button class="add-btn" onclick="addToCart('Dustbin (Small)')">जोड़ें (ADD)</button>
-            </div>
-                        <div class="product-card">
-                <img src="images/duster.jpg" alt="Duster" onerror="this.src='images/banner.jpg'">
-                <h3>Duster</h3>
-                <p>फर्नीचर की धूल साफ करने के लिए</p>
-                <button class="add-btn" onclick="addToCart('Duster')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/dustercloth_check.jpg" alt="Check Cloth" onerror="this.src='images/banner.jpg'">
-                <h3>Check Duster Cloth</h3>
-                <p>चेक डिज़ाइन वाला सफाई कपड़ा</p>
-                <button class="add-btn" onclick="addToCart('Check Duster Cloth')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/extension_pole.jpg" alt="Pole" onerror="this.src='images/banner.jpg'">
-                <h3>Extension Pole</h3>
-                <p>ऊंचाई पर सफाई के लिए लंबी रॉड</p>
-                <button class="add-btn" onclick="addToCart('Extension Pole')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/feather_duster.jpg" alt="Feather" onerror="this.src='images/banner.jpg'">
-                <h3>Feather Duster</h3>
-                <p>जालियां और धूल साफ करने का ब्रश</p>
-                <button class="add-btn" onclick="addToCart('Feather Duster')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/floor_brush.jpg" alt="Floor Brush" onerror="this.src='images/banner.jpg'">
-                <h3>Floor Brush</h3>
-                <p>फर्श रगड़कर साफ करने वाला ब्रश</p>
-                <button class="add-btn" onclick="addToCart('Floor Brush')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/floor_cleaner_5litre.jpg" alt="Cleaner 5L" onerror="this.src='images/banner.jpg'">
-                <h3>Floor Cleaner (5 Litre)</h3>
-                <p>बड़े पैक में फ्लोर क्लीनर</p>
-                <button class="add-btn" onclick="addToCart('Floor Cleaner (5 Litre)')">जोड़ें (ADD)</button>
-            </div>
-                        <div class="product-card">
-                <img src="images/floor_squeegee.jpg" alt="Squeegee" onerror="this.src='images/banner.jpg'">
-                <h3>Floor Squeegee</h3>
-                <p>फर्श से पानी खींचने वाला वाइपर</p>
-                <button class="add-btn" onclick="addToCart('Floor Squeegee')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/garbage_bag.jpg" alt="Garbage Bag" onerror="this.src='images/banner.jpg'">
-                <h3>Garbage Bags</h3>
-                <p>कचरा डालने के लिए मजबूत थैलियां</p>
-                <button class="add-btn" onclick="addToCart('Garbage Bags')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/garbage_tongs.jpg" alt="Tongs" onerror="this.src='images/banner.jpg'">
-                <h3>Garbage Tongs</h3>
-                <p>बिना हाथ लगाए कचरा उठाने का टूल</p>
-                <button class="add-btn" onclick="addToCart('Garbage Tongs')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/generic_broom_dustpan_set.jpg" alt="Set" onerror="this.src='images/banner.jpg'">
-                <h3>Broom & Dustpan Set</h3>
-                <p>झाड़ू और डस्टपैन का पूरा सेट</p>
-                <button class="add-btn" onclick="addToCart('Broom & Dustpan Set')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/glass_cleaner.jpg" alt="Glass" onerror="this.src='images/banner.jpg'">
-                <h3>Glass Cleaner</h3>
-                <p>कांच और शीशा चमकाने के लिए</p>
-                <button class="add-btn" onclick="addToCart('Glass Cleaner')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/glass_cleaner_5litre.jpg" alt="Glass 5L" onerror="this.src='images/banner.jpg'">
-                <h3>Glass Cleaner (5 Litre)</h3>
-                <p>बड़े पैक में ग्लास क्लीनर</p>
-                <button class="add-btn" onclick="addToCart('Glass Cleaner (5 Litre)')">जोड़ें (ADD)</button>
-            </div>
-                        <div class="product-card">
-                <img src="images/plastic_tub.jpg" alt="Tub" onerror="this.src='images/banner.jpg'">
-                <h3>Plastic Tub</h3>
-                <p>रोजमर्रा के उपयोग के लिए टब</p>
-                <button class="add-btn" onclick="addToCart('Plastic Tub')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/room_freshener_5litre.jpg" alt="Freshener" onerror="this.src='images/banner.jpg'">
-                <h3>Room Freshener (5 Litre)</h3>
-                <p>खुशबूदार रूम फ्रेशनर लिक्विड</p>
-                <button class="add-btn" onclick="addToCart('Room Freshener (5 Litre)')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/room_spray.jpg" alt="Spray" onerror="this.src='images/banner.jpg'">
-                <h3>Room Spray</h3>
-                <p>घर में भीनी खुशबू के लिए स्प्रे</p>
-                <button class="add-btn" onclick="addToCart('Room Spray')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/scoop.jpg" alt="Scoop" onerror="this.src='images/banner.jpg'">
-                <h3>Scoop</h3>
-                <p>पाउडर या सामान उठाने का स्कूप</p>
-                <button class="add-btn" onclick="addToCart('Scoop')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/scrubber_pad.jpg" alt="Scrubber" onerror="this.src='images/banner.jpg'">
-                <h3>Scrubber Pad</h3>
-                <p>बर्तन साफ करने का स्क्रब पैड</p>
-                <button class="add-btn" onclick="addToCart('Scrubber Pad')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/spider_duster.jpg" alt="Spider" onerror="this.src='images/banner.jpg'">
-                <h3>Spider Duster</h3>
-                <p>छतों से मकड़ी के जाले हटाने के लिए</p>
-                <button class="add-btn" onclick="addToCart('Spider Duster')">जोड़ें (ADD)</button>
-            </div>
-                        <div class="product-card">
-                <img src="images/toilet_brush.jpg" alt="Toilet Brush" onerror="this.src='images/banner.jpg'">
-                <h3>Toilet Brush</h3>
-                <p>टॉयलेट साफ करने का मजबूत ब्रश</p>
-                <button class="add-btn" onclick="addToCart('Toilet Brush')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/toilet_cleaner.jpg" alt="Toilet Cleaner" onerror="this.src='images/banner.jpg'">
-                <h3>Toilet Cleaner</h3>
-                <p>टॉयलेट को रोगाणुमुक्त रखे</p>
-                <button class="add-btn" onclick="addToCart('Toilet Cleaner')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/toilet_cleaner_5litre.jpg" alt="Toilet 5L" onerror="this.src='images/banner.jpg'">
-                <h3>Toilet Cleaner (5 Litre)</h3>
-                <p>बड़े पैक में टॉयलेट क्लीनर</p>
-                <button class="add-btn" onclick="addToCart('Toilet Cleaner (5 Litre)')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/toilet_cleaner_applicator.jpg" alt="Applicator" onerror="this.src='images/banner.jpg'">
-                <h3>Toilet Cleaner Applicator</h3>
-                <p>क्लीनर लगाने का एप्लीकेटर</p>
-                <button class="add-btn" onclick="addToCart('Toilet Cleaner Applicator')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/trolley.jpg" alt="Trolley" onerror="this.src='images/banner.jpg'">
-                <h3>Cleaning Trolley</h3>
-                <p>सफाई का सामान ले जाने की ट्रॉली</p>
-                <button class="add-btn" onclick="addToCart('Cleaning Trolley')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/urinal_brush.jpg" alt="Urinal Brush" onerror="this.src='images/banner.jpg'">
-                <h3>Urinal Brush</h3>
-                <p>यूरिनल पॉट साफ करने का ब्रश</p>
-                <button class="add-btn" onclick="addToCart('Urinal Brush')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/urinalcube.jpg" alt="Cubes" onerror="this.src='images/banner.jpg'">
-                <h3>Urinal Cubes</h3>
-                <p>सुगंधित और फ्रेश रखने वाली क्यूब्स</p>
-                <button class="add-btn" onclick="addToCart('Urinal Cubes')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/wet_floor_sign.jpg" alt="Sign" onerror="this.src='images/banner.jpg'">
-                <h3>Wet Floor Sign Board</h3>
-                <p>गीले फर्श की चेतावनी का बोर्ड</p>
-                <button class="add-btn" onclick="addToCart('Wet Floor Sign Board')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/white_phenyl_5_litre.jpg" alt="White Phenyl" onerror="this.src='images/banner.jpg'">
-                <h3>White Phenyl (5 Litre)</h3>
-                <p>खुशबूदार व्हाइट फिनाइल</p>
-                <button class="add-btn" onclick="addToCart('White Phenyl (5 Litre)')">जोड़ें (ADD)</button>
-            </div>
-            <div class="product-card">
-                <img src="images/window_wiper.jpg" alt="Window Wiper" onerror="this.src='images/banner.jpg'">
-                <h3>Window Wiper</h3>
-                <p>खिड़कियों और कांच का वाइपर</p>
-                <button class="add-btn" onclick="addToCart('Window Wiper')">जोड़ें (ADD)</button>
-            </div>
-        </div>
-    </div>
-        <!-- नीचे फ्लोटिंग कार्ट बार (Instamart स्टाइल) -->
-    <div class="cart-footer-bar" id="cartBar" style="display: none;">
-        <div>
-            <span id="totalItems" style="font-weight: 800; font-size: 16px; color: var(--primary);">0 आइटम्स</span> चुने गए
-        </div>
-        <button class="checkout-btn" onclick="openCartModal()">आर्डर देखें / पक्का करें ➔</button>
-    </div>
-
-    <!-- कार्ट और चेकआउट पॉप-अप मॉडल -->
-    <div id="cartModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2000; justify-content: center; align-items: center;">
-        <div style="background: white; padding: 25px; border-radius: 16px; width: 90%; max-width: 450px; max-height: 85vh; overflow-y: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-            <h2 style="margin-top: 0; color: var(--primary);">🛒 आपका कार्ट</h2>
-            <div id="cartItemsList" style="margin-bottom: 20px; max-height: 150px; overflow-y: auto; border-bottom: 1px solid #eee; padding-bottom: 10px;">
-                <!-- चुने गए सामान यहाँ दिखेंगे -->
-            </div>
-            
-            <form action="https://formspree.io/f/xlgkqevp" method="POST" onsubmit="submitOrderForm(event)">
-                <input type="hidden" name="Cart_Items" id="cartItemsInput">
-                <div style="margin-bottom: 12px;">
-                    <label style="display:block; font-weight:700; margin-bottom:5px; font-size:13px;">आपका पूरा नाम:</label>
-                    <input type="text" name="Customer_Name" required placeholder="नाम लिखें" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:8px; box-sizing:border-box;">
-                </div>
-                <div style="margin-bottom: 12px;">
-                    <label style="display:block; font-weight:700; margin-bottom:5px; font-size:13px;">मोबाइल नंबर:</label>
-                    <input type="tel" name="Customer_Phone" required placeholder="फोन नंबर" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:8px; box-sizing:border-box;">
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <label style="display:block; font-weight:700; margin-bottom:5px; font-size:13px;">डिलीवरी पता (Address):</label>
-                    <textarea name="Customer_Address" rows="2" required placeholder="पूरा पता लिखें" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:8px; box-sizing:border-box;"></textarea>
-                </div>
-                <div style="display: flex; gap: 10px;">
-                    <button type="submit" style="flex:2; background:var(--primary); color:white; border:none; padding:12px; border-radius:8px; font-weight:bold; font-size:15px; cursor:pointer;">आर्डर सबमिट करें</button>
-                    <button type="button" onclick="closeCartModal()" style="flex:1; background:#ddd; color:#333; border:none; padding:12px; border-radius:8px; font-weight:bold; font-size:15px; cursor:pointer;">बंद करें</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- सक्सेस थैंक यू पॉप-अप -->
-    <div id="successModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 3000; justify-content: center; align-items: center;">
-        <div style="background: white; padding: 30px; border-radius: 16px; text-align: center; max-width: 350px; width: 90%;">
-            <h2 style="color: var(--primary); margin-top:0;">🎉 आर्डर सफल!</h2>
-            <p style="color: #666; font-size: 14px;">आपका आर्डर सफलताપू्र्वक हमारे पास दर्ज हो गया है। बहुत जल्द सामान आपके पते पर भेज दिया जाएगा।</p>
-            <button onclick="location.reload()" style="background: var(--primary); color: white; border: none; padding: 10px 20px; font-weight: bold; border-radius: 8px; cursor: pointer; margin-top: 10px;">ਠੀਕ है (OK)</button>
-        </div>
-    </div>
-
-    <footer style="text-align: center; padding: 25px; background: #111; color: #aaa; margin-top: 40px; font-size: 13px;">
-        <p>© 2026 Harshit Chemical Industry. Instamart Blinkit Style Web App.</p>
-    </footer>
-
-    <script>
-        // ऑटोमैटिक स्लाइडर (नेट से ली गई हाउसकीपिंग तस्वीरें चलती रहेंगी)
-        let slideIndex = 0;
-        function autoSlide() {
-            let slides = document.querySelectorAll('.slide');
-            slides.forEach(s => s.classList.remove('active'));
-            slideIndex = (slideIndex + 1) % slides.length;
-            slides[slideIndex].classList.add('active');
-        }
-        setInterval(autoSlide, 3500);
-
-        // कार्ट (Cart) मैनेजमेंट सिस्टम
-        let cart = [];
-
-        function addToCart(productName) {
-            let found = cart.find(item => item.name === productName);
-            if(found) {
-                found.qty += 1;
-            } else {
-                cart.push({ name: productName, qty: 1 });
-            }
-            updateCartUI();
-        }
-
-        function updateCartUI() {
-            let totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
-            document.getElementById('cartCount').innerText = totalCount;
-            
-            let cartBar = document.getElementById('cartBar');
-            if(totalCount > 0) {
-                cartBar.style.display = 'flex';
-                document.getElementById('totalItems').innerText = totalCount + ' आइटम्स';
-            } else {
-                cartBar.style.display = 'none';
-            }
-        }
-
-        function openCartModal() {
-            if(cart.length === 0) {
-                alert('कृपया पहले कम से कम एक प्रोडक्ट आर्डर में जोड़ें!');
-                return;
-            }
-            let listDiv = document.getElementById('cartItemsList');
-            let strSummary = "";
-            let htmlList = "";
-            
-            cart.forEach(item => {
-                htmlList += `<div style="display:flex; justify-content:space-between; margin-bottom:8px; font-size:14px;"><span><b>${item.name}</b></span><span>सुविधा: ${item.qty} पीस</span></div>`;
-                strSummary += `${item.name} (Qty: ${item.qty}), `;
-            });
-            
-            listDiv.innerHTML = htmlList;
-            document.getElementById('cartItemsInput').value = strSummary;
-            document.getElementById('cartModal').style.display = 'flex';
-        }
-
-        function closeCartModal() {
-            document.getElementById('cartModal').style.display = 'none';
-        }
-
-        function submitOrderForm(event) {
-            event.preventDefault();
-            let form = event.target;
-            let formData = new FormData(form);
-
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            }).then(response => {
-                if (response.ok) {
-                    closeCartModal();
-                    document.getElementById('successModal').style.display = 'flex';
-                } else {
-                    alert('आर्डर सबमिट करने में समस्या आई। कृपया पुनः प्रयास करें।');
-                }
-            }).catch(error => {
-                alert('नेटवर्क एरर। कृपया चेक करें।');
-            });
-        }
-    </script>
-    <div class="bottom-nav">
-<a href="#"><span>🏠</span>Home</a>
-<a href="#"><span>📂</span>Category</a>
-<a href="#"><span>🛒</span>Cart</a>
-<a href="#"><span>👤</span>Profile</a>
-    </div>
-    <script src="js/app.js"></script>
 </body>
 </html>
