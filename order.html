@@ -1,1 +1,51 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Place Order - Harshit Chemical Industry</title>
+<link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+<header>
+<h2>Harshit Chemical Industry</h2>
+</header>
+
+<div class="order-box">
+
+<h1>Order Place करें</h1>
+
+<input type="text" id="name" placeholder="आपका नाम">
+
+<input type="number" id="mobile" placeholder="मोबाइल नंबर">
+
+<textarea id="address" placeholder="पूरा पता"></textarea>
+
+<button onclick="sendOrder()">Order भेजें</button>
+
+</div>
+
+
+<script>
+function sendOrder(){
+
+let name = document.getElementById("name").value;
+let mobile = document.getElementById("mobile").value;
+let address = document.getElementById("address").value;
+
+let message =
+"नया Order%0A%0A" +
+"नाम: " + name +
+"%0Aमोबाइल: " + mobile +
+"%0Aपता: " + address;
+
+window.location.href =
+"https://wa.me/919691865574?text=" + message;
+
+}
+</script>
+
+</body>
+</html>
