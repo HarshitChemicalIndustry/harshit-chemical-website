@@ -1,522 +1,335 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harshit Chemical Industry - Premium Chemical & Housekeeping Products</title>
-    <meta name="description" content="Harshit Chemical Industry offers premium chemical products, housekeeping essentials, cleaning tools, hotel & industrial supplies at best prices.">
-    <meta name="keywords" content="Chemical Products, Housekeeping Products, Cleaning Chemicals, Cleaning Tools, Hotel Supplies, Industrial Cleaning, Harshit Chemical Industry">
-    
-    <!-- Open Graph Tags -->
-    <meta property="og:title" content="Harshit Chemical Industry - Premium Cleaning & Housekeeping Products">
-    <meta property="og:description" content="Shop high-quality chemical and housekeeping products online. Fast delivery and best prices guaranteed.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="images/assets/logo.png">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/assets/favicon.png">
-
-    <!-- FontAwesome for Icons -->
+    <title>Harshit Chemical Industry - Premium Instant Mart</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f1f5f9; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
 </head>
-<body>
+<body class="bg-slate-900 text-slate-100 antialiased pb-28">
 
-    <!-- Loading Animation -->
-    <div id="loader">
-        <div class="spinner"></div>
-        <h2>Harshit Chemical Industry</h2>
-        <p>Loading Quality Products...</p>
-    </div>
-
-    <!-- Header & Navigation -->
-    <header id="header">
-        <div class="top-announcement">
-            <p><i class="fa-solid fa-truck-fast"></i> Free Delivery on Orders Above ₹999 | Bulk Enquiries Welcome! <i class="fa-solid fa-phone"></i> +91 98765 43210</p>
-        </div>
-        <div class="main-header">
-            <div class="container">
-                <div class="logo-box">
-                    <a href="index.html">
-                        <i class="fa-solid fa-industry logo-icon"></i>
-                        <span>Harshit Chemical</span>
-                    </a>
+    <!-- Top Header -->
+    <header class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-emerald-500/10 border border-emerald-500/30 p-2 rounded-2xl text-emerald-400">
+                    <i class="fa-solid fa-bolt text-lg"></i>
                 </div>
-                
-                <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="Search for chemicals, housekeeping items, tools...">
-                    <button id="searchBtn"><i class="fa-solid fa-search"></i></button>
-                    <!-- Live Search Results Dropdown -->
-                    <div id="searchResults" class="search-results-dropdown"></div>
-                </div>
-
-                <div class="nav-actions">
-                    <button class="action-btn" id="themeToggleBtn" title="Toggle Dark/Light Mode">
-                        <i class="fa-solid fa-moon"></i>
-                    </button>
-                    <button class="action-btn" id="wishlistNavBtn" title="Wishlist">
-                        <i class="fa-solid fa-heart"></i>
-                        <span class="badge" id="wishlistCount">0</span>
-                    </button>
-                    <button class="action-btn" id="cartNavBtn" title="Cart">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <span class="badge" id="cartCount">0</span>
-                    </button>
-                    <button class="action-btn login-btn" id="loginModalBtn">
-                        <i class="fa-solid fa-user"></i> Login
-                    </button>
+                <div>
+                    <h1 class="font-extrabold text-base sm:text-lg tracking-tight text-white">Harshit Chemical</h1>
+                    <p class="text-[11px] text-emerald-400 font-medium"><i class="fa-solid fa-shield-halved"></i> Verified Industry Store</p>
                 </div>
             </div>
-        </div>
-        
-        <!-- Navigation Menu -->
-        <nav class="nav-menu">
-            <div class="container">
-                <ul class="menu-list">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="#categoriesSection">Categories</a></li>
-                    <li><a href="#featuredSection">Featured Products</a></li>
-                    <li><a href="#productsSection">All Products</a></li>
-                    <li><a href="#aboutSection">About Us</a></li>
-                    <li><a href="#contactSection">Contact Us</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                </ul>
+            <div>
+                <button onclick="toggleCart()" class="relative bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold flex items-center space-x-2 shadow-lg shadow-emerald-900/40 transition">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>कार्ट</span>
+                    <span id="cart-count" class="bg-amber-400 text-slate-900 text-[10px] px-2 py-0.5 rounded-full font-extrabold">0</span>
+                </button>
             </div>
-        </nav>
+        </div>
+        <!-- Live Search Bar -->
+        <div class="px-4 pb-3">
+            <div class="max-w-7xl mx-auto relative">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-slate-400"></i>
+                <input type="text" id="search-input" onkeyup="filterProducts()" placeholder="सर्च करें (जैसे: Phenyl, Floor Wiper, Brush...)" class="w-full pl-11 pr-4 py-3 rounded-2xl text-slate-100 bg-slate-800/90 border border-slate-700 focus:border-emerald-500 focus:outline-none text-xs sm:text-sm shadow-inner transition">
+            </div>
+        </div>
     </header>
 
-    <!-- Hero Section with Auto Image Slider -->
-    <section class="hero-section">
-        <div class="slider-container">
-            <div class="slide active">
-                <div class="slide-content">
-                    <h1>Industrial & Commercial Grade Chemicals</h1>
-                    <p>Unmatched quality for housekeeping, hospitality, and heavy industries.</p>
-                    <a href="#productsSection" class="btn-primary">Shop Now</a>
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-4 mt-4">
+
+        <!-- Hero Banner -->
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl mb-6 bg-slate-800 border border-slate-700/60 h-44 sm:h-60">
+            <img id="banner-img" src="images/banner.jpg" alt="Banner" class="w-full h-full object-cover opacity-80 mix-blend-overlay">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex items-end p-5">
+                <div>
+                    <span class="bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Fast Delivery</span>
+                    <h2 class="text-lg sm:text-2xl font-black mt-2 text-white">प्रीमियम इंडस्ट्रियल क्लीनिंग और केमिकल्स</h2>
+                    <p class="text-xs text-slate-300 mt-0.5">थोक और खुदरा विक्रेता - सीधे आपके द्वार तक।</p>
                 </div>
-                <img src="images/assets/slider1.jpg" alt="Chemical Industry Slide 1" onerror="this.src='https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?w=1200&auto=format&fit=crop&q=80'">
             </div>
-            <div class="slide">
-                <div class="slide-content">
-                    <h1>Advanced Cleaning & Housekeeping Tools</h1>
-                    <p>Make your spaces spotless with our durable and professional range of equipment.</p>
-                    <a href="#productsSection" class="btn-primary">Explore Tools</a>
-                </div>
-                <img src="images/assets/slider2.jpg" alt="Housekeeping Slide 2" onerror="this.src='https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&auto=format&fit=crop&q=80'">
+        </div>
+
+        <!-- Categories Filter -->
+        <div class="mb-6">
+            <h3 class="font-bold text-sm mb-3 text-slate-300 tracking-wide">कैटेगरी चुनें (Categories)</h3>
+            <div class="flex space-x-2 overflow-x-auto hide-scrollbar pb-1" id="category-buttons">
+                <button onclick="filterCategory('All')" class="category-btn active px-4 py-2 rounded-xl bg-emerald-600 text-white text-xs font-bold whitespace-nowrap shadow-md">सारे प्रोडक्ट्स</button>
+                <button onclick="filterCategory('Chemicals')" class="category-btn px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-bold whitespace-nowrap border border-slate-700">Chemicals & Liquids</button>
+                <button onclick="filterCategory('Cleaning Tools')" class="category-btn px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-bold whitespace-nowrap border border-slate-700">Cleaning Tools</button>
+                <button onclick="filterCategory('Brushes')" class="category-btn px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-bold whitespace-nowrap border border-slate-700">Brushes & Wipers</button>
+                <button onclick="filterCategory('Containers')" class="category-btn px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-bold whitespace-nowrap border border-slate-700">Buckets & Containers</button>
             </div>
-            <div class="slide">
-                <div class="slide-content">
-                    <h1>Hotel & Hospital Supplies</h1>
-                    <p>Certified, safe, and efficient cleaning solutions trusted by institutions.</p>
-                    <a href="#productsSection" class="btn-primary">View Catalog</a>
-                </div>
-                <img src="images/assets/slider3.jpg" alt="Hotel Supplies Slide 3" onerror="this.src='https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?w=1200&auto=format&fit=crop&q=80'">
+        </div>
+
+        <!-- Product Grid Header -->
+        <div class="mb-4 flex justify-between items-center">
+            <h3 class="font-bold text-sm text-slate-300">कुल प्रोडक्ट्स (<span id="product-count" class="text-emerald-400">0</span>)</h3>
+            <span class="text-xs text-emerald-400 font-bold bg-emerald-500/10 px-2.5 py-1 rounded-lg border border-emerald-500/20"><i class="fa-solid fa-check"></i> उपलब्ध स्टॉक</span>
+        </div>
+
+        <!-- Products Grid -->
+        <div id="product-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <!-- Dynamic products injected by JS -->
+        </div>
+
+    </main>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919691865574?text=Hello%20Harshit%20Chemical,%20I%20want%20to%20order%20products." target="_blank" class="fixed bottom-20 right-4 bg-emerald-500 hover:bg-emerald-400 text-slate-950 w-14 h-14 rounded-2xl flex items-center justify-center shadow-2xl shadow-emerald-500/50 z-40 text-2xl font-black transition transform hover:scale-105">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Cart Drawer Modal -->
+    <div id="cart-drawer" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden transition-opacity">
+        <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-slate-900 border-l border-slate-800 shadow-2xl flex flex-col">
+            <div class="p-4 bg-slate-800/80 border-b border-slate-700 flex justify-between items-center">
+                <h2 class="font-bold text-base text-white flex items-center space-x-2">
+                    <i class="fa-solid fa-cart-shopping text-emerald-400"></i>
+                    <span>आपकी कार्ट</span>
+                </h2>
+                <button onclick="toggleCart()" class="text-slate-400 hover:text-white text-xl font-bold px-2">&times;</button>
             </div>
             
-            <!-- Slider Controls -->
-            <button class="slider-btn prev-btn" id="prevSlide"><i class="fa-solid fa-chevron-left"></i></button>
-            <button class="slider-btn next-btn" id="nextSlide"><i class="fa-solid fa-chevron-right"></i></button>
+            <div id="cart-items" class="flex-1 overflow-y-auto p-4 space-y-3">
+                <!-- Cart items list -->
+            </div>
+
+            <div class="p-4 border-t border-slate-800 bg-slate-900/90">
+                <div class="flex justify-between mb-3 text-sm font-bold text-slate-200">
+                    <span>कुल राशि (Total):</span>
+                    <span id="cart-total" class="text-emerald-400">₹0</span>
+                </div>
+                <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-2xl shadow-lg shadow-emerald-900/50 transition flex items-center justify-center space-x-2 text-sm">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>WhatsApp पर ऑर्डर भेजें</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Logic -->
+    <script>
+        const products = [
+            { id: 1, name: "24-Inch Floor Wiper", category: "Brushes", price: 280, image: "images/24-inch-floor-wiper.jpg" },
+            { id: 2, name: "Multipurpose Plastic Storage Bucket Drum", category: "Containers", price: 650, image: "images/multipurpose_plastic_storage_bucket_drum.jpg" },
+            { id: 3, name: "Bathroom Cleaner", category: "Chemicals", price: 149, image: "images/bathroom_cleaner.jpg" },
+            { id: 4, name: "Black Phenyl", category: "Chemicals", price: 110, image: "images/black_hkl.jpg" },
+            { id: 5, name: "Black Phenyl 5 Litre", category: "Chemicals", price: 450, image: "images/black_phenyl_5_litre.jpg" },
+            { id: 6, name: "Blue Toilet Acid Bag", category: "Chemicals", price: 130, image: "images/blue_ticto_bags.jpg" },
+            { id: 7, name: "Toilet Brush", category: "Brushes", price: 99, image: "images/toilat_brush.jpg" },
+            { id: 8, name: "Wipers", category: "Brushes", price: 180, image: "images/wipers.jpg" },
+            { id: 9, name: "Bucket", category: "Containers", price: 199, image: "images/bucket.jpg" },
+            { id: 10, name: "Car & Bike Shampoo", category: "Chemicals", price: 249, image: "images/car_bike_shampoo.jpg" },
+            { id: 11, name: "Carpet Shampoo", category: "Chemicals", price: 299, image: "images/carpet_shampoo.jpg" },
+            { id: 12, name: "Cotton Mop (सूती पोछा)", category: "Cleaning Tools", price: 120, image: "images/cotton_mop.jpg" },
+            { id: 13, name: "Dish Cloth", category: "Cleaning Tools", price: 49, image: "images/cloth.jpg" },
+            { id: 14, name: "Dishwash Liquid 5 Litre", category: "Chemicals", price: 399, image: "images/dishwash_5litre.jpg" },
+            { id: 15, name: "Dust Cloth", category: "Cleaning Tools", price: 59, image: "images/dust_cloth.jpg" },
+            { id: 16, name: "Dust Pan", category: "Cleaning Tools", price: 89, image: "images/dust_pan.jpg" },
+            { id: 17, name: "Large Dustbin", category: "Containers", price: 499, image: "images/dustbin_large.jpg" },
+            { id: 18, name: "Small Dustbin", category: "Containers", price: 199, image: "images/dustbin_small.jpg" },
+            { id: 19, name: "Duster", category: "Cleaning Tools", price: 79, image: "images/duster.jpg" },
+            { id: 20, name: "Extension Pole", category: "Cleaning Tools", price: 399, image: "images/extension_pole.jpg" },
+            { id: 21, name: "Feather Duster", category: "Cleaning Tools", price: 150, image: "images/feather_duster.jpg" },
+            { id: 22, name: "Floor Brush", category: "Brushes", price: 140, image: "images/floor_brush.jpg" },
+            { id: 23, name: "Floor Cleaner 5 Litre", category: "Chemicals", price: 420, image: "images/floor_cleaner_5litre.jpg" },
+            { id: 24, name: "Floor Squeegee", category: "Brushes", price: 190, image: "images/floor_squeegee.jpg" },
+            { id: 25, name: "Garbage Bag", category: "Containers", price: 120, image: "images/garbage_bag.jpg" },
+            { id: 26, name: "Garbage Tongs", category: "Cleaning Tools", price: 179, image: "images/garbage_tongs.jpg" },
+            { id: 27, name: "Genetic Broom Dustpan Set", category: "Cleaning Tools", price: 220, image: "images/genetic_broom_dustpan_set.jpg" },
+            { id: 28, name: "Glass Cleaner", category: "Chemicals", price: 149, image: "images/glass_cleaner.jpg" },
+            { id: 29, name: "Cleaning Gloves", category: "Cleaning Tools", price: 89, image: "images/gloves.png" },
+            { id: 30, name: "Hand Wash", category: "Chemicals", price: 130, image: "images/hand_wash.jpg" },
+            { id: 31, name: "Handle", category: "Cleaning Tools", price: 90, image: "images/handle.jpg" },
+            { id: 32, name: "Handwash 5 Litre", category: "Chemicals", price: 450, image: "images/handwash_5litre.jpg" },
+            { id: 33, name: "Handy Picker", category: "Cleaning Tools", price: 220, image: "images/handy_picker.jpg" },
+            { id: 34, name: "Hardspot Cleaner", category: "Chemicals", price: 199, image: "images/hardspot_cleaner.jpg" },
+            { id: 35, name: "Measuring Jug", category: "Containers", price: 150, image: "images/measuring_jug.jpg" },
+            { id: 36, name: "Microfiber Cloth", category: "Cleaning Tools", price: 99, image: "images/microfiber_cloth.jpg" },
+            { id: 37, name: "Microfiber Duster", category: "Cleaning Tools", price: 170, image: "images/microfiber_duster.jpg" },
+            { id: 38, name: "Microfiber Spin Mop", category: "Cleaning Tools", price: 699, image: "images/microfiber_spin_mop.jpg" },
+            { id: 39, name: "Mop", category: "Cleaning Tools", price: 199, image: "images/mop.jpg" },
+            { id: 40, name: "Multi Cleaner 5 Litre", category: "Chemicals", price: 410, image: "images/multi_cleaner_5litre.jpg" },
+            { id: 41, name: "Phenyl", category: "Chemicals", price: 110, image: "images/phenyl.jpg" },
+            { id: 42, name: "Plastic Tub", category: "Containers", price: 250, id: 42, image: "images/plastic_tub.jpg" },
+            { id: 43, name: "Room Freshener 5 Litre", category: "Chemicals", price: 550, image: "images/room_freshener_5litre.jpg" },
+            { id: 44, name: "Room Spray", category: "Chemicals", price: 199, image: "images/room_spray.jpg" },
+            { id: 45, name: "Scoop", category: "Containers", price: 79, image: "images/scoop.png" },
+            { id: 46, name: "Scrubber Pad", category: "Cleaning Tools", price: 30, image: "images/scrubber_pad.jpg" },
+            { id: 47, name: "Spider Duster", category: "Cleaning Tools", price: 210, image: "images/spider_duster.jpg" },
+            { id: 48, name: "Sponge Mop", category: "Cleaning Tools", price: 350, image: "images/sponge_mop.jpg" },
+            { id: 49, name: "Squeegee", category: "Brushes", price: 180, image: "images/squeegee.jpg" },
+            { id: 50, name: "Stainless Steel Cleaner 5 Litre", category: "Chemicals", price: 490, image: "images/stainless_steel_cleaner_liquid_5litre.jpg" },
+            { id: 51, name: "Stick Broom", category: "Cleaning Tools", price: 129, image: "images/stick_broom.jpg" },
+            { id: 52, name: "Tiles Cleaner", category: "Chemicals", price: 199, image: "images/tiles_cleaner.jpg" },
+            { id: 53, name: "Tiles Cleaner 5 Litre", category: "Chemicals", price: 480, image: "images/tiles_cleaner_5litre.jpg" },
+            { id: 54, name: "Toilet Cleaner", category: "Chemicals", price: 139, image: "images/toilet_cleaner.jpg" },
+            { id: 55, name: "Toilet Cleaner 5 Litre", category: "Chemicals", price: 460, image: "images/toilet_cleaner_5litre.jpg" },
+            { id: 56, name: "Toilet Cleaner Applicator", category: "Brushes", price: 150, image: "images/toilet_cleaner_applicator.jpg" },
+            { id: 57, name: "Cleaning Trolley", category: "Cleaning Tools", price: 1299, image: "images/trolley.jpg" },
+            { id: 58, name: "Urinal Brush", category: "Brushes", price: 89, image: "images/urinal_brush.jpg" },
+            { id: 59, name: "Wet Floor Sign", category: "Cleaning Tools", price: 250, image: "images/wet_floor_sign.jpg" },
+            { id: 60, name: "White Phenyl 5 Litre", category: "Chemicals", price: 460, image: "images/white_phenyl_5litre.jpg" },
+            { id: 61, name: "Window Wiper", category: "Brushes", price: 210, image: "images/window_wiper.jpg" }
+        ];
+
+        let cart = {};
+        let currentCategory = 'All';
+
+        function renderProducts(filterText = '', category = 'All') {
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = '';
             
-            <div class="slider-dots">
-                <span class="dot active" data-slide="0"></span>
-                <span class="dot" data-slide="1"></span>
-                <span class="dot" data-slide="2"></span>
-            </div>
-        </div>
-    </section>
+            let filtered = products.filter(p => {
+                let matchesSearch = p.name.toLowerCase().includes(filterText.toLowerCase());
+                let matchesCat = (category === 'All' || p.category === category);
+                return matchesSearch && matchesCat;
+            });
 
-    <!-- Categories Section -->
-    <section class="categories-section" id="categoriesSection">
-        <div class="container">
-            <div class="section-title">
-                <h2>Explore Our Categories</h2>
-                <p>Wide range of certified cleaning and maintenance solutions</p>
-            </div>
-            <div class="categories-grid" id="categoriesGrid">
-                <!-- Dynamically populated or static cards -->
-                <div class="category-card" data-category="Chemical Products">
-                    <img src="images/products/phenyl.jpg" alt="Chemical Products" onerror="this.src='https://images.unsplash.com/photo-1585670149967-b4f4da88cc9f?w=400&auto=format&fit=crop&q=80'">
-                    <h3>Chemical Products</h3>
-                </div>
-                <div class="category-card" data-category="Housekeeping Products">
-                    <img src="images/products/room_spray.jpg" alt="Housekeeping Products" onerror="this.src='https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=400&auto=format&fit=crop&q=80'">
-                    <h3>Housekeeping Products</h3>
-                </div>
-                <div class="category-card" data-category="Cleaning Chemicals">
-                    <img src="images/products/tiles_cleaner.jpg" alt="Cleaning Chemicals" onerror="this.src='https://images.unsplash.com/photo-1585421514284-efb74c2b69ba?w=400&auto=format&fit=crop&q=80'">
-                    <h3>Cleaning Chemicals</h3>
-                </div>
-                <div class="category-card" data-category="Cleaning Tools">
-                    <img src="images/products/broom.jpg" alt="Cleaning Tools" onerror="this.src='https://images.unsplash.com/photo-1563453392212-326f5e854473?w=400&auto=format&fit=crop&q=80'">
-                    <h3>Cleaning Tools</h3>
-                </div>
-                <div class="category-card" data-category="Hotel Supplies">
-                    <img src="images/products/hand_wash.jpg" alt="Hotel Supplies" onerror="this.src='https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&auto=format&fit=crop&q=80'">
-                    <h3>Hotel Supplies</h3>
-                </div>
-                <div class="category-card" data-category="Industrial Cleaning">
-                    <img src="images/products/hard_spot_cleaner.jpg" alt="Industrial Cleaning" onerror="this.src='https://images.unsplash.com/photo-1615870216519-2f9fa575fa5c?w=400&auto=format&fit=crop&q=80'">
-                    <h3>Industrial Cleaning</h3>
-                </div>
-            </div>
-        </div>
-    </section>
+            document.getElementById('product-count').innerText = filtered.length;
 
-    <!-- Filters and Products Section -->
-    <section class="products-section" id="productsSection">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Complete Catalog</h2>
-                <p>Filter through our premium collection of housekeeping & industrial items</p>
-            </div>
+            if(filtered.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-16 text-slate-500 font-medium">कोई उत्पाद नहीं मिला।</div>`;
+                return;
+            }
 
-            <!-- Filter Bar -->
-            <div class="filter-bar">
-                <div class="filter-group">
-                    <label for="categoryFilter">Category:</label>
-                    <select id="categoryFilter">
-                        <option value="All">All Categories</option>
-                        <option value="Chemical Products">Chemical Products</option>
-                        <option value="Housekeeping Products">Housekeeping Products</option>
-                        <option value="Cleaning Chemicals">Cleaning Chemicals</option>
-                        <option value="Cleaning Tools">Cleaning Tools</option>
-                        <option value="Hotel Supplies">Hotel Supplies</option>
-                        <option value="Industrial Cleaning">Industrial Cleaning</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label for="priceFilter">Max Price: <span id="priceVal">₹5000</span></label>
-                    <input type="range" id="priceFilter" min="50" max="5000" step="50" value="5000">
-                </div>
-                <div class="filter-group">
-                    <label for="sortFilter">Sort By:</label>
-                    <select id="sortFilter">
-                        <option value="default">Featured</option>
-                        <option value="low-high">Price: Low to High</option>
-                        <option value="high-low">Price: High to Low</option>
-                        <option value="name">Name: A to Z</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Products Grid -->
-            <div class="products-grid" id="productsGrid">
-                <!-- Dynamically injected via script.js -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Products Banner Section -->
-    <section class="featured-banner" id="featuredSection">
-        <div class="container">
-            <div class="banner-box">
-                <div class="banner-text">
-                    <h2>Bulk Orders & Custom Packaging Available</h2>
-                    <p>Get special enterprise pricing for corporate offices, hotels, hospitals, and cleaning contractors.</p>
-                    <a href="#contactSection" class="btn-secondary">Contact Sales Team</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Us Section -->
-    <section class="about-section" id="aboutSection">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-img">
-                    <img src="images/assets/about.jpg" alt="About Harshit Chemical Industry" onerror="this.src='https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&auto=format&fit=crop&q=80'">
-                </div>
-                <div class="about-content">
-                    <h2>About Harshit Chemical Industry</h2>
-                    <p>Established with a commitment to excellence, <strong>Harshit Chemical Industry</strong> is a premier manufacturer and distributor of top-tier chemical formulations, professional cleaning agents, and high-durability housekeeping equipment.</p>
-                    <p>Our products undergo rigorous quality checks to ensure maximum safety, environmental compliance, and unmatched cleaning efficiency for residential, commercial, and heavy industrial applications.</p>
-                    <div class="about-features">
-                        <div class="feat-item">
-                            <i class="fa-solid fa-check-circle"></i>
-                            <span>100% Quality Assured</span>
-                        </div>
-                        <div class="feat-item">
-                            <i class="fa-solid fa-check-circle"></i>
-                            <span>Eco-Friendly Formulations</span>
-                        </div>
-                        <div class="feat-item">
-                            <i class="fa-solid fa-check-circle"></i>
-                            <span>Pan-India Delivery</span>
-                        </div>
-                        <div class="feat-item">
-                            <i class="fa-solid fa-check-circle"></i>
-                            <span>Dedicated Support</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Google Maps Section -->
-    <section class="map-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Visit Our Plant & Office</h2>
-                <p>Harshit Chemical Industry Headquarters</p>
-            </div>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.1053077473523!2d77.2090!3d28.6139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjgu61M0nAD!5e0!3m2!1sen!2sin!4f16!1shttps://www.google.com/maps" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact-section" id="contactSection">
-        <div class="container">
-            <div class="section-title">
-                <h2>Get In Touch</h2>
-                <p>Have questions about our products or bulk orders? Drop us a message.</p>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="info-card">
-                        <i class="fa-solid fa-location-dot"></i>
+            filtered.forEach(p => {
+                let qty = cart[p.id] ? cart[p.id].qty : 0;
+                grid.innerHTML += `
+                    <div class="bg-slate-800/90 rounded-2xl p-3 border border-slate-700/70 flex flex-col justify-between shadow-lg hover:border-emerald-500/50 transition">
                         <div>
-                            <h4>Our Location</h4>
-                            <p>Industrial Area, Phase-2, New Delhi, India - 110001</p>
+                            <div class="relative bg-slate-900 rounded-xl overflow-hidden h-36 mb-3 flex items-center justify-center border border-slate-700/50">
+                                <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover" onerror="this.src='images/banner.jpg'">
+                            </div>
+                            <h4 class="font-bold text-xs text-slate-200 line-clamp-2 h-8 leading-snug">${p.name}</h4>
+                            <p class="text-[10px] text-emerald-400 font-medium mt-1 uppercase tracking-wider">${p.category}</p>
+                        </div>
+                        <div class="mt-3 pt-2 border-t border-slate-700/50">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="font-extrabold text-sm text-white">₹${p.price}</span>
+                            </div>
+                            ${qty === 0 ? `
+                                <button onclick="updateQty(${p.id}, 1)" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-2.5 rounded-xl shadow transition">
+                                    जोड़ें (Add)
+                                </button>
+                            ` : `
+                                <div class="flex items-center justify-between bg-emerald-600 text-white rounded-xl px-2.5 py-1.5">
+                                    <button onclick="updateQty(${p.id}, -1)" class="font-black text-sm px-1">-</button>
+                                    <span class="text-xs font-black">${qty}</span>
+                                    <button onclick="updateQty(${p.id}, 1)" class="font-black text-sm px-1">+</button>
+                                </div>
+                            `}
                         </div>
                     </div>
-                    <div class="info-card">
-                        <i class="fa-solid fa-phone"></i>
-                        <div>
-                            <h4>Phone Number</h4>
-                            <p>+91 98765 43210 / +91 91234 56789</p>
-                        </div>
-                    </div>
-                    <div class="info-card">
-                        <i class="fa-solid fa-envelope"></i>
-                        <div>
-                            <h4>Email Address</h4>
-                            <p>support@harshitchemical.com</p>
-                        </div>
-                    </div>
-                    <div class="info-card">
-                        <i class="fa-solid fa-clock"></i>
-                        <div>
-                            <h4>Working Hours</h4>
-                            <p>Mon - Sat: 9:00 AM - 7:00 PM</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form-box">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="contactName" placeholder="Your Full Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="contactEmail" placeholder="Your Email Address" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="contactPhone" placeholder="Your Mobile Number" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="contactMessage" rows="5" placeholder="Your Message or Inquiry..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn-primary">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+                `;
+            });
+        }
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3>Harshit Chemical</h3>
-                    <p>Your trusted partner for high-grade industrial chemicals, housekeeping essentials, and cleaning tools.</p>
-                    <div class="social-icons">
-                        <a href="#" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#aboutSection">About Us</a></li>
-                        <li><a href="#productsSection">Products</a></li>
-                        <li><a href="#contactSection">Contact Us</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Policies</h4>
-                    <ul>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="terms.html">Terms & Conditions</a></li>
-                        <li><a href="return.html">Return Policy</a></li>
-                        <li><a href="shipping.html">Shipping Policy</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Newsletter</h4>
-                    <p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>
-                    <form id="newsletterForm" class="newsletter-form">
-                        <input type="email" placeholder="Enter your email..." required>
-                        <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
-                    </form>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Harshit Chemical Industry. All Rights Reserved. Designed with precision.</p>
-            </div>
-        </div>
-    </footer>
+        function filterProducts() {
+            let query = document.getElementById('search-input').value;
+            renderProducts(query, currentCategory);
+        }
 
-    <!-- Floating Action Buttons -->
-    <div class="floating-buttons">
-        <a href="https://wa.me/919876543210?text=Hello%20Harshit%20Chemical%20Industry,%20I%20want%20to%20know%20more%20about%20your%20products." target="_blank" class="float-btn whatsapp-btn" title="Chat on WhatsApp">
-            <i class="fa-brands fa-whatsapp"></i>
-        </a>
-        <a href="tel:+919876543210" class="float-btn call-btn" title="Call Us">
-            <i class="fa-solid fa-phone"></i>
-        </a>
-        <a href="mailto:support@harshitchemical.com" class="float-btn email-btn" title="Email Us">
-            <i class="fa-solid fa-envelope"></i>
-        </a>
-    </div>
+        function filterCategory(cat) {
+            currentCategory = cat;
+            let buttons = document.querySelectorAll('.category-btn');
+            buttons.forEach(b => {
+                b.classList.remove('bg-emerald-600', 'text-white', 'shadow-md');
+                b.classList.add('bg-slate-800', 'text-slate-300', 'border', 'border-slate-700');
+            });
+            event.target.classList.remove('bg-slate-800', 'text-slate-300', 'border', 'border-slate-700');
+            event.target.classList.add('bg-emerald-600', 'text-white', 'shadow-md');
+            renderProducts(document.getElementById('search-input').value, currentCategory);
+        }
 
-    <!-- Back to Top Button -->
-    <button id="backToTop" title="Back to Top">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
+        function updateQty(id, change) {
+            let product = products.find(p => p.id === id);
+            if(!cart[id]) {
+                if(change > 0) cart[id] = { ...product, qty: 1 };
+            } else {
+                cart[id].qty += change;
+                if(cart[id].qty <= 0) delete cart[id];
+            }
+            updateCartUI();
+            renderProducts(document.getElementById('search-input').value, currentCategory);
+        }
 
-    <!-- Cart Sidebar / Modal -->
-    <div id="cartModal" class="modal-overlay">
-        <div class="modal-content cart-drawer">
-            <div class="modal-header">
-                <h3>Your Shopping Cart</h3>
-                <button class="close-modal" id="closeCart">&times;</button>
-            </div>
-            <div class="modal-body" id="cartItemsContainer">
-                <!-- Cart items injected here -->
-            </div>
-            <div class="modal-footer cart-footer" id="cartFooterSection">
-                <div class="cart-total-box">
-                    <span>Total:</span>
-                    <span id="cartTotalPrice">₹0</span>
-                </div>
-                <button id="checkoutBtn" class="btn-primary full-width">Proceed to Checkout</button>
-            </div>
-        </div>
-    </div>
+        function updateCartUI() {
+            let totalCount = 0, totalPrice = 0;
+            let cartItemsContainer = document.getElementById('cart-items');
+            cartItemsContainer.innerHTML = '';
 
-    <!-- Wishlist Sidebar / Modal -->
-    <div id="wishlistModal" class="modal-overlay">
-        <div class="modal-content wishlist-drawer">
-            <div class="modal-header">
-                <h3>Your Wishlist</h3>
-                <button class="close-modal" id="closeWishlist">&times;</button>
-            </div>
-            <div class="modal-body" id="wishlistItemsContainer">
-                <!-- Wishlist items injected here -->
-            </div>
-        </div>
-    </div>
+            let keys = Object.keys(cart);
+            keys.forEach(id => {
+                let item = cart[id];
+                totalCount += item.qty;
+                totalPrice += item.price * item.qty;
 
-    <!-- Login Modal -->
-    <div id="loginModal" class="modal-overlay">
-        <div class="modal-content auth-modal">
-            <div class="modal-header">
-                <h3 id="authTitle">Login to Harshit Chemical</h3>
-                <button class="close-modal" id="closeLogin">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form id="authForm">
-                    <div class="form-group" id="nameFieldGroup" style="display: none;">
-                        <input type="text" id="authName" placeholder="Full Name">
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="authEmail" placeholder="Email Address" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" id="authPassword" placeholder="Password" required>
-                    </div>
-                    <button type="submit" class="btn-primary full-width" id="authSubmitBtn">Login</button>
-                </form>
-                <p class="auth-switch"><span id="switchText">Don't have an account?</span> <a href="#" id="switchAuthMode">Register</a></p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Checkout Modal -->
-    <div id="checkoutModal" class="modal-overlay">
-        <div class="modal-content checkout-drawer">
-            <div class="modal-header">
-                <h3>Checkout Details</h3>
-                <button class="close-modal" id="closeCheckout">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form id="checkoutForm">
-                    <div class="form-group">
-                        <label>Full Name</label>
-                        <input type="text" id="chkName" required placeholder="Enter your name">
-                    </div>
-                    <div class="form-group">
-                        <label>Mobile Number</label>
-                        <input type="tel" id="chkMobile" required placeholder="10-digit mobile number">
-                    </div>
-                    <div class="form-group">
-                        <label>Address</label>
-                        <textarea id="chkAddress" required placeholder="Street address, building, etc."></textarea>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>City</label>
-                            <input type="text" id="chkCity" required placeholder="City">
+                cartItemsContainer.innerHTML += `
+                    <div class="flex items-center justify-between bg-slate-800/90 p-2.5 rounded-2xl border border-slate-700">
+                        <div class="flex items-center space-x-3">
+                            <img src="${item.image}" class="w-11 h-11 object-cover rounded-xl border border-slate-700">
+                            <div>
+                                <h5 class="text-xs font-bold text-slate-200 line-clamp-1">${item.name}</h5>
+                                <p class="text-[11px] text-emerald-400 font-semibold">₹${item.price} × ${item.qty}</p>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>State</label>
-                            <input type="text" id="chkState" required placeholder="State">
+                        <div class="flex items-center space-x-2 bg-slate-900 border border-slate-700 px-2.5 py-1 rounded-xl">
+                            <button onclick="updateQty(${item.id}, -1)" class="text-slate-300 font-bold text-xs">-</button>
+                            <span class="text-xs font-bold text-white">${item.qty}</span>
+                            <button onclick="updateQty(${item.id}, 1)" class="text-slate-300 font-bold text-xs">+</button>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label>Pincode</label>
-                        <input type="text" id="chkPincode" required placeholder="Pincode">
-                    </div>
-                    <div class="form-group">
-                        <label>Payment Method</label>
-                        <select id="chkPayment">
-                            <option value="COD">Cash on Delivery (COD)</option>
-                            <option value="Online">Online Payment (UPI / Card - Placeholder)</option>
-                        </select>
-                    </div>
-                    <div class="checkout-summary-box">
-                        <h4>Order Summary</h4>
-                        <div id="checkoutSummaryItems"></div>
-                        <div class="summary-total">
-                            <strong>Grand Total: <span id="checkoutGrandTotal">₹0</span></strong>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn-primary full-width">Place Order</button>
-                </form>
-            </div>
-        </div>
-    </div>
+                `;
+            });
 
-    <!-- Quick View Modal -->
-    <div id="quickViewModal" class="modal-overlay">
-        <div class="modal-content quickview-drawer">
-            <button class="close-modal" id="closeQuickView">&times;</button>
-            <div class="quickview-body" id="quickViewContent">
-                <!-- Dynamically populated -->
-            </div>
-        </div>
-    </div>
+            if(keys.length === 0) {
+                cartItemsContainer.innerHTML = `<p class="text-center text-slate-500 py-16 text-sm">आपकी कार्ट खाली है।</p>`;
+            }
 
-    <!-- JavaScript File -->
-    <script src="script.js"></script>
+            document.getElementById('cart-count').innerText = totalCount;
+            document.getElementById('cart-total').innerText = `₹${totalPrice}`;
+        }
+
+        function toggleCart() {
+            document.getElementById('cart-drawer').classList.toggle('hidden');
+        }
+
+        function checkoutWhatsApp() {
+            let keys = Object.keys(cart);
+            if(keys.length === 0) {
+                alert('कृपया पहले कार्ट में कुछ उत्पाद जोड़ें!');
+                return;
+            }
+
+            let msg = "🛒 *New Order - Harshit Chemical Industry*%0A%0A";
+            let total = 0;
+            keys.forEach(id => {
+                let item = cart[id];
+                let sub = item.price * item.qty;
+                total += sub;
+                msg += `• ${item.name} x ${item.qty} = ₹${sub}%0A`;
+            });
+            msg += `%0A*Total Amount: ₹${total}*%0A%0Aकृपया मेरा ऑर्डर कन्फर्म करें।`;
+
+            window.open(`https://wa.me/919691865574?text=${msg}`, '_blank');
+        }
+
+        // Initialize execution
+        renderProducts();
+    </script>
 </body>
 </html>
+
