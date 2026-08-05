@@ -3,101 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harshit Chemical Industry - Premium Instant Mart</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Harshit Chemical Industry - Instant Commerce</title>
+    <!-- Tailwind CSS Production CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
+    <!-- FontAwesome Pro/Free Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f1f5f9; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="bg-slate-900 text-slate-100 antialiased pb-28">
+<body class="antialiased pb-28 selection:bg-emerald-500 selection:text-white">
 
-    <!-- Top Header -->
-    <header class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 shadow-xl">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+    <!-- Enterprise Header -->
+    <header class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-xl border-b border-slate-800 shadow-2xl">
+        <div class="max-w-7xl mx-auto px-4 py-3.5 flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <div class="bg-emerald-500/10 border border-emerald-500/30 p-2 rounded-2xl text-emerald-400">
+                <div class="bg-emerald-500/10 border border-emerald-500/20 p-2.5 rounded-2xl text-emerald-400">
                     <i class="fa-solid fa-bolt text-lg"></i>
                 </div>
                 <div>
-                    <h1 class="font-extrabold text-base sm:text-lg tracking-tight text-white">Harshit Chemical</h1>
-                    <p class="text-[11px] text-emerald-400 font-medium"><i class="fa-solid fa-shield-halved"></i> Verified Industry Store</p>
+                    <h1 class="font-black text-base sm:text-lg tracking-tight text-white">Harshit Chemical</h1>
+                    <p class="text-[11px] text-emerald-400 font-semibold flex items-center gap-1">
+                        <i class="fa-solid fa-circle text-[8px] animate-pulse"></i> Instant Enterprise Delivery
+                    </p>
                 </div>
             </div>
             <div>
-                <button onclick="toggleCart()" class="relative bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold flex items-center space-x-2 shadow-lg shadow-emerald-900/40 transition">
+                <button onclick="toggleCart()" class="relative bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold flex items-center space-x-2 shadow-lg shadow-emerald-900/50 transition-all transform active:scale-95">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <span>कार्ट</span>
-                    <span id="cart-count" class="bg-amber-400 text-slate-900 text-[10px] px-2 py-0.5 rounded-full font-extrabold">0</span>
+                    <span id="cart-count" class="bg-amber-400 text-slate-950 text-[10px] px-2 py-0.5 rounded-full font-black">0</span>
                 </button>
             </div>
         </div>
-        <!-- Live Search Bar -->
-        <div class="px-4 pb-3">
+        <!-- Live Smart Search -->
+        <div class="px-4 pb-3.5">
             <div class="max-w-7xl mx-auto relative">
                 <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-slate-400"></i>
-                <input type="text" id="search-input" onkeyup="filterProducts()" placeholder="सर्च करें (जैसे: Phenyl, Floor Wiper, Brush...)" class="w-full pl-11 pr-4 py-3 rounded-2xl text-slate-100 bg-slate-800/90 border border-slate-700 focus:border-emerald-500 focus:outline-none text-xs sm:text-sm shadow-inner transition">
+                <input type="text" id="search-input" onkeyup="handleSearch()" placeholder="सर्च करें (जैसे: Phenyl, Floor Wiper, Cleaner...)" class="w-full pl-11 pr-4 py-3 rounded-2xl text-slate-100 bg-slate-800/80 border border-slate-700 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none text-xs sm:text-sm transition-all shadow-inner">
             </div>
         </div>
     </header>
 
-    <!-- Main Container -->
+    <!-- Main App Container -->
     <main class="max-w-7xl mx-auto px-4 mt-4">
 
-        <!-- Hero Banner -->
-        <div class="relative rounded-3xl overflow-hidden shadow-2xl mb-6 bg-slate-800 border border-slate-700/60 h-44 sm:h-60">
-            <img id="banner-img" src="images/banner.jpg" alt="Banner" class="w-full h-full object-cover opacity-80 mix-blend-overlay">
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex items-end p-5">
+        <!-- Hero Promotional Banner -->
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl mb-6 bg-slate-800 border border-slate-700/80 h-44 sm:h-60">
+            <img id="banner-img" src="images/banner.jpg" alt="Banner" class="w-full h-full object-cover opacity-75 mix-blend-overlay" onerror="this.src='images/harshit-chemical-them.jpg'">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent flex items-end p-5 sm:p-6">
                 <div>
-                    <span class="bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Fast Delivery</span>
-                    <h2 class="text-lg sm:text-2xl font-black mt-2 text-white">प्रीमियम इंडस्ट्रियल क्लीनिंग और केमिकल्स</h2>
-                    <p class="text-xs text-slate-300 mt-0.5">थोक और खुदरा विक्रेता - सीधे आपके द्वार तक।</p>
+                    <span class="bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Superfast Commerce</span>
+                    <h2 class="text-lg sm:text-2xl font-black mt-2 text-white leading-tight">प्रीमियम इंडस्ट्रियल क्लीनिंग और केमिकल्स</h2>
+                    <p class="text-xs text-slate-300 mt-1">थोक और खुदरा भाव पर बेहतरीन क्वालिटी - सीधे निर्माता से।</p>
                 </div>
             </div>
         </div>
 
-        <!-- Categories Filter -->
+        <!-- Category Navigation Tabs -->
         <div class="mb-6">
-            <h3 class="font-bold text-sm mb-3 text-slate-300 tracking-wide">कैटेगरी चुनें (Categories)</h3>
-            <div class="flex space-x-2 overflow-x-auto hide-scrollbar pb-1" id="category-buttons">
-                <button onclick="filterCategory('All')" class="category-btn active px-4 py-2 rounded-xl bg-emerald-600 text-white text-xs font-bold whitespace-nowrap shadow-md">सारे प्रोडक्ट्स</button>
-                <button onclick="filterCategory('Chemicals')" class="category-btn px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-bold whitespace-nowrap border border-slate-700">Chemicals & Liquids</button>
-                <button onclick="filterCategory('Cleaning Tools')" class="category-btn px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-bold whitespace-nowrap border border-slate-700">Cleaning Tools</button>
-                <button onclick="filterCategory('Brushes')" class="category-btn px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-bold whitespace-nowrap border border-slate-700">Brushes & Wipers</button>
-                <button onclick="filterCategory('Containers')" class="category-btn px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-bold whitespace-nowrap border border-slate-700">Buckets & Containers</button>
+            <h3 class="font-bold text-sm mb-3 text-slate-300 tracking-wide">कैटेगरी (Categories)</h3>
+            <div class="flex space-x-2.5 overflow-x-auto hide-scrollbar pb-1" id="category-buttons">
+                <button onclick="filterCategory('All')" class="category-btn active px-4 py-2 rounded-xl bg-emerald-600 text-white text-xs font-bold whitespace-nowrap shadow-md transition-all">सारे प्रोडक्ट्स</button>
+                <button onclick="filterCategory('Chemicals')" class="category-btn px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-bold whitespace-nowrap border border-slate-700 transition-all">Chemicals & Liquids</button>
+                <button onclick="filterCategory('Cleaning Tools')" class="category-btn px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-bold whitespace-nowrap border border-slate-700 transition-all">Cleaning Tools</button>
+                <button onclick="filterCategory('Brushes')" class="category-btn px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-bold whitespace-nowrap border border-slate-700 transition-all">Brushes & Wipers</button>
+                <button onclick="filterCategory('Containers')" class="category-btn px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-bold whitespace-nowrap border border-slate-700 transition-all">Containers & Buckets</button>
             </div>
         </div>
 
-        <!-- Product Grid Header -->
+        <!-- Products Catalog Header -->
         <div class="mb-4 flex justify-between items-center">
-            <h3 class="font-bold text-sm text-slate-300">कुल प्रोडक्ट्स (<span id="product-count" class="text-emerald-400">0</span>)</h3>
-            <span class="text-xs text-emerald-400 font-bold bg-emerald-500/10 px-2.5 py-1 rounded-lg border border-emerald-500/20"><i class="fa-solid fa-check"></i> उपलब्ध स्टॉक</span>
+            <h3 class="font-bold text-sm text-slate-300">उपलब्ध कैटलॉग (<span id="product-count" class="text-emerald-400">0</span>)</h3>
+            <span class="text-xs text-emerald-400 font-bold bg-emerald-500/10 px-3 py-1 rounded-lg border border-emerald-500/20"><i class="fa-solid fa-shield-check"></i> इंस्टेंट स्टॉक</span>
         </div>
 
-        <!-- Products Grid -->
+        <!-- Dynamic Product Grid -->
         <div id="product-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            <!-- Dynamic products injected by JS -->
+            <!-- Products injected dynamically -->
         </div>
 
     </main>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/919691865574?text=Hello%20Harshit%20Chemical,%20I%20want%20to%20order%20products." target="_blank" class="fixed bottom-20 right-4 bg-emerald-500 hover:bg-emerald-400 text-slate-950 w-14 h-14 rounded-2xl flex items-center justify-center shadow-2xl shadow-emerald-500/50 z-40 text-2xl font-black transition transform hover:scale-105">
+    <!-- Floating WhatsApp Order Button -->
+    <a href="https://wa.me/919691865574?text=Hello%20Harshit%20Chemical,%20I%20want%20to%20order%20products." target="_blank" class="fixed bottom-20 right-4 bg-emerald-500 hover:bg-emerald-400 text-slate-950 w-14 h-14 rounded-2xl flex items-center justify-center shadow-2xl shadow-emerald-500/50 z-40 text-2xl font-black transition-all transform hover:scale-110 active:scale-95">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- Cart Drawer Modal -->
-    <div id="cart-drawer" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden transition-opacity">
+    <!-- Cart Sliding Drawer -->
+    <div id="cart-drawer" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden transition-all duration-300">
         <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-slate-900 border-l border-slate-800 shadow-2xl flex flex-col">
-            <div class="p-4 bg-slate-800/80 border-b border-slate-700 flex justify-between items-center">
+            <div class="p-4 bg-slate-800/90 border-b border-slate-700 flex justify-between items-center">
                 <h2 class="font-bold text-base text-white flex items-center space-x-2">
                     <i class="fa-solid fa-cart-shopping text-emerald-400"></i>
-                    <span>आपकी कार्ट</span>
+                    <span>आपकी शॉपिंग कार्ट</span>
                 </h2>
                 <button onclick="toggleCart()" class="text-slate-400 hover:text-white text-xl font-bold px-2">&times;</button>
             </div>
@@ -106,22 +108,22 @@
                 <!-- Cart items list -->
             </div>
 
-            <div class="p-4 border-t border-slate-800 bg-slate-900/90">
+            <div class="p-4 border-t border-slate-800 bg-slate-900/95">
                 <div class="flex justify-between mb-3 text-sm font-bold text-slate-200">
-                    <span>कुल राशि (Total):</span>
+                    <span>कुल देय राशि (Total):</span>
                     <span id="cart-total" class="text-emerald-400">₹0</span>
                 </div>
-                <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-2xl shadow-lg shadow-emerald-900/50 transition flex items-center justify-center space-x-2 text-sm">
+                <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-2xl shadow-lg shadow-emerald-900/50 transition-all flex items-center justify-center space-x-2 text-sm active:scale-98">
                     <i class="fa-brands fa-whatsapp text-lg"></i>
-                    <span>WhatsApp पर ऑर्डर भेजें</span>
+                    <span>WhatsApp पर आर्डर भेजें</span>
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Application Logic -->
+    <!-- Core Database & Execution Engine -->
     <script>
-        const products = [
+        const productsDatabase = [
             { id: 1, name: "24-Inch Floor Wiper", category: "Brushes", price: 280, image: "images/24-inch-floor-wiper.jpg" },
             { id: 2, name: "Multipurpose Plastic Storage Bucket Drum", category: "Containers", price: 650, image: "images/multipurpose_plastic_storage_bucket_drum.jpg" },
             { id: 3, name: "Bathroom Cleaner", category: "Chemicals", price: 149, image: "images/bathroom_cleaner.jpg" },
@@ -163,7 +165,7 @@
             { id: 39, name: "Mop", category: "Cleaning Tools", price: 199, image: "images/mop.jpg" },
             { id: 40, name: "Multi Cleaner 5 Litre", category: "Chemicals", price: 410, image: "images/multi_cleaner_5litre.jpg" },
             { id: 41, name: "Phenyl", category: "Chemicals", price: 110, image: "images/phenyl.jpg" },
-            { id: 42, name: "Plastic Tub", category: "Containers", price: 250, id: 42, image: "images/plastic_tub.jpg" },
+            { id: 42, name: "Plastic Tub", category: "Containers", price: 250, image: "images/plastic_tub.jpg" },
             { id: 43, name: "Room Freshener 5 Litre", category: "Chemicals", price: 550, image: "images/room_freshener_5litre.jpg" },
             { id: 44, name: "Room Spray", category: "Chemicals", price: 199, image: "images/room_spray.jpg" },
             { id: 45, name: "Scoop", category: "Containers", price: 79, image: "images/scoop.png" },
@@ -185,50 +187,50 @@
             { id: 61, name: "Window Wiper", category: "Brushes", price: 210, image: "images/window_wiper.jpg" }
         ];
 
-        let cart = {};
-        let currentCategory = 'All';
+        let cartState = {};
+        let activeCategory = 'All';
 
-        function renderProducts(filterText = '', category = 'All') {
+        function renderProducts(query = '', category = 'All') {
             const grid = document.getElementById('product-grid');
             grid.innerHTML = '';
             
-            let filtered = products.filter(p => {
-                let matchesSearch = p.name.toLowerCase().includes(filterText.toLowerCase());
-                let matchesCat = (category === 'All' || p.category === category);
-                return matchesSearch && matchesCat;
+            let filtered = productsDatabase.filter(item => {
+                let matchesSearch = item.name.toLowerCase().includes(query.toLowerCase());
+                let matchesCategory = (category === 'All' || item.category === category);
+                return matchesSearch && matchesCategory;
             });
 
             document.getElementById('product-count').innerText = filtered.length;
 
-            if(filtered.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-16 text-slate-500 font-medium">कोई उत्पाद नहीं मिला।</div>`;
+            if (filtered.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-16 text-slate-500 font-semibold text-sm">माफ़ कीजिए, इस नाम से कोई उत्पाद नहीं मिला।</div>`;
                 return;
             }
 
-            filtered.forEach(p => {
-                let qty = cart[p.id] ? cart[p.id].qty : 0;
+            filtered.forEach(product => {
+                let currentQty = cartState[product.id] ? cartState[product.id].qty : 0;
                 grid.innerHTML += `
-                    <div class="bg-slate-800/90 rounded-2xl p-3 border border-slate-700/70 flex flex-col justify-between shadow-lg hover:border-emerald-500/50 transition">
+                    <div class="bg-slate-800/90 rounded-2xl p-3 border border-slate-700/80 flex flex-col justify-between shadow-xl hover:border-emerald-500/50 transition-all">
                         <div>
-                            <div class="relative bg-slate-900 rounded-xl overflow-hidden h-36 mb-3 flex items-center justify-center border border-slate-700/50">
-                                <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover" onerror="this.src='images/banner.jpg'">
+                            <div class="relative bg-slate-900 rounded-xl overflow-hidden h-36 mb-3 flex items-center justify-center border border-slate-700/60">
+                                <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover" onerror="this.src='images/harshit-chemical-them.jpg'">
                             </div>
-                            <h4 class="font-bold text-xs text-slate-200 line-clamp-2 h-8 leading-snug">${p.name}</h4>
-                            <p class="text-[10px] text-emerald-400 font-medium mt-1 uppercase tracking-wider">${p.category}</p>
+                            <h4 class="font-bold text-xs text-slate-100 line-clamp-2 h-8 leading-snug">${product.name}</h4>
+                            <p class="text-[10px] text-emerald-400 font-bold mt-1 uppercase tracking-wider">${product.category}</p>
                         </div>
-                        <div class="mt-3 pt-2 border-t border-slate-700/50">
+                        <div class="mt-3 pt-2.5 border-t border-slate-700/60">
                             <div class="flex items-center justify-between mb-2">
-                                <span class="font-extrabold text-sm text-white">₹${p.price}</span>
+                                <span class="font-black text-sm text-white">₹${product.price}</span>
                             </div>
-                            ${qty === 0 ? `
-                                <button onclick="updateQty(${p.id}, 1)" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-2.5 rounded-xl shadow transition">
+                            ${currentQty === 0 ? `
+                                <button onclick="modifyCart(${product.id}, 1)" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-2.5 rounded-xl shadow-md transition-all active:scale-95">
                                     जोड़ें (Add)
                                 </button>
                             ` : `
-                                <div class="flex items-center justify-between bg-emerald-600 text-white rounded-xl px-2.5 py-1.5">
-                                    <button onclick="updateQty(${p.id}, -1)" class="font-black text-sm px-1">-</button>
-                                    <span class="text-xs font-black">${qty}</span>
-                                    <button onclick="updateQty(${p.id}, 1)" class="font-black text-sm px-1">+</button>
+                                <div class="flex items-center justify-between bg-emerald-600 text-white rounded-xl px-2.5 py-1.5 shadow-md">
+                                    <button onclick="modifyCart(${product.id}, -1)" class="font-black text-sm px-1.5 hover:bg-emerald-700 rounded">-</button>
+                                    <span class="text-xs font-black">${currentQty}</span>
+                                    <button onclick="modifyCart(${product.id}, 1)" class="font-black text-sm px-1.5 hover:bg-emerald-700 rounded">+</button>
                                 </div>
                             `}
                         </div>
@@ -237,66 +239,66 @@
             });
         }
 
-        function filterProducts() {
+        function handleSearch() {
             let query = document.getElementById('search-input').value;
-            renderProducts(query, currentCategory);
+            renderProducts(query, activeCategory);
         }
 
         function filterCategory(cat) {
-            currentCategory = cat;
+            activeCategory = cat;
             let buttons = document.querySelectorAll('.category-btn');
-            buttons.forEach(b => {
-                b.classList.remove('bg-emerald-600', 'text-white', 'shadow-md');
-                b.classList.add('bg-slate-800', 'text-slate-300', 'border', 'border-slate-700');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-emerald-600', 'text-white', 'shadow-md');
+                btn.classList.add('bg-slate-800', 'text-slate-300', 'border', 'border-slate-700');
             });
             event.target.classList.remove('bg-slate-800', 'text-slate-300', 'border', 'border-slate-700');
             event.target.classList.add('bg-emerald-600', 'text-white', 'shadow-md');
-            renderProducts(document.getElementById('search-input').value, currentCategory);
+            renderProducts(document.getElementById('search-input').value, activeCategory);
         }
 
-        function updateQty(id, change) {
-            let product = products.find(p => p.id === id);
-            if(!cart[id]) {
-                if(change > 0) cart[id] = { ...product, qty: 1 };
+        function modifyCart(id, change) {
+            let product = productsDatabase.find(p => p.id === id);
+            if (!cartState[id]) {
+                if (change > 0) cartState[id] = { ...product, qty: 1 };
             } else {
-                cart[id].qty += change;
-                if(cart[id].qty <= 0) delete cart[id];
+                cartState[id].qty += change;
+                if (cartState[id].qty <= 0) delete cartState[id];
             }
-            updateCartUI();
-            renderProducts(document.getElementById('search-input').value, currentCategory);
+            updateCartDisplay();
+            renderProducts(document.getElementById('search-input').value, activeCategory);
         }
 
-        function updateCartUI() {
+        function updateCartDisplay() {
             let totalCount = 0, totalPrice = 0;
-            let cartItemsContainer = document.getElementById('cart-items');
-            cartItemsContainer.innerHTML = '';
+            let container = document.getElementById('cart-items');
+            container.innerHTML = '';
 
-            let keys = Object.keys(cart);
+            let keys = Object.keys(cartState);
             keys.forEach(id => {
-                let item = cart[id];
+                let item = cartState[id];
                 totalCount += item.qty;
                 totalPrice += item.price * item.qty;
 
-                cartItemsContainer.innerHTML += `
+                container.innerHTML += `
                     <div class="flex items-center justify-between bg-slate-800/90 p-2.5 rounded-2xl border border-slate-700">
                         <div class="flex items-center space-x-3">
-                            <img src="${item.image}" class="w-11 h-11 object-cover rounded-xl border border-slate-700">
+                            <img src="${item.image}" class="w-11 h-11 object-cover rounded-xl border border-slate-700" onerror="this.src='images/harshit-chemical-them.jpg'">
                             <div>
                                 <h5 class="text-xs font-bold text-slate-200 line-clamp-1">${item.name}</h5>
                                 <p class="text-[11px] text-emerald-400 font-semibold">₹${item.price} × ${item.qty}</p>
                             </div>
                         </div>
                         <div class="flex items-center space-x-2 bg-slate-900 border border-slate-700 px-2.5 py-1 rounded-xl">
-                            <button onclick="updateQty(${item.id}, -1)" class="text-slate-300 font-bold text-xs">-</button>
+                            <button onclick="modifyCart(${item.id}, -1)" class="text-slate-300 font-bold text-xs">-</button>
                             <span class="text-xs font-bold text-white">${item.qty}</span>
-                            <button onclick="updateQty(${item.id}, 1)" class="text-slate-300 font-bold text-xs">+</button>
+                            <button onclick="modifyCart(${item.id}, 1)" class="text-slate-300 font-bold text-xs">+</button>
                         </div>
                     </div>
                 `;
             });
 
-            if(keys.length === 0) {
-                cartItemsContainer.innerHTML = `<p class="text-center text-slate-500 py-16 text-sm">आपकी कार्ट खाली है।</p>`;
+            if (keys.length === 0) {
+                container.innerHTML = `<p class="text-center text-slate-500 py-16 text-sm">आपकी कार्ट अभी खाली है।</p>`;
             }
 
             document.getElementById('cart-count').innerText = totalCount;
@@ -308,28 +310,27 @@
         }
 
         function checkoutWhatsApp() {
-            let keys = Object.keys(cart);
-            if(keys.length === 0) {
-                alert('कृपया पहले कार्ट में कुछ उत्पाद जोड़ें!');
+            let keys = Object.keys(cartState);
+            if (keys.length === 0) {
+                alert('कृपया आर्डर भेजने से पहले कार्ट में उत्पाद जोड़ें!');
                 return;
             }
 
-            let msg = "🛒 *New Order - Harshit Chemical Industry*%0A%0A";
-            let total = 0;
+            let message = "🛒 *New Direct Order - Harshit Chemical Industry*%0A%0A";
+            let totalAmount = 0;
             keys.forEach(id => {
-                let item = cart[id];
-                let sub = item.price * item.qty;
-                total += sub;
-                msg += `• ${item.name} x ${item.qty} = ₹${sub}%0A`;
+                let item = cartState[id];
+                let subtotal = item.price * item.qty;
+                totalAmount += subtotal;
+                message += `• ${item.name} x ${item.qty} = ₹${subtotal}%0A`;
             });
-            msg += `%0A*Total Amount: ₹${total}*%0A%0Aकृपया मेरा ऑर्डर कन्फर्म करें।`;
+            message += `%0A*Grand Total: ₹${totalAmount}*%0A%0Aकृपया मेरा यह आर्डर कन्फर्म करें।`;
 
-            window.open(`https://wa.me/919691865574?text=${msg}`, '_blank');
+            window.open(`https://wa.me/919691865574?text=${message}`, '_blank');
         }
 
-        // Initialize execution
+        // Run application on load
         renderProducts();
     </script>
 </body>
 </html>
-
